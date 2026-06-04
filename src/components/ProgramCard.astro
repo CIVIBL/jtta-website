@@ -1,0 +1,51 @@
+---
+interface Props {
+  /** Eyebrow tag, e.g. "Mon-Thu · ages 6-13" */
+  tag: string;
+  /** Dot colour — a token reference, e.g. "var(--c-red)" */
+  color: string;
+  title: string;
+  desc: string;
+  featured?: boolean;
+  /** Photo subject (used as placeholder label, only when featured) */
+  photo?: string;
+  /** Expected real image path for the photo, e.g. "/images/program-workshops.jpg" */
+  photoSrc?: string;
+  href?: string;
+}
+
+const {
+  tag,
+  color,
+  title,
+  desc,
+  featured = false,
+  photo,
+  photoSrc,
+  href = "#",
+} = Astro.props;
+---
+
+<a class:list={["program-card", { featured }]} href={href}>
+  <div class="pcontent">
+    <div class="p-tag">
+      <span class="dot" style={`background: ${color};`}></span>
+      {tag}
+    </div>
+    <div class="p-title">{title}</div>
+    <div class="p-desc">{desc}</div>
+    <div class="p-foot">
+      Learn more <span class="p-arrow">→</span>
+    </div>
+  </div>
+  {
+    featured && (
+      <div class="pphoto">
+        {/* TODO: real photo — {photo}. Expected at {photoSrc} */}
+        <div class="ph" style="--ph-bg: #2A2722; --ph-fg: rgba(255,255,255,0.4);">
+          {photo}
+        </div>
+      </div>
+    )
+  }
+</a>

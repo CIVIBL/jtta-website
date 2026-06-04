@@ -1,49 +1,430 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import AudienceCard from "../components/AudienceCard.astro";
+import WorkshopRow from "../components/WorkshopRow.astro";
+import ProgramCard from "../components/ProgramCard.astro";
 
+interface Audience {
+  label: string;
+  meta: string;
+  href: string;
+}
+const AUDIENCES: Audience[] = [
+  { label: "For my child", meta: "Workshops · summer camp · ages 6-13", href: "#programs" },
+  { label: "For myself", meta: "Adult workshops · Monday eves", href: "#programs" },
+  { label: "For a birthday", meta: "Studio party", href: "#programs" },
+  { label: "For my class", meta: "In-the-Schools · JK to Gr 8", href: "#programs" },
+];
+
+interface Workshop {
+  month: string;
+  dow: string;
+  day: string;
+  time: string;
+  title: string;
+  pill: string;
+  age: string;
+  price: string;
+  special?: boolean;
+}
+const UPCOMING: Workshop[] = [
+  { month: "May", dow: "Mon", day: "18", time: "10:00 - 11:30", title: "Rubber Ducky Day · Victoria Day", pill: "90 min · special", age: "Ages 6-13", price: "$39.55", special: true },
+  { month: "May", dow: "Wed", day: "20", time: "4:45 - 5:45 pm", title: "Swim with the Fish · watercolours", pill: "Workshop", age: "Ages 6-13", price: "$29.38" },
+  { month: "May", dow: "Mon", day: "25", time: "4:45 - 5:45 pm", title: "Painting Whimsical Night Landscapes", pill: "Workshop", age: "Ages 6-13", price: "$29.38" },
+  { month: "Jun", dow: "Mon", day: "08", time: "4:45 - 5:45 pm", title: "Customizing Drawing Mannequins", pill: "Workshop", age: "Ages 6-13", price: "$29.38" },
+  { month: "Jun", dow: "Wed", day: "10", time: "4:45 - 5:45 pm", title: "Fairy Jar Houses with Lights", pill: "Workshop", age: "Ages 6-13", price: "$29.38" },
+  { month: "Jun", dow: "Fri", day: "26", time: "10:00 - 11:30", title: "Summer Art Party · Clay & Ice Cream", pill: "P.A. day · special", age: "Ages 6-13", price: "$39.55", special: true },
+];
+
+interface Program {
+  tag: string;
+  color: string;
+  title: string;
+  desc: string;
+  featured?: boolean;
+  photo?: string;
+  photoSrc?: string;
+}
+const PROGRAMS: Program[] = [
+  {
+    featured: true,
+    tag: "Mon-Thu · ages 6-13",
+    color: "var(--c-red)",
+    title: "Weekly art workshops",
+    desc: "After-school workshops in the log-cabin studio. Pick the days that fit — felting, watercolour, clay, mandalas, beading, drawing, painting. Many parents enroll for the whole term, but you don't have to.",
+    photo: "Kids workshop in progress",
+    photoSrc: "/images/program-workshops.jpg",
+  },
+  {
+    tag: "Mon eves · adults",
+    color: "var(--c-blue)",
+    title: "Adult workshops",
+    desc: "A friendly studio for adults — watercolour, collage, mixed media. No experience needed.",
+  },
+  {
+    tag: "Saturdays · 4-11 yrs",
+    color: "var(--c-plum)",
+    title: "Birthday parties",
+    desc: "Pick a project, we set everything up, you eat cake. Take-home art for every guest.",
+  },
+  {
+    tag: "JK - Grade 8 · in your room",
+    color: "var(--c-sage)",
+    title: "In-the-Schools",
+    desc: "We bring all supplies and a 2-period art workshop to your classroom. Open to schools in Port Hope & Cobourg.",
+  },
+];
+
+interface Slide {
+  label: string;
+  src: string;
+}
+const CAROUSEL: Slide[] = [
+  { label: "Linocut printing", src: "/images/carousel-1.jpg" },
+  { label: "Drama performance", src: "/images/carousel-2.jpg" },
+  { label: "Watercolour workshop", src: "/images/carousel-3.jpg" },
+  { label: "Summer camp painting", src: "/images/carousel-4.jpg" },
+  { label: "Clay pottery", src: "/images/carousel-5.jpg" },
+  { label: "Adult workshop", src: "/images/carousel-6.jpg" },
+  { label: "In-school art workshop", src: "/images/carousel-7.jpg" },
+  { label: "Open house display", src: "/images/carousel-8.jpg" },
+];
+
+interface Week {
+  num: number;
+  title: string;
+  date: string;
+  status: string;
+  level: "is-low" | "is-open";
+}
+const WEEKS: Week[] = [
+  { num: 1, title: "Welcome to Magic School", date: "Jul 6 - 10", status: "1 spot left", level: "is-low" },
+  { num: 2, title: "The Haunted Hotel", date: "Jul 13 - 17", status: "Filling up", level: "is-low" },
+  { num: 3, title: "Comic Characters Alive!", date: "Aug 10 - 14", status: "Open", level: "is-open" },
+  { num: 4, title: "Underwater World", date: "Aug 17 - 21", status: "Open", level: "is-open" },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Journey Through the Arts — Creative studio in Port Hope</title>
-	</head>
-	<body>
-		<main>
-			<h1>Journey Through the Arts</h1>
-			<p>Site coming soon</p>
-		</main>
-	</body>
-</html>
+<BaseLayout title="Journey Through the Arts — Creative studio in Port Hope">
+  {/* ─── HERO ─── */}
+  <section class="hero" id="top">
+    <div class="hero-bg">
+      {/* TODO: real photo — cabin exterior, full-bleed. Expected at /images/hero-cabin.jpg */}
+      <div class="ph">Cabin exterior</div>
+    </div>
+    <div class="hero-scrim"></div>
 
-<style>
-	body {
-		margin: 0;
-		min-height: 100vh;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		background-color: #FAF6EC;
-		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-		color: #1a1a1a;
-	}
+    <div class="wrap">
+      <div class="hero-content">
+        <span class="hero-badge">
+          <span class="pip">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2.5l2.7 6.2 6.7.6-5.1 4.5 1.5 6.6L12 17l-5.8 3.4 1.5-6.6L2.6 9.3l6.7-.6z"></path>
+            </svg>
+          </span>
+          2024 Diamond Award · Best Art School
+        </span>
+        <h1 class="hero-title">
+          A creative studio for <em>curious kids</em> &amp; <span class="stroke"
+            >brave adults<svg viewBox="0 0 280 24" preserveAspectRatio="none" aria-hidden="true">
+              <path
+                d="M 4 14 C 40 4, 100 18, 160 12 S 250 6, 276 14 L 276 22 C 240 16, 180 22, 130 18 S 30 22, 4 18 Z"
+                fill="var(--c-yellow)"
+                opacity="0.85"></path>
+            </svg></span
+          >
+        </h1>
+        <p class="hero-sub">
+          Journey Through the Arts is a creative studio in an 1840s log cabin run by Christine
+          Benson. Delivering workshops, summer camps, adult classes, birthday parties &amp; in-school
+          visits since 2002.
+        </p>
+        <div class="hero-ctas">
+          <a href="#workshops" class="btn is-primary">See this month's workshops</a>
+          <a href="#audience" class="btn is-line">Find what you're looking for ↓</a>
+        </div>
+      </div>
+    </div>
 
-	main {
-		text-align: center;
-	}
+    <a
+      class="hero-stamp"
+      href="https://maps.app.goo.gl/B21tc9VSLLVKoAx69"
+      target="_blank"
+      rel="noopener">📍 190 Hope St N · Port Hope</a
+    >
+  </section>
 
-	h1 {
-		margin: 0 0 0.5rem;
-		font-size: clamp(2rem, 5vw, 3rem);
-		font-weight: 600;
-	}
+  {/* ─── AUDIENCE PICKER ─── */}
+  <section class="audience" id="audience">
+    <div class="wrap">
+      <div class="audience-head">
+        <h3>I'm here for…</h3>
+        <span class="arrow">Choose a path</span>
+      </div>
+      <div class="audience-grid">
+        {AUDIENCES.map((a) => <AudienceCard label={a.label} meta={a.meta} href={a.href} />)}
+      </div>
+    </div>
+  </section>
 
-	p {
-		margin: 0;
-		font-size: 1.125rem;
-		opacity: 0.7;
-	}
-</style>
+  {/* ─── UPCOMING WORKSHOPS ─── */}
+  <section class="upcoming" id="workshops">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Upcoming kids workshops</div>
+          <h2 class="section-title" style="margin-top: 12px;">
+            Drop in for a <em>workshop!</em>
+          </h2>
+          <p class="section-lede">
+            Choose the workshops that catch your kid's interest. Most run Monday through Thursday
+            from 4:45 to 5:45 pm. Special longer workshops are 90 min. All supplies included!
+          </p>
+        </div>
+      </div>
+
+      <div class="upcoming-grid">
+        {
+          UPCOMING.map((w) => (
+            <WorkshopRow
+              month={w.month}
+              dow={w.dow}
+              day={w.day}
+              time={w.time}
+              title={w.title}
+              pill={w.pill}
+              age={w.age}
+              price={w.price}
+              special={w.special}
+              href="mailto:jttacabin@gmail.com?subject=Workshop registration"
+            />
+          ))
+        }
+      </div>
+
+      <div class="upcoming-foot">
+        <p>
+          <strong>How to register:</strong> Contact Christine via email. She'll confirm your spot.
+          Payment at the time of registration.
+        </p>
+        <a href="mailto:jttacabin@gmail.com?subject=Workshop registration" class="btn is-primary"
+          >Contact Christine</a
+        >
+      </div>
+    </div>
+  </section>
+
+  {/* ─── PROGRAMS GRID ─── */}
+  <section class="programs" id="programs">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">All programs</div>
+          <h2 class="section-title" style="margin-top: 12px;">
+            Pick your <em>way in.</em>
+          </h2>
+          <p class="section-lede">
+            From weekly drop-ins to birthday parties, summer camps to in-school visits, every program
+            is run by Christine out of the cabin (or, for schools, brought to you).
+          </p>
+        </div>
+      </div>
+
+      <div class="programs-grid">
+        {
+          PROGRAMS.map((p) => (
+            <ProgramCard
+              tag={p.tag}
+              color={p.color}
+              title={p.title}
+              desc={p.desc}
+              featured={p.featured}
+              photo={p.photo}
+              photoSrc={p.photoSrc}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* ─── CAROUSEL (native scroll-snap; arrows + counter need a small script) ─── */}
+  <section class="carousel" id="moments">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">From the cabin</div>
+          <h2 class="section-title" style="margin-top: 12px;">
+            Over twenty years of <em>"can we come back next week?"</em>
+          </h2>
+          <p class="section-lede">
+            A peek at workshops and summer-camp performances from the cabin.
+          </p>
+        </div>
+        <div class="carousel-controls">
+          <button class="cbtn" data-carousel="-1" aria-label="Previous photo">←</button>
+          <span class="ccount" id="carousel-count">01 / {String(CAROUSEL.length).padStart(2, "0")}</span>
+          <button class="cbtn" data-carousel="1" aria-label="Next photo">→</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-track" id="carousel-track">
+      <div class="carousel-pad-left"></div>
+      {
+        CAROUSEL.map((p, i) => (
+          <figure class:list={["cphoto", { "tilt-l": i === 1, "tilt-r": i === 4 }]}>
+            {/* TODO: real photo — {p.label}. Expected at {p.src} */}
+            <div class="ph">{p.label}</div>
+          </figure>
+        ))
+      }
+      <div class="carousel-pad-right"></div>
+    </div>
+  </section>
+
+  {/* ─── SUMMER ─── */}
+  <section class="summer" id="summer">
+    <div class="wrap">
+      <div class="summer-grid">
+        <div class="summer-photo">
+          {/* TODO: real photo — summer program, kids performing at the cabin. Expected at /images/summer-camp.jpg */}
+          <div class="ph">Summer program · cabin · kids performing</div>
+          <div class="badge">24th<small>year running</small></div>
+        </div>
+        <div>
+          <div class="eyebrow">Summer camp 2026 · ages 6 - 12</div>
+          <h2 class="section-title" style="margin-top: 12px;">
+            One <em>themed week</em>,<br />
+            one performance,<br />
+            an entire studio.
+          </h2>
+          <p class="section-lede">
+            Our summer arts program delivers Music, Art &amp; Drama at the Old Art School (Molson's
+            Mill) in Port Hope. Kids write their own plays, design sets &amp; costumes, compose music,
+            and make visual art that goes home Friday. The week ends with an Open House showing the
+            production.
+          </p>
+
+          <div class="weeks">
+            {
+              WEEKS.map((w) => (
+                <div class="week-item">
+                  <div class="week-num">
+                    0{w.num}<small>WEEK</small>
+                  </div>
+                  <div class="week-info">
+                    <div class="wt">{w.title}</div>
+                    <div class="wd">{w.date}</div>
+                  </div>
+                  <span class:list={["week-status", w.level]}>{w.status}</span>
+                </div>
+              ))
+            }
+          </div>
+
+          <div style="display: flex; gap: 12px; margin-top: 28px; align-items: center; flex-wrap: wrap;">
+            <a href="mailto:jttacabin@gmail.com?subject=Summer 2026 registration" class="btn is-primary"
+              >Request Registration</a
+            >
+            <span style="font-size: 13px; color: var(--muted);">Deadline · Mar 2, 8:00 pm</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ─── ABOUT ─── */}
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-photo">
+          <div class="tag">📍 The cabin</div>
+          {/* TODO: real photo — 1840s log cabin studio at 190 Hope St N. Expected at /images/cabin.jpg */}
+          <div class="ph">1840s log cabin studio · 190 Hope St N</div>
+        </div>
+        <div>
+          <div class="eyebrow">About JTtA</div>
+          <h2 class="section-title" style="margin-top: 12px;">
+            Run by <em>Christine</em><br />
+            out of an 1840s<br />
+            log cabin.
+          </h2>
+          <p class="section-lede">
+            Founded in 2002 by Christine Benson, OCAD graduate, painter, printmaker, and published
+            children's-book illustrator. Christine has taught hundreds of children, teens and adults
+            out of her studio at 190 Hope St N.
+          </p>
+
+          <div class="about-meta">
+            <div><strong>2002</strong><span>Founded</span></div>
+            <div><strong>1,000+</strong><span>Kids passed through</span></div>
+            <div><strong>2024</strong><span>Diamond winner</span></div>
+          </div>
+
+          <div style="margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <a class="btn is-ghost" href="#">Meet Christine →</a>
+            <a class="btn is-line" href="#">Visit the studio →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ─── CTA ─── */}
+  <section class="cta">
+    <div class="wrap">
+      <h2>Come get a little <em>paint</em> on you.</h2>
+      <p>
+        Email Christine to register, ask about a workshop, get on the summer-camp list, or book a
+        birthday. She'll answer directly!
+      </p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a class="btn is-light" href="mailto:jttacabin@gmail.com">jttacabin@gmail.com</a>
+        <a class="btn is-outline" href="#">Find the cabin →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Carousel controls — strictly necessary for the arrow buttons + live counter.
+  // Native scroll-snap handles touch/trackpad swiping without JS.
+  const track = document.getElementById("carousel-track");
+  const count = document.getElementById("carousel-count");
+  if (track) {
+    const cards = Array.from(track.querySelectorAll<HTMLElement>(".cphoto"));
+    const total = cards.length;
+    const pad = (n: number) => String(n).padStart(2, "0");
+
+    const step = (dir: number) => {
+      const card = cards[0];
+      if (!card) return;
+      const gap = 18;
+      track.scrollBy({ left: dir * (card.getBoundingClientRect().width + gap), behavior: "smooth" });
+    };
+
+    document.querySelectorAll<HTMLElement>("[data-carousel]").forEach((btn) => {
+      btn.addEventListener("click", () => step(Number(btn.dataset.carousel)));
+    });
+
+    const update = () => {
+      const r = track.getBoundingClientRect();
+      const center = r.left + r.width / 2;
+      let closest = 0;
+      let dist = Infinity;
+      cards.forEach((c, i) => {
+        const cr = c.getBoundingClientRect();
+        const d = Math.abs(cr.left + cr.width / 2 - center);
+        if (d < dist) {
+          dist = d;
+          closest = i;
+        }
+      });
+      if (count) count.textContent = `${pad(closest + 1)} / ${pad(total)}`;
+    };
+
+    track.addEventListener("scroll", update, { passive: true });
+    update();
+  }
+</script>

@@ -1,0 +1,52 @@
+---
+interface Props {
+  /** Short month label, e.g. "May" */
+  month: string;
+  /** Day-of-week label, e.g. "Mon" */
+  dow: string;
+  /** Day-of-month, e.g. "18" */
+  day: string;
+  /** Time range, e.g. "10:00 - 11:30" */
+  time: string;
+  title: string;
+  /** Pill label, e.g. "Workshop" or "90 min · special" */
+  pill: string;
+  /** Age range, e.g. "Ages 6-13" */
+  age: string;
+  /** Price with currency, e.g. "$29.38" */
+  price: string;
+  special?: boolean;
+  href?: string;
+}
+
+const {
+  month,
+  dow,
+  day,
+  time,
+  title,
+  pill,
+  age,
+  price,
+  special = false,
+  href = "mailto:jttacabin@gmail.com",
+} = Astro.props;
+---
+
+<a class:list={["workshop-row", { "is-special": special }]} href={href}>
+  <div class="w-date">
+    <span class="w-month">{month} · {dow}</span>
+    <span class="w-day">{day}</span>
+    <span class="w-time">{time}</span>
+  </div>
+  <div class="w-body">
+    <h4>{title}</h4>
+    <div class="w-meta">
+      <span class="pill">{pill}</span>
+      <span>{age}</span>
+      <span>·</span>
+      <span>{price} incl. HST</span>
+    </div>
+  </div>
+  <div class="w-cta">→</div>
+</a>

@@ -1,0 +1,56 @@
+---
+import "../styles/tokens.css";
+import "../styles/global.css";
+import Nav from "./Nav.astro";
+import Footer from "./Footer.astro";
+
+interface Props {
+  title: string;
+  /** Wired for future SEO copy. Not emitted yet — see TODO in <head>. */
+  description?: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+
+    {/* TODO: emit <meta name="description"> once final marketing copy is approved (description prop is already accepted). */}
+    {/* TODO: add favicon link once the brand mark asset exists. */}
+    {/* TODO: add og:image / social meta once share artwork exists. */}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Caveat:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    {/* Site-wide announcement banner */}
+    <div class="announce">
+      <div class="announce-inner">
+        <span>
+          <span class="announce-dot"></span>
+          <strong>Summer 2026 registration is open</strong> — 4 themed weeks, ages 6 - 12.
+        </span>
+        <a href="#summer">Get the registration link →</a>
+      </div>
+    </div>
+
+    <Nav />
+
+    <main>
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

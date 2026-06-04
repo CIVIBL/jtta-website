@@ -1,0 +1,30 @@
+/* JTtA design tokens — single source of truth.
+   Imported once by BaseLayout. Do not redeclare :root elsewhere. */
+:root {
+  /* Surfaces & ink */
+  --bg: #FAF6EC;
+  --paper: #FFFFFF;
+  --warm: #F4ECD9;
+  --ink: #1C1A17;
+  --ink-soft: #3F3A33;
+  --muted: #807769;
+  --rule: #E5DCC4;
+  --rule-strong: #C9BFA4;
+
+  /* Brand accents */
+  --c-red: #C44128;
+  --c-yellow: #E5A82C;
+  --c-sage: #5A7A48;
+  --c-blue: #2E5E7A;
+  --c-plum: #6E2F58;
+
+  /* Typography */
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Albert Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-hand: "Caveat", cursive;
+
+  /* Layout & spacing */
+  --maxw: 1320px;
+  --gutter: clamp(20px, 4vw, 64px);
+  --radius: 8px;
+}

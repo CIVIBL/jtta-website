@@ -1,0 +1,40 @@
+---
+const programs = [
+  "Kids workshops",
+  "Summer camp",
+  "Adult workshops",
+  "Birthdays",
+  "In-the-Schools",
+];
+const studio = ["About Christine", "The cabin", "Gallery", "Testimonials"];
+---
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Journey<br />Through the Arts</div>
+        <p class="footer-tag">A music, art &amp; drama studio in Port Hope, Ontario. Est. 2002.</p>
+      </div>
+      <div>
+        <h5>Programs</h5>
+        {programs.map((p) => <a href="#">{p}</a>)}
+      </div>
+      <div>
+        <h5>Studio</h5>
+        {studio.map((s) => <a href="#">{s}</a>)}
+      </div>
+      <div>
+        <h5>Visit</h5>
+        <a href="https://maps.app.goo.gl/B21tc9VSLLVKoAx69" target="_blank" rel="noopener">190 Hope St N · Port Hope</a>
+        <a href="mailto:jttacabin@gmail.com">jttacabin@gmail.com</a>
+        <a href="#">Facebook</a>
+        <a href="#">Newsletter</a>
+      </div>
+    </div>
+    <div class="footer-fine">
+      <span>© Journey Through the Arts · 2002 - 2026</span>
+      <span>v2 · 2026 redesign</span>
+    </div>
+  </div>
+</footer>
