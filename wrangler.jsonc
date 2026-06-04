@@ -1,0 +1,7 @@
+{
+  "name": "jtta-website",
+  "compatibility_date": "2025-09-09",
+  "assets": {
+    "directory": "./dist"
+  }
+}
