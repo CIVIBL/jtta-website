@@ -1,0 +1,34 @@
+---
+interface StripItem {
+  /** Placeholder label / expected photo subject */
+  placeholder: string;
+  /** Optional hand-written caption overlaid on the photo */
+  caption?: string;
+  /** Expected real image path, e.g. "/images/kids-worktable.jpg" */
+  src?: string;
+}
+
+interface Props {
+  items: StripItem[];
+  /** Render on the white "paper" surface instead of cream. */
+  onPaper?: boolean;
+}
+
+const { items, onPaper = false } = Astro.props;
+---
+
+<div class:list={["k-strip", { "on-paper": onPaper }]}>
+  <div class="wrap">
+    <div class="k-strip-grid">
+      {
+        items.map((it) => (
+          <figure>
+            {/* TODO: real photo — {it.placeholder}. Expected at {it.src} */}
+            <div class="ph">{it.placeholder}</div>
+            {it.caption && <figcaption>{it.caption}</figcaption>}
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</div>

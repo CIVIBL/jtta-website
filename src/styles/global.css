@@ -197,6 +197,7 @@ img { display: block; max-width: 100%; }
   transition: color .15s ease;
 }
 .nav-links a:hover { color: var(--c-red); }
+.nav-links a.active { color: var(--c-red); }
 .nav-cta { padding: 9px 16px; font-size: 13px; }
 
 /* Tight viewports: scale brand down a touch so it doesn't fight the links */

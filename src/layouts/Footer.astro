@@ -1,12 +1,17 @@
 ---
 const programs = [
-  "Kids workshops",
-  "Summer camp",
-  "Adult workshops",
-  "Birthdays",
-  "In-the-Schools",
+  { label: "Kids workshops", href: "/for-kids" },
+  { label: "Summer camp", href: "/#summer" },
+  { label: "Adult workshops", href: "/#programs" },
+  { label: "Birthdays", href: "/#programs" },
+  { label: "In-the-Schools", href: "/#programs" },
 ];
-const studio = ["About Christine", "The cabin", "Gallery", "Testimonials"];
+const studio = [
+  { label: "About Christine", href: "/#about" },
+  { label: "The cabin", href: "/#about" },
+  { label: "Gallery", href: "/" },
+  { label: "Testimonials", href: "/" },
+];
 ---
 
 <footer class="footer">
@@ -18,11 +23,11 @@ const studio = ["About Christine", "The cabin", "Gallery", "Testimonials"];
       </div>
       <div>
         <h5>Programs</h5>
-        {programs.map((p) => <a href="#">{p}</a>)}
+        {programs.map((p) => <a href={p.href}>{p.label}</a>)}
       </div>
       <div>
         <h5>Studio</h5>
-        {studio.map((s) => <a href="#">{s}</a>)}
+        {studio.map((s) => <a href={s.href}>{s.label}</a>)}
       </div>
       <div>
         <h5>Visit</h5>

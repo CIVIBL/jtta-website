@@ -1,0 +1,98 @@
+---
+// Small inline icon set (line icons, stroke = currentColor). Size/colour come
+// from the parent's CSS. Used across the For Kids page.
+interface Props {
+  name:
+    | "group"
+    | "hands"
+    | "supplies"
+    | "calendar"
+    | "check"
+    | "bag"
+    | "pin"
+    | "car"
+    | "spark";
+}
+const { name } = Astro.props;
+const stroke = {
+  fill: "none",
+  stroke: "currentColor",
+  "stroke-width": "2",
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round",
+} as const;
+---
+
+{
+  name === "group" && (
+    <svg viewBox="0 0 24 24" {...stroke}>
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+    </svg>
+  )
+}
+{
+  name === "hands" && (
+    <svg viewBox="0 0 24 24" {...stroke}>
+      <path d="M12 19l7-7 3 3-7 7-3-3z" />
+      <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+      <path d="M2 2l7.586 7.586" />
+      <circle cx="11" cy="11" r="2" />
+    </svg>
+  )
+}
+{
+  name === "supplies" && (
+    <svg viewBox="0 0 24 24" {...stroke}>
+      <path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-5l-2-2H5a2 2 0 0 0-2 2z" />
+    </svg>
+  )
+}
+{
+  name === "calendar" && (
+    <svg viewBox="0 0 24 24" {...stroke}>
+      <rect x="3" y="4" width="18" height="18" rx="2" />
+      <path d="M16 2v4M8 2v4M3 10h18" />
+    </svg>
+  )
+}
+{
+  name === "check" && (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 6L9 17l-5-5" />
+    </svg>
+  )
+}
+{
+  name === "bag" && (
+    <svg viewBox="0 0 24 24" {...stroke}>
+      <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+      <path d="M3 6h18M16 10a4 4 0 0 1-8 0" />
+    </svg>
+  )
+}
+{
+  name === "pin" && (
+    <svg viewBox="0 0 24 24" {...stroke}>
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+      <circle cx="12" cy="10" r="3" />
+    </svg>
+  )
+}
+{
+  name === "car" && (
+    <svg viewBox="0 0 24 24" {...stroke}>
+      <path d="M5 17H3v-5l2-5h11l3 5h2v5h-2" />
+      <circle cx="7.5" cy="17" r="1.5" />
+      <circle cx="16.5" cy="17" r="1.5" />
+    </svg>
+  )
+}
+{
+  name === "spark" && (
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2l2.4 5.6L20 10l-5.6 2.4L12 18l-2.4-5.6L4 10l5.6-2.4z" />
+    </svg>
+  )
+}

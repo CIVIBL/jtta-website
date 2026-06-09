@@ -1,15 +1,22 @@
 ---
+interface Props {
+  /** Highlights the matching nav link as the current section/page. */
+  active?: "kids" | "adults" | "summer" | "about";
+}
+const { active } = Astro.props;
+
+// Root-absolute hrefs so the shared nav works from any page.
 const links = [
-  { href: "#workshops", label: "For Kids" },
-  { href: "#programs", label: "For Adults" },
-  { href: "#summer", label: "Summer Camp" },
-  { href: "#about", label: "About" },
+  { href: "/for-kids", label: "For Kids", key: "kids" },
+  { href: "/#programs", label: "For Adults", key: "adults" },
+  { href: "/#summer", label: "Summer Camp", key: "summer" },
+  { href: "/#about", label: "About", key: "about" },
 ];
 ---
 
 <header class="nav">
   <div class="nav-inner">
-    <a class="nav-brand" href="#top">
+    <a class="nav-brand" href="/">
       <div class="nav-logo">
         {/* TODO: real logo — JTtA brand mark (56x56). Expected at /images/logo.png */}
         <div class="ph" style="--ph-bg: var(--bg); --ph-fg: var(--ink-soft);">JTtA</div>
@@ -20,7 +27,7 @@ const links = [
       </div>
     </a>
     <nav class="nav-links">
-      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+      {links.map((l) => <a href={l.href} class:list={{ active: active === l.key }}>{l.label}</a>)}
       <a class="btn nav-cta is-primary" href="mailto:jttacabin@gmail.com">Contact Christine</a>
     </nav>
   </div>
