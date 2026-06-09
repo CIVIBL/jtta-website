@@ -232,6 +232,11 @@ section { padding: clamp(56px, 8vw, 112px) 0; position: relative; }
   z-index: -2;
 }
 .hero-bg .ph { --ph-bg: var(--warm); }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Real photos fill their placeholder containers (cover crop) */
+.summer-photo img,
+.about-photo img,
+.program-card.featured .pphoto img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .hero-scrim {
   position: absolute;
   inset: 0;
@@ -759,6 +764,13 @@ section { padding: clamp(56px, 8vw, 112px) 0; position: relative; }
   border-radius: 10px;
   overflow: hidden;
   --ph-bg: var(--warm);
+}
+.cphoto img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 10px;
 }
 .cphoto.tilt-l { transform: rotate(-1.2deg); }
 .cphoto.tilt-r { transform: rotate(1deg); }

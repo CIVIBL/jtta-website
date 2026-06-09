@@ -41,10 +41,13 @@ const {
   {
     featured && (
       <div class="pphoto">
-        {/* TODO: real photo — {photo}. Expected at {photoSrc} */}
-        <div class="ph" style="--ph-bg: #2A2722; --ph-fg: rgba(255,255,255,0.4);">
-          {photo}
-        </div>
+        {photoSrc ? (
+          <img src={photoSrc} alt={photo} loading="lazy" />
+        ) : (
+          <div class="ph" style="--ph-bg: #2A2722; --ph-fg: rgba(255,255,255,0.4);">
+            {photo}
+          </div>
+        )}
       </div>
     )
   }

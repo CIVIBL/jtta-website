@@ -52,7 +52,7 @@ const PROGRAMS: Program[] = [
     color: "var(--c-red)",
     title: "Weekly art workshops",
     desc: "After-school workshops in the log-cabin studio. Pick the days that fit — felting, watercolour, clay, mandalas, beading, drawing, painting. Many parents enroll for the whole term, but you don't have to.",
-    photo: "Kids workshop in progress",
+    photo: "About twenty children seated around long wooden tables in the rustic cabin studio, drawing and waving at the camera.",
     photoSrc: "/images/program-workshops.jpg",
   },
   {
@@ -76,18 +76,18 @@ const PROGRAMS: Program[] = [
 ];
 
 interface Slide {
-  label: string;
   src: string;
+  alt: string;
 }
 const CAROUSEL: Slide[] = [
-  { label: "Linocut printing", src: "/images/carousel-1.jpg" },
-  { label: "Drama performance", src: "/images/carousel-2.jpg" },
-  { label: "Watercolour workshop", src: "/images/carousel-3.jpg" },
-  { label: "Summer camp painting", src: "/images/carousel-4.jpg" },
-  { label: "Clay pottery", src: "/images/carousel-5.jpg" },
-  { label: "Adult workshop", src: "/images/carousel-6.jpg" },
-  { label: "In-school art workshop", src: "/images/carousel-7.jpg" },
-  { label: "Open house display", src: "/images/carousel-8.jpg" },
+  { src: "/images/carousel-1.jpg", alt: "Children seated in rows facing a small stage in the rustic studio hall, their drawings displayed on the walls beneath a Journey Through the Arts banner." },
+  { src: "/images/carousel-2.jpg", alt: "Five smiling kids leaning over a table to show off their finished landscape paintings." },
+  { src: "/images/carousel-3.jpg", alt: "Young children gathered around a cloth-covered table, drawing with markers in the studio." },
+  { src: "/images/carousel-4.jpg", alt: "A group of young children around a table proudly displaying a grid of their painted self-portraits." },
+  { src: "/images/carousel-5.jpg", alt: "Four kids holding up their textured mixed-media paintings in front of a colourful mural." },
+  { src: "/images/carousel-6.jpg", alt: "A young artist holding a canvas painting of three colourful tropical birds." },
+  { src: "/images/carousel-7.jpg", alt: "A young artist holding a sheet of six lino-cut prints of a winged-heart design in different colours." },
+  { src: "/images/carousel-8.jpg", alt: "Four girls sitting on a fallen log outdoors, sketching on paper in the sun." },
 ];
 
 interface Week {
@@ -109,8 +109,11 @@ const WEEKS: Week[] = [
   {/* ─── HERO ─── */}
   <section class="hero" id="top">
     <div class="hero-bg">
-      {/* TODO: real photo — cabin exterior, full-bleed. Expected at /images/hero-cabin.jpg */}
-      <div class="ph">Cabin exterior</div>
+      <img
+        src="/images/hero-cabin.jpg"
+        alt="The Journey Through the Arts studio — a two-storey weathered log cabin with white-trimmed windows and a covered porch, set among trees in Port Hope."
+        fetchpriority="high"
+      />
     </div>
     <div class="hero-scrim"></div>
 
@@ -274,8 +277,7 @@ const WEEKS: Week[] = [
       {
         CAROUSEL.map((p, i) => (
           <figure class:list={["cphoto", { "tilt-l": i === 1, "tilt-r": i === 4 }]}>
-            {/* TODO: real photo — {p.label}. Expected at {p.src} */}
-            <div class="ph">{p.label}</div>
+            <img src={p.src} alt={p.alt} loading="lazy" />
           </figure>
         ))
       }
@@ -288,8 +290,10 @@ const WEEKS: Week[] = [
     <div class="wrap">
       <div class="summer-grid">
         <div class="summer-photo">
-          {/* TODO: real photo — summer program, kids performing at the cabin. Expected at /images/summer-camp.jpg */}
-          <div class="ph">Summer program · cabin · kids performing</div>
+          <img
+            src="/images/old-art-school.jpg"
+            alt="The Old Art School at Molson's Mill in Port Hope — the historic timber-and-stone building where summer camp is held."
+          />
           <div class="badge">24th<small>year running</small></div>
         </div>
         <div>
@@ -339,9 +343,10 @@ const WEEKS: Week[] = [
     <div class="wrap">
       <div class="about-grid">
         <div class="about-photo">
-          <div class="tag">📍 The cabin</div>
-          {/* TODO: real photo — 1840s log cabin studio at 190 Hope St N. Expected at /images/cabin.jpg */}
-          <div class="ph">1840s log cabin studio · 190 Hope St N</div>
+          <img
+            src="/images/christine.jpg"
+            alt="Christine Benson, founder and instructor at Journey Through the Arts."
+          />
         </div>
         <div>
           <div class="eyebrow">About JTtA</div>
