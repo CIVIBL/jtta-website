@@ -1,110 +1,94 @@
 ---
+import type { CollectionEntry } from "astro:content";
 import Icon from "./Icon.astro";
-
-type Status = "open" | "almost" | "waitlist" | "full";
+import {
+  buildMailto,
+  durationMinutes,
+  formatAgeRange,
+  formatDay,
+  formatDow,
+  formatDuration,
+  formatMonth,
+  formatPrice,
+  formatSessions,
+  formatTimeRange,
+  PRICE_NOTE,
+} from "../lib/workshops";
 
 interface Props {
-  /** Category label, e.g. "Watercolour" or "4-week series" */
-  cat: string;
-  /** Dot colour — a token reference, e.g. "var(--c-blue)" */
-  color: string;
-  title: string;
-  blurb: string;
-  /** Age range, e.g. "Ages 7 – 10" (the "Ages " prefix is stripped for display) */
-  ages: string;
-  dates: string;
-  datesSub: string;
-  time: string;
-  timeSub: string;
-  price: string;
-  priceSub: string;
-  /** Instructor name */
-  by: string;
-  provided: string;
-  bring: string;
-  status: Status;
+  workshop: CollectionEntry<"workshops">;
 }
 
-const {
-  cat,
-  color,
-  title,
-  blurb,
-  ages,
-  dates,
-  datesSub,
-  time,
-  timeSub,
-  price,
-  priceSub,
-  by,
-  provided,
-  bring,
-  status,
-} = Astro.props;
+const { workshop } = Astro.props;
+const w = workshop.data;
 
-const ageValue = ages.replace("Ages ", "");
-const initials = by
-  .split(" ")
-  .map((w) => w[0])
-  .join("")
-  .slice(0, 2)
-  .toUpperCase();
+// Accent tokens stay a component concern — content stores a name, not CSS.
+const accentVar = {
+  red: "var(--c-red)",
+  yellow: "var(--c-yellow)",
+  sage: "var(--c-sage)",
+  blue: "var(--c-blue)",
+  plum: "var(--c-plum)",
+}[w.accent];
 
-const subject = `Register · ${title} (${dates})`;
-const mailto = `mailto:jttacabin@gmail.com?subject=${encodeURIComponent(subject)}`;
+// The studio is one person; not worth a schema field until that changes.
+const instructor = "Christine Benson";
+const initials = "CB";
 
+const duration = formatDuration(durationMinutes(w.startTime, w.endTime));
+const timeSub = w.sessions > 1 ? `${duration} each` : duration;
+const priceSub = w.sessions > 1 ? "full series" : PRICE_NOTE;
 const ctaLabel =
-  status === "waitlist"
+  w.status === "waitlist"
     ? "Join the waitlist →"
-    : status === "full"
+    : w.status === "full"
       ? "Session full"
       : "Email to register →";
 ---
 
-<article class:list={["k-card", `is-${status}`]}>
+<article class:list={["k-card", `is-${w.status}`]}>
   <div class="k-card-top">
-    <span class="k-cat"><span class="dot" style={`background: ${color};`}></span>{cat}</span>
+    <span class="k-cat"><span class="dot" style={`background: ${accentVar};`}></span>{w.category}</span>
   </div>
-  <h3>{title}</h3>
-  <p class="k-blurb">{blurb}</p>
+  <h3>{w.title}</h3>
+  <p class="k-blurb">{w.blurb}</p>
 
   <div class="k-meta">
     <div>
       <div class="lbl">Ages</div>
-      <div class="val">{ageValue}<small>years</small></div>
+      <div class="val">{formatAgeRange(w.ageMin, w.ageMax)}<small>years</small></div>
     </div>
     <div>
       <div class="lbl">When</div>
-      <div class="val">{dates}<small>{datesSub}</small></div>
+      <div class="val">{formatDow(w.date)} · {formatMonth(w.date)} {formatDay(w.date)}<small>{formatSessions(w.sessions)}</small></div>
     </div>
     <div>
       <div class="lbl">Time</div>
-      <div class="val">{time}<small>{timeSub}</small></div>
+      <div class="val">{formatTimeRange(w.startTime, w.endTime)}<small>{timeSub}</small></div>
     </div>
     <div>
-      <div class="lbl">Per child</div>
-      <div class="val">{price}<small>{priceSub}</small></div>
+      <div class="lbl">{w.audience === "adults" ? "Per person" : "Per child"}</div>
+      <div class="val">{formatPrice(w.price)}<small>{priceSub}</small></div>
     </div>
   </div>
 
   <div class="k-by">
     <span class="av">{initials}</span>
-    <span>Led by <b>{by}</b></span>
+    <span>Led by <b>{instructor}</b></span>
   </div>
 
   <div class="k-mats">
     <div class="prov">
       <div class="lbl"><Icon name="check" /> Provided</div>
-      <p>{provided}</p>
+      <p>{w.provided}</p>
     </div>
     <div class="bring">
       <div class="lbl"><Icon name="bag" /> Bring</div>
-      <p>{bring}</p>
+      <p>{w.bring}</p>
     </div>
   </div>
 
   <div class="k-card-foot">
-    <a class="btn is-primary" href={mailto}>{ctaLabel}</a>
+    <a class="btn is-primary" href={buildMailto(w.title, w.date)}>{ctaLabel}</a>
   </div>
 </article>

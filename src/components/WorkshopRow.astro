@@ -1,51 +1,48 @@
 ---
+import type { CollectionEntry } from "astro:content";
+import {
+  buildMailto,
+  durationMinutes,
+  formatAgeRange,
+  formatDay,
+  formatDow,
+  formatDuration,
+  formatMonth,
+  formatPrice,
+  formatTimeRange,
+  PRICE_NOTE,
+} from "../lib/workshops";
+
 interface Props {
-  /** Short month label, e.g. "May" */
-  month: string;
-  /** Day-of-week label, e.g. "Mon" */
-  dow: string;
-  /** Day-of-month, e.g. "18" */
-  day: string;
-  /** Time range, e.g. "10:00 - 11:30" */
-  time: string;
-  title: string;
-  /** Pill label, e.g. "Workshop" or "90 min · special" */
-  pill: string;
-  /** Age range, e.g. "Ages 6-13" */
-  age: string;
-  /** Price with currency, e.g. "$29.38" */
-  price: string;
-  special?: boolean;
-  href?: string;
+  workshop: CollectionEntry<"workshops">;
 }
 
-const {
-  month,
-  dow,
-  day,
-  time,
-  title,
-  pill,
-  age,
-  price,
-  special = false,
-  href = "mailto:jttacabin@gmail.com",
-} = Astro.props;
+const { workshop } = Astro.props;
+const w = workshop.data;
+
+const pill = w.special
+  ? `${formatDuration(durationMinutes(w.startTime, w.endTime))} · special`
+  : w.sessions > 1
+    ? `${w.sessions}-week series`
+    : "Workshop";
+
+const ageLabel = w.audience === "adults" ? "Adults" : `Ages ${formatAgeRange(w.ageMin, w.ageMax)}`;
+const priceNote = w.sessions > 1 ? "full series" : PRICE_NOTE;
 ---
 
-<a class:list={["workshop-row", { "is-special": special }]} href={href}>
+<a class:list={["workshop-row", { "is-special": w.special }]} href={buildMailto(w.title, w.date)}>
   <div class="w-date">
-    <span class="w-month">{month} · {dow}</span>
-    <span class="w-day">{day}</span>
-    <span class="w-time">{time}</span>
+    <span class="w-month">{formatMonth(w.date)} · {formatDow(w.date)}</span>
+    <span class="w-day">{formatDay(w.date)}</span>
+    <span class="w-time">{formatTimeRange(w.startTime, w.endTime)}</span>
   </div>
   <div class="w-body">
-    <h4>{title}</h4>
+    <h4>{w.title}</h4>
     <div class="w-meta">
       <span class="pill">{pill}</span>
-      <span>{age}</span>
+      <span>{ageLabel}</span>
       <span>·</span>
-      <span>{price} incl. HST</span>
+      <span>{formatPrice(w.price)} {priceNote}</span>
     </div>
   </div>
   <div class="w-cta">→</div>

@@ -1,8 +1,15 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import AudienceCard from "../components/AudienceCard.astro";
 import WorkshopRow from "../components/WorkshopRow.astro";
 import ProgramCard from "../components/ProgramCard.astro";
+import { isUpcoming } from "../lib/workshops";
+
+const upcomingWorkshops = (await getCollection("workshops"))
+  .filter((w) => isUpcoming(w.data.date))
+  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
+  .slice(0, 6);
 
 interface Audience {
   label: string;
@@ -11,29 +18,9 @@ interface Audience {
 }
 const AUDIENCES: Audience[] = [
   { label: "For my child", meta: "Workshops · summer camp · ages 6-13", href: "#programs" },
-  { label: "For myself", meta: "Adult workshops · Monday eves", href: "#programs" },
+  { label: "For myself", meta: "Adult workshops · Evenings", href: "#programs" },
   { label: "For a birthday", meta: "Studio party", href: "#programs" },
   { label: "For my class", meta: "In-the-Schools · JK to Gr 8", href: "#programs" },
-];
-
-interface Workshop {
-  month: string;
-  dow: string;
-  day: string;
-  time: string;
-  title: string;
-  pill: string;
-  age: string;
-  price: string;
-  special?: boolean;
-}
-const UPCOMING: Workshop[] = [
-  { month: "May", dow: "Mon", day: "18", time: "10:00 - 11:30", title: "Rubber Ducky Day · Victoria Day", pill: "90 min · special", age: "Ages 6-13", price: "$39.55", special: true },
-  { month: "May", dow: "Wed", day: "20", time: "4:45 - 5:45 pm", title: "Swim with the Fish · watercolours", pill: "Workshop", age: "Ages 6-13", price: "$29.38" },
-  { month: "May", dow: "Mon", day: "25", time: "4:45 - 5:45 pm", title: "Painting Whimsical Night Landscapes", pill: "Workshop", age: "Ages 6-13", price: "$29.38" },
-  { month: "Jun", dow: "Mon", day: "08", time: "4:45 - 5:45 pm", title: "Customizing Drawing Mannequins", pill: "Workshop", age: "Ages 6-13", price: "$29.38" },
-  { month: "Jun", dow: "Wed", day: "10", time: "4:45 - 5:45 pm", title: "Fairy Jar Houses with Lights", pill: "Workshop", age: "Ages 6-13", price: "$29.38" },
-  { month: "Jun", dow: "Fri", day: "26", time: "10:00 - 11:30", title: "Summer Art Party · Clay & Ice Cream", pill: "P.A. day · special", age: "Ages 6-13", price: "$39.55", special: true },
 ];
 
 interface Program {
@@ -170,52 +157,44 @@ const WEEKS: Week[] = [
     </div>
   </section>
 
-  {/* ─── UPCOMING WORKSHOPS ─── */}
-  <section class="upcoming" id="workshops">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <div class="eyebrow">Upcoming kids workshops</div>
-          <h2 class="section-title" style="margin-top: 12px;">
-            Drop in for a <em>workshop!</em>
-          </h2>
-          <p class="section-lede">
-            Choose the workshops that catch your kid's interest. Most run Monday through Thursday
-            from 4:45 to 5:45 pm. Special longer workshops are 90 min. All supplies included!
-          </p>
+  {/* ─── UPCOMING WORKSHOPS (hidden entirely when nothing is scheduled) ─── */}
+  {
+    upcomingWorkshops.length > 0 && (
+      <section class="upcoming" id="workshops">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">Upcoming workshops</div>
+              <h2 class="section-title" style="margin-top: 12px;">
+                Drop in for a <em>workshop!</em>
+              </h2>
+              <p class="section-lede">
+                Choose the workshops that catch your eye — kids after school and on weekends,
+                grown-ups in the evening. Special longer workshops run 90 minutes or more. All
+                supplies included!
+              </p>
+            </div>
+          </div>
+
+          <div class="upcoming-grid">
+            {upcomingWorkshops.map((w) => (
+              <WorkshopRow workshop={w} />
+            ))}
+          </div>
+
+          <div class="upcoming-foot">
+            <p>
+              <strong>How to register:</strong> Contact Christine via email. She'll confirm your
+              spot. Payment at the time of registration.
+            </p>
+            <a href="mailto:jttacabin@gmail.com?subject=Workshop registration" class="btn is-primary">
+              Contact Christine
+            </a>
+          </div>
         </div>
-      </div>
-
-      <div class="upcoming-grid">
-        {
-          UPCOMING.map((w) => (
-            <WorkshopRow
-              month={w.month}
-              dow={w.dow}
-              day={w.day}
-              time={w.time}
-              title={w.title}
-              pill={w.pill}
-              age={w.age}
-              price={w.price}
-              special={w.special}
-              href="mailto:jttacabin@gmail.com?subject=Workshop registration"
-            />
-          ))
-        }
-      </div>
-
-      <div class="upcoming-foot">
-        <p>
-          <strong>How to register:</strong> Contact Christine via email. She'll confirm your spot.
-          Payment at the time of registration.
-        </p>
-        <a href="mailto:jttacabin@gmail.com?subject=Workshop registration" class="btn is-primary"
-          >Contact Christine</a
-        >
-      </div>
-    </div>
-  </section>
+      </section>
+    )
+  }
 
   {/* ─── PROGRAMS GRID ─── */}
   <section class="programs" id="programs">

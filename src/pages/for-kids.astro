@@ -1,9 +1,15 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
 import WorkshopCard from "../components/WorkshopCard.astro";
 import PhotoStrip from "../components/PhotoStrip.astro";
+import { isUpcoming } from "../lib/workshops";
 import "../styles/for-kids.css";
+
+const kidsWorkshops = (await getCollection("workshops"))
+  .filter((w) => w.data.audience === "kids" && isUpcoming(w.data.date))
+  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
 
 interface QuickFact {
   icon: "group" | "hands" | "supplies" | "calendar";
@@ -15,104 +21,6 @@ const QUICK_FACTS: QuickFact[] = [
   { icon: "hands", b: "Hands-on, mixed media", s: "Paint, clay, print & more" },
   { icon: "supplies", b: "All supplies included", s: "Just bring a smock" },
   { icon: "calendar", b: "Drop-in or series", s: "Single days & multi-week" },
-];
-
-interface Workshop {
-  cat: string;
-  color: string;
-  title: string;
-  blurb: string;
-  ages: string;
-  dates: string;
-  datesSub: string;
-  time: string;
-  timeSub: string;
-  price: string;
-  priceSub: string;
-  by: string;
-  provided: string;
-  bring: string;
-  status: "open" | "almost" | "waitlist" | "full";
-}
-const WORKSHOPS: Workshop[] = [
-  {
-    cat: "Watercolour", color: "var(--c-blue)",
-    title: "Watercolour Wonders",
-    ages: "Ages 7 – 10",
-    dates: "Sat · Jun 14", datesSub: "Single session",
-    time: "10:00 – 11:30 am", timeSub: "90 min",
-    price: "$32", priceSub: "incl. HST",
-    by: "Christine Benson",
-    blurb: "Loose, happy watercolour painting — wet-on-wet skies, salt textures and a finished landscape to frame.",
-    provided: "Paper, paints, brushes & aprons",
-    bring: "A water bottle & a smile",
-    status: "almost",
-  },
-  {
-    cat: "Clay", color: "var(--c-red)",
-    title: "Clay Critters",
-    ages: "Ages 5 – 7",
-    dates: "Wed · Jun 18", datesSub: "Single session",
-    time: "4:00 – 5:00 pm", timeSub: "60 min",
-    price: "$28", priceSub: "incl. HST",
-    by: "Christine Benson",
-    blurb: "Little hands, big imaginations. We pinch, roll and sculpt air-dry clay animals to paint and take home.",
-    provided: "Air-dry clay, tools & paint",
-    bring: "Nothing — we've got it",
-    status: "open",
-  },
-  {
-    cat: "4-week series", color: "var(--c-plum)",
-    title: "Comic Book Creators",
-    ages: "Ages 10 – 13",
-    dates: "Mondays · Jun 2 – 23", datesSub: "4 weekly sessions",
-    time: "4:45 – 6:00 pm", timeSub: "75 min each",
-    price: "$96", priceSub: "full series",
-    by: "Christine Benson",
-    blurb: "Build a character, draw your panels and ink a finished mini-comic over four weeks. Same kids, same crew each week.",
-    provided: "Pens, markers, paper & inks",
-    bring: "Story ideas welcome",
-    status: "open",
-  },
-  {
-    cat: "Printmaking", color: "var(--c-sage)",
-    title: "Lino Printmaking",
-    ages: "Ages 11 – 15",
-    dates: "Thu · Jun 26", datesSub: "Single session",
-    time: "4:30 – 6:00 pm", timeSub: "90 min",
-    price: "$36", priceSub: "incl. HST",
-    by: "Christine Benson",
-    blurb: "Carve a soft lino block and pull a small edition of hand-printed cards. Real printmaking, kid-sized.",
-    provided: "Lino, cutters, ink & a brayer",
-    bring: "Closed-toe shoes",
-    status: "waitlist",
-  },
-  {
-    cat: "P.A. day · 2 hrs", color: "var(--c-yellow)",
-    title: "Fairy Jar Houses",
-    ages: "Ages 6 – 9",
-    dates: "Fri · Jun 27", datesSub: "P.A. day special",
-    time: "10:00 – 12:00 pm", timeSub: "2 hours",
-    price: "$44", priceSub: "incl. HST",
-    by: "Christine Benson",
-    blurb: "Turn a jar into a glowing fairy house with clay, moss and fairy lights. A longer, cozy P.A.-day project.",
-    provided: "Jar, clay, lights & trims",
-    bring: "A packed snack",
-    status: "open",
-  },
-  {
-    cat: "Mixed media", color: "var(--c-blue)",
-    title: "Mixed-Media Mandalas",
-    ages: "Ages 8 – 12",
-    dates: "Tue · Jun 24", datesSub: "Single session",
-    time: "4:45 – 5:45 pm", timeSub: "60 min",
-    price: "$30", priceSub: "incl. HST",
-    by: "Christine Benson",
-    blurb: "Layer paint, paper and pen into a calming radial design. A favourite for focus and quiet flow.",
-    provided: "All papers, paints & pens",
-    bring: "A smock or old shirt",
-    status: "full",
-  },
 ];
 
 const STRIP_ONE = [
@@ -188,7 +96,7 @@ const STRIP_TWO = [
       </div>
 
       {
-        WORKSHOPS.length === 0 ? (
+        kidsWorkshops.length === 0 ? (
           <div class="k-empty">
             <div class="k-empty-mark"><Icon name="spark" /></div>
             <h3>No workshops on the calendar <em>just yet</em></h3>
@@ -203,7 +111,7 @@ const STRIP_TWO = [
           </div>
         ) : (
           <div class="k-list">
-            {WORKSHOPS.map((w) => <WorkshopCard {...w} />)}
+            {kidsWorkshops.map((w) => <WorkshopCard workshop={w} />)}
           </div>
         )
       }

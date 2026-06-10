@@ -1,0 +1,119 @@
+# Pages CMS configuration (app.pagescms.org)
+# Mirrors the Zod schema in src/content.config.ts — keep the two in sync.
+
+media:
+  input: public/images
+  output: /images
+
+content:
+  - name: workshops
+    label: Workshops
+    type: collection
+    path: src/content/workshops
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      primary: title
+      sort: [date, title]
+      fields: [title, date, audience, status]
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: audience
+        label: Audience
+        type: select
+        required: true
+        options:
+          values:
+            - name: kids
+              label: Kids
+            - name: adults
+              label: Adults
+      - name: category
+        label: Category
+        type: string
+        required: true
+        description: "Shown on the card, e.g. Watercolour, Clay, Printmaking"
+      - name: accent
+        label: Accent colour
+        type: select
+        default: red
+        options:
+          values:
+            - name: red
+              label: Red
+            - name: yellow
+              label: Yellow
+            - name: sage
+              label: Sage green
+            - name: blue
+              label: Blue
+            - name: plum
+              label: Plum
+      - name: date
+        label: Date (first session)
+        type: date
+        required: true
+      - name: sessions
+        label: Number of sessions
+        type: number
+        default: 1
+        description: "1 for a single workshop, e.g. 4 for a 4-week series"
+      - name: startTime
+        label: Start time (24-hour)
+        type: string
+        required: true
+        pattern:
+          regex: "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+          message: "Use 24-hour HH:MM, e.g. 16:45"
+      - name: endTime
+        label: End time (24-hour)
+        type: string
+        required: true
+        pattern:
+          regex: "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+          message: "Use 24-hour HH:MM, e.g. 18:00"
+      - name: ageMin
+        label: Minimum age
+        type: number
+        required: true
+      - name: ageMax
+        label: Maximum age
+        type: number
+        required: true
+      - name: price
+        label: Price (dollars, HST included)
+        type: number
+        required: true
+      - name: blurb
+        label: Short description
+        type: text
+        required: true
+      - name: provided
+        label: What's provided
+        type: text
+        required: true
+      - name: bring
+        label: What to bring
+        type: text
+        required: true
+      - name: status
+        label: Availability
+        type: select
+        default: open
+        options:
+          values:
+            - name: open
+              label: Spots open
+            - name: almost
+              label: Almost full
+            - name: waitlist
+              label: Waitlist
+            - name: full
+              label: Full
+      - name: special
+        label: Special workshop (dark card treatment on homepage)
+        type: boolean
+        default: false
