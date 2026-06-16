@@ -248,6 +248,16 @@
   color: var(--muted);
   font-style: italic;
 }
+.a-custom .a-custom-addr {
+  margin: 14px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+.a-custom .a-custom-addr a {
+  color: var(--c-red);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 .a-custom-photo {
   position: relative;
   aspect-ratio: 5 / 4;

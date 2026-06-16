@@ -17,7 +17,7 @@ interface QuickFact {
   s: string;
 }
 const QUICK_FACTS: QuickFact[] = [
-  { icon: "clock", b: "Weeknight evenings", s: "Most run 7 – 9 pm" },
+  { icon: "clock", b: "Weeknight evenings", s: "Most run 7 - 9 pm" },
   { icon: "heart", b: "No experience needed", s: "True beginners welcome" },
   { icon: "calendar", b: "Book your own time", s: "Gather friends, pick a project" },
   { icon: "users", b: "Come solo or with a friend", s: "Small groups, easy company" },
@@ -27,7 +27,7 @@ const IDEAS = ["Pottery & clay", "Painting", "Mixed media", "Whatever you've bee
 ---
 
 <BaseLayout
-  title="For Adults — Evening Workshops at Journey Through the Arts, Port Hope"
+  title="For Adults - Evening Workshops at Journey Through the Arts, Port Hope"
   activeNav="adults"
 >
   {/* ─── PAGE HEADER ─── */}
@@ -40,7 +40,7 @@ const IDEAS = ["Pottery & clay", "Painting", "Mixed media", "Whatever you've bee
       </div>
       <div class="a-head-grid">
         <div>
-          <span class="a-hand">Creative mindset required —</span>
+          <span class="a-hand">Creative mindset required -</span>
           <h1>An evening to <em>make something</em></h1>
           <p class="a-lede">
             A quiet, unhurried studio where adults come to paint, throw clay and try their hand at
@@ -80,7 +80,7 @@ const IDEAS = ["Pottery & clay", "Painting", "Mixed media", "Whatever you've bee
           </h2>
           <p class="section-lede">
             Drop into one session or a few short series if you'd like to go deeper. Most run
-            weeknights from 7 to 9 pm. Email Christine to hold a spot — she confirms each one
+            weeknights from 7 to 9 pm. Email Christine to hold a spot - she confirms each one
             personally, and she's happy to answer any questions you may have!
           </p>
         </div>
@@ -93,7 +93,7 @@ const IDEAS = ["Pottery & clay", "Painting", "Mixed media", "Whatever you've bee
             <h3>Nothing on the easel <em>right now</em></h3>
             <p>
               The next round of evening workshops is still taking shape. Leave Christine a note and
-              she'll let you know the moment new dates go up — first dibs, no obligation.
+              she'll let you know the moment new dates go up - first dibs, no obligation.
             </p>
             <div class="a-empty-ctas">
               <a class="btn is-primary" href={mailto("Notify me about adult workshops")}>Get notified →</a>
@@ -120,7 +120,7 @@ const IDEAS = ["Pottery & clay", "Painting", "Mixed media", "Whatever you've bee
           </h2>
           <p class="section-lede">
             Never set foot in a studio before? You're exactly who these evenings are for. Here's the
-            practical stuff — and if anything's still unclear, Christine answers her own email.
+            practical stuff - and if anything's still unclear, Christine answers her own email.
           </p>
         </div>
       </div>
@@ -138,7 +138,7 @@ const IDEAS = ["Pottery & clay", "Painting", "Mixed media", "Whatever you've bee
         <div class="a-know-card">
           <span class="ic"><Icon name="wine" /></span>
           <h3>Drinks & nibbles</h3>
-          <p>You're welcome to bring a glass of wine, a beer or a coffee. A few snacks to share never hurt — we'll have water and mugs on hand.</p>
+          <p>You're welcome to bring a glass of wine, a beer or a coffee. A few snacks to share never hurt - we'll have water and mugs on hand.</p>
         </div>
         <div class="a-know-card">
           <span class="ic"><Icon name="users" /></span>
@@ -163,16 +163,17 @@ const IDEAS = ["Pottery & clay", "Painting", "Mixed media", "Whatever you've bee
           </p>
           <p class="a-custom-body">
             Gather a few friends, spend a couple of unhurried hours together, and pick a project
-            you've always wanted to try. Christine sets everything up and guides you through it — you
+            you've always wanted to try. Christine sets everything up and guides you through it - you
             just bring the company.
           </p>
           <div class="a-custom-ideas">
             {IDEAS.map((t) => <span class="a-chip">{t}</span>)}
           </div>
           <div class="a-custom-ctas">
-            <a class="btn is-primary" href={mailto("Book a private studio session")}>Plan a private session →</a>
+            <a class="btn is-primary" href={mailto("Private / group workshop inquiry")}>Plan a private session →</a>
             <span class="a-custom-note">Pricing depends on your group & project</span>
           </div>
+          <p class="a-custom-addr">or write to <a href={mailto()}>{CONTACT_EMAIL}</a></p>
         </div>
         <figure class="a-custom-photo" style="margin: 0;">
           {/* TODO: real photo — friends gathered around a project in the cabin. Expected at /images/adults-custom.jpg */}
@@ -189,7 +190,7 @@ const IDEAS = ["Pottery & clay", "Painting", "Mixed media", "Whatever you've bee
       <h2>Give yourself <em>an evening</em>.</h2>
       <p>
         Email Christine to hold a spot, ask about a workshop, or float an idea for one. She'll reply
-        to you directly — no carts, no accounts, no pressure.
+        to you directly - no carts, no accounts, no pressure.
       </p>
       <p class="cta-email"><a href={mailto()}>{CONTACT_EMAIL}</a></p>
       <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">

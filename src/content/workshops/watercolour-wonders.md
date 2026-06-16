@@ -10,7 +10,7 @@ endTime: "11:30"
 ageMin: 6
 ageMax: 13
 price: 32
-blurb: Loose, happy watercolour painting — wet-on-wet skies, salt textures and a finished landscape to frame.
+blurb: Loose, happy watercolour painting - wet-on-wet skies, salt textures and a finished landscape to frame.
 provided: Paper, paints, brushes & aprons
 bring: A water bottle & a smile
 status: almost

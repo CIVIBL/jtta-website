@@ -55,11 +55,11 @@ function to12h(time: string): { h12: string; suffix: "AM" | "PM" } {
   return { h12: `${h12}:${m}`, suffix };
 }
 
-/** ("10:00", "12:00") -> "10:00 AM – 12:00 PM" */
+/** ("10:00", "12:00") -> "10:00 AM - 12:00 PM" */
 export function formatTimeRange(startTime: string, endTime: string): string {
   const start = to12h(startTime);
   const end = to12h(endTime);
-  return `${start.h12} ${start.suffix} – ${end.h12} ${end.suffix}`;
+  return `${start.h12} ${start.suffix} - ${end.h12} ${end.suffix}`;
 }
 
 /** 44 -> "$44" · 29.38 -> "$29.38" (CAD) */
