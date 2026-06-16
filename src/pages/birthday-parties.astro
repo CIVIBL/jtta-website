@@ -1,0 +1,223 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PartyIcon from "../components/PartyIcon.astro";
+import ThemeCard from "../components/ThemeCard.astro";
+import { mailto, CONTACT_EMAIL, MAPS_URL } from "../lib/site";
+import "../styles/birthday-parties.css";
+
+const GLANCE = [
+  { icon: "users", t: "Ages 6-13" },
+  { icon: "clock", t: "About 1.5 hours" },
+  { icon: "cabin", t: "At the log cabin" },
+  { icon: "palette", t: "All supplies included" },
+];
+
+interface Step {
+  n: number;
+  h: string;
+  dur?: string;
+  p: string;
+}
+const STEPS: Step[] = [
+  { n: 1, h: "Pick the project", p: "The birthday child chooses the medium and subject - their favourite animal, a cartoon character, anything." },
+  { n: 2, h: "Make art", dur: "1 hr", p: "A guided, hands-on art project everyone makes together. Each kid takes their creation home." },
+  { n: 3, h: "Cake & presents", dur: "30 min", p: "Wind down with cake and presents in the cozy cabin once the art is done." },
+];
+
+const INCLUDED = [
+  { icon: "palette", h: "A custom project", p: "Chosen by the birthday child - their medium, their subject." },
+  { icon: "brush", h: "All supplies", p: "Every material for the project is provided. Nothing to buy or bring." },
+  { icon: "gift", h: "Goodie bags", p: "An art-themed goodie bag for every guest to take home." },
+  { icon: "home", h: "Take-home art", p: "Each child leaves with the piece they made that day." },
+];
+
+type Accent = "blue" | "red" | "plum" | "sage" | "yellow";
+interface Theme {
+  icon: string;
+  accent: Accent;
+  h: string;
+  p: string;
+}
+const THEMES: Theme[] = [
+  { icon: "landscape", accent: "blue", h: "Landscape Painting", p: "Paint a colourful landscape or seascape in acrylics on stretched canvas." },
+  { icon: "pottery", accent: "red", h: "Pottery", p: "Build coiled pots, pinch pots and clay sculptures with self-hardening clay." },
+  { icon: "portrait", accent: "plum", h: "Self Portraits", p: "Learn to draw the face in proportion, then paint a portrait on canvas." },
+  { icon: "watercolour", accent: "sage", h: "Watercolour", p: "Wet-on-wet, dry brush and salt techniques to create watercolour paintings." },
+  { icon: "cartoon", accent: "yellow", h: "Cartooning", p: "Turn stick figures into 3D characters and draw your own cartoons." },
+  { icon: "animation", accent: "blue", h: "Animation", p: "Create an animated flipbook using simple animation concepts." },
+  { icon: "jewelry", accent: "plum", h: "Jewelry", p: "Make a keychain, necklace, bracelet or earrings - plus a painted box to keep them in." },
+  { icon: "mask", accent: "red", h: "Mask-making", p: "Craft one-of-a-kind masks from foam, felt, feathers, shells and more." },
+];
+
+const STRIP = [
+  { placeholder: "Party table covered in art supplies", caption: "the set-up" },
+  { placeholder: "Kids painting together" },
+  { placeholder: "Blowing out candles" },
+];
+---
+
+<BaseLayout title="Birthday Parties - Art parties at the log cabin · Journey Through the Arts, Port Hope">
+  {/* ─── HERO ─── */}
+  <section class="b-hero" id="top">
+    <div class="wrap">
+      <div class="b-crumbs">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <span class="cur">Birthday Parties</span>
+      </div>
+      <div class="b-hero-grid">
+        <div>
+          <span class="b-hand">Cake, presents & paint</span>
+          <h1>An <em>art party</em> at the log cabin</h1>
+          <p class="b-lede">
+            A cozy, screen-free birthday in Christine's studio. The birthday kid picks the project,
+            everyone makes real art, then it's cake and presents.
+          </p>
+          <div class="b-glance">
+            {GLANCE.map((g) => (
+              <span class="b-chip"><PartyIcon name={g.icon} />{g.t}</span>
+            ))}
+          </div>
+          <div class="b-hero-ctas">
+            <a class="btn is-primary" href="#book">Email Christine to book →</a>
+            <span class="b-email">or email <a href={mailto()}>{CONTACT_EMAIL}</a></span>
+          </div>
+        </div>
+        <div class="b-hero-photos">
+          <figure class="tall">
+            {/* TODO: real photo - kids painting at a birthday party. Expected at /images/party-painting.jpg */}
+            <div class="ph">Kids painting at a birthday party</div>
+            <span class="b-hero-badge">Happy birthday!</span>
+          </figure>
+          <figure>
+            {/* TODO: real photo - birthday cake moment. Expected at /images/party-cake.jpg */}
+            <div class="ph">Birthday cake moment</div>
+          </figure>
+          <figure>
+            {/* TODO: real photo - the studio set up for a party. Expected at /images/party-studio.jpg */}
+            <div class="ph">The studio set up for a party</div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ─── HOW IT WORKS ─── */}
+  <section class="b-how" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">How it works</div>
+          <h2 class="section-title" style="margin-top: 12px;">
+            Simple, <em>start to finish</em>
+          </h2>
+          <p class="section-lede">
+            About an hour and a half, all set up and run by Christine. You bring the cake and the
+            birthday kid. We handle the rest.
+          </p>
+        </div>
+      </div>
+      <div class="b-steps">
+        {
+          STEPS.map((s) => (
+            <div class="b-step">
+              <div class="b-step-n">{s.n}</div>
+              <h3>{s.h}{s.dur && <span class="dur">{s.dur}</span>}</h3>
+              <p>{s.p}</p>
+            </div>
+          ))
+        }
+      </div>
+      <div class="b-how-note"><PartyIcon name="clock" /><span>Flexible scheduling, booked to suit your family.</span></div>
+    </div>
+  </section>
+
+  {/* ─── WHAT'S INCLUDED ─── */}
+  <section class="b-incl" id="included">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">What's included</div>
+          <h2 class="section-title" style="margin-top: 12px;">
+            Everything but the <em>cake</em>
+          </h2>
+        </div>
+      </div>
+      <div class="b-incl-grid">
+        {
+          INCLUDED.map((c) => (
+            <div class="b-incl-card">
+              <span class="ic"><PartyIcon name={c.icon} /></span>
+              <h3>{c.h}</h3>
+              <p>{c.p}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* ─── CHOOSE A THEME ─── */}
+  <section class="b-themes" id="themes">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Choose a theme</div>
+          <h2 class="section-title" style="margin-top: 12px;">
+            Pick the <em>perfect project</em>
+          </h2>
+          <p class="section-lede">
+            The birthday child picks one. Every theme is hands-on, beginner friendly, and ends with
+            art to take home!
+          </p>
+        </div>
+      </div>
+      <div class="b-theme-grid">
+        {
+          THEMES.map((t) => (
+            <ThemeCard icon={t.icon} accent={t.accent} h={t.h} p={t.p} />
+          ))
+        }
+        <article class="b-theme is-custom">
+          <span class="ic"><PartyIcon name="sparkle" /></span>
+          <h3>Something else?</h3>
+          <p>Don't see what they're dreaming of? We'll customize a project around it.</p>
+          <a href={mailto("Custom birthday party project")}>Email to discuss →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  {/* ─── PHOTO STRIP ─── */}
+  <div class="b-strip on-paper">
+    <div class="wrap">
+      <div class="b-strip-grid">
+        {
+          STRIP.map((it) => (
+            <figure>
+              {/* TODO: real photo - {it.placeholder}. */}
+              <div class="ph">{it.placeholder}</div>
+              {it.caption && <figcaption>{it.caption}</figcaption>}
+            </figure>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  {/* ─── BOOK CTA ─── */}
+  <section class="cta" id="book">
+    <div class="wrap">
+      <h2>Let's plan a <em>party</em>.</h2>
+      <p>
+        Email Christine to book a date, talk through the art project and subject, and get current
+        pricing. She'll reply to you directly.
+      </p>
+      <p class="cta-email"><a href={mailto("Birthday party booking")}>{CONTACT_EMAIL}</a></p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a class="btn is-light" href={mailto("Birthday party booking")}>Email Christine</a>
+        <a class="btn is-outline" href={MAPS_URL} target="_blank" rel="noopener">Find the cabin →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

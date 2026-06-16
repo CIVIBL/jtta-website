@@ -1,0 +1,30 @@
+---
+import PartyIcon from "./PartyIcon.astro";
+
+type Accent = "blue" | "red" | "plum" | "sage" | "yellow";
+
+interface Props {
+  /** PartyIcon name */
+  icon: string;
+  accent: Accent;
+  h: string;
+  p: string;
+}
+
+const { icon, accent, h, p } = Astro.props;
+
+// Accent name -> token (content stores a name, not raw CSS).
+const accentVar: Record<Accent, string> = {
+  blue: "var(--c-blue)",
+  red: "var(--c-red)",
+  plum: "var(--c-plum)",
+  sage: "var(--c-sage)",
+  yellow: "var(--c-yellow)",
+};
+---
+
+<article class="b-theme" style={`--accent: ${accentVar[accent]};`}>
+  <span class="ic"><PartyIcon name={icon} /></span>
+  <h3>{h}</h3>
+  <p>{p}</p>
+</article>
