@@ -56,8 +56,16 @@ const ctaLabel =
 
   <div class="k-meta">
     <div>
-      <div class="lbl">Ages</div>
-      <div class="val">{formatAgeRange(w.ageMin, w.ageMax)}<small>years</small></div>
+      <div class="lbl">{w.audience === "adults" ? "Who" : "Ages"}</div>
+      <div class="val">
+        {
+          w.audience === "adults" ? (
+            "Adults"
+          ) : (
+            <>{formatAgeRange(w.ageMin, w.ageMax)}<small>years</small></>
+          )
+        }
+      </div>
     </div>
     <div>
       <div class="lbl">When</div>

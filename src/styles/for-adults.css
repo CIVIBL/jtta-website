@@ -1,0 +1,270 @@
+/* JTtA · For Adults workshops page — extends tokens.css + global.css.
+   Only loaded on /for-adults. Shared chrome (nav, footer, buttons, section
+   heads, .cta, .ph placeholder) lives in global.css; workshop cards bring
+   their own scoped styles. Classes are a- prefixed so this page never depends
+   on the kids page's k- styles (which live in for-kids.css). */
+
+/* ─── PAGE HEADER ─── */
+.a-head {
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+  padding: clamp(48px, 7vw, 92px) 0 clamp(40px, 5vw, 64px);
+  position: relative;
+  overflow: hidden;
+}
+.a-head-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+@media (max-width: 900px) { .a-head-grid { grid-template-columns: 1fr; } }
+
+.a-crumbs {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.a-crumbs a { color: var(--muted); text-decoration: none; transition: color .15s; }
+.a-crumbs a:hover { color: var(--c-red); }
+.a-crumbs .sep { opacity: 0.5; }
+.a-crumbs .cur { color: var(--ink); }
+
+.a-head h1 {
+  font-size: clamp(40px, 5.4vw, 70px);
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  max-width: 15ch;
+}
+.a-head h1 em { font-style: italic; color: var(--c-red); font-weight: 400; }
+.a-head .a-hand {
+  font-family: var(--font-hand);
+  color: var(--c-plum);
+  font-size: clamp(22px, 2.4vw, 30px);
+  display: inline-block;
+  transform: rotate(-2.5deg);
+  margin-bottom: 8px;
+}
+.a-lede {
+  margin-top: 22px;
+  font-size: clamp(16px, 1.45vw, 19px);
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 46ch;
+}
+
+.a-facts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 30px;
+  max-width: 46ch;
+}
+.a-fact {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+}
+.a-fact .ic {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  background: var(--warm);
+}
+.a-fact .ic svg { width: 16px; height: 16px; }
+.a-fact b {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  display: block;
+  line-height: 1.15;
+}
+.a-fact span {
+  font-size: 12px;
+  color: var(--muted);
+  display: block;
+  margin-top: 2px;
+}
+
+/* header photo */
+.a-head-photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.a-head-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ─── WORKSHOP LISTING ─── */
+.a-list-sec { background: var(--bg); }
+.a-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+@media (max-width: 860px) { .a-list { grid-template-columns: 1fr; } }
+
+/* ─── EMPTY STATE (no upcoming adult workshops) ─── */
+.a-empty {
+  text-align: center;
+  padding: clamp(48px, 7vw, 84px) clamp(20px, 5vw, 56px);
+  background: var(--paper);
+  border: 1px dashed var(--rule-strong);
+  border-radius: 18px;
+  max-width: 620px;
+  margin: 0 auto;
+}
+.a-empty .a-empty-mark {
+  width: 64px; height: 64px;
+  margin: 0 auto 22px;
+  border-radius: 50%;
+  background: var(--warm);
+  display: grid;
+  place-items: center;
+}
+.a-empty .a-empty-mark svg { width: 30px; height: 30px; color: var(--c-yellow); }
+.a-empty h3 {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3vw, 34px);
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  margin: 0 0 12px;
+}
+.a-empty h3 em { font-style: italic; color: var(--c-red); font-weight: 400; }
+.a-empty p {
+  font-size: 15px;
+  color: var(--ink-soft);
+  max-width: 42ch;
+  margin: 0 auto 26px;
+  line-height: 1.6;
+}
+.a-empty .a-empty-ctas {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ─── GOOD TO KNOW ─── */
+.a-know { background: var(--paper); }
+.a-know-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 8px;
+}
+@media (max-width: 900px) { .a-know-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .a-know-grid { grid-template-columns: 1fr; } }
+.a-know-card {
+  padding: 24px 22px;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+}
+.a-know-card .ic {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  background: var(--warm);
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+}
+.a-know-card .ic svg { width: 19px; height: 19px; color: var(--c-red); }
+.a-know-card h3 {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 7px;
+}
+.a-know-card p { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--ink-soft); }
+.a-know-card p + p { margin-top: 8px; }
+.a-know-card a { color: var(--c-red); text-decoration: underline; text-underline-offset: 2px; }
+
+/* ─── BOOK YOUR OWN (custom session band) ─── */
+.a-custom { background: var(--warm); }
+.a-custom-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+@media (max-width: 860px) { .a-custom-grid { grid-template-columns: 1fr; } }
+
+.a-custom .eyebrow { color: var(--c-plum); }
+.a-custom h2 {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 3.8vw, 46px);
+  line-height: 1.04;
+  letter-spacing: -0.022em;
+  font-weight: 500;
+  margin: 12px 0 0;
+}
+.a-custom h2 em { font-style: italic; color: var(--c-red); font-weight: 400; }
+.a-custom .a-custom-body {
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.65;
+  color: var(--ink-soft);
+  max-width: 48ch;
+  margin: 20px 0 0;
+}
+.a-custom .a-custom-body + .a-custom-body { margin-top: 14px; }
+.a-custom .a-custom-ideas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 24px 0 28px;
+}
+.a-custom .a-chip {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 8px 15px;
+}
+.a-custom .a-custom-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.a-custom .a-custom-note {
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+}
+.a-custom-photo {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.a-custom-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.a-custom-photo figcaption {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  font-family: var(--font-hand);
+  color: var(--paper);
+  font-size: 22px;
+  line-height: 1;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  transform: rotate(-2deg);
+  z-index: 2;
+  pointer-events: none;
+}

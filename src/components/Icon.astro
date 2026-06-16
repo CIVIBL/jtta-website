@@ -11,7 +11,11 @@ interface Props {
     | "bag"
     | "pin"
     | "car"
-    | "spark";
+    | "spark"
+    | "clock"
+    | "heart"
+    | "users"
+    | "wine";
 }
 const { name } = Astro.props;
 const stroke = {
@@ -93,6 +97,37 @@ const stroke = {
   name === "spark" && (
     <svg viewBox="0 0 24 24" fill="currentColor">
       <path d="M12 2l2.4 5.6L20 10l-5.6 2.4L12 18l-2.4-5.6L4 10l5.6-2.4z" />
+    </svg>
+  )
+}
+{
+  name === "clock" && (
+    <svg viewBox="0 0 24 24" {...stroke}>
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 6v6l4 2" />
+    </svg>
+  )
+}
+{
+  name === "heart" && (
+    <svg viewBox="0 0 24 24" {...stroke}>
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />
+    </svg>
+  )
+}
+{
+  name === "users" && (
+    <svg viewBox="0 0 24 24" {...stroke}>
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+    </svg>
+  )
+}
+{
+  name === "wine" && (
+    <svg viewBox="0 0 24 24" {...stroke}>
+      <path d="M8 22h8M12 15v7M5 3h14l-1.2 6a5.8 5.8 0 0 1-11.6 0L5 3z" />
     </svg>
   )
 }

@@ -1,0 +1,201 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+import WorkshopCard from "../components/WorkshopCard.astro";
+import { isUpcoming } from "../lib/workshops";
+import { mailto, CONTACT_EMAIL, MAPS_URL } from "../lib/site";
+import "../styles/for-adults.css";
+
+const adultWorkshops = (await getCollection("workshops"))
+  .filter((w) => w.data.audience === "adults" && isUpcoming(w.data.date))
+  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
+
+interface QuickFact {
+  icon: "clock" | "heart" | "calendar" | "users";
+  b: string;
+  s: string;
+}
+const QUICK_FACTS: QuickFact[] = [
+  { icon: "clock", b: "Weeknight evenings", s: "Most run 7 – 9 pm" },
+  { icon: "heart", b: "No experience needed", s: "True beginners welcome" },
+  { icon: "calendar", b: "Book your own time", s: "Gather friends, pick a project" },
+  { icon: "users", b: "Come solo or with a friend", s: "Small groups, easy company" },
+];
+
+const IDEAS = ["Pottery & clay", "Painting", "Mixed media", "Whatever you've been meaning to try"];
+---
+
+<BaseLayout
+  title="For Adults — Evening Workshops at Journey Through the Arts, Port Hope"
+  activeNav="adults"
+>
+  {/* ─── PAGE HEADER ─── */}
+  <section class="a-head" id="top">
+    <div class="wrap">
+      <div class="a-crumbs">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <span class="cur">For Adults</span>
+      </div>
+      <div class="a-head-grid">
+        <div>
+          <span class="a-hand">Creative mindset required —</span>
+          <h1>An evening to <em>make something</em></h1>
+          <p class="a-lede">
+            A quiet, unhurried studio where adults come to paint, throw clay and try their hand at
+            something new. No prior experience required, just a couple of hours to make a little mess
+            and leave with something you made.
+          </p>
+          <div class="a-facts">
+            {
+              QUICK_FACTS.map((f) => (
+                <div class="a-fact">
+                  <span class="ic"><Icon name={f.icon} /></span>
+                  <div>
+                    <b>{f.b}</b>
+                    <span>{f.s}</span>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+        <div class="a-head-photo">
+          {/* TODO: real photo — adults painting together in the evening studio. Expected at /images/adults-hero.jpg */}
+          <div class="ph">Adults painting together in the evening studio</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ─── WORKSHOP LISTING ─── */}
+  <section class="a-list-sec" id="workshops">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Upcoming evening workshops</div>
+          <h2 class="section-title" style="margin-top: 12px;">
+            What's on <em>this season</em>
+          </h2>
+          <p class="section-lede">
+            Drop into one session or a few short series if you'd like to go deeper. Most run
+            weeknights from 7 to 9 pm. Email Christine to hold a spot — she confirms each one
+            personally, and she's happy to answer any questions you may have!
+          </p>
+        </div>
+      </div>
+
+      {
+        adultWorkshops.length === 0 ? (
+          <div class="a-empty">
+            <div class="a-empty-mark"><Icon name="spark" /></div>
+            <h3>Nothing on the easel <em>right now</em></h3>
+            <p>
+              The next round of evening workshops is still taking shape. Leave Christine a note and
+              she'll let you know the moment new dates go up — first dibs, no obligation.
+            </p>
+            <div class="a-empty-ctas">
+              <a class="btn is-primary" href={mailto("Notify me about adult workshops")}>Get notified →</a>
+              <a class="btn is-line" href={mailto("Adult workshop request")}>Suggest a workshop</a>
+            </div>
+          </div>
+        ) : (
+          <div class="a-list">
+            {adultWorkshops.map((w) => <WorkshopCard workshop={w} />)}
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  {/* ─── GOOD TO KNOW ─── */}
+  <section class="a-know" id="know">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">First time here?</div>
+          <h2 class="section-title" style="margin-top: 12px;">
+            A few <em>good things</em> to know
+          </h2>
+          <p class="section-lede">
+            Never set foot in a studio before? You're exactly who these evenings are for. Here's the
+            practical stuff — and if anything's still unclear, Christine answers her own email.
+          </p>
+        </div>
+      </div>
+      <div class="a-know-grid">
+        <div class="a-know-card">
+          <span class="ic"><Icon name="pin" /></span>
+          <h3>Where & parking</h3>
+          <p>The log-cabin studio at <b>190 Hope St N in Port Hope</b>. Free street parking out front, studio entrance is at the side.</p>
+        </div>
+        <div class="a-know-card">
+          <span class="ic"><Icon name="heart" /></span>
+          <h3>No experience needed</h3>
+          <p>Truly. Every session is built for first-timers and returning hobbyists alike. Christine guides each step.</p>
+        </div>
+        <div class="a-know-card">
+          <span class="ic"><Icon name="wine" /></span>
+          <h3>Drinks & nibbles</h3>
+          <p>You're welcome to bring a glass of wine, a beer or a coffee. A few snacks to share never hurt — we'll have water and mugs on hand.</p>
+        </div>
+        <div class="a-know-card">
+          <span class="ic"><Icon name="users" /></span>
+          <h3>Solo or together</h3>
+          <p>Come on your own and meet a small, friendly group, or grab a friend or partner. Either way you'll be among good company.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ─── BOOK YOUR OWN (custom session) ─── */}
+  <section class="a-custom" id="custom">
+    <div class="wrap">
+      <div class="a-custom-grid">
+        <div>
+          <div class="eyebrow">Make it your own</div>
+          <h2>Book your own time with friends <em>at the studio</em></h2>
+          <p class="a-custom-body">
+            Resolutions are easy to break, aren't they? But if you've promised yourself a little more
+            fun, a new skill, or simply time to be creative then the cozy log-cabin studio is yours
+            to book.
+          </p>
+          <p class="a-custom-body">
+            Gather a few friends, spend a couple of unhurried hours together, and pick a project
+            you've always wanted to try. Christine sets everything up and guides you through it — you
+            just bring the company.
+          </p>
+          <div class="a-custom-ideas">
+            {IDEAS.map((t) => <span class="a-chip">{t}</span>)}
+          </div>
+          <div class="a-custom-ctas">
+            <a class="btn is-primary" href={mailto("Book a private studio session")}>Plan a private session →</a>
+            <span class="a-custom-note">Pricing depends on your group & project</span>
+          </div>
+        </div>
+        <figure class="a-custom-photo" style="margin: 0;">
+          {/* TODO: real photo — friends gathered around a project in the cabin. Expected at /images/adults-custom.jpg */}
+          <div class="ph">Friends gathered around a project in the cabin</div>
+          <figcaption>your studio, your evening</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  {/* ─── CTA ─── */}
+  <section class="cta">
+    <div class="wrap">
+      <h2>Give yourself <em>an evening</em>.</h2>
+      <p>
+        Email Christine to hold a spot, ask about a workshop, or float an idea for one. She'll reply
+        to you directly — no carts, no accounts, no pressure.
+      </p>
+      <p class="cta-email"><a href={mailto()}>{CONTACT_EMAIL}</a></p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a class="btn is-light" href={mailto()}>Email Christine</a>
+        <a class="btn is-outline" href={MAPS_URL} target="_blank" rel="noopener">Find the cabin →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
