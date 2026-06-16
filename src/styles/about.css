@@ -1,0 +1,264 @@
+/* JTtA · About page - editorial; extends tokens.css + global.css.
+   Only loaded on /about. Shared chrome (nav, footer, buttons, section heads,
+   .cta, .ph placeholder) lives in global.css. Classes keep the design's own
+   ab- prefix; the borrowed photo strip is localized as ab-strip so nothing
+   depends on another page's stylesheet. */
+
+/* ─── HERO ─── */
+.ab-hero {
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+  padding: clamp(40px, 6vw, 80px) 0 clamp(44px, 6vw, 84px);
+}
+.ab-crumbs {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ab-crumbs a { color: var(--muted); text-decoration: none; transition: color .15s; }
+.ab-crumbs a:hover { color: var(--c-red); }
+.ab-crumbs .sep { opacity: 0.5; }
+.ab-crumbs .cur { color: var(--ink); }
+
+.ab-hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+@media (max-width: 900px) { .ab-hero-grid { grid-template-columns: 1fr; } }
+
+.ab-hand {
+  font-family: var(--font-hand);
+  color: var(--c-plum);
+  font-size: clamp(26px, 2.8vw, 36px);
+  display: inline-block;
+  transform: rotate(-2.5deg);
+  margin-bottom: 6px;
+}
+.ab-hero h1 {
+  font-size: clamp(44px, 6vw, 84px);
+  line-height: 0.98;
+  letter-spacing: -0.028em;
+  max-width: 12ch;
+}
+.ab-hero h1 em { font-style: italic; color: var(--c-red); font-weight: 400; }
+.ab-lede {
+  margin-top: 24px;
+  font-size: clamp(17px, 1.6vw, 21px);
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 44ch;
+}
+.ab-portrait {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  overflow: hidden;
+}
+.ab-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ab-portrait .tag {
+  position: absolute;
+  bottom: 16px; left: 16px;
+  z-index: 2;
+  background: var(--c-yellow);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 15px;
+  border-radius: 999px;
+  box-shadow: 0 6px 16px rgba(28,26,23,0.16);
+}
+
+/* ─── CHRISTINE BIO ─── */
+.ab-bio { background: var(--paper); }
+.ab-bio-grid {
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+@media (max-width: 860px) { .ab-bio-grid { grid-template-columns: 1fr; } }
+.ab-bio-photo {
+  aspect-ratio: 5 / 6;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.ab-bio-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ab-bio h2 {
+  font-size: clamp(30px, 3.6vw, 46px);
+  line-height: 1.04;
+  letter-spacing: -0.022em;
+  margin: 14px 0 0;
+}
+.ab-bio h2 em { font-style: italic; color: var(--c-red); font-weight: 400; }
+.ab-bio p {
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.68;
+  color: var(--ink-soft);
+  margin: 20px 0 0;
+  max-width: 56ch;
+}
+.ab-bio p .lead-in { color: var(--ink); font-weight: 600; }
+
+.ab-award {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 26px;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 13px 18px 13px 14px;
+}
+.ab-award .ribbon {
+  width: 38px; height: 38px;
+  flex-shrink: 0;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--c-yellow) 22%, transparent);
+  color: #9A6B12;
+  display: grid; place-items: center;
+}
+.ab-award .ribbon svg { width: 20px; height: 20px; }
+.ab-award .t {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.ab-award .s { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+
+/* ─── STUDIO STORY ─── */
+.ab-story { background: var(--bg); }
+.ab-story-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: start;
+}
+@media (max-width: 860px) { .ab-story-grid { grid-template-columns: 1fr; } }
+.ab-story-body p {
+  font-size: clamp(16px, 1.45vw, 19px);
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0 0 18px;
+  max-width: 60ch;
+}
+.ab-story-body p:last-child { margin-bottom: 0; }
+.ab-story-body p .yr {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
+  font-style: normal;
+}
+.ab-story-body p strong { color: var(--ink); font-weight: 600; }
+
+.ab-stat {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 16px;
+  padding: 30px 28px;
+  position: sticky;
+  top: 96px;
+}
+.ab-stat .n {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(48px, 6vw, 68px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--c-yellow);
+}
+.ab-stat .l {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.82);
+}
+.ab-stat .rule { height: 1px; background: rgba(255,255,255,0.16); margin: 22px 0; }
+.ab-stat .beats { display: flex; flex-direction: column; gap: 13px; }
+.ab-stat .beat { display: flex; gap: 13px; align-items: baseline; }
+.ab-stat .beat .y {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--c-yellow);
+  flex-shrink: 0;
+  min-width: 34px;
+}
+.ab-stat .beat .x { font-size: 13.5px; line-height: 1.4; color: rgba(255,255,255,0.88); }
+
+/* ─── PHILOSOPHY ─── */
+.ab-belief {
+  background: var(--c-plum);
+  color: var(--paper);
+  text-align: center;
+}
+.ab-belief .eyebrow { color: var(--c-yellow); }
+.ab-belief h2 {
+  color: var(--paper);
+  font-size: clamp(34px, 5vw, 64px);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  margin: 16px auto 0;
+  max-width: 18ch;
+}
+.ab-belief h2 em { font-style: italic; color: var(--c-yellow); font-weight: 400; }
+.ab-belief p {
+  margin: 24px auto 0;
+  font-size: clamp(16px, 1.6vw, 20px);
+  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+  max-width: 52ch;
+}
+.ab-belief .tagline {
+  margin-top: 34px;
+  font-family: var(--font-hand);
+  font-size: clamp(30px, 4vw, 48px);
+  color: var(--c-yellow);
+  line-height: 1;
+  transform: rotate(-2deg);
+}
+
+/* ─── PHOTO STRIP (ab- prefixed; self-contained, no kids-page dependency) ─── */
+.ab-strip {
+  padding: clamp(8px, 2vw, 20px) 0 clamp(40px, 6vw, 80px);
+  background: var(--bg);
+}
+.ab-strip.on-paper { background: var(--paper); }
+.ab-strip-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 14px;
+}
+@media (max-width: 760px) { .ab-strip-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 460px) { .ab-strip-grid { grid-template-columns: 1fr; } }
+.ab-strip figure {
+  margin: 0;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+.ab-strip figure img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ab-strip figcaption {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  font-family: var(--font-hand);
+  color: var(--paper);
+  font-size: 19px;
+  line-height: 1;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  transform: rotate(-2deg);
+  z-index: 2;
+  pointer-events: none;
+}

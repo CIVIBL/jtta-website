@@ -1,0 +1,173 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { mailto, CONTACT_EMAIL } from "../lib/site";
+import "../styles/about.css";
+
+const STRIP = [
+  { placeholder: "The log-cabin studio from outside", caption: "the 1840s cabin" },
+  { placeholder: "Inside the studio - prints & supplies" },
+  { placeholder: "Christine teaching a small group" },
+];
+---
+
+<BaseLayout
+  title="About - Christine Benson and the studio · Journey Through the Arts, Port Hope"
+  activeNav="about"
+>
+  {/* ─── HERO ─── */}
+  <section class="ab-hero" id="top">
+    <div class="wrap">
+      <div class="ab-crumbs">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <span class="cur">About</span>
+      </div>
+      <div class="ab-hero-grid">
+        <div>
+          <span class="ab-hand">Hello from the cabin</span>
+          <h1>Meet <em>Christine</em></h1>
+          <p class="ab-lede">
+            The artist, teacher and neighbour behind Journey Through the Arts and the 1840s log cabin
+            where it all happens.
+          </p>
+        </div>
+        <div class="ab-portrait">
+          {/* TODO: real photo - portrait of Christine Benson. Expected at /images/about-christine.jpg */}
+          <div class="ph">Portrait of Christine Benson</div>
+          <span class="tag">Christine Benson · Founder</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ─── CHRISTINE BIO ─── */}
+  <section class="ab-bio" id="christine">
+    <div class="wrap">
+      <div class="ab-bio-grid">
+        <div class="ab-bio-photo">
+          {/* TODO: real photo - Christine at work, relief printmaking in the studio. Expected at /images/about-christine-printmaking.jpg */}
+          <div class="ph">Christine at work - relief printmaking in the studio</div>
+        </div>
+        <div>
+          <div class="eyebrow">The artist</div>
+          <h2>A printmaker who <em>loves to teach</em></h2>
+          <p>
+            <span class="lead-in">Christine Benson is a relief printmaker and the founder of JTtA.</span>
+            A graduate of the Ontario College of Art and Design, she exhibits across Ontario, takes
+            part in the Northumberland Hills Studio Tour, and is a steady voice for the arts in Port
+            Hope. She runs the studio alongside her husband, musician Mike Woods.
+          </p>
+          <p>
+            Her own work is stylized, rhythmic and drawn from nature - hand-printed linocuts, often
+            on handmade papers, sometimes with collaged and hand-sewn details.
+          </p>
+          {/* PLACEHOLDER / CONFIRM with studio: this is Christine's personal "Best Local Artist"
+              Readers' Choice award (NOT the studio "Best Art School" award, which lives on the
+              in-the-schools page). Pending confirmation it's current. */}
+          <div class="ab-award">
+            <span class="ribbon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="6" />
+                <path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12" />
+              </svg>
+            </span>
+            <div>
+              <div class="t">Best Local Artist</div>
+              <div class="s">2023 Readers' Choice · Northumberland News</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ─── STUDIO STORY ─── */}
+  <section class="ab-story" id="story">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">The studio's story</div>
+          <h2 class="section-title" style="margin-top: 12px;">
+            From one idea to a <em>whole studio</em>
+          </h2>
+        </div>
+      </div>
+      <div class="ab-story-grid">
+        <div class="ab-story-body">
+          <p>
+            Journey Through the Arts began in <span class="yr">2002</span> as a music, art and drama
+            program for kids - built on a simple belief: that these creative disciplines matter in
+            how a child grows.
+          </p>
+          <p>
+            It grew from there. After-school and seasonal workshops. Art programs carried right into
+            local classrooms. And by <span class="yr">2005</span>, workshops for adults too - because
+            the urge to make things doesn't stop when you grow up.
+          </p>
+          <p>
+            Today Christine and Mike also run the <strong>Journey Through the Arts Gallery</strong> in
+            Port Hope, showing the work of local artists. The whole thing stays rooted where it
+            started - in the Port Hope and Northumberland community.
+          </p>
+        </div>
+        <aside class="ab-stat">
+          <div class="n">1,000+</div>
+          <div class="l">young artists, adults and students have come through our programs over the years.</div>
+          <div class="rule"></div>
+          <div class="beats">
+            <div class="beat"><span class="y">2002</span><span class="x">Founded as a kids' arts program</span></div>
+            <div class="beat"><span class="y">2004</span><span class="x">Art brought into local schools</span></div>
+            <div class="beat"><span class="y">2005</span><span class="x">Workshops open to adults</span></div>
+            <div class="beat"><span class="y">Now</span><span class="x">Studio + gallery in Port Hope</span></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  {/* ─── PHOTO STRIP ─── */}
+  <div class="ab-strip on-paper">
+    <div class="wrap">
+      <div class="ab-strip-grid">
+        {
+          STRIP.map((it) => (
+            <figure>
+              {/* TODO: real photo - {it.placeholder}. */}
+              <div class="ph">{it.placeholder}</div>
+              {it.caption && <figcaption>{it.caption}</figcaption>}
+            </figure>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  {/* ─── PHILOSOPHY ─── */}
+  <section class="ab-belief" id="belief">
+    <div class="wrap">
+      <div class="eyebrow">What we believe</div>
+      <h2>Music, art and drama matter at <em>every age</em></h2>
+      <p>
+        Kids, adults, schools, parties, summer - whoever walks in, the studio is a welcoming place to
+        try something, make a little mess, and surprise yourself.
+      </p>
+      <div class="tagline">Learn, create, inspire.</div>
+    </div>
+  </section>
+
+  {/* ─── SOFT CTA ─── */}
+  <section class="cta" id="explore">
+    <div class="wrap">
+      <h2>Come <em>see the cabin</em>.</h2>
+      <p>
+        Browse what's on for your kids, yourself, your class or a birthday, or just send Christine a
+        note. She'd love to hear from you.
+      </p>
+      <p class="cta-email"><a href={mailto()}>{CONTACT_EMAIL}</a></p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a class="btn is-light" href={mailto()}>Email Christine</a>
+        <a class="btn is-outline" href="/for-kids">Explore the programs →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
