@@ -1,0 +1,20 @@
+---
+interface Props {
+  /** Grade badge, e.g. "JK / SK", "Gr 4" */
+  badge: string;
+  title: string;
+  /** Short concept tag, e.g. "Form", "Composition" */
+  tag: string;
+  concept: string;
+}
+
+const { badge, title, tag, concept } = Astro.props;
+---
+
+<article class="sc-grade">
+  <span class="badge">{badge}</span>
+  <div class="body">
+    <h4>{title}</h4>
+    <div class="concept"><span class="tag">{tag}</span>{concept}</div>
+  </div>
+</article>

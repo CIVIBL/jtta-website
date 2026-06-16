@@ -1,0 +1,220 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+import SchoolIcon from "../components/SchoolIcon.astro";
+import GradeCard from "../components/GradeCard.astro";
+import { mailto, CONTACT_EMAIL } from "../lib/site";
+import "../styles/in-the-schools.css";
+
+const BEATS = [
+  { icon: "van", h: "She comes to you", p: "Christine delivers the workshop right in your classroom - no buses, no field trip." },
+  { icon: "supplies", h: "Everything supplied", p: "All materials arrive with her. Your students just need their seats." },
+  { icon: "book", h: "Linked to curriculum", p: "Each workshop is built around art concepts - line, shape, colour, composition, art history." },
+  { icon: "frame", h: "A finished piece", p: "Over about two periods, every student completes work to display or take home." },
+];
+
+type DivAccent = "sage" | "blue" | "plum";
+interface Division {
+  name: string;
+  range: string;
+  color: DivAccent;
+  grades: { badge: string; title: string; tag: string; concept: string }[];
+}
+const divColor: Record<DivAccent, string> = {
+  sage: "var(--c-sage)",
+  blue: "var(--c-blue)",
+  plum: "var(--c-plum)",
+};
+const DIVISIONS: Division[] = [
+  {
+    name: "Primary", range: "Kindergarten - Grade 3", color: "sage",
+    grades: [
+      { badge: "JK / SK", title: "Clay Pinch Pots", tag: "Form", concept: "Explore clay and 2D/3D shape by making a pinch pot in self-hardening clay." },
+      { badge: "Gr 1", title: "Sand Mandalas", tag: "Shape & colour", concept: "Line, geometric and organic shape, warm/cool colour and radial design in a sand-painting mandala." },
+      { badge: "Gr 2", title: "That's One Cool Panda!", tag: "Warm & cool colour", concept: "Draw a panda from geometric shapes, then use warm/cool colour and symmetry to show emotion." },
+      { badge: "Gr 3", title: "Underwater Creatures", tag: "Space & texture", concept: "Foreground, middle ground and background plus texture, in an underwater painting." },
+    ],
+  },
+  {
+    name: "Junior", range: "Grades 4 - 6", color: "blue",
+    grades: [
+      { badge: "Gr 4", title: "Squirrel Drawings", tag: "Line & texture", concept: "Build line and texture through cross-hatching and pointillism." },
+      { badge: "Gr 5", title: "Birch Tree Landscapes", tag: "Composition", concept: "Composition, shading and the illusion of depth in a landscape painting." },
+      { badge: "Gr 6", title: "Caricatures", tag: "Proportion", concept: "Master facial proportion, then exaggerate it to create a caricature." },
+    ],
+  },
+  {
+    name: "Intermediate", range: "Grades 7 - 8", color: "plum",
+    grades: [
+      { badge: "Gr 7", title: "Trees, after Emily Carr", tag: "Expressive value", concept: "Expressive line, texture and value in chalk pastel, inspired by the Canadian artist." },
+      { badge: "Gr 8", title: "Cubist Self-Portraits", tag: "After Picasso", concept: "Deconstruct and reassemble facial forms into a Cubist self-portrait." },
+    ],
+  },
+];
+
+const STRIP = [
+  { placeholder: "Students mid-workshop at their desks", caption: "in the classroom" },
+  { placeholder: "Close-up of student artwork" },
+  { placeholder: "Finished pieces on display" },
+];
+---
+
+<BaseLayout title="In-the-Schools - Curriculum-linked art workshops · Journey Through the Arts, Port Hope">
+  {/* ─── HERO ─── */}
+  <section class="sc-hero" id="top">
+    <div class="wrap">
+      <div class="sc-crumbs">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <span class="cur">In-the-Schools</span>
+      </div>
+      <div class="sc-hero-grid">
+        <div>
+          <span class="sc-eyebrow"><span class="dot"></span>In-the-Schools Program</span>
+          <h1>Curriculum-linked art, brought to <em>your classroom</em></h1>
+          <p class="sc-lede">
+            Christine comes to you with every supply in hand and guides your students through a
+            grade-appropriate visual art workshop. Each one ties to the art curriculum, and every
+            student finishes a piece to display or take home.
+          </p>
+          <div class="sc-avail"><Icon name="pin" /><span>Available to schools in <b>Port Hope & Cobourg</b></span></div>
+          <div class="sc-hero-ctas">
+            <a class="btn is-primary" href="#book">Email Christine to book →</a>
+            <span class="sc-email">or email <a href={mailto()}>{CONTACT_EMAIL}</a></span>
+          </div>
+        </div>
+        <div class="sc-hero-side">
+          <div class="sc-hero-photo">
+            {/* TODO: real photo - Christine leading a classroom art workshop. Expected at /images/schools-classroom.jpg */}
+            <div class="ph">Christine leading a classroom art workshop</div>
+          </div>
+          {/* PLACEHOLDER / CONFIRM with studio: is this the current accolade? This is the
+              studio "Best Art Instruction" Readers' Choice award (not Christine's personal
+              "Best Local Artist" award, which belongs on the about page). */}
+          <div class="sc-award">
+            <span class="ribbon"><SchoolIcon name="award" /></span>
+            <div>
+              <div class="t">Best Art Instruction</div>
+              <div class="s">2023 Diamond Winner · Northumberland Readers' Choice</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ─── HOW IT WORKS ─── */}
+  <section class="sc-how" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">How it works</div>
+          <h2 class="section-title" style="margin-top: 12px;">
+            Turnkey, <em>start to finish</em>
+          </h2>
+          <p class="section-lede">
+            A visiting teaching artist who brings the whole studio with her. You prepare nothing.
+          </p>
+        </div>
+      </div>
+      <div class="sc-beats">
+        {
+          BEATS.map((b) => (
+            <div class="sc-beat">
+              <span class="ic"><SchoolIcon name={b.icon} /></span>
+              <h3>{b.h}</h3>
+              <p>{b.p}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* ─── GRADE-BY-GRADE ─── */}
+  <section class="sc-grades" id="grades">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Grade-by-grade workshops</div>
+          <h2 class="section-title" style="margin-top: 12px;">
+            Find your grade, <em>picture the lesson</em>
+          </h2>
+          <p class="section-lede">
+            A sample of the grade-specific workshops we offer, mapped to division. Each is tailored
+            to the grade level and its art curriculum.
+          </p>
+        </div>
+      </div>
+
+      {
+        DIVISIONS.map((d) => (
+          <div class="sc-division" style={`--div: ${divColor[d.color]};`}>
+            <div class="sc-div-head">
+              <h3>{d.name}</h3>
+              <span class="range">{d.range}</span>
+            </div>
+            <div class="sc-grade-grid">
+              {d.grades.map((g) => (
+                <GradeCard badge={g.badge} title={g.title} tag={g.tag} concept={g.concept} />
+              ))}
+            </div>
+          </div>
+        ))
+      }
+
+      <p class="sc-grades-note">
+        These are examples - Christine offers more workshops and will build one around what your
+        class is studying. Just ask.
+      </p>
+    </div>
+  </section>
+
+  {/* ─── CUSTOMIZATION ─── */}
+  <section class="sc-custom" id="customize">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Tailored to your class</div>
+        <h2>Building toward a <em>specific unit</em>?</h2>
+        <p>
+          Tell Christine your learning goals or what you're teaching now, and she'll shape a
+          workshop to match, reinforcing the concepts your students are already working on.
+        </p>
+      </div>
+      <a class="btn is-light" href={mailto("Custom in-school workshop")}>Discuss a custom workshop →</a>
+    </div>
+  </section>
+
+  {/* ─── PHOTO STRIP ─── */}
+  <div class="sc-strip">
+    <div class="wrap">
+      <div class="sc-strip-grid">
+        {
+          STRIP.map((it) => (
+            <figure>
+              {/* TODO: real photo - {it.placeholder}. */}
+              <div class="ph">{it.placeholder}</div>
+              {it.caption && <figcaption>{it.caption}</figcaption>}
+            </figure>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  {/* ─── BOOK CTA ─── */}
+  <section class="cta" id="book">
+    <div class="wrap">
+      <h2>Bring art to your <em>classroom</em>.</h2>
+      <p>
+        Email Christine to talk through your class, your learning goals and pricing, and to book a
+        date. Open to schools in Port Hope & Cobourg.
+      </p>
+      <p class="cta-email"><a href={mailto("In-the-Schools workshop inquiry")}>{CONTACT_EMAIL}</a></p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a class="btn is-light" href={mailto("In-the-Schools workshop inquiry")}>Email Christine</a>
+        <a class="btn is-outline" href="/#about">About Christine →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,306 @@
+/* JTtA · In-the-Schools page - extends tokens.css + global.css.
+   Only loaded on /in-the-schools. Shared chrome (nav, footer, buttons, section
+   heads, .cta, .ph placeholder) lives in global.css; the page-scoped GradeCard
+   is styled here. Classes keep the design's own sc- (schools) prefix - it's
+   collision-free and distinct from other pages' k-/a-/s-/b- prefixes. The
+   borrowed photo strip is localized as sc-strip so nothing depends on another
+   page's stylesheet. (Avoided an is- prefix: it collides with the site's .is-*
+   button/state modifier convention.) */
+
+/* ─── HERO ─── */
+.sc-hero {
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+  padding: clamp(40px, 6vw, 80px) 0 clamp(44px, 6vw, 84px);
+  position: relative;
+}
+.sc-crumbs {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sc-crumbs a { color: var(--muted); text-decoration: none; transition: color .15s; }
+.sc-crumbs a:hover { color: var(--c-red); }
+.sc-crumbs .sep { opacity: 0.5; }
+.sc-crumbs .cur { color: var(--ink); }
+
+.sc-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+@media (max-width: 920px) { .sc-hero-grid { grid-template-columns: 1fr; } }
+
+.sc-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-blue);
+  margin-bottom: 16px;
+}
+.sc-eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--c-blue); }
+.sc-hero h1 {
+  font-size: clamp(38px, 4.8vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  max-width: 17ch;
+}
+.sc-hero h1 em { font-style: italic; color: var(--c-blue); font-weight: 400; }
+.sc-lede {
+  margin-top: 22px;
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 50ch;
+}
+.sc-avail {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 22px;
+  background: color-mix(in srgb, var(--c-sage) 14%, transparent);
+  color: var(--c-sage);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+.sc-avail svg { width: 16px; height: 16px; flex-shrink: 0; }
+.sc-avail b { color: var(--ink); font-weight: 700; }
+.sc-hero-ctas { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; align-items: center; }
+.sc-hero-ctas .sc-email { font-size: 14px; color: var(--muted); }
+.sc-hero-ctas .sc-email a { color: var(--c-red); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+
+/* hero photo + award */
+.sc-hero-side { position: relative; }
+.sc-hero-photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.sc-hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sc-award {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 14px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+.sc-award .ribbon {
+  width: 38px; height: 38px;
+  flex-shrink: 0;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--c-yellow) 22%, transparent);
+  color: #9A6B12;
+  display: grid; place-items: center;
+}
+.sc-award .ribbon svg { width: 20px; height: 20px; }
+.sc-award .t {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.sc-award .s { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+
+/* ─── HOW IT WORKS ─── */
+.sc-how { background: var(--paper); }
+.sc-beats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 8px;
+}
+@media (max-width: 900px) { .sc-beats { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 460px) { .sc-beats { grid-template-columns: 1fr; } }
+.sc-beat {
+  padding: 24px 22px;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+}
+.sc-beat .ic {
+  width: 40px; height: 40px;
+  border-radius: 11px;
+  background: color-mix(in srgb, var(--c-blue) 13%, transparent);
+  color: var(--c-blue);
+  display: grid; place-items: center;
+  margin-bottom: 15px;
+}
+.sc-beat .ic svg { width: 20px; height: 20px; }
+.sc-beat h3 {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 6px;
+}
+.sc-beat p { margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--ink-soft); }
+
+/* ─── GRADE-BY-GRADE (GradeCard) ─── */
+.sc-grades { background: var(--bg); }
+.sc-division { margin-top: 40px; }
+.sc-division:first-of-type { margin-top: 8px; }
+.sc-div-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+  border-bottom: 2px solid var(--div, var(--c-blue));
+}
+.sc-div-head h3 {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--div, var(--c-blue));
+}
+.sc-div-head .range {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+.sc-grade-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 14px;
+}
+.sc-grade {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  padding: 20px 22px;
+  transition: border-color .15s, transform .15s, box-shadow .15s;
+}
+.sc-grade:hover {
+  border-color: var(--div, var(--rule-strong));
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px -18px rgba(28,26,23,0.22);
+}
+.sc-grade .badge {
+  flex-shrink: 0;
+  min-width: 56px;
+  height: 56px;
+  padding: 0 10px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--div) 13%, transparent);
+  color: var(--div, var(--c-blue));
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+  text-align: center;
+  line-height: 1;
+}
+.sc-grade .body { min-width: 0; }
+.sc-grade h4 {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  margin: 2px 0 6px;
+  line-height: 1.1;
+}
+.sc-grade .concept {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.sc-grade .concept .tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--div, var(--c-blue));
+  margin-right: 4px;
+}
+.sc-grades-note {
+  margin-top: 30px;
+  font-size: 14px;
+  color: var(--muted);
+  font-style: italic;
+  max-width: 60ch;
+}
+
+/* ─── CUSTOMIZATION ─── */
+.sc-custom { background: var(--ink); color: var(--paper); }
+.sc-custom .wrap { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
+@media (max-width: 760px) { .sc-custom .wrap { grid-template-columns: 1fr; } }
+.sc-custom .eyebrow { color: var(--c-yellow); }
+.sc-custom h2 {
+  color: var(--paper);
+  font-size: clamp(28px, 3.4vw, 42px);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  margin: 12px 0 0;
+  max-width: 22ch;
+}
+.sc-custom h2 em { font-style: italic; color: var(--c-yellow); font-weight: 400; }
+.sc-custom p {
+  margin: 16px 0 0;
+  font-size: clamp(15px, 1.5vw, 18px);
+  line-height: 1.6;
+  color: rgba(255,255,255,0.82);
+  max-width: 52ch;
+}
+.sc-custom .btn.is-light { background: var(--paper); border-color: var(--paper); color: var(--ink); white-space: nowrap; }
+.sc-custom .btn.is-light:hover { background: var(--c-yellow); border-color: var(--c-yellow); }
+
+/* ─── PHOTO STRIP (sc- prefixed; self-contained, no kids-page dependency) ─── */
+.sc-strip {
+  padding: clamp(8px, 2vw, 20px) 0 clamp(40px, 6vw, 80px);
+  background: var(--bg);
+}
+.sc-strip.on-paper { background: var(--paper); }
+.sc-strip-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 14px;
+}
+@media (max-width: 760px) { .sc-strip-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 460px) { .sc-strip-grid { grid-template-columns: 1fr; } }
+.sc-strip figure {
+  margin: 0;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+.sc-strip figure img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sc-strip figcaption {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  font-family: var(--font-hand);
+  color: var(--paper);
+  font-size: 19px;
+  line-height: 1;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  transform: rotate(-2deg);
+  z-index: 2;
+  pointer-events: none;
+}
