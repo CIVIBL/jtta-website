@@ -14,6 +14,7 @@ import {
   formatTimeRange,
   PRICE_NOTE,
 } from "../lib/workshops";
+import { mailto, CONTACT_EMAIL } from "../lib/site";
 
 interface Props {
   workshop: CollectionEntry<"workshops">;
@@ -90,5 +91,12 @@ const ctaLabel =
 
   <div class="k-card-foot">
     <a class="btn is-primary" href={buildMailto(w.title, w.date)}>{ctaLabel}</a>
+    {
+      w.status !== "full" && (
+        <span class="k-register-addr">
+          or write to <a href={mailto()}>{CONTACT_EMAIL}</a>
+        </span>
+      )
+    }
   </div>
 </article>

@@ -293,12 +293,20 @@
 .k-card-foot {
   margin-top: auto;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
 }
 .k-card .btn { padding: 11px 18px; }
+.k-register-addr {
+  font-size: 13px;
+  color: var(--muted);
+}
+.k-register-addr a {
+  color: var(--c-red);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 .k-card.is-full .k-card-foot .btn {
   background: transparent;
   color: var(--muted);

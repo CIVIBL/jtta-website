@@ -568,6 +568,14 @@ section[id] { scroll-margin-top: 110px; }
   color: var(--ink);
 }
 .workshop-row.is-special .w-body .pill { background: var(--c-yellow); }
+.w-register {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-red);
+}
+.workshop-row.is-special .w-register { color: var(--c-yellow); }
 
 .w-cta {
   display: grid;
@@ -966,6 +974,20 @@ section[id] { scroll-margin-top: 110px; }
   margin: 0 auto 32px;
   opacity: 0.9;
 }
+.cta-email {
+  margin: 0 auto 28px;
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3.5vw, 34px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.cta-email a {
+  color: var(--paper);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+.cta-email a:hover { color: var(--c-yellow); }
 .cta .btn.is-light { background: var(--paper); border-color: var(--paper); }
 .cta .btn.is-light, .cta .btn.is-light * { color: var(--c-red); }
 .cta .btn.is-light:hover { background: var(--ink); border-color: var(--ink); }
