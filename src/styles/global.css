@@ -213,6 +213,8 @@ img { display: block; max-width: 100%; }
 }
 
 section { padding: clamp(56px, 8vw, 112px) 0; position: relative; }
+/* Offset in-page anchor jumps so the sticky nav doesn't cover section headings. */
+section[id] { scroll-margin-top: 110px; }
 
 /* ─── HERO ─── */
 .hero {
@@ -376,7 +378,7 @@ section { padding: clamp(56px, 8vw, 112px) 0; position: relative; }
   margin-bottom: 24px;
   flex-wrap: wrap;
 }
-.audience-head h3 {
+.audience-head .ah-title {
   font-family: var(--font-body);
   font-size: 13px;
   letter-spacing: 0.18em;
@@ -535,7 +537,7 @@ section { padding: clamp(56px, 8vw, 112px) 0; position: relative; }
   letter-spacing: 0.05em;
   color: var(--muted);
 }
-.w-body h4 {
+.w-body h3 {
   font-family: var(--font-display);
   font-size: 22px;
   font-weight: 500;
@@ -982,7 +984,7 @@ section { padding: clamp(56px, 8vw, 112px) 0; position: relative; }
   margin-bottom: 56px;
 }
 @media (max-width: 780px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-.footer h5 {
+.footer .footer-h {
   font-family: var(--font-body);
   font-size: 11px;
   letter-spacing: 0.18em;

@@ -5,6 +5,7 @@ import Icon from "../components/Icon.astro";
 import WorkshopCard from "../components/WorkshopCard.astro";
 import PhotoStrip from "../components/PhotoStrip.astro";
 import { isUpcoming } from "../lib/workshops";
+import { mailto, CONTACT_EMAIL, MAPS_URL } from "../lib/site";
 import "../styles/for-kids.css";
 
 const kidsWorkshops = (await getCollection("workshops"))
@@ -23,15 +24,18 @@ const QUICK_FACTS: QuickFact[] = [
   { icon: "calendar", b: "Drop-in or series", s: "Single days & multi-week" },
 ];
 
+// Kids-page photos aren't shot yet, so no `src` — PhotoStrip renders labelled
+// placeholders until the files exist. Add `src: "/images/…"` per item (or wire
+// via CMS) when they land; the component already handles it (see PhotoStrip H1).
 const STRIP_ONE = [
-  { placeholder: "Kids at the worktable", caption: "messy hands, happy kids", src: "/images/kids-worktable.jpg" },
-  { placeholder: "Finished clay projects", src: "/images/kids-clay-projects.jpg" },
-  { placeholder: "Painting close-up", src: "/images/kids-painting-closeup.jpg" },
+  { placeholder: "Kids at the worktable", caption: "messy hands, happy kids" },
+  { placeholder: "Finished clay projects" },
+  { placeholder: "Painting close-up" },
 ];
 const STRIP_TWO = [
-  { placeholder: "The cabin studio interior", caption: "our 1840s cabin", src: "/images/cabin-interior.jpg" },
-  { placeholder: "Drying rack of paintings", src: "/images/drying-rack.jpg" },
-  { placeholder: "Kid holding their artwork", src: "/images/kid-artwork.jpg" },
+  { placeholder: "The cabin studio interior", caption: "our 1840s cabin" },
+  { placeholder: "Drying rack of paintings" },
+  { placeholder: "Kid holding their artwork" },
 ];
 ---
 
@@ -105,7 +109,7 @@ const STRIP_TWO = [
               add you to the list — you'll be the first to hear when new dates open up.
             </p>
             <div class="k-empty-ctas">
-              <a class="btn is-primary" href="mailto:jttacabin@gmail.com?subject=Notify me about kids workshops">Get notified →</a>
+              <a class="btn is-primary" href={mailto("Notify me about kids workshops")}>Get notified →</a>
               <a class="btn is-line" href="/#summer">Ask about summer camp</a>
             </div>
           </div>
@@ -139,22 +143,22 @@ const STRIP_TWO = [
       <div class="k-know-grid">
         <div class="k-know-card">
           <span class="ic"><Icon name="pin" /></span>
-          <h4>Where</h4>
+          <h3>Where</h3>
           <p>The log-cabin studio at <b>190 Hope St N in Port Hope</b>. Park on the street; the studio entrance is round the side.</p>
         </div>
         <div class="k-know-card">
           <span class="ic"><Icon name="car" /></span>
-          <h4>Drop-off & pickup</h4>
+          <h3>Drop-off & pickup</h3>
           <p>Drop off up to 5 min early. Please walk younger kids in and pick them up at the door. Christine likes to say hello!</p>
         </div>
         <div class="k-know-card">
           <span class="ic"><Icon name="supplies" /></span>
-          <h4>What's provided</h4>
+          <h3>What's provided</h3>
           <p>All supplies for the project are included: paints, clay, paper, tools, etc. No need to buy a thing.</p>
         </div>
         <div class="k-know-card">
           <span class="ic"><Icon name="bag" /></span>
-          <h4>What to bring</h4>
+          <h3>What to bring</h3>
           <p>Just a smock or an old shirt (art gets messy!) and a water bottle. We'll note anything extra on the workshop.</p>
         </div>
       </div>
@@ -173,8 +177,8 @@ const STRIP_TWO = [
         reply to you directly. No carts, no accounts.
       </p>
       <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-        <a class="btn is-light" href="mailto:jttacabin@gmail.com">jttacabin@gmail.com</a>
-        <a class="btn is-outline" href="https://maps.app.goo.gl/B21tc9VSLLVKoAx69" target="_blank" rel="noopener">Find the cabin →</a>
+        <a class="btn is-light" href={mailto()}>{CONTACT_EMAIL}</a>
+        <a class="btn is-outline" href={MAPS_URL} target="_blank" rel="noopener">Find the cabin →</a>
       </div>
     </div>
   </section>

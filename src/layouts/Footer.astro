@@ -12,6 +12,8 @@ const studio = [
   { label: "Gallery", href: "/" },
   { label: "Testimonials", href: "/" },
 ];
+
+import { mailto, CONTACT_EMAIL, MAPS_URL } from "../lib/site";
 ---
 
 <footer class="footer">
@@ -22,19 +24,17 @@ const studio = [
         <p class="footer-tag">A music, art &amp; drama studio in Port Hope, Ontario. Est. 2002.</p>
       </div>
       <div>
-        <h5>Programs</h5>
+        <div class="footer-h">Programs</div>
         {programs.map((p) => <a href={p.href}>{p.label}</a>)}
       </div>
       <div>
-        <h5>Studio</h5>
+        <div class="footer-h">Studio</div>
         {studio.map((s) => <a href={s.href}>{s.label}</a>)}
       </div>
       <div>
-        <h5>Visit</h5>
-        <a href="https://maps.app.goo.gl/B21tc9VSLLVKoAx69" target="_blank" rel="noopener">190 Hope St N · Port Hope</a>
-        <a href="mailto:jttacabin@gmail.com">jttacabin@gmail.com</a>
-        <a href="#">Facebook</a>
-        <a href="#">Newsletter</a>
+        <div class="footer-h">Visit</div>
+        <a href={MAPS_URL} target="_blank" rel="noopener">190 Hope St N · Port Hope</a>
+        <a href={mailto()}>{CONTACT_EMAIL}</a>
       </div>
     </div>
     <div class="footer-fine">

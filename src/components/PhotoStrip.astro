@@ -23,8 +23,11 @@ const { items, onPaper = false } = Astro.props;
       {
         items.map((it) => (
           <figure>
-            {/* TODO: real photo — {it.placeholder}. Expected at {it.src} */}
-            <div class="ph">{it.placeholder}</div>
+            {it.src ? (
+              <img src={it.src} alt={it.placeholder} loading="lazy" />
+            ) : (
+              <div class="ph">{it.placeholder}</div>
+            )}
             {it.caption && <figcaption>{it.caption}</figcaption>}
           </figure>
         ))

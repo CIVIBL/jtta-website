@@ -1,4 +1,6 @@
 ---
+import { mailto } from "../lib/site";
+
 interface Props {
   /** Highlights the matching nav link as the current section/page. */
   active?: "kids" | "adults" | "summer" | "about";
@@ -28,7 +30,7 @@ const links = [
     </a>
     <nav class="nav-links">
       {links.map((l) => <a href={l.href} class:list={{ active: active === l.key }}>{l.label}</a>)}
-      <a class="btn nav-cta is-primary" href="mailto:jttacabin@gmail.com">Contact Christine</a>
+      <a class="btn nav-cta is-primary" href={mailto()}>Contact Christine</a>
     </nav>
   </div>
 </header>

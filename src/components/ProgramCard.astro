@@ -7,26 +7,21 @@ interface Props {
   title: string;
   desc: string;
   featured?: boolean;
-  /** Photo subject (used as placeholder label, only when featured) */
+  /** Photo subject (used as placeholder label / alt, only when featured) */
   photo?: string;
-  /** Expected real image path for the photo, e.g. "/images/program-workshops.jpg" */
+  /** Real image path for the photo, e.g. "/images/program-workshops.jpg" */
   photoSrc?: string;
+  /** Real destination. Omit to render a non-link card (no dead href="#"). */
   href?: string;
 }
 
-const {
-  tag,
-  color,
-  title,
-  desc,
-  featured = false,
-  photo,
-  photoSrc,
-  href = "#",
-} = Astro.props;
+const { tag, color, title, desc, featured = false, photo, photoSrc, href } = Astro.props;
+
+const Tag = href ? "a" : "div";
+const cardClass = featured ? "program-card featured" : "program-card";
 ---
 
-<a class:list={["program-card", { featured }]} href={href}>
+<Tag class={cardClass} href={href}>
   <div class="pcontent">
     <div class="p-tag">
       <span class="dot" style={`background: ${color};`}></span>
@@ -34,9 +29,13 @@ const {
     </div>
     <div class="p-title">{title}</div>
     <div class="p-desc">{desc}</div>
-    <div class="p-foot">
-      Learn more <span class="p-arrow">→</span>
-    </div>
+    {
+      href && (
+        <div class="p-foot">
+          Learn more <span class="p-arrow">→</span>
+        </div>
+      )
+    }
   </div>
   {
     featured && (
@@ -51,4 +50,4 @@ const {
       </div>
     )
   }
-</a>
+</Tag>

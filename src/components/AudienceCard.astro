@@ -2,16 +2,18 @@
 interface Props {
   label: string;
   meta: string;
+  /** Real destination. Omit to render a non-link card (no dead href="#"). */
   href?: string;
 }
 
-const { label, meta, href = "#programs" } = Astro.props;
+const { label, meta, href } = Astro.props;
+const Tag = href ? "a" : "div";
 ---
 
-<a class="audience-card" href={href}>
+<Tag class="audience-card" href={href}>
   <div>
     <div class="a-label">{label}</div>
     <div class="a-meta">{meta}</div>
   </div>
   <div class="a-icon">→</div>
-</a>
+</Tag>

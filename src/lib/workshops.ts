@@ -11,9 +11,9 @@
  * Check: date 2026-07-04 renders "Sat Jul 4" regardless of server location.
  */
 
-const STUDIO_TZ = "America/Toronto";
+import { mailto } from "./site";
 
-export const CONTACT_EMAIL = "jttacabin@gmail.com"; // TODO: extract to site.ts (follow-up PR)
+const STUDIO_TZ = "America/Toronto";
 
 /** Note rendered beside single-session prices. All prices are HST-inclusive. */
 export const PRICE_NOTE = "incl. HST";
@@ -105,5 +105,5 @@ export function isUpcoming(date: Date): boolean {
 /** Per-workshop registration mailto with a subject Christine can triage at a glance. */
 export function buildMailto(workshopTitle: string, date: Date): string {
   const subject = `Workshop registration: ${workshopTitle} (${formatDow(date)} ${formatMonth(date)} ${formatDay(date)})`;
-  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}`;
+  return mailto(subject);
 }

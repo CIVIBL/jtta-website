@@ -5,6 +5,7 @@ import AudienceCard from "../components/AudienceCard.astro";
 import WorkshopRow from "../components/WorkshopRow.astro";
 import ProgramCard from "../components/ProgramCard.astro";
 import { isUpcoming } from "../lib/workshops";
+import { mailto, CONTACT_EMAIL, MAPS_URL } from "../lib/site";
 
 const upcomingWorkshops = (await getCollection("workshops"))
   .filter((w) => isUpcoming(w.data.date))
@@ -14,13 +15,14 @@ const upcomingWorkshops = (await getCollection("workshops"))
 interface Audience {
   label: string;
   meta: string;
-  href: string;
+  /** Omit when there's no dedicated page yet — card renders as a non-link. */
+  href?: string;
 }
 const AUDIENCES: Audience[] = [
-  { label: "For my child", meta: "Workshops · summer camp · ages 6-13", href: "#programs" },
-  { label: "For myself", meta: "Adult workshops · Evenings", href: "#programs" },
-  { label: "For a birthday", meta: "Studio party", href: "#programs" },
-  { label: "For my class", meta: "In-the-Schools · JK to Gr 8", href: "#programs" },
+  { label: "For my child", meta: "Workshops · summer camp · ages 6-13", href: "/for-kids" },
+  { label: "For myself", meta: "Adult workshops · Evenings" },
+  { label: "For a birthday", meta: "Studio party" },
+  { label: "For my class", meta: "In-the-Schools · JK to Gr 8" },
 ];
 
 interface Program {
@@ -31,6 +33,8 @@ interface Program {
   featured?: boolean;
   photo?: string;
   photoSrc?: string;
+  /** Omit when there's no dedicated page yet — card renders as a non-link. */
+  href?: string;
 }
 const PROGRAMS: Program[] = [
   {
@@ -41,6 +45,7 @@ const PROGRAMS: Program[] = [
     desc: "After-school workshops in the log-cabin studio. Pick the days that fit — felting, watercolour, clay, mandalas, beading, drawing, painting. Many parents enroll for the whole term, but you don't have to.",
     photo: "About twenty children seated around long wooden tables in the rustic cabin studio, drawing and waving at the camera.",
     photoSrc: "/images/program-workshops.jpg",
+    href: "/for-kids",
   },
   {
     tag: "Mon eves · adults",
@@ -136,11 +141,8 @@ const WEEKS: Week[] = [
       </div>
     </div>
 
-    <a
-      class="hero-stamp"
-      href="https://maps.app.goo.gl/B21tc9VSLLVKoAx69"
-      target="_blank"
-      rel="noopener">📍 190 Hope St N · Port Hope</a
+    <a class="hero-stamp" href={MAPS_URL} target="_blank" rel="noopener"
+      >📍 190 Hope St N · Port Hope</a
     >
   </section>
 
@@ -148,7 +150,7 @@ const WEEKS: Week[] = [
   <section class="audience" id="audience">
     <div class="wrap">
       <div class="audience-head">
-        <h3>I'm here for…</h3>
+        <div class="ah-title">I'm here for…</div>
         <span class="arrow">Choose a path</span>
       </div>
       <div class="audience-grid">
@@ -187,7 +189,7 @@ const WEEKS: Week[] = [
               <strong>How to register:</strong> Contact Christine via email. She'll confirm your
               spot. Payment at the time of registration.
             </p>
-            <a href="mailto:jttacabin@gmail.com?subject=Workshop registration" class="btn is-primary">
+            <a href={mailto("Workshop registration")} class="btn is-primary">
               Contact Christine
             </a>
           </div>
@@ -223,6 +225,7 @@ const WEEKS: Week[] = [
               featured={p.featured}
               photo={p.photo}
               photoSrc={p.photoSrc}
+              href={p.href}
             />
           ))
         }
@@ -307,7 +310,7 @@ const WEEKS: Week[] = [
           </div>
 
           <div style="display: flex; gap: 12px; margin-top: 28px; align-items: center; flex-wrap: wrap;">
-            <a href="mailto:jttacabin@gmail.com?subject=Summer 2026 registration" class="btn is-primary"
+            <a href={mailto("Summer 2026 registration")} class="btn is-primary"
               >Request Registration</a
             >
             <span style="font-size: 13px; color: var(--muted);">Deadline · Mar 2, 8:00 pm</span>
@@ -346,9 +349,10 @@ const WEEKS: Week[] = [
             <div><strong>2024</strong><span>Diamond winner</span></div>
           </div>
 
+          {/* No /about page yet — rendered as non-link placeholders until it lands. */}
           <div style="margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap;">
-            <a class="btn is-ghost" href="#">Meet Christine →</a>
-            <a class="btn is-line" href="#">Visit the studio →</a>
+            <div class="btn is-ghost">Meet Christine →</div>
+            <div class="btn is-line">Visit the studio →</div>
           </div>
         </div>
       </div>
@@ -364,8 +368,8 @@ const WEEKS: Week[] = [
         birthday. She'll answer directly!
       </p>
       <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-        <a class="btn is-light" href="mailto:jttacabin@gmail.com">jttacabin@gmail.com</a>
-        <a class="btn is-outline" href="#">Find the cabin →</a>
+        <a class="btn is-light" href={mailto()}>{CONTACT_EMAIL}</a>
+        <a class="btn is-outline" href={MAPS_URL} target="_blank" rel="noopener">Find the cabin →</a>
       </div>
     </div>
   </section>
