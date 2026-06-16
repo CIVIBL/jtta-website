@@ -83,19 +83,6 @@ const CAROUSEL: Slide[] = [
   { src: "/images/carousel-8.jpg", alt: "Four girls sitting on a fallen log outdoors, sketching on paper in the sun." },
 ];
 
-interface Week {
-  num: number;
-  title: string;
-  date: string;
-  status: string;
-  level: "is-low" | "is-open";
-}
-const WEEKS: Week[] = [
-  { num: 1, title: "Welcome to Magic School", date: "Jul 6 - 10", status: "1 spot left", level: "is-low" },
-  { num: 2, title: "The Haunted Hotel", date: "Jul 13 - 17", status: "Filling up", level: "is-low" },
-  { num: 3, title: "Comic Characters Alive!", date: "Aug 10 - 14", status: "Open", level: "is-open" },
-  { num: 4, title: "Underwater World", date: "Aug 17 - 21", status: "Open", level: "is-open" },
-];
 ---
 
 <BaseLayout title="Journey Through the Arts - Creative studio in Port Hope">
@@ -280,7 +267,7 @@ const WEEKS: Week[] = [
           <div class="badge">24th<small>year running</small></div>
         </div>
         <div>
-          <div class="eyebrow">Summer camp 2026 · ages 6 - 12</div>
+          <div class="eyebrow">Summer camp 2026 · ages 6-13</div>
           <h2 class="section-title" style="margin-top: 12px;">
             One <em>themed week</em>,<br />
             one performance,<br />
@@ -293,28 +280,8 @@ const WEEKS: Week[] = [
             production.
           </p>
 
-          <div class="weeks">
-            {
-              WEEKS.map((w) => (
-                <div class="week-item">
-                  <div class="week-num">
-                    0{w.num}<small>WEEK</small>
-                  </div>
-                  <div class="week-info">
-                    <div class="wt">{w.title}</div>
-                    <div class="wd">{w.date}</div>
-                  </div>
-                  <span class:list={["week-status", w.level]}>{w.status}</span>
-                </div>
-              ))
-            }
-          </div>
-
           <div style="display: flex; gap: 12px; margin-top: 28px; align-items: center; flex-wrap: wrap;">
-            <a href={mailto("Summer 2026 registration")} class="btn is-primary"
-              >Request Registration</a
-            >
-            <span style="font-size: 13px; color: var(--muted);">Deadline · Mar 2, 8:00 pm</span>
+            <a href="/summer-program" class="btn is-primary">See the full summer program →</a>
           </div>
         </div>
       </div>

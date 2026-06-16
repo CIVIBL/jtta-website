@@ -1,0 +1,43 @@
+---
+type Accent = "sage" | "blue" | "red" | "plum" | "yellow";
+
+interface Props {
+  name: string;
+  /** Discipline label, e.g. "Visual Art" */
+  disc: string;
+  accent: Accent;
+  /** Photo subject (placeholder label / alt) */
+  photo: string;
+  /** Real image path when available, e.g. "/images/team-christine.jpg" */
+  photoSrc?: string;
+  /** Short (~2 sentence) bio */
+  bio: string;
+}
+
+const { name, disc, accent, photo, photoSrc, bio } = Astro.props;
+
+const accentVar: Record<Accent, string> = {
+  sage: "var(--c-sage)",
+  blue: "var(--c-blue)",
+  red: "var(--c-red)",
+  plum: "var(--c-plum)",
+  yellow: "var(--c-yellow)",
+};
+---
+
+<article class="s-team-card" style={`--accent: ${accentVar[accent]};`}>
+  <div class="s-team-photo">
+    {
+      photoSrc ? (
+        <img src={photoSrc} alt={photo} loading="lazy" />
+      ) : (
+        <div class="ph">{photo}</div>
+      )
+    }
+  </div>
+  <div class="s-team-body">
+    <div class="s-team-disc"><span class="dot"></span>{disc}</div>
+    <h3>{name}</h3>
+    <p>{bio}</p>
+  </div>
+</article>

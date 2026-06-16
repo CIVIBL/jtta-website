@@ -1,0 +1,32 @@
+---
+import Icon from "./Icon.astro";
+
+type Accent = "plum" | "blue" | "red" | "sage" | "yellow";
+
+interface Props {
+  num: number;
+  label: string;
+  dates: string;
+  theme: string;
+  accent: Accent;
+}
+
+const { num, label, dates, theme, accent } = Astro.props;
+
+// Accent name -> token (content stores a name, not raw CSS).
+const wk: Record<Accent, string> = {
+  plum: "var(--c-plum)",
+  blue: "var(--c-blue)",
+  red: "var(--c-red)",
+  sage: "var(--c-sage)",
+  yellow: "var(--c-yellow)",
+};
+---
+
+<article class="s-week" style={`--wk: ${wk[accent]};`}>
+  <span class="wk-num">{num}</span>
+  <div class="wk-label">{label}</div>
+  <div class="wk-dates">{dates}</div>
+  <h3>{theme}</h3>
+  <span class="wk-tag"><Icon name="star" /> Ends in a show</span>
+</article>

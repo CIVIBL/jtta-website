@@ -1,0 +1,294 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+import WeekCard from "../components/WeekCard.astro";
+import InstructorCard from "../components/InstructorCard.astro";
+import { mailto, CONTACT_EMAIL, MAPS_URL } from "../lib/site";
+import "../styles/summer-program.css";
+
+type Accent = "red" | "blue" | "sage" | "plum" | "yellow";
+const accentVar: Record<Accent, string> = {
+  red: "var(--c-red)",
+  blue: "var(--c-blue)",
+  sage: "var(--c-sage)",
+  plum: "var(--c-plum)",
+  yellow: "var(--c-yellow)",
+};
+
+interface Discipline {
+  icon: "drama" | "music" | "art";
+  accent: Accent;
+  h: string;
+  p: string;
+}
+const DISCIPLINES: Discipline[] = [
+  { icon: "drama", accent: "red", h: "Drama", p: "Write a play, build the set and costumes, perform it Friday." },
+  { icon: "music", accent: "blue", h: "Music", p: "Learn an instrument and write original songs to play live." },
+  { icon: "art", accent: "sage", h: "Visual Art", p: "Printmaking, pottery, jewelry and painting - displayed at week's end." },
+];
+
+interface Week {
+  num: number;
+  label: string;
+  dates: string;
+  theme: string;
+  accent: Accent;
+}
+// Themed weeks change yearly; the grid (auto-fit) renders any count cleanly.
+const WEEKS: Week[] = [
+  { num: 1, label: "Week 1", dates: "July 6-10", theme: "Welcome to Magic School", accent: "plum" },
+  { num: 2, label: "Week 2", dates: "July 13-17", theme: "The Haunted Hotel", accent: "blue" },
+  { num: 3, label: "Week 3", dates: "August 10-14", theme: "Comic Characters Come to Life!", accent: "red" },
+  { num: 4, label: "Week 4", dates: "August 17-21", theme: "Underwater World", accent: "sage" },
+];
+
+interface Member {
+  name: string;
+  disc: string;
+  accent: Accent;
+  photo: string;
+  bio: string;
+}
+const TEAM: Member[] = [
+  {
+    name: "Christine Benson", disc: "Visual Art", accent: "sage", photo: "Christine in the cabin studio",
+    bio: "Founder of JTtA and an OCAD graduate who has exhibited across Ontario. She teaches from her 1840s log-cabin studio in Port Hope.",
+  },
+  {
+    name: "Mike Woods", disc: "Music", accent: "blue", photo: "Mike with a guitar",
+    bio: "Port Hope musician with JTtA since 2003, running Log Jam Music with Christine. He brings 20+ years of performing and teaching to the camp's music sessions.",
+  },
+  {
+    name: "Robin Nicholls", disc: "Drama", accent: "red", photo: "Robin directing a rehearsal",
+    bio: "Trent University graduate and local elementary teacher, returning for another summer leading the campers' drama and performance work.",
+  },
+];
+
+interface Fact {
+  icon: "pin" | "users" | "rotate" | "curtain";
+  lbl: string;
+  val: string;
+  sub: string;
+}
+const KNOW: Fact[] = [
+  { icon: "pin", lbl: "Where", val: "The Old Art School", sub: "Molson's Mill, Port Hope" },
+  { icon: "users", lbl: "Who", val: "Ages 6-13", sub: "All experience levels welcome" },
+  { icon: "rotate", lbl: "Each day", val: "Music, drama & art", sub: "Morning & afternoon sessions*" },
+  { icon: "curtain", lbl: "Every Friday", val: "Performance & art show", sub: "Families invited to watch" },
+];
+
+const STRIP_ONE = [
+  { placeholder: "Kids in costume mid-performance", caption: "showtime" },
+  { placeholder: "Strumming guitars in a circle" },
+  { placeholder: "Painting a set backdrop" },
+];
+const STRIP_TWO = [
+  { placeholder: "Printmaking in progress" },
+  { placeholder: "The art show on display", caption: "the week's work" },
+  { placeholder: "Whole group taking a bow" },
+];
+---
+
+<BaseLayout
+  title="Summer Program - Music, Drama & Art Camp · Journey Through the Arts, Port Hope"
+  activeNav="summer"
+>
+  {/* ─── HERO ─── */}
+  <section class="s-hero" id="top">
+    <div class="wrap">
+      <div class="s-crumbs">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <span class="cur">Summer Program</span>
+      </div>
+      <div class="s-hero-grid">
+        <div>
+          <span class="s-hand">One week. One big show.</span>
+          <h1>
+            <span class="l-blue">Music</span>, <span class="l-red">Drama</span> &amp;
+            <span class="l-sage">Visual Art</span> - <em>together</em>.
+          </h1>
+          <p class="s-lede">
+            A summer day-camp where kids do all three at once. Each themed week builds to a live
+            Friday performance and art show.
+          </p>
+          <div class="s-cred">
+            <span>Since 2001</span>
+            <span class="dot"></span>
+            <span><b>1,000+</b> young artists</span>
+            <span class="dot"></span>
+            <span>Ages 6-13</span>
+          </div>
+          <div class="s-hero-ctas">
+            <a class="btn is-primary" href="#register">Request the registration form →</a>
+            <span class="s-email">or email <a href={mailto()}>{CONTACT_EMAIL}</a></span>
+          </div>
+        </div>
+        <div class="s-hero-photos">
+          <figure class="tall">
+            {/* TODO: real photo - kids performing the Friday show in costume. Expected at /images/summer-friday-show.jpg */}
+            <div class="ph">Kids performing the Friday show in costume</div>
+            <span class="s-hero-badge">The Friday show</span>
+          </figure>
+          <figure>
+            {/* TODO: real photo - kid playing guitar. Expected at /images/summer-guitar.jpg */}
+            <div class="ph">Kid playing guitar</div>
+          </figure>
+          <figure>
+            {/* TODO: real photo - making art at the table. Expected at /images/summer-art-table.jpg */}
+            <div class="ph">Making art at the table</div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ─── WHAT IT IS ─── */}
+  <section class="s-what" id="program">
+    <div class="wrap">
+      <div class="eyebrow">One program · three art forms</div>
+      <h2 class="s-what-lead">
+        Not three separate classes. <em>One integrated week</em> of making.
+      </h2>
+      <div class="s-disc">
+        {
+          DISCIPLINES.map((d) => (
+            <div class="s-disc-card" style={`--accent: ${accentVar[d.accent]};`}>
+              <span class="ic"><Icon name={d.icon} /></span>
+              <h3>{d.h}</h3>
+              <p>{d.p}</p>
+            </div>
+          ))
+        }
+      </div>
+      <div class="s-payoff">
+        <span class="pin">Friday!</span>
+        <p>Every week ends with a <b>live performance & art show</b> - the play, the music and the art the kids made all week, in front of family.</p>
+      </div>
+    </div>
+  </section>
+
+  {/* ─── THEMED WEEKS ─── */}
+  <section class="s-weeks" id="weeks">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Summer 2026 · four themed weeks</div>
+          <h2 class="section-title" style="margin-top: 12px;">
+            Pick a week, <em>pick a world</em>
+          </h2>
+          <p class="section-lede">
+            Each week is its own adventure with its own theme. Come for one or make a summer of it.
+          </p>
+        </div>
+      </div>
+      <div class="s-week-grid">
+        {
+          WEEKS.map((w) => (
+            <WeekCard num={w.num} label={w.label} dates={w.dates} theme={w.theme} accent={w.accent} />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* ─── PHOTO STRIP (on paper) ─── */}
+  <div class="s-strip on-paper">
+    <div class="wrap">
+      <div class="s-strip-grid">
+        {
+          STRIP_ONE.map((it) => (
+            <figure>
+              {/* TODO: real photo - {it.placeholder}. */}
+              <div class="ph">{it.placeholder}</div>
+              {it.caption && <figcaption>{it.caption}</figcaption>}
+            </figure>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  {/* ─── INSTRUCTORS ─── */}
+  <section class="s-team" id="team">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Meet the team</div>
+          <h2 class="section-title" style="margin-top: 12px;">
+            Three artists, <em>one studio</em>
+          </h2>
+          <p class="section-lede">
+            The same trio leads camp each summer - kids get to know them across the week.
+          </p>
+        </div>
+      </div>
+      <div class="s-team-grid">
+        {
+          TEAM.map((t) => (
+            <InstructorCard name={t.name} disc={t.disc} accent={t.accent} photo={t.photo} bio={t.bio} />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* ─── GOOD TO KNOW ─── */}
+  <section class="s-know" id="know">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Good to know</div>
+          <h2 class="section-title" style="margin-top: 12px;">
+            The <em>quick facts</em>
+          </h2>
+        </div>
+      </div>
+      <div class="s-know-grid">
+        {
+          KNOW.map((k) => (
+            <div class="s-know-card">
+              <span class="ic"><Icon name={k.icon} /></span>
+              <div class="lbl">{k.lbl}</div>
+              <div class="val">{k.val}<small>{k.sub}</small></div>
+            </div>
+          ))
+        }
+      </div>
+      <p class="s-know-foot">*Daily times confirmed on the registration form.</p>
+    </div>
+  </section>
+
+  {/* ─── PHOTO STRIP (cream) ─── */}
+  <div class="s-strip">
+    <div class="wrap">
+      <div class="s-strip-grid">
+        {
+          STRIP_TWO.map((it) => (
+            <figure>
+              {/* TODO: real photo - {it.placeholder}. */}
+              <div class="ph">{it.placeholder}</div>
+              {it.caption && <figcaption>{it.caption}</figcaption>}
+            </figure>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  {/* ─── REGISTER CTA ─── */}
+  <section class="cta" id="register">
+    <div class="wrap">
+      <h2>Save your <em>week</em>.</h2>
+      <p>
+        Registration is by email. Send Christine a note and she'll reply with the registration form
+        and everything you need to know.
+      </p>
+      <p class="cta-email"><a href={mailto("Summer 2026 registration")}>{CONTACT_EMAIL}</a></p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a class="btn is-light" href={mailto("Summer 2026 registration")}>Email Christine</a>
+        <a class="btn is-outline" href={MAPS_URL} target="_blank" rel="noopener">Find the studio →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
