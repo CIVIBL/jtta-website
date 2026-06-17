@@ -108,34 +108,6 @@
 }
 .ab-bio p .lead-in { color: var(--ink); font-weight: 600; }
 
-.ab-award {
-  display: inline-flex;
-  align-items: center;
-  gap: 13px;
-  margin-top: 26px;
-  background: var(--bg);
-  border: 1px solid var(--rule);
-  border-radius: 12px;
-  padding: 13px 18px 13px 14px;
-}
-.ab-award .ribbon {
-  width: 38px; height: 38px;
-  flex-shrink: 0;
-  border-radius: 9px;
-  background: color-mix(in srgb, var(--c-yellow) 22%, transparent);
-  color: #9A6B12;
-  display: grid; place-items: center;
-}
-.ab-award .ribbon svg { width: 20px; height: 20px; }
-.ab-award .t {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-}
-.ab-award .s { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
-
 /* ─── STUDIO STORY ─── */
 .ab-story { background: var(--bg); }
 .ab-story-grid {

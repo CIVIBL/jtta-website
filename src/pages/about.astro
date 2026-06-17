@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import AwardBadge from "../components/AwardBadge.astro";
 import { mailto, CONTACT_EMAIL } from "../lib/site";
 import "../styles/about.css";
 
@@ -61,20 +62,9 @@ const STRIP = [
             Her own work is stylized, rhythmic and drawn from nature - hand-printed linocuts, often
             on handmade papers, sometimes with collaged and hand-sewn details.
           </p>
-          {/* PLACEHOLDER / CONFIRM with studio: this is Christine's personal "Best Local Artist"
-              Readers' Choice award (NOT the studio "Best Art School" award, which lives on the
-              in-the-schools page). Pending confirmation it's current. */}
-          <div class="ab-award">
-            <span class="ribbon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="8" r="6" />
-                <path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12" />
-              </svg>
-            </span>
-            <div>
-              <div class="t">Best Local Artist</div>
-              <div class="s">2023 Readers' Choice · Northumberland News</div>
-            </div>
+          {/* Christine's personal award (the studio awards live on their program pages). */}
+          <div style="margin-top: 26px;">
+            <AwardBadge title="Best Local Artist" tier="Diamond Winner" />
           </div>
         </div>
       </div>

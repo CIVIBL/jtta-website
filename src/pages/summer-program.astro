@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
 import WeekCard from "../components/WeekCard.astro";
 import InstructorCard from "../components/InstructorCard.astro";
+import AwardBadge from "../components/AwardBadge.astro";
 import { mailto, CONTACT_EMAIL, MAPS_URL } from "../lib/site";
 import "../styles/summer-program.css";
 
@@ -122,6 +123,10 @@ const STRIP_TWO = [
           <div class="s-hero-ctas">
             <a class="btn is-primary" href="#register">Request the registration form →</a>
             <span class="s-email">or email <a href={mailto()}>{CONTACT_EMAIL}</a></span>
+          </div>
+          <div class="s-awards">
+            <AwardBadge title="Best Kids Camp" tier="Platinum Winner" />
+            <AwardBadge title="Best Summer Camp" tier="Gold Winner" />
           </div>
         </div>
         <div class="s-hero-photos">

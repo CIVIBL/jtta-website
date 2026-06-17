@@ -92,33 +92,6 @@
   overflow: hidden;
 }
 .sc-hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.sc-award {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  margin-top: 14px;
-  background: var(--paper);
-  border: 1px solid var(--rule);
-  border-radius: 12px;
-  padding: 14px 16px;
-}
-.sc-award .ribbon {
-  width: 38px; height: 38px;
-  flex-shrink: 0;
-  border-radius: 9px;
-  background: color-mix(in srgb, var(--c-yellow) 22%, transparent);
-  color: #9A6B12;
-  display: grid; place-items: center;
-}
-.sc-award .ribbon svg { width: 20px; height: 20px; }
-.sc-award .t {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-}
-.sc-award .s { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
 
 /* ─── HOW IT WORKS ─── */
 .sc-how { background: var(--paper); }

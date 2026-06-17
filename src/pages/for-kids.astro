@@ -4,6 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
 import WorkshopCard from "../components/WorkshopCard.astro";
 import PhotoStrip from "../components/PhotoStrip.astro";
+import AwardBadge from "../components/AwardBadge.astro";
 import { isUpcoming } from "../lib/workshops";
 import { mailto, CONTACT_EMAIL, MAPS_URL } from "../lib/site";
 import "../styles/for-kids.css";
@@ -72,6 +73,9 @@ const STRIP_TWO = [
                 </div>
               ))
             }
+          </div>
+          <div style="margin-top: 24px;">
+            <AwardBadge title="Best Kids Activities" tier="Platinum Winner" />
           </div>
         </div>
         <div class="k-head-photo">

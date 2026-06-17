@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
 import SchoolIcon from "../components/SchoolIcon.astro";
 import GradeCard from "../components/GradeCard.astro";
+import AwardBadge from "../components/AwardBadge.astro";
 import { mailto, CONTACT_EMAIL } from "../lib/site";
 import "../styles/in-the-schools.css";
 
@@ -88,15 +89,9 @@ const STRIP = [
             {/* TODO: real photo - Christine leading a classroom art workshop. Expected at /images/schools-classroom.jpg */}
             <div class="ph">Christine leading a classroom art workshop</div>
           </div>
-          {/* PLACEHOLDER / CONFIRM with studio: is this the current accolade? This is the
-              studio "Best Art Instruction" Readers' Choice award (not Christine's personal
-              "Best Local Artist" award, which belongs on the about page). */}
-          <div class="sc-award">
-            <span class="ribbon"><SchoolIcon name="award" /></span>
-            <div>
-              <div class="t">Best Art Instruction</div>
-              <div class="s">2023 Diamond Winner · Northumberland Readers' Choice</div>
-            </div>
+          {/* Studio award (Christine's personal award lives on the about page). */}
+          <div style="margin-top: 14px;">
+            <AwardBadge title="Best Art School/Instruction" tier="Diamond Winner" />
           </div>
         </div>
       </div>

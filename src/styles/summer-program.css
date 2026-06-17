@@ -78,6 +78,7 @@
 .s-hero-ctas { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap; align-items: center; }
 .s-hero-ctas .s-email { font-size: 14px; color: var(--muted); }
 .s-hero-ctas .s-email a { color: var(--c-red); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.s-awards { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
 
 /* hero photo cluster */
 .s-hero-photos {
