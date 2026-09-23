@@ -1,0 +1,44 @@
+# Scheduled rebuild
+#
+# Why: the site is static, and isUpcoming() in src/lib/workshops.ts filters
+# workshops at build time. Without a rebuild, past workshops stay on the live
+# site until the next push. This workflow triggers one rebuild per day so the
+# listings roll over on their own.
+#
+# How: it POSTs to a Cloudflare Workers Builds deploy hook, which rebuilds and
+# deploys main. This is not a separate deploy path; pushes to main already
+# deploy through Workers Builds.
+#
+# Schedule: 09:15 UTC, which is 05:15 Toronto in summer (EDT) and 04:15 in
+# winter (EST). Both are after midnight Toronto, so each build uses the new day.
+#
+# One-time setup:
+#   1. Cloudflare dashboard > Workers & Pages > jtta-website > Settings > Builds
+#      > Deploy Hooks. Create a hook for branch main and copy its URL.
+#   2. GitHub repo > Settings > Secrets and variables > Actions > New repository
+#      secret. Name: CF_DEPLOY_HOOK_URL. Value: the hook URL.
+#
+# Manual run: Actions tab > Scheduled rebuild > Run workflow.
+
+name: Scheduled rebuild
+
+on:
+  schedule:
+    - cron: "15 9 * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cloudflare deploy hook
+        env:
+          CF_DEPLOY_HOOK_URL: ${{ secrets.CF_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$CF_DEPLOY_HOOK_URL" ]; then
+            echo "::error::Repository secret CF_DEPLOY_HOOK_URL is empty or not set. See the setup notes at the top of .github/workflows/scheduled-rebuild.yml."
+            exit 1
+          fi
+          curl --fail --silent --show-error -X POST "$CF_DEPLOY_HOOK_URL"
