@@ -1,0 +1,33 @@
+# Build check
+#
+# Why: Pages CMS commits straight to main. If an edit breaks the build (for
+# example a workshop that fails the schema), Cloudflare's build fails quietly.
+# This workflow runs the same build and type check so the failure shows up in
+# GitHub Actions, which emails the repo owner.
+#
+# It only builds; deploys stay with Cloudflare Workers Builds. It does not
+# overlap with scheduled-rebuild.yml, which runs on a cron and only calls the
+# Cloudflare deploy hook.
+
+name: Build check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npx astro check
