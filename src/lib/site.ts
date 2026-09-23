@@ -1,6 +1,9 @@
 /* Site-wide constants and helpers. Single source for contact/identity values
  * that were previously hardcoded across components. */
 
+/** Production origin. Includes the scheme because Astro's `site` option, canonical
+ * links and og:url all require an absolute URL. No trailing slash. */
+export const SITE_URL = "https://www.journeythroughthearts.com";
 export const CONTACT_EMAIL = "jttacabin@gmail.com";
 export const MAPS_URL = "https://maps.app.goo.gl/B21tc9VSLLVKoAx69";
 export const STUDIO_NAME = "Journey Through the Arts";
