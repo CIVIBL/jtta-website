@@ -1,9 +1,12 @@
 # Pages CMS configuration (app.pagescms.org)
-# Mirrors the Zod schema in src/content.config.ts — keep the two in sync.
+# Mirrors the Zod schema in src/content.config.ts - keep the two in sync.
+# Descriptions are the help text Christine sees under each field.
 
+# Uploads are limited to their own folder so site photos in public/images can't be overwritten.
 media:
-  input: public/images
-  output: /images
+  input: public/images/workshops
+  output: /images/workshops
+  categories: [image]
 
 content:
   - name: workshops
@@ -14,17 +17,22 @@ content:
     filename: "{primary}.md"
     view:
       primary: title
-      sort: [date, title]
       fields: [title, date, audience, status]
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
     fields:
       - name: title
         label: Title
         type: string
         required: true
+        description: "The workshop name, as it appears on the website."
       - name: audience
         label: Audience
         type: select
         required: true
+        description: "Kids workshops appear on the For Kids page, adult workshops on the For Adults page."
         options:
           values:
             - name: kids
@@ -35,11 +43,12 @@ content:
         label: Category
         type: string
         required: true
-        description: "Shown on the card, e.g. Watercolour, Clay, Printmaking"
+        description: "A short label at the top of the card, e.g. Watercolour, Clay, Printmaking."
       - name: accent
-        label: Accent colour
+        label: Card colour
         type: select
         default: red
+        description: "The card colour: the coloured dot beside the category."
         options:
           values:
             - name: red
@@ -56,15 +65,21 @@ content:
         label: Date (first session)
         type: date
         required: true
+        description: "The day of the workshop, or the first day of a series. It comes off the website automatically once this date has passed."
+        options:
+          format: yyyy-MM-dd
       - name: sessions
         label: Number of sessions
         type: number
         default: 1
-        description: "1 for a single workshop, e.g. 4 for a 4-week series"
+        description: "1 for a single workshop, or e.g. 4 for a 4-week series."
+        options:
+          min: 1
       - name: startTime
         label: Start time (24-hour)
         type: string
         required: true
+        description: "Use the 24-hour clock, e.g. 10:00 for 10 AM or 16:45 for 4:45 PM."
         pattern:
           regex: "^([01][0-9]|2[0-3]):[0-5][0-9]$"
           message: "Use 24-hour HH:MM, e.g. 16:45"
@@ -72,6 +87,7 @@ content:
         label: End time (24-hour)
         type: string
         required: true
+        description: "Use the 24-hour clock, e.g. 12:00 for noon or 18:00 for 6 PM."
         pattern:
           regex: "^([01][0-9]|2[0-3]):[0-5][0-9]$"
           message: "Use 24-hour HH:MM, e.g. 18:00"
@@ -79,30 +95,38 @@ content:
         label: Minimum age
         type: number
         required: true
+        description: "Youngest age welcome. Kids programs are ages 6-13. For adult workshops, use 18."
+        options:
+          min: 4
+          max: 18
       - name: ageMax
         label: Maximum age
         type: number
         required: true
-      - name: price
-        label: Price (dollars, HST included)
-        type: number
-        required: true
+        description: "Oldest age welcome. Kids programs are ages 6-13. For adult workshops, use 99 (the site shows Adults instead of an age range)."
+        options:
+          min: 4
+          max: 99
       - name: blurb
         label: Short description
         type: text
         required: true
+        description: "One or two sentences about what you'll make. Shown on the card."
       - name: provided
         label: What's provided
         type: text
         required: true
+        description: "Supplies you provide, e.g. Paper, paints, brushes & aprons."
       - name: bring
         label: What to bring
         type: text
         required: true
+        description: "What people should bring, e.g. A smock or old shirt."
       - name: status
         label: Availability
         type: select
         default: open
+        description: "What visitors see on the card. Spots open and Almost full both show an Email to register button, Waitlist shows Join the waitlist, and Full greys out the card."
         options:
           values:
             - name: open
@@ -114,6 +138,7 @@ content:
             - name: full
               label: Full
       - name: special
-        label: Special workshop (dark card treatment on homepage)
+        label: Special workshop
         type: boolean
         default: false
+        description: "Highlights this workshop with a dark card on the homepage."
