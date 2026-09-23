@@ -8,9 +8,9 @@ export const CONTACT_EMAIL = "jttacabin@gmail.com";
 export const MAPS_URL = "https://maps.app.goo.gl/B21tc9VSLLVKoAx69";
 export const STUDIO_NAME = "Journey Through the Arts";
 
-/** Fallback meta/OG description, drawn from the homepage hero copy. */
+/** Homepage and fallback meta/OG description, condensed from the homepage hero copy. */
 export const SITE_DESCRIPTION =
-  "A creative studio in an 1840s log cabin in Port Hope, run by Christine Benson. Workshops, summer camps, adult classes, birthday parties and in-school visits since 2002.";
+  "A creative studio in an 1840s log cabin in Port Hope. Workshops, summer camps, adult classes, birthday parties and in-school visits since 2002.";
 
 /** Build a mailto: link, optionally with a pre-filled subject. */
 export function mailto(subject?: string): string {
