@@ -6,7 +6,7 @@ import WorkshopRow from "../components/WorkshopRow.astro";
 import ProgramCard from "../components/ProgramCard.astro";
 import AwardBadge from "../components/AwardBadge.astro";
 import { isUpcoming } from "../lib/workshops";
-import { mailto, CONTACT_EMAIL, MAPS_URL } from "../lib/site";
+import { mailto, CONTACT_EMAIL, MAPS_URL, SITE_DESCRIPTION } from "../lib/site";
 
 const upcomingWorkshops = (await getCollection("workshops"))
   .filter((w) => isUpcoming(w.data.date))
@@ -95,7 +95,10 @@ const CAROUSEL: Slide[] = [
 
 ---
 
-<BaseLayout title="Journey Through the Arts - Creative studio in Port Hope">
+<BaseLayout
+  title="Journey Through the Arts - Creative studio in Port Hope"
+  description={SITE_DESCRIPTION}
+>
   {/* ─── HERO ─── */}
   <section class="hero" id="top">
     <div class="hero-bg">
