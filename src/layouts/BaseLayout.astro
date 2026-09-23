@@ -3,28 +3,42 @@ import "../styles/tokens.css";
 import "../styles/global.css";
 import Nav from "./Nav.astro";
 import Footer from "./Footer.astro";
+import { SITE_URL, STUDIO_NAME, SITE_DESCRIPTION } from "../lib/site";
 
 interface Props {
   title: string;
-  /** Wired for future SEO copy. Not emitted yet — see TODO in <head>. */
+  /** Page-specific meta and Open Graph description. Falls back to SITE_DESCRIPTION. */
   description?: string;
   /** Forwarded to <Nav> to highlight the current section/page. */
   activeNav?: "kids" | "adults" | "summer" | "about";
+  /** For pages that must not be indexed (the 404): emits robots noindex and omits the canonical link. */
+  noindex?: boolean;
 }
 
-const { title, activeNav } = Astro.props;
+const { title, description = SITE_DESCRIPTION, activeNav, noindex = false } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, SITE_URL).href;
+// Social share image: the homepage hero photo.
+const ogImage = new URL("/images/hero-cabin.jpg", SITE_URL).href;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en-CA">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
-    {/* TODO: emit <meta name="description"> once final marketing copy is approved (description prop is already accepted). */}
-    {/* TODO: add favicon link once the brand mark asset exists. */}
-    {/* TODO: add og:image / social meta once share artwork exists. */}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={STUDIO_NAME} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
