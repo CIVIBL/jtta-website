@@ -9,7 +9,6 @@ startTime: "10:00"
 endTime: "11:00"
 ageMin: 6
 ageMax: 13
-price: 30
 blurb: Layer paint, paper and pen into a calming radial design. A favourite for focus and quiet flow.
 provided: All papers, paints & pens
 bring: A smock or old shirt

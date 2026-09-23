@@ -8,9 +8,7 @@ import {
   formatDow,
   formatDuration,
   formatMonth,
-  formatPrice,
   formatTimeRange,
-  PRICE_NOTE,
 } from "../lib/workshops";
 
 interface Props {
@@ -27,7 +25,6 @@ const pill = w.special
     : "Workshop";
 
 const ageLabel = w.audience === "adults" ? "Adults" : `Ages ${formatAgeRange(w.ageMin, w.ageMax)}`;
-const priceNote = w.sessions > 1 ? "full series" : PRICE_NOTE;
 ---
 
 <a class:list={["workshop-row", { "is-special": w.special }]} href={buildMailto(w.title, w.date)}>
@@ -41,8 +38,6 @@ const priceNote = w.sessions > 1 ? "full series" : PRICE_NOTE;
     <div class="w-meta">
       <span class="pill">{pill}</span>
       <span>{ageLabel}</span>
-      <span>·</span>
-      <span>{formatPrice(w.price)} {priceNote}</span>
     </div>
     <span class="w-register">Email to register →</span>
   </div>

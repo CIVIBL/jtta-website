@@ -15,9 +15,6 @@ import { mailto } from "./site";
 
 const STUDIO_TZ = "America/Toronto";
 
-/** Note rendered beside single-session prices. All prices are HST-inclusive. */
-export const PRICE_NOTE = "incl. HST";
-
 // en-CA abbreviates with trailing periods ("Jul.", "Sat.") — strip them.
 const clean = (s: string) => s.replace(/\./g, "");
 
@@ -60,17 +57,6 @@ export function formatTimeRange(startTime: string, endTime: string): string {
   const start = to12h(startTime);
   const end = to12h(endTime);
   return `${start.h12} ${start.suffix} - ${end.h12} ${end.suffix}`;
-}
-
-/** 44 -> "$44" · 29.38 -> "$29.38" (CAD) */
-export function formatPrice(price: number): string {
-  const decimals = Number.isInteger(price) ? 0 : 2;
-  return new Intl.NumberFormat("en-CA", {
-    style: "currency",
-    currency: "CAD",
-    minimumFractionDigits: decimals,
-    maximumFractionDigits: decimals,
-  }).format(price);
 }
 
 /** (7, 10) -> "7-10". The "Ages" prefix is a label in markup, not data. */

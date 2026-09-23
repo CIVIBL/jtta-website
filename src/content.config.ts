@@ -14,7 +14,6 @@ const workshops = defineCollection({
     endTime: z.string(), // "12:00"
     ageMin: z.number().int(),
     ageMax: z.number().int(),
-    price: z.number(), // HST-inclusive dollars, e.g. 44
     blurb: z.string(),
     provided: z.string(),
     bring: z.string(),

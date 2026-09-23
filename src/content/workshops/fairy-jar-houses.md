@@ -9,7 +9,6 @@ startTime: "10:00"
 endTime: "12:00"
 ageMin: 6
 ageMax: 13
-price: 44
 blurb: Turn a jar into a glowing fairy house with clay, moss and fairy lights. A longer, cozy weekend project.
 provided: Jar, clay, lights & trims
 bring: A packed snack

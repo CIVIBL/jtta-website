@@ -9,10 +9,8 @@ import {
   formatDow,
   formatDuration,
   formatMonth,
-  formatPrice,
   formatSessions,
   formatTimeRange,
-  PRICE_NOTE,
 } from "../lib/workshops";
 import { mailto, CONTACT_EMAIL } from "../lib/site";
 
@@ -38,7 +36,6 @@ const initials = "CB";
 
 const duration = formatDuration(durationMinutes(w.startTime, w.endTime));
 const timeSub = w.sessions > 1 ? `${duration} each` : duration;
-const priceSub = w.sessions > 1 ? "full series" : PRICE_NOTE;
 const ctaLabel =
   w.status === "waitlist"
     ? "Join the waitlist →"
@@ -74,10 +71,6 @@ const ctaLabel =
     <div>
       <div class="lbl">Time</div>
       <div class="val">{formatTimeRange(w.startTime, w.endTime)}<small>{timeSub}</small></div>
-    </div>
-    <div>
-      <div class="lbl">{w.audience === "adults" ? "Per person" : "Per child"}</div>
-      <div class="val">{formatPrice(w.price)}<small>{priceSub}</small></div>
     </div>
   </div>
 
@@ -179,6 +172,8 @@ const ctaLabel =
     background: var(--bg);
     padding: 12px 14px;
   }
+  /* Three facts in a 2-column grid: the last one spans the row so no empty cell shows the rule colour. */
+  .k-meta > div:last-child:nth-child(odd) { grid-column: 1 / -1; }
   .k-meta .lbl {
     font-size: 10px;
     font-weight: 700;
