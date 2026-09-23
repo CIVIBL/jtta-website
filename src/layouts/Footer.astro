@@ -12,6 +12,9 @@ const studio = [
 ];
 
 import { mailto, CONTACT_EMAIL, MAPS_URL } from "../lib/site";
+
+// Evaluated at build time; the daily scheduled rebuild keeps it current.
+const year = new Date().getFullYear();
 ---
 
 <footer class="footer">
@@ -36,8 +39,7 @@ import { mailto, CONTACT_EMAIL, MAPS_URL } from "../lib/site";
       </div>
     </div>
     <div class="footer-fine">
-      <span>© Journey Through the Arts · 2002 - 2026</span>
-      <span>v2 · 2026 redesign</span>
+      <span>© Journey Through the Arts · 2002 - {year}</span>
     </div>
   </div>
 </footer>
