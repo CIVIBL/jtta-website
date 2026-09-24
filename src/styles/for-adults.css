@@ -1,4 +1,4 @@
-/* JTtA · For Adults workshops page — extends tokens.css + global.css.
+/* JTtA · For Adults workshops page - extends tokens.css + global.css.
    Only loaded on /for-adults. Shared chrome (nav, footer, buttons, section
    heads, .cta, .ph placeholder) lives in global.css; workshop cards bring
    their own scoped styles. Classes are a- prefixed so this page never depends

@@ -1,9 +1,9 @@
 /* Display formatting for workshop collection entries.
  *
- * Timezone model — read before changing:
+ * Timezone model - read before changing:
  * Frontmatter date-only values ("date: 2026-07-04") parse as midnight UTC.
  * That instant is 8 PM the *previous day* in Toronto, so formatting it with
- * timeZone "America/Toronto" would render "Fri Jul 3" — a day earlier than
+ * timeZone "America/Toronto" would render "Fri Jul 3" - a day earlier than
  * what was typed. The date IS the calendar date; we therefore format its
  * parts in UTC, which reproduces the written date on any build server.
  * America/Toronto (the studio's timezone, Port Hope ON) is used where "now"
@@ -15,7 +15,7 @@ import { mailto } from "./site";
 
 const STUDIO_TZ = "America/Toronto";
 
-// en-CA abbreviates with trailing periods ("Jul.", "Sat.") — strip them.
+// en-CA abbreviates with trailing periods ("Jul.", "Sat.") - strip them.
 const clean = (s: string) => s.replace(/\./g, "");
 
 const monthFmt = new Intl.DateTimeFormat("en-CA", { timeZone: "UTC", month: "short" });

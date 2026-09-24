@@ -1,4 +1,4 @@
-/* JTtA Homepage — global styles (ported from the v2 design prototype).
+/* JTtA Homepage - global styles (ported from the v2 design prototype).
    Tokens live in tokens.css. This file holds the reset, shared utilities
    (.wrap, .btn, .eyebrow, section heads) and every section's styles. */
 
@@ -275,7 +275,7 @@ section[id] { scroll-margin-top: 110px; }
   color: var(--c-red);
 }
 /* FIX (known issue): the absolutely-positioned address stamp overlapped the
-   hero text and broke layout on narrow screens. Hide it there — the address
+   hero text and broke layout on narrow screens. Hide it there - the address
    still lives in the nav-adjacent banner and the footer. */
 @media (max-width: 640px) {
   .hero-stamp { display: none; }
@@ -872,21 +872,6 @@ section[id] { scroll-margin-top: 110px; }
   aspect-ratio: 4/5;
   border-radius: 14px;
   overflow: hidden;
-}
-.about-photo .tag {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  background: var(--paper);
-  padding: 8px 14px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-  z-index: 2;
 }
 
 /* ─── CTA ─── */

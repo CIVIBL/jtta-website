@@ -23,7 +23,7 @@ interface Props {
 const { workshop } = Astro.props;
 const w = workshop.data;
 
-// Accent tokens stay a component concern — content stores a name, not CSS.
+// Accent tokens stay a component concern - content stores a name, not CSS.
 const accentVar = {
   red: "var(--c-red)",
   yellow: "var(--c-yellow)",
@@ -113,7 +113,7 @@ const ctaLabel =
 </article>
 
 <style>
-  /* WorkshopCard's own styles — scoped, so they travel with the component to
+  /* WorkshopCard's own styles - scoped, so they travel with the component to
      any page (/for-kids, /for-adults, …). Page layout (the .k-list grid that
      arranges multiple cards) stays in the page stylesheet. The base .btn
      utility lives in global.css; only card-specific overrides live here. */
@@ -253,7 +253,7 @@ const ctaLabel =
     align-items: center;
     gap: 6px;
   }
-  /* svg is rendered by the child <Icon> component — :global() so the parent's
+  /* svg is rendered by the child <Icon> component - :global() so the parent's
      scoped style can still size it (Astro scoping doesn't cross components). */
   .k-mats .lbl :global(svg) { width: 13px; height: 13px; }
   .k-mats .prov .lbl { color: var(--c-sage); }

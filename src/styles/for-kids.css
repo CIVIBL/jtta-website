@@ -1,4 +1,4 @@
-/* JTtA · For Kids workshops page — extends tokens.css + global.css.
+/* JTtA · For Kids workshops page - extends tokens.css + global.css.
    Only loaded on /for-kids. Shared chrome (nav, footer, buttons, section
    heads, .cta) lives in global.css. */
 
@@ -153,8 +153,8 @@
 
 /* WorkshopCard's own styles now live in a scoped <style> block in
    src/components/WorkshopCard.astro so they travel with the component to every
-   page that uses it (/for-kids, /for-adults, …). Only the .k-list grid above —
-   the page's listing layout — stays here. */
+   page that uses it (/for-kids, /for-adults, …). Only the .k-list grid above -
+   the page's listing layout - stays here. */
 
 /* ─── EMPTY STATE (shown when there are no upcoming workshops) ─── */
 .k-empty {
