@@ -26,9 +26,12 @@ const pill = w.special
     : "Workshop";
 
 const ageLabel = w.audience === "adults" ? "Adults" : `Ages ${formatAgeRange(w.ageMin, w.ageMax)}`;
+const href = buildMailto(w.title, w.date);
 ---
 
-<a class:list={["workshop-row", { "is-special": w.special }]} href={buildMailto(w.title, w.date)}>
+{/* The row is a plain container so its text is selectable; only "Email to register" is a link.
+    The arrow circle repeats it for mouse users but is skipped by keyboard and screen readers. */}
+<article class:list={["workshop-row", { "is-special": w.special }]}>
   <div class="w-date">
     <span class="w-month">{formatMonth(w.date)} · {formatDow(w.date)}</span>
     <span class="w-day">{formatDay(w.date)}</span>
@@ -41,7 +44,7 @@ const ageLabel = w.audience === "adults" ? "Adults" : `Ages ${formatAgeRange(w.a
       <span>{ageLabel}</span>
       {w.status !== "open" && <span class={`pill is-${w.status}`}>{STATUS_LABEL[w.status]}</span>}
     </div>
-    <span class="w-register">Email to register →</span>
+    <a class="w-register" href={href} aria-label={`Email to register for ${w.title}`}>Email to register →</a>
   </div>
-  <div class="w-cta" aria-hidden="true">→</div>
-</a>
+  <a class="w-cta" href={href} tabindex="-1" aria-hidden="true">→</a>
+</article>

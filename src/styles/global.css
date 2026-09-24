@@ -499,7 +499,9 @@ section[id] { scroll-margin-top: 110px; }
   color: var(--ink);
   transition: border-color .15s, transform .15s, box-shadow .15s;
 }
-.workshop-row:hover {
+/* The row itself is not a link; it lifts when one of its links is hovered or focused. */
+.workshop-row:has(a:hover),
+.workshop-row:has(a:focus-visible) {
   border-color: var(--ink);
   transform: translateY(-2px);
   box-shadow: 0 12px 22px -10px rgba(28,26,23,0.15);
@@ -599,7 +601,9 @@ section[id] { scroll-margin-top: 110px; }
   font-size: 13px;
   font-weight: 600;
   color: var(--c-red);
+  text-decoration: none;
 }
+.w-register:hover, .w-register:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
 .workshop-row.is-special .w-register { color: var(--c-yellow); }
 
 .w-cta {
@@ -612,9 +616,11 @@ section[id] { scroll-margin-top: 110px; }
   color: var(--paper);
   font-size: 14px;
   flex-shrink: 0;
+  text-decoration: none;
   transition: background .15s, transform .15s;
 }
-.workshop-row:hover .w-cta { transform: translateX(3px); background: var(--c-red); }
+.workshop-row:has(a:hover) .w-cta,
+.workshop-row:has(a:focus-visible) .w-cta { transform: translateX(3px); background: var(--c-red); }
 
 .upcoming-foot {
   margin-top: 28px;
