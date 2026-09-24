@@ -11,6 +11,7 @@ import {
   formatMonth,
   formatSessions,
   formatTimeRange,
+  SESSION_FULL_LABEL,
   STATUS_LABEL,
 } from "../lib/workshops";
 import { mailto, CONTACT_EMAIL } from "../lib/site";
@@ -41,7 +42,7 @@ const ctaLabel =
   w.status === "waitlist"
     ? "Join the waitlist →"
     : w.status === "full"
-      ? "Session full"
+      ? SESSION_FULL_LABEL
       : "Email to register →";
 ---
 

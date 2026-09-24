@@ -9,6 +9,7 @@ import {
   formatDuration,
   formatMonth,
   formatTimeRange,
+  SESSION_FULL_LABEL,
   STATUS_LABEL,
 } from "../lib/workshops";
 
@@ -27,11 +28,14 @@ const pill = w.special
 
 const ageLabel = w.audience === "adults" ? "Adults" : `Ages ${formatAgeRange(w.ageMin, w.ageMax)}`;
 const href = buildMailto(w.title, w.date);
+const isFull = w.status === "full";
+const registerText = w.status === "waitlist" ? "Email to join waitlist" : "Email to register";
 ---
 
-{/* The row is a plain container so its text is selectable; only "Email to register" is a link.
-    The arrow circle repeats it for mouse users but is skipped by keyboard and screen readers. */}
-<article class:list={["workshop-row", { "is-special": w.special }]}>
+{/* The row is a plain container so its text is selectable; only the register text is a link.
+    The arrow circle repeats it for mouse users but is skipped by keyboard and screen readers.
+    A full workshop shows plain "Session full" text and a muted, non-link arrow instead. */}
+<article class:list={["workshop-row", { "is-special": w.special, "is-full": isFull }]}>
   <div class="w-date">
     <span class="w-month">{formatMonth(w.date)} · {formatDow(w.date)}</span>
     <span class="w-day">{formatDay(w.date)}</span>
@@ -44,7 +48,19 @@ const href = buildMailto(w.title, w.date);
       <span>{ageLabel}</span>
       {w.status !== "open" && <span class={`pill is-${w.status}`}>{STATUS_LABEL[w.status]}</span>}
     </div>
-    <a class="w-register" href={href} aria-label={`Email to register for ${w.title}`}>Email to register →</a>
+    {
+      isFull ? (
+        <span class="w-register">{SESSION_FULL_LABEL}</span>
+      ) : (
+        <a class="w-register" href={href} aria-label={`${registerText} for ${w.title}`}>{registerText} →</a>
+      )
+    }
   </div>
-  <a class="w-cta" href={href} tabindex="-1" aria-hidden="true">→</a>
+  {
+    isFull ? (
+      <span class="w-cta" aria-hidden="true">→</span>
+    ) : (
+      <a class="w-cta" href={href} tabindex="-1" aria-hidden="true">→</a>
+    )
+  }
 </article>

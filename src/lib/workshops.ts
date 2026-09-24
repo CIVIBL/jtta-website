@@ -89,6 +89,9 @@ export const STATUS_LABEL = {
   full: "Full",
 } as const;
 
+/** Non-interactive call-to-action text for a full workshop (WorkshopCard and WorkshopRow). */
+export const SESSION_FULL_LABEL = "Session full";
+
 /** True if the workshop date is today (in Toronto) or later. */
 export function isUpcoming(date: Date): boolean {
   const workshopDay = date.toISOString().slice(0, 10); // calendar date as written

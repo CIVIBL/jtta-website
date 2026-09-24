@@ -609,6 +609,11 @@ section[id] { scroll-margin-top: 110px; }
 }
 .workshop-row:has(a:hover) .w-cta,
 .workshop-row:has(a:focus-visible) .w-cta { transform: translateX(3px); background: var(--c-red); }
+/* Full workshop: register text and arrow are plain, muted text. */
+.workshop-row.is-full .w-register { color: var(--muted); }
+.workshop-row.is-full .w-cta { background: var(--rule); color: var(--muted); }
+.workshop-row.is-special.is-full .w-register { color: rgba(255,255,255,0.6); }
+.workshop-row.is-special.is-full .w-cta { background: rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); }
 
 .upcoming-foot {
   margin-top: 28px;
