@@ -5,6 +5,7 @@ import AudienceCard from "../components/AudienceCard.astro";
 import WorkshopRow from "../components/WorkshopRow.astro";
 import ProgramCard from "../components/ProgramCard.astro";
 import AwardBadge from "../components/AwardBadge.astro";
+import Icon from "../components/Icon.astro";
 import { isUpcoming } from "../lib/workshops";
 import { mailto, CONTACT_EMAIL, MAPS_URL, SITE_DESCRIPTION } from "../lib/site";
 
@@ -143,7 +144,7 @@ const CAROUSEL: Slide[] = [
     </div>
 
     <a class="hero-stamp" href={MAPS_URL} target="_blank" rel="noopener"
-      >📍 190 Hope St N · Port Hope</a
+      ><span class="hero-stamp-pin" aria-hidden="true"><Icon name="pin" /></span> 190 Hope St N · Port Hope</a
     >
   </section>
 
