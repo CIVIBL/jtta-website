@@ -8,5 +8,8 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   output: 'static',
   site: SITE_URL,
+  // Astro 7 defaults to 'jsx', which strips spaces between inline elements
+  // (e.g. "JTtA.A graduate"). Keep the HTML-aware behaviour from Astro 6.
+  compressHTML: true,
   integrations: [sitemap()],
 });
