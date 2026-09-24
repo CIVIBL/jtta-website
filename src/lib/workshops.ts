@@ -89,6 +89,10 @@ export const STATUS_LABEL = {
   full: "Full",
 } as const;
 
+/** Call-to-action link text (WorkshopCard and WorkshopRow). Components append the arrow. */
+export const REGISTER_LABEL = "Email to register";
+export const WAITLIST_LABEL = "Email to join waitlist";
+
 /** Non-interactive call-to-action text for a full workshop (WorkshopCard and WorkshopRow). */
 export const SESSION_FULL_LABEL = "Session full";
 

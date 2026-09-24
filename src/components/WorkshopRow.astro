@@ -9,8 +9,10 @@ import {
   formatDuration,
   formatMonth,
   formatTimeRange,
+  REGISTER_LABEL,
   SESSION_FULL_LABEL,
   STATUS_LABEL,
+  WAITLIST_LABEL,
 } from "../lib/workshops";
 
 interface Props {
@@ -29,7 +31,7 @@ const pill = w.special
 const ageLabel = w.audience === "adults" ? "Adults" : `Ages ${formatAgeRange(w.ageMin, w.ageMax)}`;
 const href = buildMailto(w.title, w.date);
 const isFull = w.status === "full";
-const registerText = w.status === "waitlist" ? "Email to join waitlist" : "Email to register";
+const registerText = w.status === "waitlist" ? WAITLIST_LABEL : REGISTER_LABEL;
 ---
 
 {/* The row is a plain container so its text is selectable; only the register text is a link.

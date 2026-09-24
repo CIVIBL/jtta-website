@@ -48,7 +48,7 @@ The Availability field controls what visitors see:
 
 - **Spots open** - normal. The card shows an "Email to register" link.
 - **Almost full** - the card gets an amber "Almost full" tag. The register link still works.
-- **Waitlist** - the card shows "Waitlist" and the link changes to "Join the waitlist".
+- **Waitlist** - the card shows "Waitlist" and the link changes to "Email to join waitlist".
 - **Full** - the card shows "Session full" and the register link is removed.
 
 Change the status whenever registrations change. It is the quickest edit you will make.

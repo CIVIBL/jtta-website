@@ -11,8 +11,10 @@ import {
   formatMonth,
   formatSessions,
   formatTimeRange,
+  REGISTER_LABEL,
   SESSION_FULL_LABEL,
   STATUS_LABEL,
+  WAITLIST_LABEL,
 } from "../lib/workshops";
 import { mailto, CONTACT_EMAIL } from "../lib/site";
 
@@ -40,10 +42,10 @@ const duration = formatDuration(durationMinutes(w.startTime, w.endTime));
 const timeSub = w.sessions > 1 ? `${duration} each` : duration;
 const ctaLabel =
   w.status === "waitlist"
-    ? "Join the waitlist →"
+    ? `${WAITLIST_LABEL} →`
     : w.status === "full"
       ? SESSION_FULL_LABEL
-      : "Email to register →";
+      : `${REGISTER_LABEL} →`;
 ---
 
 <article class:list={["k-card", `is-${w.status}`]}>

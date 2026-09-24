@@ -126,7 +126,7 @@ content:
         label: Availability
         type: select
         default: open
-        description: "What visitors see on the card. Spots open and Almost full both show an Email to register button, Waitlist shows Join the waitlist, and Full greys out the card."
+        description: "What visitors see on the card. Spots open and Almost full both show an Email to register button, Waitlist shows Email to join waitlist, and Full greys out the card."
         options:
           values:
             - name: open
