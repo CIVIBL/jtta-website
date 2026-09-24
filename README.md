@@ -26,6 +26,7 @@ npx astro check   # type check; keep at 0 errors
 
 - Workshops: one Markdown file each in `src/content/workshops/`. Schema: `src/content.config.ts`.
 - Pages CMS config: `.pages.yml`. It mirrors the schema; change both together.
+- Christine's editing guide: `docs/editing-workshops.md`. After editing it, regenerate the PDF with `node scripts/guide-pdf.mjs` and commit both.
 - CMS editing flow: Christine edits workshops in Pages CMS (app.pagescms.org), which commits to `main`; Cloudflare deploys it and the build-check workflow reports failures. Workshop uploads go to `public/images/workshops/`.
 - Contact email and Maps link: `src/lib/site.ts`. Date and time formatting: `src/lib/workshops.ts`.
 - Other page copy lives in `src/pages/*.astro`.
@@ -35,7 +36,7 @@ npx astro check   # type check; keep at 0 errors
 
 - `src/styles/tokens.css` design tokens; `global.css` shared styles; one stylesheet per page with its own class prefix (kids `k-`, adults `a-`, summer `s-`, birthday `b-`, schools `sc-`, about `ab-`).
 - `src/layouts/`: BaseLayout, Nav, Footer. `src/components/`: shared and page-scoped components.
-- `scripts/`: one-off image generators, run by hand with `node scripts/<name>.mjs`. `og-share.mjs` makes the social share image; `favicons.mjs` makes the favicons from the logo.
+- `scripts/`: one-off generators, run by hand with `node scripts/<name>.mjs`. `og-share.mjs` makes the social share image; `favicons.mjs` makes the favicons from the logo. `guide-pdf.mjs` makes `docs/editing-workshops.pdf` (needs Chrome or Edge).
 
 ## Conventions
 
