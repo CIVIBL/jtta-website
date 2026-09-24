@@ -93,7 +93,14 @@ const ctaLabel =
   </div>
 
   <div class="k-card-foot">
-    <a class="btn is-primary" href={buildMailto(w.title, w.date)}>{ctaLabel}</a>
+    {
+      /* A full session gets plain text styled as a button: out of the tab order, still read as "Session full". */
+      w.status === "full" ? (
+        <span class="btn is-primary">{ctaLabel}</span>
+      ) : (
+        <a class="btn is-primary" href={buildMailto(w.title, w.date)}>{ctaLabel}</a>
+      )
+    }
     {
       w.status !== "full" && (
         <span class="k-register-addr">
@@ -273,6 +280,6 @@ const ctaLabel =
     background: transparent;
     color: var(--muted);
     border-color: var(--rule-strong);
-    pointer-events: none;
+    cursor: default;
   }
 </style>
