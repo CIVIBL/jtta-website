@@ -4,7 +4,7 @@ Brochure site for Journey Through the Arts (JTtA), Christine Benson's arts studi
 
 ## Stack
 
-- Astro 6, static output, TypeScript strict
+- Astro 7, static output, TypeScript strict
 - Cloudflare Workers Static Assets (`wrangler.jsonc` serves `./dist`)
 
 ## Local commands
