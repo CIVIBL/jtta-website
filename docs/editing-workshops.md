@@ -13,7 +13,7 @@ Prices are never shown on the website. People email you for pricing.
 ## Logging in
 
 1. Go to **app.pagescms.org**.
-2. Click **Sign in with GitHub** and use the account Brent set up for you.
+2. Click **Continue with email**, enter jttacabin@gmail.com, and enter the code that is emailed to you.
 3. Click **jtta-website**.
 4. In the left menu, click **Workshops**.
 
@@ -40,7 +40,7 @@ You will see the list of workshops, newest first.
 
 3. Click **Save**.
 
-Keep titles simple. Letters, numbers, spaces and hyphens are safest. [BRENT: confirm whether apostrophes and ampersands in titles work, and adjust this line.]
+Keep titles simple. Letters, numbers, spaces and hyphens are safest.
 
 ## Availability: spots open, almost full, waitlist, full
 
@@ -69,7 +69,7 @@ You only need to do this if a workshop is cancelled. Past workshops drop off the
 
 ## After you save
 
-The website rebuilds itself. Allow about [BRENT: confirm, e.g. five] minutes, then refresh the page on the site to see the change. If you refresh and still see the old version, wait another minute and try again; your browser sometimes shows you a saved copy.
+The website rebuilds itself. Allow 1 to 3 minutes, then refresh the page on the site to see the change. If you refresh and still see the old version, wait another minute and try again; your browser sometimes shows you a saved copy.
 
 ## If the site does not update
 
@@ -88,4 +88,4 @@ If it still has not appeared after ten minutes, email Brent with the workshop ti
 
 ## Who to contact
 
-Brent Lessard - [BRENT: email or phone as you prefer]
+Brent Lessard - brent.lessard@gmail.com
