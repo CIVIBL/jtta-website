@@ -17,7 +17,7 @@ const upcomingWorkshops = (await getCollection("workshops"))
 interface Audience {
   label: string;
   meta: string;
-  /** Omit when there's no dedicated page yet — card renders as a non-link. */
+  /** Omit when there's no dedicated page yet - card renders as a non-link. */
   href?: string;
 }
 const AUDIENCES: Audience[] = [
@@ -35,7 +35,7 @@ interface Program {
   featured?: boolean;
   photo?: string;
   photoSrc?: string;
-  /** Omit when there's no dedicated page yet — card renders as a non-link. */
+  /** Omit when there's no dedicated page yet - card renders as a non-link. */
   href?: string;
 }
 const PROGRAMS: Program[] = [
