@@ -39,8 +39,12 @@ npx astro check   # type check; keep at 0 errors
 
 ## Conventions
 
-- Hyphens only. No em dashes or en dashes, in content or formatter output.
+- Hyphens only. No em dashes or en dashes, in content, code comments or formatter output.
 - Prices are never shown on the site. Pricing is handled by email, and the workshop schema has no price field.
 - Never invent data: no dates, counts, awards or credentials the studio has not provided.
 - Canadian spelling (colour, centre, favourite, neighbour).
 - Email links use `mailto()` and `CONTACT_EMAIL` from `src/lib/site.ts`, with the address shown as visible text.
+- Workshop rows and cards are containers, not links. Only the register control links (to `buildMailto()`); the row's arrow circle repeats it for mouse users with `tabindex="-1"` and `aria-hidden`. A full session renders as plain text, not a link.
+- Status pill text comes from `STATUS_LABEL` in `src/lib/workshops.ts` and matches the labels in `.pages.yml`.
+- Icons come from `src/components/Icon.astro`, wrapped in `aria-hidden` when decorative. No emojis in markup.
+- Motion: honour `prefers-reduced-motion` (no smooth scrolling or transitions) and give custom controls a visible `:focus-visible` style.
