@@ -766,6 +766,14 @@ section[id] { scroll-margin-top: 110px; }
   color: var(--paper);
   border-color: var(--ink);
 }
+.carousel-controls .cbtn:focus-visible {
+  outline: 2px solid var(--c-red);
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .carousel-controls .cbtn { transition: none; }
+  .carousel-track { scroll-behavior: auto; }
+}
 .carousel-controls .ccount {
   font-family: var(--font-display);
   font-size: 16px;

@@ -249,9 +249,9 @@ const CAROUSEL: Slide[] = [
           </p>
         </div>
         <div class="carousel-controls">
-          <button class="cbtn" data-carousel="-1" aria-label="Previous photo">←</button>
-          <span class="ccount" id="carousel-count">01 / {String(CAROUSEL.length).padStart(2, "0")}</span>
-          <button class="cbtn" data-carousel="1" aria-label="Next photo">→</button>
+          <button type="button" class="cbtn" data-carousel="-1" aria-label="Previous photo">←</button>
+          <span class="ccount" id="carousel-count" aria-live="polite">01 / {String(CAROUSEL.length).padStart(2, "0")}</span>
+          <button type="button" class="cbtn" data-carousel="1" aria-label="Next photo">→</button>
         </div>
       </div>
     </div>
@@ -356,24 +356,38 @@ const CAROUSEL: Slide[] = [
 </BaseLayout>
 
 <script>
-  // Carousel controls — strictly necessary for the arrow buttons + live counter.
-  // Native scroll-snap handles touch/trackpad swiping without JS.
+  // Carousel controls - strictly necessary for the arrow buttons + live counter.
+  // Native scroll-snap handles touch/trackpad swiping without JS. There is no autoplay.
+  // The buttons are native <button>s, so Tab, Enter and Space work without extra code.
   const track = document.getElementById("carousel-track");
   const count = document.getElementById("carousel-count");
   if (track) {
     const cards = Array.from(track.querySelectorAll<HTMLElement>(".cphoto"));
     const total = cards.length;
     const pad = (n: number) => String(n).padStart(2, "0");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     const step = (dir: number) => {
       const card = cards[0];
       if (!card) return;
       const gap = 18;
-      track.scrollBy({ left: dir * (card.getBoundingClientRect().width + gap), behavior: "smooth" });
+      track.scrollBy({
+        left: dir * (card.getBoundingClientRect().width + gap),
+        behavior: reduceMotion.matches ? "auto" : "smooth",
+      });
     };
 
     document.querySelectorAll<HTMLElement>("[data-carousel]").forEach((btn) => {
       btn.addEventListener("click", () => step(Number(btn.dataset.carousel)));
+    });
+
+    // Left/Right arrow keys also step while focus is on either control.
+    document.querySelector(".carousel-controls")?.addEventListener("keydown", (e) => {
+      const key = (e as KeyboardEvent).key;
+      if (key === "ArrowLeft" || key === "ArrowRight") {
+        e.preventDefault();
+        step(key === "ArrowLeft" ? -1 : 1);
+      }
     });
 
     const update = () => {
