@@ -11,6 +11,7 @@ import {
   formatMonth,
   formatSessions,
   formatTimeRange,
+  STATUS_LABEL,
 } from "../lib/workshops";
 import { mailto, CONTACT_EMAIL } from "../lib/site";
 
@@ -47,6 +48,7 @@ const ctaLabel =
 <article class:list={["k-card", `is-${w.status}`]}>
   <div class="k-card-top">
     <span class="k-cat"><span class="dot" style={`background: ${accentVar};`}></span>{w.category}</span>
+    {w.status !== "open" && <span class={`pill is-${w.status}`}>{STATUS_LABEL[w.status]}</span>}
   </div>
   <h3>{w.title}</h3>
   <p class="k-blurb">{w.blurb}</p>

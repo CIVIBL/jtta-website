@@ -9,6 +9,7 @@ import {
   formatDuration,
   formatMonth,
   formatTimeRange,
+  STATUS_LABEL,
 } from "../lib/workshops";
 
 interface Props {
@@ -38,6 +39,7 @@ const ageLabel = w.audience === "adults" ? "Adults" : `Ages ${formatAgeRange(w.a
     <div class="w-meta">
       <span class="pill">{pill}</span>
       <span>{ageLabel}</span>
+      {w.status !== "open" && <span class={`pill is-${w.status}`}>{STATUS_LABEL[w.status]}</span>}
     </div>
     <span class="w-register">Email to register →</span>
   </div>

@@ -81,6 +81,14 @@ export function formatDuration(minutes: number): string {
   return minutes >= 120 && minutes % 60 === 0 ? `${minutes / 60} hours` : `${minutes} min`;
 }
 
+/** Status pill text; matches the option labels Christine sees in .pages.yml. "open" shows no pill. */
+export const STATUS_LABEL = {
+  open: "Spots open",
+  almost: "Almost full",
+  waitlist: "Waitlist",
+  full: "Full",
+} as const;
+
 /** True if the workshop date is today (in Toronto) or later. */
 export function isUpcoming(date: Date): boolean {
   const workshopDay = date.toISOString().slice(0, 10); // calendar date as written

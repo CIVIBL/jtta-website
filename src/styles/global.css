@@ -554,7 +554,7 @@ section[id] { scroll-margin-top: 110px; }
   color: var(--ink-soft);
 }
 .workshop-row.is-special .w-body .w-meta { color: rgba(255,255,255,0.8); }
-.w-body .pill {
+.w-body .pill, .k-card-top .pill {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -568,6 +568,24 @@ section[id] { scroll-margin-top: 110px; }
   color: var(--ink);
 }
 .workshop-row.is-special .w-body .pill { background: var(--c-yellow); }
+/* Status pills (WorkshopRow and WorkshopCard). "open" renders no pill; waitlist and full are muted. */
+.w-body .pill.is-almost, .k-card-top .pill.is-almost,
+.workshop-row.is-special .w-body .pill.is-almost {
+  background: color-mix(in srgb, var(--c-yellow) 55%, var(--paper));
+  color: var(--ink);
+}
+.w-body .pill.is-waitlist, .w-body .pill.is-full,
+.k-card-top .pill.is-waitlist, .k-card-top .pill.is-full {
+  background: transparent;
+  color: var(--muted);
+  box-shadow: inset 0 0 0 1px var(--rule-strong);
+}
+.workshop-row.is-special .w-body .pill.is-waitlist,
+.workshop-row.is-special .w-body .pill.is-full {
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3);
+}
 .w-register {
   display: inline-block;
   margin-top: 10px;
