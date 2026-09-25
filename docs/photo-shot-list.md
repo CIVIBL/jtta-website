@@ -4,11 +4,11 @@ These are the spots on the website still waiting for a real photo. Please send p
 
 Sizes are how big each box shows on a desktop screen (1440px wide), measured from the built site. File names come from the site code; "none in code" means the spot has no file name yet. Strip photos follow the pattern `<page>-strip-<strip number>-<subject>.jpg`, as on the For Kids page.
 
-36 photo spots across 6 pages: 14 done (About, For Kids, For Adults), 22 still needed. The home page has no empty spots.
+36 photo spots across 6 pages: 13 done (About 4 of 5, For Kids, For Adults), 23 still needed. The home page has no empty spots.
 
-## About - done
+## About - 4 of 5 done
 
-All five are on the site. Some photos differ from the original plan, so "What the photo shows" describes the photo actually used.
+Four are on the site; the teaching photo is still needed. Some photos differ from the original plan, so "What the photo shows" describes the photo actually used.
 
 | Where on the page | File name | Shape | Box size | What the photo shows |
 |---|---|---|---|---|
@@ -16,7 +16,7 @@ All five are on the site. Some photos differ from the original plan, so "What th
 | "The artist" section, beside the bio | about-christine-printmaking.jpg | Portrait, about 5:6 | 468 x 561 | Done: Christine carving with a red-handled tool at a worktable |
 | Photo strip, first (larger) photo | about-strip-1-cabin.jpg | Landscape, 4:3 | 464 x 348 | Done: the log cabin from the garden, stepping-stone path in front (caption: "the 1840s cabin") |
 | Photo strip, second photo | about-strip-1-studio.jpg | Landscape, 4:3 | 357 x 267 | Done: the studio set up for a class (planned: prints and supplies). Same photo as kids-strip-2-cabin.jpg |
-| Photo strip, third photo | about-strip-1-teaching.jpg | Landscape, 4:3 | 357 x 267 | Done: a woman in a red top working on a painted silk panel, others behind her (planned: Christine teaching a small group). Low resolution (250 x 333) |
+| Photo strip, third photo | about-strip-1-teaching.jpg | Landscape, 4:3 | 357 x 267 | Still needed: Christine teaching a small group |
 
 ## For Kids - done
 

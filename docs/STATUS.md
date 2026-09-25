@@ -54,13 +54,13 @@ Current entries: 8 kids and 2 adult workshops, all sample data, all past-dated (
 - Footer year computed at build time; "v2 redesign" fine print removed.
 - Accessibility: WorkshopRow is a container with a single labelled link; Session full leaves the tab order; carousel has focus styles, arrow keys, a live counter and reduced-motion handling; hero pin is an aria-hidden SVG.
 - WorkshopCard double-padding fixed. Dead CSS removed (global.css 1084 to 978 lines). Zero em or en dashes anywhere in the repo.
-- Photo shot list: docs/photo-shot-list.md (36 placeholders across 6 pages, measured).
+- Photo shot list: docs/photo-shot-list.md (36 photo slots across 6 pages, measured; 23 placeholders remain).
 
 ## Open items
 
 Blocked on Christine:
 1. Fall workshop data. She should enter it herself in Pages CMS with Brent on a call.
-2. Photos per docs/photo-shot-list.md. Only 12 real photos exist.
+2. Photos per docs/photo-shot-list.md. 25 real photos are on the site (19 distinct; 6 reuse an existing photo). 23 placeholders remain: Summer Program 12, Birthday Parties 6, In-the-Schools 4, About 1.
 3. Copy confirmations: homepage lede says "published children's-book illustrator", /about says "relief printmaker". Announce-bar copy.
 
 Brent:

@@ -4,20 +4,17 @@ import AwardBadge from "../components/AwardBadge.astro";
 import { mailto, CONTACT_EMAIL } from "../lib/site";
 import "../styles/about.css";
 
-// width/height are the files' pixel sizes; CSS crops each to 4:3. objectPosition overrides the centred crop.
+// width/height are the files' pixel sizes; CSS crops each to 4:3. Items without src render a placeholder.
 const STRIP = [
   {
-    src: "/images/about-strip-1-cabin.jpg", width: 1080, height: 1431, caption: "the 1840s cabin",
+    src: "/images/about-strip-1-cabin.jpg", width: 906, height: 1200, caption: "the 1840s cabin",
     alt: "The log cabin from the garden, with weathered log walls, a blue metal roof and a stepping-stone path under a large tree.",
   },
   {
     src: "/images/about-strip-1-studio.jpg", width: 1014, height: 1600,
     alt: "The log-cabin studio set up for a class, with paint sets and paper along a long table and children's art on the log walls.",
   },
-  {
-    src: "/images/about-strip-1-teaching.jpg", width: 250, height: 333, objectPosition: "center 10%",
-    alt: "A woman in a red top leaning over a long table to work on a painted silk panel stretched on a wooden frame, with others working behind her.",
-  },
+  { placeholder: "Christine teaching a small group" },
 ];
 ---
 
@@ -143,7 +140,14 @@ const STRIP = [
         {
           STRIP.map((it) => (
             <figure>
-              <img src={it.src} alt={it.alt} width={it.width} height={it.height} loading="lazy" style={it.objectPosition && `object-position: ${it.objectPosition}`} />
+              {it.src ? (
+                <img src={it.src} alt={it.alt} width={it.width} height={it.height} loading="lazy" />
+              ) : (
+                <>
+                  {/* TODO: real photo - {it.placeholder}. Expected at /images/about-strip-1-teaching.jpg */}
+                  <div class="ph">{it.placeholder}</div>
+                </>
+              )}
               {it.caption && <figcaption>{it.caption}</figcaption>}
             </figure>
           ))
