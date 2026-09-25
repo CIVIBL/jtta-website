@@ -4,10 +4,20 @@ import AwardBadge from "../components/AwardBadge.astro";
 import { mailto, CONTACT_EMAIL } from "../lib/site";
 import "../styles/about.css";
 
+// width/height are the files' pixel sizes; CSS crops each to 4:3. objectPosition overrides the centred crop.
 const STRIP = [
-  { placeholder: "The log-cabin studio from outside", caption: "the 1840s cabin" },
-  { placeholder: "Inside the studio - prints & supplies" },
-  { placeholder: "Christine teaching a small group" },
+  {
+    src: "/images/about-strip-1-cabin.jpg", width: 1080, height: 1431, caption: "the 1840s cabin",
+    alt: "The log cabin from the garden, with weathered log walls, a blue metal roof and a stepping-stone path under a large tree.",
+  },
+  {
+    src: "/images/about-strip-1-studio.jpg", width: 1014, height: 1600,
+    alt: "The log-cabin studio set up for a class, with paint sets and paper along a long table and children's art on the log walls.",
+  },
+  {
+    src: "/images/about-strip-1-teaching.jpg", width: 250, height: 333, objectPosition: "center 10%",
+    alt: "A woman in a red top leaning over a long table to work on a painted silk panel stretched on a wooden frame, with others working behind her.",
+  },
 ];
 ---
 
@@ -34,8 +44,13 @@ const STRIP = [
           </p>
         </div>
         <div class="ab-portrait">
-          {/* TODO: real photo - portrait of Christine Benson. Expected at /images/about-christine.jpg */}
-          <div class="ph">Portrait of Christine Benson</div>
+          <img
+            src="/images/about-christine.jpg"
+            alt="Portrait of Christine Benson outdoors, looking back over her shoulder."
+            width="1065"
+            height="1600"
+            loading="eager"
+          />
           <span class="tag">Christine Benson · Founder</span>
         </div>
       </div>
@@ -47,8 +62,13 @@ const STRIP = [
     <div class="wrap">
       <div class="ab-bio-grid">
         <div class="ab-bio-photo">
-          {/* TODO: real photo - Christine at work, relief printmaking in the studio. Expected at /images/about-christine-printmaking.jpg */}
-          <div class="ph">Christine at work - relief printmaking in the studio</div>
+          <img
+            src="/images/about-christine-printmaking.jpg"
+            alt="Christine Benson at a worktable carving with a red-handled tool, a box of carving tools beside her."
+            width="1200"
+            height="630"
+            loading="lazy"
+          />
         </div>
         <div>
           <div class="eyebrow">The artist</div>
@@ -123,8 +143,7 @@ const STRIP = [
         {
           STRIP.map((it) => (
             <figure>
-              {/* TODO: real photo - {it.placeholder}. */}
-              <div class="ph">{it.placeholder}</div>
+              <img src={it.src} alt={it.alt} width={it.width} height={it.height} loading="lazy" style={it.objectPosition && `object-position: ${it.objectPosition}`} />
               {it.caption && <figcaption>{it.caption}</figcaption>}
             </figure>
           ))
