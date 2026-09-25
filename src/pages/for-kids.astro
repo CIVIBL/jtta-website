@@ -25,18 +25,34 @@ const QUICK_FACTS: QuickFact[] = [
   { icon: "calendar", b: "Drop-in or series", s: "Single days & multi-week" },
 ];
 
-// Kids-page photos aren't shot yet, so no `src` - PhotoStrip renders labelled
-// placeholders until the files exist. Add `src: "/images/…"` per item (or wire
-// via CMS) when they land; the component already handles it (see PhotoStrip H1).
+// Photo strips. width/height are the files' pixel sizes; CSS crops each to 4:3.
 const STRIP_ONE = [
-  { placeholder: "Kids at the worktable", caption: "messy hands, happy kids" },
-  { placeholder: "Finished clay projects" },
-  { placeholder: "Painting close-up" },
+  {
+    src: "/images/kids-strip-1-worktable.jpg", width: 898, height: 673, caption: "messy hands, happy kids",
+    alt: "Five young children drawing with markers around a table covered in a blue cloth.",
+  },
+  {
+    src: "/images/kids-strip-1-clay.jpg", width: 700, height: 934,
+    alt: "Older kids working on craft projects at a long red table in the log-cabin studio, under the round stained-glass window.",
+  },
+  {
+    src: "/images/kids-strip-1-painting.jpg", width: 437, height: 301,
+    alt: "Young children around a round table covered with their painted self-portraits.",
+  },
 ];
 const STRIP_TWO = [
-  { placeholder: "The cabin studio interior", caption: "our 1840s cabin" },
-  { placeholder: "Drying rack of paintings" },
-  { placeholder: "Kid holding their artwork" },
+  {
+    src: "/images/kids-strip-2-cabin.jpg", width: 1014, height: 1600, caption: "our 1840s cabin",
+    alt: "The log-cabin studio set up for a class, with paint sets and paper along a long table and children's art on the log walls.",
+  },
+  {
+    src: "/images/kids-strip-2-drying-rack.jpg", width: 274, height: 301,
+    alt: "A girl holding up a sheet of six lino-cut prints of a winged heart in different colours.",
+  },
+  {
+    src: "/images/kids-strip-2-artwork.jpg", width: 528, height: 301,
+    alt: "Four kids holding up their textured mixed-media paintings in front of a colourful mural.",
+  },
 ];
 ---
 
@@ -80,8 +96,13 @@ const STRIP_TWO = [
           </div>
         </div>
         <div class="k-head-photo">
-          {/* TODO: real photo - kids painting in the cabin studio. Expected at /images/kids-hero.jpg */}
-          <div class="ph">Kids painting in the cabin studio</div>
+          <img
+            src="/images/kids-hero.jpg"
+            alt="A girl in a Journey Through the Arts T-shirt painting a watercolour jellyfish, with other kids painting at the table beside her."
+            width="1023"
+            height="1600"
+            loading="eager"
+          />
         </div>
       </div>
     </div>

@@ -2,9 +2,9 @@
 
 These are the spots on the website still waiting for a real photo. Please send photos whose long edge is at least 1600px (any recent phone photo is fine). Shape matters: each entry says whether the spot is landscape (wider than tall), portrait (taller than wide) or roughly square, so shoot or pick photos in that shape. JPG or HEIC straight from your phone is fine; no need to edit or resize.
 
-Sizes are how big each box shows on a desktop screen (1440px wide), measured from the built site. File names come from the site code; "none in code" means the spot has no file name yet.
+Sizes are how big each box shows on a desktop screen (1440px wide), measured from the built site. File names come from the site code; "none in code" means the spot has no file name yet. Strip photos follow the pattern `<page>-strip-<strip number>-<subject>.jpg`, as on the For Kids page.
 
-36 photos across 6 pages. The home page has no empty spots.
+36 photo spots across 6 pages: 7 done (For Kids), 29 still needed. The home page has no empty spots.
 
 ## About
 
@@ -16,17 +16,19 @@ Sizes are how big each box shows on a desktop screen (1440px wide), measured fro
 | Photo strip, second photo | none in code | Landscape, 4:3 | 357 x 267 | Inside the studio, prints and supplies |
 | Photo strip, third photo | none in code | Landscape, 4:3 | 357 x 267 | Christine teaching a small group |
 
-## For Kids
+## For Kids - done
+
+All seven are on the site. Some photos differ from the original plan, so "What the photo shows" describes the photo actually used. Four are reused from the home page carousel (noted below).
 
 | Where on the page | File name | Shape | Box size | What the photo shows |
 |---|---|---|---|---|
-| Top of page, beside "Workshops for curious kids" | kids-hero.jpg | Portrait, 4:5 | 481 x 602 | Kids painting in the cabin studio |
-| First photo strip, first (larger) photo | none in code | Landscape, 4:3 | 464 x 348 | Kids at the worktable (caption: "messy hands, happy kids") |
-| First photo strip, second photo | none in code | Landscape, 4:3 | 357 x 267 | Finished clay projects |
-| First photo strip, third photo | none in code | Landscape, 4:3 | 357 x 267 | Painting close-up |
-| Second photo strip, first (larger) photo | none in code | Landscape, 4:3 | 464 x 348 | The cabin studio interior (caption: "our 1840s cabin") |
-| Second photo strip, second photo | none in code | Landscape, 4:3 | 357 x 267 | Drying rack of paintings |
-| Second photo strip, third photo | none in code | Landscape, 4:3 | 357 x 267 | Kid holding their artwork |
+| Top of page, beside "Workshops for curious kids" | kids-hero.jpg | Portrait, 4:5 | 481 x 602 | Done: a girl in a JTtA T-shirt painting a watercolour jellyfish, other kids beside her |
+| First photo strip, first (larger) photo | kids-strip-1-worktable.jpg | Landscape, 4:3 | 464 x 348 | Done: five young children drawing with markers at a blue-covered table (caption: "messy hands, happy kids"). Same photo as carousel-3 |
+| First photo strip, second photo | kids-strip-1-clay.jpg | Landscape, 4:3 | 357 x 267 | Done: older kids doing craft projects at a red table in the cabin (planned: finished clay projects) |
+| First photo strip, third photo | kids-strip-1-painting.jpg | Landscape, 4:3 | 357 x 267 | Done: young children around a table of painted self-portraits (planned: painting close-up). Same photo as carousel-4 |
+| Second photo strip, first (larger) photo | kids-strip-2-cabin.jpg | Landscape, 4:3 | 464 x 348 | Done: the cabin studio set up for a class (caption: "our 1840s cabin") |
+| Second photo strip, second photo | kids-strip-2-drying-rack.jpg | Landscape, 4:3 | 357 x 267 | Done: a girl holding a sheet of lino-cut prints (planned: drying rack of paintings). Same photo as carousel-7 |
+| Second photo strip, third photo | kids-strip-2-artwork.jpg | Landscape, 4:3 | 357 x 267 | Done: four kids holding up mixed-media paintings. Same photo as carousel-5 |
 
 ## For Adults
 

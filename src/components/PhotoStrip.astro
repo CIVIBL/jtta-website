@@ -1,11 +1,16 @@
 ---
 interface StripItem {
-  /** Placeholder label / expected photo subject */
-  placeholder: string;
+  /** Placeholder label / expected photo subject, shown until `src` is set */
+  placeholder?: string;
   /** Optional hand-written caption overlaid on the photo */
   caption?: string;
-  /** Expected real image path, e.g. "/images/kids-worktable.jpg" */
+  /** Real image path, e.g. "/images/kids-strip-1-worktable.jpg" */
   src?: string;
+  /** Describes what the photo actually shows */
+  alt?: string;
+  /** Intrinsic file size, so the browser reserves space before load */
+  width?: number;
+  height?: number;
 }
 
 interface Props {
@@ -24,7 +29,7 @@ const { items, onPaper = false } = Astro.props;
         items.map((it) => (
           <figure>
             {it.src ? (
-              <img src={it.src} alt={it.placeholder} loading="lazy" />
+              <img src={it.src} alt={it.alt ?? it.placeholder ?? ""} width={it.width} height={it.height} loading="lazy" />
             ) : (
               <div class="ph">{it.placeholder}</div>
             )}
