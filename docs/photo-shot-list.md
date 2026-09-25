@@ -4,7 +4,7 @@ These are the spots on the website still waiting for a real photo. Please send p
 
 Sizes are how big each box shows on a desktop screen (1440px wide), measured from the built site. File names come from the site code; "none in code" means the spot has no file name yet. Strip photos follow the pattern `<page>-strip-<strip number>-<subject>.jpg`, as on the For Kids page.
 
-36 photo spots across 6 pages: 7 done (For Kids), 29 still needed. The home page has no empty spots.
+36 photo spots across 6 pages: 9 done (For Kids, For Adults), 27 still needed. The home page has no empty spots.
 
 ## About
 
@@ -30,12 +30,14 @@ All seven are on the site. Some photos differ from the original plan, so "What t
 | Second photo strip, second photo | kids-strip-2-drying-rack.jpg | Landscape, 4:3 | 357 x 267 | Done: a girl holding a sheet of lino-cut prints (planned: drying rack of paintings). Same photo as carousel-7 |
 | Second photo strip, third photo | kids-strip-2-artwork.jpg | Landscape, 4:3 | 357 x 267 | Done: four kids holding up mixed-media paintings. Same photo as carousel-5 |
 
-## For Adults
+## For Adults - done
+
+Both are on the site. The custom photo differs from the original plan, so "What the photo shows" describes the photo actually used.
 
 | Where on the page | File name | Shape | Box size | What the photo shows |
 |---|---|---|---|---|
-| Top of page, beside "An evening to make something" | adults-hero.jpg | Portrait, 4:5 | 481 x 602 | Adults painting together in the evening studio |
-| "Book your own time with friends at the studio" section | adults-custom.jpg | Landscape, 5:4 | 538 x 430 | Friends gathered around a project in the cabin (caption: "your studio, your evening") |
+| Top of page, beside "An evening to make something" | adults-hero.jpg | Portrait, 4:5 | 481 x 602 | Done: adults at a long turquoise table in the cabin, painting small canvases and arranging sea glass |
+| "Book your own time with friends at the studio" section | adults-custom.jpg | Landscape, 5:4 | 538 x 430 | Done: the round stained-glass window in the cabin gable (caption: "your studio, your evening"; planned: friends gathered around a project) |
 
 ## Birthday Parties
 

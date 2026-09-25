@@ -264,7 +264,7 @@
   border-radius: 16px;
   overflow: hidden;
 }
-.a-custom-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.a-custom-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; display: block; }
 .a-custom-photo figcaption {
   position: absolute;
   left: 16px;
