@@ -3,7 +3,7 @@ import "../styles/tokens.css";
 import "../styles/global.css";
 import Nav from "./Nav.astro";
 import Footer from "./Footer.astro";
-import { SITE_URL, STUDIO_NAME, SITE_DESCRIPTION } from "../lib/site";
+import { ANNOUNCE, SITE_URL, STUDIO_NAME, SITE_DESCRIPTION } from "../lib/site";
 
 interface Props {
   title: string;
@@ -54,16 +54,20 @@ const ogImage = new URL("/images/og-share.jpg", SITE_URL).href;
     <meta name="generator" content={Astro.generator} />
   </head>
   <body>
-    {/* Site-wide announcement banner */}
-    <div class="announce">
-      <div class="announce-inner">
-        <span>
-          <span class="announce-dot"></span>
-          <strong>Summer 2026 registration is open</strong> - four themed weeks, ages 6-13.
-        </span>
-        <a href="/summer-program">See the summer program →</a>
-      </div>
-    </div>
+    {/* Site-wide announcement banner; set ANNOUNCE in src/lib/site.ts to show it */}
+    {
+      ANNOUNCE && (
+        <div class="announce">
+          <div class="announce-inner">
+            <span>
+              <span class="announce-dot"></span>
+              <strong>{ANNOUNCE.strong}</strong> - {ANNOUNCE.text}
+            </span>
+            <a href={ANNOUNCE.href}>{ANNOUNCE.linkText}</a>
+          </div>
+        </div>
+      )
+    }
 
     <Nav active={activeNav} />
 
