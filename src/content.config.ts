@@ -6,7 +6,7 @@ const workshops = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/workshops" }),
   schema: z.object({
     title: z.string().min(1),
-    audience: z.enum(["kids", "adults"]),
+    audience: z.enum(["kids", "teens", "adults"]),
     category: z.string(), // e.g. "Painting & Drawing"
     accent: z.enum(["red", "yellow", "sage", "blue", "plum"]).default("red"),
     date: z.coerce.date(), // ISO date, with year

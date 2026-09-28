@@ -86,7 +86,7 @@ Yearly, each spring before summer camp registration opens:
 - Hyphens only. No em or en dashes anywhere, including comments and formatter output.
 - Never invent data: no prices, dates, guest counts or CV detail. Use only what the design or client provides.
 - Canadian spelling. No emojis in code or copy.
-- Ages 6-13 for kids programs. Founding year 2002. 1,000+ participants.
+- Ages 6-16 for kids and teen workshops; summer camp and birthday parties stay 6-13. Founding year 2002. 1,000+ participants.
 - Photos: .ph placeholder divs with a TODO comment naming the expected /images/... path.
 - Email CTAs: visible address text via the .cta-email pattern; always use src/lib/site.ts constants (CONTACT_EMAIL, SITE_URL, STUDIO_NAME, mailto()).
 - Rows and cards are containers; only the register control is a link.

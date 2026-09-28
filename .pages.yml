@@ -32,11 +32,13 @@ content:
         label: Audience
         type: select
         required: true
-        description: "Kids workshops appear on the For Kids page, adult workshops on the For Adults page."
+        description: "Kids workshops appear on the For Kids page, teen workshops in the Teen art section of that page, adult workshops on the For Adults page."
         options:
           values:
             - name: kids
               label: Kids
+            - name: teens
+              label: Teens
             - name: adults
               label: Adults
       - name: category
@@ -95,7 +97,7 @@ content:
         label: Minimum age
         type: number
         required: true
-        description: "Youngest age welcome. Kids programs are ages 6-13. For adult workshops, use 18."
+        description: "Youngest age welcome. Kids and teen workshops are ages 6-16. For adult workshops, use 18."
         options:
           min: 4
           max: 18
@@ -103,7 +105,7 @@ content:
         label: Maximum age
         type: number
         required: true
-        description: "Oldest age welcome. Kids programs are ages 6-13. For adult workshops, use 99 (the site shows Adults instead of an age range)."
+        description: "Oldest age welcome. Kids and teen workshops are ages 6-16. For adult workshops, use 99 (the site shows Adults instead of an age range)."
         options:
           min: 4
           max: 99
