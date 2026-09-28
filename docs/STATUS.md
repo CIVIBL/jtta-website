@@ -39,11 +39,11 @@ Nav: For Kids / For Adults / Summer Camp / About plus "Contact Christine". Birth
 
 ## Content model
 
-Fields: title, audience (kids/teens/adults), category, accent, date, sessions, startTime, endTime, ageMin, ageMax, blurb, provided, bring, status (open/almost/waitlist/full), special. Optional: blurb, bring, accent (rotated in at render time so neighbouring cards differ). Defaults: provided "All art supplies included", status open, special false. Blank CMS values count as absent. Numeric fields use z.coerce so CMS string values parse. Price was removed entirely. Teens list in a Teen art section on For Kids (shown only when teen workshops are scheduled) and join the homepage rows.
+Fields: title, audience (kids/teens/adults; teens is live), category (free-text medium label), accent, date, sessions, startTime, endTime, ageMin, ageMax, blurb, provided, bring, status (open/almost/waitlist/full), special. Optional: blurb, bring, accent (rotated in at render time so neighbouring cards differ). Defaults: provided "All art supplies included", status open, special false. Blank CMS values count as absent. Numeric fields use z.coerce so CMS string values parse. Price was removed entirely. Teens list in a Teen art section on For Kids (shown only when teen workshops are scheduled) and join the homepage rows.
 
 Status is rendered: almost shows an amber pill, waitlist shows a pill and changes the link to "Email to join waitlist", full shows "Session full" as non-interactive text on both card and homepage row. Labels live in src/lib/workshops.ts.
 
-Current entries: 8 kids and 2 adult workshops, all sample data, all past-dated (June-August 2026). The two adult ones are invented and must be removed before cutover.
+Current entries: 12 real October 2026 workshops (5 kids, 2 teens, 5 adults). The sample data is removed. Files are named YYYY-MM-DD-slug.md by workshop date; Pages CMS names new entries the same way (filename "{fields.date}-{primary}.md" in .pages.yml).
 
 ## Done since the last status
 
@@ -54,18 +54,19 @@ Current entries: 8 kids and 2 adult workshops, all sample data, all past-dated (
 - Footer year computed at build time; "v2 redesign" fine print removed.
 - Accessibility: WorkshopRow is a container with a single labelled link; Session full leaves the tab order; carousel has focus styles, arrow keys, a live counter and reduced-motion handling; hero pin is an aria-hidden SVG.
 - WorkshopCard double-padding fixed. Dead CSS removed (global.css 1084 to 978 lines). Zero em or en dashes anywhere in the repo.
+- Sample workshops removed; real October data entered; teens audience live with a Teen art section on For Kids.
 - Photo shot list: docs/photo-shot-list.md (36 photo slots across 6 pages, measured; 23 placeholders remain).
 
 ## Open items
 
 Blocked on Christine:
-1. Fall workshop data. She should enter it herself in Pages CMS with Brent on a call.
+1. Workshop data: October is in. The PA Day entry is pending its ages. Future workshops: she should enter them herself in Pages CMS with Brent on a call.
 2. Photos per docs/photo-shot-list.md. 25 real photos are on the site (19 distinct; 6 reuse an existing photo). 23 placeholders remain: Summer Program 12, Birthday Parties 6, In-the-Schools 4, About 1.
 3. Copy confirmations: homepage lede says "published children's-book illustrator", /about says "relief printmaker". Announce-bar copy.
 
 Brent:
 4. Invite jttacabin@gmail.com in Pages CMS, then send her the PDF guide.
-5. Remove the two invented adult workshops before cutover.
+5. Done: sample workshops (including the two invented adult ones) removed.
 6. Test reduced motion on the carousel with the Windows setting on.
 
 Cutover (Phase 5), when content is in:
