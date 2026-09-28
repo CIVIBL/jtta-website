@@ -179,12 +179,17 @@ const CAROUSEL: Slide[] = [
       </div>
 
       {
-        upcomingWorkshops.length > 0 && (
+        upcomingWorkshops.length > 0 ? (
           <div class="upcoming-grid">
             {upcomingWorkshops.map((w) => (
               <WorkshopRow workshop={w} />
             ))}
           </div>
+        ) : (
+          <p class="section-lede upcoming-empty">
+            The next schedule is coming soon. Email Christine to be the first to hear when new dates
+            are posted.
+          </p>
         )
       }
 

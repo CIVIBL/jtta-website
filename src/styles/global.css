@@ -621,8 +621,8 @@ section[id] { scroll-margin-top: 110px; }
   gap: 12px;
   flex-wrap: wrap;
 }
-/* Nothing scheduled: no rows above, so the links sit under the section head. */
-.section-head + .upcoming-links { margin-top: 0; }
+/* Nothing scheduled: this line takes the rows' place; the section head's margin sets the gap. */
+.upcoming-empty { margin-top: 0; }
 @media (max-width: 520px) {
   .upcoming-links .btn { width: 100%; justify-content: center; }
 }
