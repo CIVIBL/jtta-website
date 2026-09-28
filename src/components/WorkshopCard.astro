@@ -84,15 +84,19 @@ const ctaLabel =
     <span>Led by <b>{instructor}</b></span>
   </div>
 
-  <div class="k-mats">
+  <div class:list={["k-mats", { "is-single": !w.bring }]}>
     <div class="prov">
       <div class="lbl"><Icon name="check" /> Provided</div>
       <p>{w.provided}</p>
     </div>
-    <div class="bring">
-      <div class="lbl"><Icon name="bag" /> Bring</div>
-      <p>{w.bring}</p>
-    </div>
+    {
+      w.bring && (
+        <div class="bring">
+          <div class="lbl"><Icon name="bag" /> Bring</div>
+          <p>{w.bring}</p>
+        </div>
+      )
+    }
   </div>
 
   <div class="k-card-foot">
@@ -245,6 +249,7 @@ const ctaLabel =
     border-radius: 12px;
     margin-bottom: 18px;
   }
+  .k-mats.is-single { grid-template-columns: 1fr; }
   @media (max-width: 420px) { .k-mats { grid-template-columns: 1fr; } }
   .k-mats .lbl {
     font-size: 10px;

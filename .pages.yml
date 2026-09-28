@@ -116,13 +116,12 @@ content:
       - name: provided
         label: What's provided
         type: text
-        required: true
-        description: "Supplies you provide, e.g. Paper, paints, brushes & aprons."
+        default: "All art supplies included"
+        description: "Supplies you provide. Starts as All art supplies included; change it only if you want to be more specific."
       - name: bring
         label: What to bring
         type: text
-        required: true
-        description: "What people should bring, e.g. A smock or old shirt."
+        description: "Optional. What people should bring, e.g. A smock or old shirt. Leave it empty and the card leaves it out."
       - name: status
         label: Availability
         type: select

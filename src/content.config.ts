@@ -19,8 +19,8 @@ const workshops = defineCollection({
     ageMin: z.coerce.number().int(),
     ageMax: z.coerce.number().int(),
     blurb: z.preprocess(blank, z.string().optional()), // optional; the card hides it when absent
-    provided: z.string(),
-    bring: z.string(),
+    provided: z.preprocess(blank, z.string().default("All art supplies included")),
+    bring: z.preprocess(blank, z.string().optional()), // optional; the card hides "Bring" when absent
     status: z.enum(["open", "almost", "waitlist", "full"]).default("open"),
     special: z.boolean().default(false),
   }),
