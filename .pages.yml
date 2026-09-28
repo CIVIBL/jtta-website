@@ -49,8 +49,7 @@ content:
       - name: accent
         label: Card colour
         type: select
-        default: red
-        description: "The card colour: the coloured dot beside the category."
+        description: "Optional; can be left alone. The coloured dot beside the category. Leave it empty and the site picks one so neighbouring cards differ."
         options:
           values:
             - name: red
@@ -126,7 +125,7 @@ content:
         label: Availability
         type: select
         default: open
-        description: "What visitors see on the card. Spots open and Almost full both show an Email to register button, Waitlist shows Email to join waitlist, and Full greys out the card."
+        description: "Can be left alone: it starts as Spots open. What visitors see on the card. Spots open and Almost full both show an Email to register button, Waitlist shows Email to join waitlist, and Full greys out the card."
         options:
           values:
             - name: open
@@ -141,4 +140,4 @@ content:
         label: Special workshop
         type: boolean
         default: false
-        description: "Highlights this workshop with a dark card on the homepage."
+        description: "Can be left alone (off). Turn it on to highlight this workshop with a dark card on the homepage."

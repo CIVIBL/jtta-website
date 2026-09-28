@@ -15,14 +15,17 @@ import {
   SESSION_FULL_LABEL,
   STATUS_LABEL,
   WAITLIST_LABEL,
+  type Accent,
 } from "../lib/workshops";
 import { mailto, CONTACT_EMAIL } from "../lib/site";
 
 interface Props {
   workshop: CollectionEntry<"workshops">;
+  /** Resolved card colour from the page's accentRotation(); falls back to the workshop's own. */
+  accent?: Accent;
 }
 
-const { workshop } = Astro.props;
+const { workshop, accent } = Astro.props;
 const w = workshop.data;
 
 // Accent tokens stay a component concern - content stores a name, not CSS.
@@ -32,7 +35,7 @@ const accentVar = {
   sage: "var(--c-sage)",
   blue: "var(--c-blue)",
   plum: "var(--c-plum)",
-}[w.accent];
+}[accent ?? w.accent ?? "red"];
 
 // The studio is one person; not worth a schema field until that changes.
 const instructor = "Christine Benson";

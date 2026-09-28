@@ -3,13 +3,15 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
 import WorkshopCard from "../components/WorkshopCard.astro";
-import { isUpcoming } from "../lib/workshops";
+import { accentRotation, isUpcoming } from "../lib/workshops";
 import { mailto, CONTACT_EMAIL, MAPS_URL } from "../lib/site";
 import "../styles/for-adults.css";
 
 const adultWorkshops = (await getCollection("workshops"))
   .filter((w) => w.data.audience === "adults" && isUpcoming(w.data.date))
   .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
+const pickAccent = accentRotation();
+const adultCards = adultWorkshops.map((w) => ({ w, accent: pickAccent(w.data.accent) }));
 
 interface QuickFact {
   icon: "clock" | "heart" | "calendar" | "users";
@@ -108,7 +110,7 @@ const IDEAS = ["Pottery & clay", "Painting", "Mixed media", "Whatever you've bee
           </div>
         ) : (
           <div class="a-list">
-            {adultWorkshops.map((w) => <WorkshopCard workshop={w} />)}
+            {adultCards.map(({ w, accent }) => <WorkshopCard workshop={w} accent={accent} />)}
           </div>
         )
       }

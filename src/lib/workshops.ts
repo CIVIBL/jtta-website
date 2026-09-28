@@ -81,6 +81,28 @@ export function formatDuration(minutes: number): string {
   return minutes >= 120 && minutes % 60 === 0 ? `${minutes / 60} hours` : `${minutes} min`;
 }
 
+/** Card accent colours, in rotation order. Content stores the name; WorkshopCard maps it to CSS. */
+export const ACCENTS = ["red", "yellow", "sage", "blue", "plum"] as const;
+export type Accent = (typeof ACCENTS)[number];
+
+/** Returns a picker for cards in page order. A workshop's own accent wins; otherwise
+ * it takes the next colour in ACCENTS, skipping the previous card's so neighbours differ.
+ * Use one picker per page so the rotation runs across every listing on it. */
+export function accentRotation(): (own?: Accent) => Accent {
+  let next = 0;
+  let prev: Accent | undefined;
+  return (own) => {
+    let accent = own;
+    if (!accent) {
+      if (ACCENTS[next % ACCENTS.length] === prev) next++;
+      accent = ACCENTS[next % ACCENTS.length];
+      next++;
+    }
+    prev = accent;
+    return accent;
+  };
+}
+
 /** Status pill text; matches the option labels Christine sees in .pages.yml. "open" shows no pill. */
 export const STATUS_LABEL = {
   open: "Spots open",

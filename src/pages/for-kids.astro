@@ -5,7 +5,7 @@ import Icon from "../components/Icon.astro";
 import WorkshopCard from "../components/WorkshopCard.astro";
 import PhotoStrip from "../components/PhotoStrip.astro";
 import AwardBadge from "../components/AwardBadge.astro";
-import { isUpcoming } from "../lib/workshops";
+import { accentRotation, isUpcoming } from "../lib/workshops";
 import { mailto, CONTACT_EMAIL, MAPS_URL } from "../lib/site";
 import "../styles/for-kids.css";
 
@@ -14,6 +14,10 @@ const upcoming = (await getCollection("workshops"))
   .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
 const kidsWorkshops = upcoming.filter((w) => w.data.audience === "kids");
 const teenWorkshops = upcoming.filter((w) => w.data.audience === "teens");
+// One rotation across both listings, in page order, so neighbouring cards differ.
+const pickAccent = accentRotation();
+const kidsCards = kidsWorkshops.map((w) => ({ w, accent: pickAccent(w.data.accent) }));
+const teenCards = teenWorkshops.map((w) => ({ w, accent: pickAccent(w.data.accent) }));
 
 interface QuickFact {
   icon: "group" | "hands" | "supplies" | "calendar";
@@ -143,7 +147,7 @@ const STRIP_TWO = [
           </div>
         ) : (
           <div class="k-list">
-            {kidsWorkshops.map((w) => <WorkshopCard workshop={w} />)}
+            {kidsCards.map(({ w, accent }) => <WorkshopCard workshop={w} accent={accent} />)}
           </div>
         )
       }
@@ -164,7 +168,7 @@ const STRIP_TWO = [
             </div>
           </div>
           <div class="k-list">
-            {teenWorkshops.map((w) => <WorkshopCard workshop={w} />)}
+            {teenCards.map(({ w, accent }) => <WorkshopCard workshop={w} accent={accent} />)}
           </div>
         </div>
       </section>
