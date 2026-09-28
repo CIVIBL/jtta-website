@@ -14,7 +14,8 @@ content:
     type: collection
     path: src/content/workshops
     format: yaml-frontmatter
-    filename: "{primary}.md"
+    # Workshop date, not today: {year}-{month}-{day} would be the creation date.
+    filename: "{fields.date}-{primary}.md"
     view:
       primary: title
       fields: [title, date, audience, status]
