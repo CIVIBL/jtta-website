@@ -4,7 +4,7 @@ This guide covers everything you need to keep the workshop listings on the websi
 
 ## How it works
 
-The website shows a list of upcoming workshops on the homepage and on the For Kids and For Adults pages. Each workshop is a small form you fill in. When you save it, the website rebuilds itself and the change appears a few minutes later.
+The website shows a list of upcoming workshops on the homepage and on the For Kids and For Adults pages. Teen workshops appear on the For Kids page in their own Teen art section. Each workshop is a small form you fill in. When you save it, the website rebuilds itself and the change appears a few minutes later.
 
 Workshops disappear from the site on their own once their date has passed. You do not need to delete old ones.
 
@@ -22,21 +22,21 @@ You will see the list of workshops, newest first.
 ## Adding a new workshop
 
 1. Click **Add an entry** (top right of the Workshops list).
-2. Fill in the form. Each field has a short note under it explaining what it is for. The fields are:
+2. Fill in the form. Each field has a short note under it explaining what it is for. Fields marked (optional) can be left empty or left as they are. The fields are:
 
    - **Title** - what the workshop is called, as you want it to appear on the site.
-   - **Audience** - Kids or Adults. This decides which page it appears on.
+   - **Audience** - Kids, Teens or Adults. This decides which page it appears on.
    - **Category** - the kind of workshop (for example painting, printmaking, clay).
-   - **Card colour** - the colour of the card on the site. Any choice is fine; it is just for variety.
+   - **Card colour** (optional) - the colour of the card on the site. Leave it empty and the site picks one so neighbouring cards differ.
    - **Date (first session)** - the first (or only) day of the workshop. Pick it from the calendar.
    - **Number of sessions** - how many weeks it runs. Use 1 for a one-off workshop.
    - **Start time (24-hour)** and **End time (24-hour)**.
-   - **Minimum age** and **Maximum age** - for kids workshops these are usually between 6 and 13. For adult workshops use 18 and 99.
-   - **Short description** - two or three sentences about what participants will make and do.
-   - **What's provided** - materials you supply.
-   - **What to bring** - anything participants need to bring, if anything.
-   - **Availability** - see below.
-   - **Special workshop** - turn this on to give the workshop a dark, eye-catching card on the homepage. Use it for at most one or two workshops at a time.
+   - **Minimum age** and **Maximum age** - for kids and teen workshops these are usually between 6 and 16. For adult workshops use 18 and 99.
+   - **Short description** (optional) - two or three sentences about what participants will make and do. You can add it later; the card leaves it out until then.
+   - **What's provided** (optional) - starts as "All art supplies included". Change it only to be more specific.
+   - **What to bring** (optional) - anything participants need to bring. Leave it empty and the card leaves it out.
+   - **Availability** (optional) - starts as Spots open. See below.
+   - **Special workshop** (optional) - off unless you turn it on. Turn it on to give the workshop a dark, eye-catching card on the homepage. Use it for at most one or two workshops at a time.
 
 3. Click **Save**.
 
@@ -75,7 +75,7 @@ The website rebuilds itself. Allow 1 to 3 minutes, then refresh the page on the 
 
 Occasionally a save will not show up on the site. The usual reasons are:
 
-- A required field was left empty. Open the workshop again and check every field has something in it.
+- A required field was left empty. Open the workshop again and check that every field not marked (optional) above has something in it.
 - The date is in the past. The site hides past workshops, so a workshop dated last week will never appear.
 - The rebuild has not finished yet. Give it ten minutes.
 

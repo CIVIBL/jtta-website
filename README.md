@@ -24,7 +24,7 @@ npx astro check   # type check; keep at 0 errors
 
 ## Content
 
-- Workshops: one Markdown file each in `src/content/workshops/`. Schema: `src/content.config.ts`.
+- Workshops: one Markdown file each in `src/content/workshops/`. Schema: `src/content.config.ts`. Audience is kids, teens or adults; teens list in the Teen art section of For Kids. blurb, bring and accent are optional, provided defaults to "All art supplies included", and a missing accent is rotated in at render time (`accentRotation()` in `src/lib/workshops.ts`).
 - Pages CMS config: `.pages.yml`. It mirrors the schema; change both together.
 - Christine's editing guide: `docs/editing-workshops.md`. After editing it, regenerate the PDF with `node scripts/guide-pdf.mjs` and commit both.
 - CMS editing flow: Christine edits workshops in Pages CMS (app.pagescms.org), which commits to `main`; Cloudflare deploys it and the build-check workflow reports failures. Workshop uploads go to `public/images/workshops/`.

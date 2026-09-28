@@ -36,7 +36,7 @@ const html = `<!doctype html>
     margin: 20mm 24mm 22mm;
     @bottom-center { content: counter(page) " of " counter(pages); font: 9pt "Albert Sans", sans-serif; color: #777; }
   }
-  html { font: 11.5pt/1.5 "Albert Sans", Arial, sans-serif; color: #1f1b16; }
+  html { font: 11pt/1.5 "Albert Sans", Arial, sans-serif; color: #1f1b16; }
   body { margin: 0; }
   h1, h2 { font-family: "Fraunces", Georgia, serif; font-weight: 600; line-height: 1.2; break-after: avoid; }
   h1 { font-size: 22pt; margin: 0 0 14pt; }

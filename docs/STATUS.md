@@ -39,7 +39,7 @@ Nav: For Kids / For Adults / Summer Camp / About plus "Contact Christine". Birth
 
 ## Content model
 
-Fields: title, audience, category, accent, date, sessions, startTime, endTime, ageMin, ageMax, blurb, provided, bring, status (open/almost/waitlist/full), special. Numeric fields use z.coerce so CMS string values parse. Price was removed entirely.
+Fields: title, audience (kids/teens/adults), category, accent, date, sessions, startTime, endTime, ageMin, ageMax, blurb, provided, bring, status (open/almost/waitlist/full), special. Optional: blurb, bring, accent (rotated in at render time so neighbouring cards differ). Defaults: provided "All art supplies included", status open, special false. Blank CMS values count as absent. Numeric fields use z.coerce so CMS string values parse. Price was removed entirely. Teens list in a Teen art section on For Kids (shown only when teen workshops are scheduled) and join the homepage rows.
 
 Status is rendered: almost shows an amber pill, waitlist shows a pill and changes the link to "Email to join waitlist", full shows "Session full" as non-interactive text on both card and homepage row. Labels live in src/lib/workshops.ts.
 
