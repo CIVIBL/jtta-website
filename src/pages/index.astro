@@ -161,44 +161,49 @@ const CAROUSEL: Slide[] = [
     </div>
   </section>
 
-  {/* ─── UPCOMING WORKSHOPS (hidden entirely when nothing is scheduled) ─── */}
-  {
-    upcomingWorkshops.length > 0 && (
-      <section class="upcoming" id="workshops">
-        <div class="wrap">
-          <div class="section-head">
-            <div>
-              <div class="eyebrow">Upcoming workshops</div>
-              <h2 class="section-title" style="margin-top: 12px;">
-                Drop in for a <em>workshop!</em>
-              </h2>
-              <p class="section-lede">
-                Choose the workshops that catch your eye - kids and teens after school, grown-ups in
-                the mornings and evenings. Special longer workshops run 90 minutes or more. All
-                supplies included!
-              </p>
-            </div>
-          </div>
+  {/* ─── UPCOMING WORKSHOPS (rows only when scheduled; the links to the full lists always show) ─── */}
+  <section class="upcoming" id="workshops">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Upcoming workshops</div>
+          <h2 class="section-title" style="margin-top: 12px;">
+            Drop in for a <em>workshop!</em>
+          </h2>
+          <p class="section-lede">
+            Choose the workshops that catch your eye - kids and teens after school, grown-ups in
+            the mornings and evenings. Special longer workshops run 90 minutes or more. All
+            supplies included!
+          </p>
+        </div>
+      </div>
 
+      {
+        upcomingWorkshops.length > 0 && (
           <div class="upcoming-grid">
             {upcomingWorkshops.map((w) => (
               <WorkshopRow workshop={w} />
             ))}
           </div>
+        )
+      }
 
-          <div class="upcoming-foot">
-            <p>
-              <strong>How to register:</strong> Contact Christine via email. She'll confirm your
-              spot. Payment at the time of registration.
-            </p>
-            <a href={mailto("Workshop registration")} class="btn is-primary">
-              Contact Christine
-            </a>
-          </div>
-        </div>
-      </section>
-    )
-  }
+      <div class="upcoming-links">
+        <a href="/for-kids" class="btn is-line">See all kids and teen workshops →</a>
+        <a href="/for-adults" class="btn is-line">See all adult workshops →</a>
+      </div>
+
+      <div class="upcoming-foot">
+        <p>
+          <strong>How to register:</strong> Contact Christine via email. She'll confirm your
+          spot. Payment at the time of registration.
+        </p>
+        <a href={mailto("Workshop registration")} class="btn is-primary">
+          Contact Christine
+        </a>
+      </div>
+    </div>
+  </section>
 
   {/* ─── PROGRAMS GRID ─── */}
   <section class="programs" id="programs">

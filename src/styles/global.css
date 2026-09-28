@@ -615,6 +615,18 @@ section[id] { scroll-margin-top: 110px; }
 .workshop-row.is-special.is-full .w-register { color: rgba(255,255,255,0.6); }
 .workshop-row.is-special.is-full .w-cta { background: rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); }
 
+.upcoming-links {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+/* Nothing scheduled: no rows above, so the links sit under the section head. */
+.section-head + .upcoming-links { margin-top: 0; }
+@media (max-width: 520px) {
+  .upcoming-links .btn { width: 100%; justify-content: center; }
+}
+
 .upcoming-foot {
   margin-top: 28px;
   display: flex;
