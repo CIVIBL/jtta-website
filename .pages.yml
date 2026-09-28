@@ -46,7 +46,7 @@ content:
         label: Category
         type: string
         required: true
-        description: "A short label at the top of the card, e.g. Watercolour, Clay, Printmaking."
+        description: "The medium, in a word or two, e.g. Painting, Clay, Printmaking"
       - name: accent
         label: Card colour
         type: select

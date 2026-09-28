@@ -11,7 +11,7 @@ const workshops = defineCollection({
   schema: z.object({
     title: z.string().min(1),
     audience: z.enum(["kids", "teens", "adults"]),
-    category: z.string(), // e.g. "Painting & Drawing"
+    category: z.string().min(1), // free-text medium label, e.g. "Painting"
     accent: z.preprocess(blank, z.enum(ACCENTS).optional()), // optional; pages rotate one in when absent
     date: z.coerce.date(), // ISO date, with year
     sessions: z.coerce.number().int().min(1).default(1), // single or multi-session
