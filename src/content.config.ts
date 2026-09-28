@@ -2,6 +2,9 @@ import { defineCollection } from "astro:content";
 import { z } from "astro/zod";
 import { glob } from "astro/loaders";
 
+// Pages CMS saves an emptied optional field as "", so treat blank strings as absent.
+const blank = (v: unknown) => (typeof v === "string" && v.trim() === "" ? undefined : v);
+
 const workshops = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/workshops" }),
   schema: z.object({
@@ -15,7 +18,7 @@ const workshops = defineCollection({
     endTime: z.string(), // "12:00"
     ageMin: z.coerce.number().int(),
     ageMax: z.coerce.number().int(),
-    blurb: z.string().min(1),
+    blurb: z.preprocess(blank, z.string().optional()), // optional; the card hides it when absent
     provided: z.string(),
     bring: z.string(),
     status: z.enum(["open", "almost", "waitlist", "full"]).default("open"),

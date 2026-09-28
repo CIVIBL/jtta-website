@@ -112,8 +112,7 @@ content:
       - name: blurb
         label: Short description
         type: text
-        required: true
-        description: "One or two sentences about what you'll make. Shown on the card."
+        description: "Optional; can be added later. One or two sentences about what you'll make. Shown on the card."
       - name: provided
         label: What's provided
         type: text

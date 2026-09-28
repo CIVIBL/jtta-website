@@ -54,7 +54,7 @@ const ctaLabel =
     {w.status !== "open" && <span class={`pill is-${w.status}`}>{STATUS_LABEL[w.status]}</span>}
   </div>
   <h3>{w.title}</h3>
-  <p class="k-blurb">{w.blurb}</p>
+  {w.blurb && <p class="k-blurb">{w.blurb}</p>}
 
   <div class="k-meta">
     <div>
@@ -170,6 +170,8 @@ const ctaLabel =
   }
 
   /* facts grid inside card */
+  /* No description: keep the same 18px gap the blurb would leave above the facts. */
+  .k-card h3 + .k-meta { margin-top: 12px; }
   .k-meta {
     display: grid;
     grid-template-columns: 1fr 1fr;
