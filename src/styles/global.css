@@ -43,8 +43,9 @@ img { display: block; max-width: 100%; }
 }
 
 /* ─── IMAGE PLACEHOLDER ───
-   Temporary stand-in for real photography. Fills its container and shows
-   the expected subject. Replace each .ph with a real <img> when assets land. */
+   Dev-only stand-in for real photography: components render .ph only when
+   import.meta.env.DEV is true, so production builds never contain it. Fills its
+   container and shows the expected subject. */
 .ph {
   width: 100%;
   height: 100%;

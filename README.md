@@ -30,7 +30,7 @@ npx astro check   # type check; keep at 0 errors
 - CMS editing flow: Christine edits workshops in Pages CMS (app.pagescms.org), which commits to `main`; Cloudflare deploys it and the build-check workflow reports failures. Workshop uploads go to `public/images/workshops/`.
 - Contact email and Maps link: `src/lib/site.ts`. Date and time formatting: `src/lib/workshops.ts`.
 - Other page copy lives in `src/pages/*.astro`.
-- Images: `public/images/`. Missing photos are `.ph` placeholders with a TODO comment naming the expected path.
+- Images: `public/images/`. A missing photo is a slot with no `src` and a TODO comment naming the expected path. It renders as a grey `.ph` placeholder only in `npm run dev` (`import.meta.env.DEV`); the production build drops it and the layout collapses (strips show only filled photos or hide, hero mosaics drop empty tiles or go text-only, cards lose the photo area). To fill a slot, add `src`, `alt`, `width` and `height`.
 
 ## Structure
 
