@@ -198,8 +198,57 @@ img { display: block; max-width: 100%; }
   .nav-links { gap: 20px; }
 }
 @media (max-width: 880px) {
-  .nav-links a:not(.nav-cta) { display: none; }
   .nav-sub { display: none; }
+}
+/* Below 600px the name no longer fits beside Menu and Contact. The logo already
+   reads "Journey Through the Arts", so hide the text visually but keep it as the
+   home link's accessible name. */
+@media (max-width: 599px) {
+  .nav-brand > div:not(.nav-logo) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+/* ─── MENU (below 1200px) ───
+   The six text links no longer fit beside the brand, so they move into a panel
+   opened by the Menu button. Nav.astro renders the panel open and its inline
+   script closes it on load, so without JavaScript the links stay reachable. */
+.nav-menu-btn { display: none; padding: 9px 16px; font-size: 13px; }
+.nav-menu { display: none; }
+@media (max-width: 1199px) {
+  .nav-links { gap: 10px; }
+  .nav-links a:not(.nav-cta) { display: none; }
+  .nav-menu-btn { display: inline-flex; }
+  .nav-menu { display: block; border-top: 1px solid var(--rule); max-height: calc(100dvh - 90px); overflow-y: auto; }
+}
+.nav-menu-btn[hidden], .nav-menu[hidden] { display: none; }
+.nav-menu-list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 4px var(--gutter) 16px;
+  max-width: var(--maxw);
+}
+.nav-menu-list a:not(.btn) {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  transition: color .15s ease;
+}
+.nav-menu-list a:not(.btn):hover, .nav-menu-list a.active { color: var(--c-red); }
+.nav-menu-cta { width: 100%; justify-content: center; min-height: 48px; margin-top: 16px; }
+.nav-menu-btn:focus-visible, .nav-menu-list a:focus-visible, .nav-cta:focus-visible {
+  outline: 2px solid var(--c-red);
+  outline-offset: 3px;
 }
 
 section { padding: clamp(56px, 8vw, 112px) 0; position: relative; }

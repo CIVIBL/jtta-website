@@ -30,9 +30,65 @@ const links = [
         <div class="nav-sub">Port Hope · Est. 2002</div>
       </div>
     </a>
-    <nav class="nav-links">
-      {links.map((l) => <a href={l.href} class:list={{ active: active === l.key }}>{l.label}</a>)}
+    <nav class="nav-links" aria-label="Main">
+      {
+        links.map((l) => (
+          <a href={l.href} class:list={{ active: active === l.key }} aria-current={active === l.key ? "page" : undefined}>
+            {l.label}
+          </a>
+        ))
+      }
       <a class="btn nav-cta is-primary" href={mailto()}>Contact Christine</a>
+      {/* Below 1200px the text links above are hidden and this button opens #nav-menu.
+          It sits after Contact so Tab goes from Menu straight into the open panel.
+          It starts hidden so it only appears once the script below has wired it up. */}
+      <button type="button" class="btn is-line nav-menu-btn" id="nav-menu-btn" aria-controls="nav-menu" aria-expanded="true" hidden>
+        <span class="nav-menu-label">Close</span>
+      </button>
     </nav>
   </div>
+  {/* Rendered open so the links stay reachable if JavaScript fails; the script closes it on load. */}
+  <nav class="nav-menu" id="nav-menu" aria-label="Main">
+    <ul class="nav-menu-list">
+      {
+        links.map((l) => (
+          <li>
+            <a href={l.href} class:list={{ active: active === l.key }} aria-current={active === l.key ? "page" : undefined}>
+              {l.label}
+            </a>
+          </li>
+        ))
+      }
+      <li><a class="btn is-primary nav-menu-cta" href={mailto()}>Contact Christine</a></li>
+    </ul>
+  </nav>
+  <script is:inline>
+    (() => {
+      const btn = document.getElementById("nav-menu-btn");
+      const panel = document.getElementById("nav-menu");
+      if (!btn || !panel) return;
+      const label = btn.querySelector(".nav-menu-label");
+      const set = (open) => {
+        panel.hidden = !open;
+        btn.setAttribute("aria-expanded", String(open));
+        label.textContent = open ? "Close" : "Menu";
+      };
+      set(false);
+      btn.hidden = false;
+      btn.addEventListener("click", () => set(panel.hidden));
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !panel.hidden) {
+          set(false);
+          btn.focus();
+        }
+      });
+      document.addEventListener("click", (e) => {
+        if (!panel.hidden && !panel.contains(e.target) && !btn.contains(e.target)) set(false);
+      });
+      // Widening past the breakpoint hides the panel via CSS; reset it so it is closed next time.
+      matchMedia("(min-width: 1200px)").addEventListener("change", (m) => {
+        if (m.matches) set(false);
+      });
+    })();
+  </script>
 </header>
