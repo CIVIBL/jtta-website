@@ -36,6 +36,7 @@ npx astro check   # type check; keep at 0 errors
 
 - `src/styles/tokens.css` design tokens; `global.css` shared styles; one stylesheet per page with its own class prefix (kids `k-`, adults `a-`, summer `s-`, birthday `b-`, schools `sc-`, about `ab-`).
 - `src/layouts/`: BaseLayout, Nav, Footer. `src/components/`: shared and page-scoped components.
+- Nav (`src/layouts/Nav.astro`): For Kids & Teens, For Adults, Summer Camp, Birthdays, In the Schools, About, then the Contact Christine button. Pages pass `activeNav` (kids, adults, summer, birthdays, schools, about) to highlight their link. Below 880px the text links are hidden and only the logo and Contact button show; there is no mobile menu. The footer keeps its own links list.
 - `scripts/`: one-off generators, run by hand with `node scripts/<name>.mjs`. `og-share.mjs` makes the social share image; `favicons.mjs` makes the favicons from the logo. `guide-pdf.mjs` makes `docs/editing-workshops.pdf` (needs Chrome or Edge).
 
 ## Conventions

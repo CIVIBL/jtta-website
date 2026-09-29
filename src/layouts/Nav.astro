@@ -3,15 +3,17 @@ import { mailto } from "../lib/site";
 
 interface Props {
   /** Highlights the matching nav link as the current section/page. */
-  active?: "kids" | "adults" | "summer" | "about";
+  active?: "kids" | "adults" | "summer" | "birthdays" | "schools" | "about";
 }
 const { active } = Astro.props;
 
 // Root-absolute hrefs so the shared nav works from any page.
 const links = [
-  { href: "/for-kids", label: "For Kids", key: "kids" },
+  { href: "/for-kids", label: "For Kids & Teens", key: "kids" },
   { href: "/for-adults", label: "For Adults", key: "adults" },
   { href: "/summer-program", label: "Summer Camp", key: "summer" },
+  { href: "/birthday-parties", label: "Birthdays", key: "birthdays" },
+  { href: "/in-the-schools", label: "In the Schools", key: "schools" },
   { href: "/about", label: "About", key: "about" },
 ];
 ---

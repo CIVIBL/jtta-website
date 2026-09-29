@@ -35,7 +35,7 @@ Why: the previous webmaster retired. Brent (CIVIBL) took over hosting and rebuil
 
 / , /for-kids, /for-adults, /summer-program, /birthday-parties, /in-the-schools, /about, /404.
 
-Nav: For Kids / For Adults / Summer Camp / About plus "Contact Christine". Birthday Parties and In-the-Schools are reached from homepage cards and the footer, by design.
+Nav: For Kids & Teens / For Adults / Summer Camp / Birthdays / In the Schools / About plus "Contact Christine". Below 880px only the logo and Contact button show (no mobile menu). Open issue: with six links, between about 880 and 1280px the brand name truncates ("Journey T..." at 1024px) and at about 880-960px it disappears and the "Port Hope · Est. 2002" line overlaps the first link. Needs a decision (wider breakpoint, tighter spacing, or a menu).
 
 ## Content model
 
