@@ -1,10 +1,10 @@
 # Photo shot list
 
-These are the spots on the website still waiting for a real photo. Please send photos whose long edge is at least 1600px (any recent phone photo is fine). Shape matters: each entry says whether the spot is landscape (wider than tall), portrait (taller than wide) or roughly square, so shoot or pick photos in that shape. JPG or HEIC straight from your phone is fine; no need to edit or resize.
+Every photo spot on the website now has a real photo; this list records what is in each one. To replace a photo, send one that meets the notes below. Please send photos whose long edge is at least 1600px (any recent phone photo is fine). Shape matters: each entry says whether the spot is landscape (wider than tall), portrait (taller than wide) or roughly square, so shoot or pick photos in that shape. JPG or HEIC straight from your phone is fine; no need to edit or resize.
 
 Sizes are how big each box shows on a desktop screen (1440px wide), measured from the built site. File names come from the site code; "none in code" means the spot has no file name yet. Strip photos follow the pattern `<page>-strip-<strip number>-<subject>.jpg`, as on the For Kids page.
 
-36 photo spots across 6 pages: 35 done, 1 still needed: Summer Program 1. The home page has no empty spots.
+36 photo spots across 6 pages: 36 done. No empty photo slots remain. The home page has no empty spots.
 
 ## About - done
 
@@ -65,15 +65,15 @@ All are on the site. Some photos differ from the original plan, so "What the pho
 | Photo strip, second photo | schools-strip-1-artwork.jpg | Landscape, 4:3 | 357 x 267 | Done: a scratch-art tree with the word Peace |
 | Photo strip, third photo | schools-strip-1-display.jpg | Landscape, 4:3 | 357 x 267 | Done, substituted. Planned: finished pieces on display. Used: an adult and a teen in front of a mural outline in progress |
 
-## Summer Program - 11 of 12 done
+## Summer Program - done
 
-Eleven are on the site; the hero's art-table tile is still needed. While it is empty the hero shows two tiles side by side, each 255 x 634. Some photos differ from the original plan, so "What the photo shows" describes the photo actually used.
+All are on the site. Some photos differ from the original plan, so "What the photo shows" describes the photo actually used.
 
 | Where on the page | File name | Shape | Box size | What the photo shows |
 |---|---|---|---|---|
 | Top of page, tall photo in the group of three | summer-friday-show.jpg | Tall portrait, about 2:5 | 255 x 634 | Done: an audience watching children perform on the jellyfish-decorated stage ("The Friday show" badge sits on it) |
-| Top of page, upper small photo | summer-guitar.jpg | Portrait, about 2:3 | 255 x 373 | Done: a smiling girl holding an acoustic guitar (shown 255 x 634 while the art-table tile is empty) |
-| Top of page, lower small photo | summer-art-table.jpg | Square | 255 x 249 | Still needed: making art at the table. The file supplied was too small (400 x 267) |
+| Top of page, upper small photo | summer-guitar.jpg | Portrait, about 2:3 | 255 x 373 | Done: a smiling girl holding an acoustic guitar |
+| Top of page, lower small photo | summer-art-table.jpg | Square | 255 x 249 | Done: girls drawing at a long table under hanging paper jellyfish |
 | First photo strip, first (larger) photo | summer-strip-1-showtime.jpg | Landscape, 4:3 | 464 x 348 | Done: families watching campers perform on stage (caption: "showtime") |
 | First photo strip, second photo | summer-strip-1-guitars.jpg | Landscape, 4:3 | 357 x 267 | Done: two boys playing acoustic guitars |
 | First photo strip, third photo | summer-strip-1-backdrop.jpg | Landscape, 4:3 | 357 x 267 | Done, substituted. Planned: painting a set backdrop. Used: a girl in fairy wings performing in front of a hand-painted banner |

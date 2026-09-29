@@ -92,7 +92,7 @@ const KNOW: Fact[] = [
 
 // Photo slots. Add src, alt, width and height (the file's pixel sizes) to fill one.
 // Slots without src are grey placeholders in dev and are dropped from the production build.
-interface Slot { placeholder: string; src?: string; alt?: string; width?: number; height?: number; caption?: string }
+interface Slot { placeholder: string; src?: string; alt?: string; width?: number; height?: number; caption?: string; objectPosition?: string }
 const STRIP_ONE: Slot[] = [
   {
     placeholder: "Kids in costume mid-performance", caption: "showtime",
@@ -143,8 +143,11 @@ const HERO_PHOTOS: (Slot & { badge?: string })[] = [
     src: "/images/summer-guitar.jpg", width: 702, height: 936,
     alt: "A smiling girl holding an acoustic guitar, with other campers seated behind her.",
   },
-  // TODO: real photo. Expected at /images/summer-art-table.jpg (the file supplied was too small, 400 x 267)
-  { placeholder: "Making art at the table" },
+  {
+    placeholder: "Making art at the table",
+    src: "/images/summer-art-table.jpg", width: 1600, height: 1200, objectPosition: "70% center",
+    alt: "Girls drawing at a long table under hanging pink paper jellyfish.",
+  },
 ];
 const heroPhotos = HERO_PHOTOS.filter((it) => it.src || import.meta.env.DEV);
 ---
@@ -195,7 +198,7 @@ const heroPhotos = HERO_PHOTOS.filter((it) => it.src || import.meta.env.DEV);
               {heroPhotos.map((it, i) => (
                 <figure class:list={{ tall: heroPhotos.length === 3 && i === 0 }}>
                   {it.src ? (
-                    <img src={it.src} alt={it.alt} width={it.width} height={it.height} loading={i === 0 ? "eager" : "lazy"} />
+                    <img src={it.src} alt={it.alt} width={it.width} height={it.height} loading={i === 0 ? "eager" : "lazy"} style={it.objectPosition && `object-position: ${it.objectPosition}`} />
                   ) : (
                     <>
                       {/* TODO: real photo - {it.placeholder}. Dev-only placeholder; see HERO_PHOTOS. */}
