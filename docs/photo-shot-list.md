@@ -4,7 +4,7 @@ These are the spots on the website still waiting for a real photo. Please send p
 
 Sizes are how big each box shows on a desktop screen (1440px wide), measured from the built site. File names come from the site code; "none in code" means the spot has no file name yet. Strip photos follow the pattern `<page>-strip-<strip number>-<subject>.jpg`, as on the For Kids page.
 
-36 photo spots across 6 pages: 32 done, 4 still needed: In-the-Schools 2, Birthday Parties 1, Summer Program 1. The home page has no empty spots.
+36 photo spots across 6 pages: 34 done, 2 still needed: Birthday Parties 1, Summer Program 1. The home page has no empty spots.
 
 ## About - done
 
@@ -54,15 +54,15 @@ Five are on the site; the strip's second photo is still needed. Some photos diff
 | Photo strip, second photo | party-strip-1-group.jpg | Landscape, 4:3 | 357 x 267 | Still needed: kids painting together. The file supplied was too small (377 x 287) |
 | Photo strip, third photo | party-strip-1-candles.jpg | Landscape, 4:3 | 357 x 267 | Done, substituted. Planned: blowing out candles. Used: a lino-cut bird print over watercolour |
 
-## In-the-Schools - 2 of 4 done
+## In-the-Schools - done
 
-Two are on the site; the hero and the strip's second photo are still needed. Some photos differ from the original plan, so "What the photo shows" describes the photo actually used.
+All are on the site. Some photos differ from the original plan, so "What the photo shows" describes the photo actually used.
 
 | Where on the page | File name | Shape | Box size | What the photo shows |
 |---|---|---|---|---|
-| Top of page, beside "Curriculum-linked art, brought to your classroom" | schools-classroom.jpg | Landscape, 4:3 | 513 x 385 | Still needed: Christine leading a classroom art workshop. The file supplied was too small (437 x 301) |
+| Top of page, beside "Curriculum-linked art, brought to your classroom" | schools-classroom.jpg | Landscape, 4:3 | 513 x 385 | Done, substituted. Planned: Christine leading a classroom art workshop. Used: children drawing at long tables in the log-cabin studio |
 | Photo strip, first (larger) photo | schools-strip-1-desks.jpg | Landscape, 4:3 | 464 x 348 | Done, substituted. Planned: students mid-workshop at their desks. Used: a girl building a clay coil pot (caption: "Hands in clay") |
-| Photo strip, second photo | schools-strip-1-artwork.jpg | Landscape, 4:3 | 357 x 267 | Still needed: close-up of student artwork. The file supplied was too small (247 x 301) |
+| Photo strip, second photo | schools-strip-1-artwork.jpg | Landscape, 4:3 | 357 x 267 | Done: a scratch-art tree with the word Peace |
 | Photo strip, third photo | schools-strip-1-display.jpg | Landscape, 4:3 | 357 x 267 | Done, substituted. Planned: finished pieces on display. Used: an adult and a teen in front of a mural outline in progress |
 
 ## Summer Program - 11 of 12 done

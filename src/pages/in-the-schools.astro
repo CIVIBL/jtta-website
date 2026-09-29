@@ -55,12 +55,16 @@ const DIVISIONS: Division[] = [
 
 // width/height are the files' pixel sizes; CSS crops each to 4:3. objectPosition overrides the centred crop.
 // Items without src are empty slots: grey placeholders in dev, dropped from the production build.
-const STRIP = [
+interface Slot { placeholder?: string; src?: string; alt?: string; width?: number; height?: number; caption?: string; objectPosition?: string }
+const STRIP: Slot[] = [
   {
     src: "/images/schools-strip-1-desks.jpg", width: 1200, height: 1600, caption: "hands in clay", objectPosition: "center 80%",
     alt: "A girl building a clay coil pot at a table covered in a blue cloth.",
   },
-  { placeholder: "Close-up of student artwork" }, // TODO: real photo. Expected at /images/schools-strip-1-artwork.jpg
+  {
+    src: "/images/schools-strip-1-artwork.jpg", width: 1188, height: 1600, objectPosition: "center 35%",
+    alt: "A scratch-art tree of swirling black branches with a small bird and the word Peace, rainbow colours showing through.",
+  },
   {
     src: "/images/schools-strip-1-display.jpg", width: 1013, height: 1600,
     alt: "An adult and a teen in a Journey Through the Arts hoodie standing in front of a large mural outline drawn on a wall panel.",
@@ -72,7 +76,8 @@ const strip = STRIP.filter((it) => it.src || import.meta.env.DEV);
 // /images/schools-classroom.jpg. Set src (and width/height) to fill. Without it the hero is
 // text-only in production (the award stacks under the text) and a placeholder in dev.
 const HERO_PHOTO: { src?: string; alt: string; width?: number; height?: number } = {
-  alt: "Christine leading a classroom art workshop",
+  src: "/images/schools-classroom.jpg", width: 1600, height: 1200,
+  alt: "Children drawing at long tables set around a rug in the log-cabin studio.",
 };
 const showHeroPhoto = Boolean(HERO_PHOTO.src) || import.meta.env.DEV;
 ---
