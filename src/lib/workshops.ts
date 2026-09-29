@@ -21,6 +21,7 @@ const clean = (s: string) => s.replace(/\./g, "");
 const monthFmt = new Intl.DateTimeFormat("en-CA", { timeZone: "UTC", month: "short" });
 const dayFmt = new Intl.DateTimeFormat("en-CA", { timeZone: "UTC", day: "numeric" });
 const dowFmt = new Intl.DateTimeFormat("en-CA", { timeZone: "UTC", weekday: "short" });
+const longDateFmt = new Intl.DateTimeFormat("en-CA", { timeZone: "UTC", weekday: "long", month: "long", day: "numeric" });
 const todayFmt = new Intl.DateTimeFormat("en-CA", {
   timeZone: STUDIO_TZ,
   year: "numeric",
@@ -41,6 +42,11 @@ export function formatDay(date: Date): string {
 /** "Sat" */
 export function formatDow(date: Date): string {
   return clean(dowFmt.format(date));
+}
+
+/** "Monday, October 5". Formatted in UTC like the others, so it is the calendar date as written. */
+export function formatLongDate(date: Date): string {
+  return clean(longDateFmt.format(date));
 }
 
 /** "10:00" (24h) -> { h12: "10:00", suffix: "AM" } */

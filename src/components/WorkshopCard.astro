@@ -5,10 +5,8 @@ import {
   buildMailto,
   durationMinutes,
   formatAgeRange,
-  formatDay,
-  formatDow,
   formatDuration,
-  formatMonth,
+  formatLongDate,
   formatSessions,
   formatTimeRange,
   REGISTER_LABEL,
@@ -43,6 +41,8 @@ const initials = "CB";
 
 const duration = formatDuration(durationMinutes(w.startTime, w.endTime));
 const timeSub = w.sessions > 1 ? `${duration} each` : duration;
+// Keep "7:00 PM" together so a narrow Time cell breaks after the dash, never before AM/PM.
+const timeRange = formatTimeRange(w.startTime, w.endTime).replace(/ (AM|PM)/g, "\u00A0$1");
 const ctaLabel =
   w.status === "waitlist"
     ? `${WAITLIST_LABEL} →`
@@ -60,6 +60,14 @@ const ctaLabel =
   {w.blurb && <p class="k-blurb">{w.blurb}</p>}
 
   <div class="k-meta">
+    <div class="k-when">
+      <div class="lbl">When</div>
+      <div class="val">{formatLongDate(w.date)}<small>{formatSessions(w.sessions)}</small></div>
+    </div>
+    <div>
+      <div class="lbl">Time</div>
+      <div class="val">{timeRange}<small>{timeSub}</small></div>
+    </div>
     <div>
       <div class="lbl">{w.audience === "adults" ? "Who" : "Ages"}</div>
       <div class="val">
@@ -71,14 +79,6 @@ const ctaLabel =
           )
         }
       </div>
-    </div>
-    <div>
-      <div class="lbl">When</div>
-      <div class="val">{formatDow(w.date)} · {formatMonth(w.date)} {formatDay(w.date)}<small>{formatSessions(w.sessions)}</small></div>
-    </div>
-    <div>
-      <div class="lbl">Time</div>
-      <div class="val">{formatTimeRange(w.startTime, w.endTime)}<small>{timeSub}</small></div>
     </div>
   </div>
 
@@ -193,8 +193,8 @@ const ctaLabel =
     background: var(--bg);
     padding: 12px 14px;
   }
-  /* Three facts in a 2-column grid: the last one spans the row so no empty cell shows the rule colour. */
-  .k-meta > div:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  /* When spans the top row; Time and Ages share the row below. */
+  .k-meta > .k-when { grid-column: 1 / -1; }
   .k-meta .lbl {
     font-size: 10px;
     font-weight: 700;
