@@ -82,9 +82,21 @@ const KNOW: Fact[] = [
 // Slots without src are grey placeholders in dev and are dropped from the production build.
 interface Slot { placeholder: string; src?: string; alt?: string; width?: number; height?: number; caption?: string }
 const STRIP_ONE: Slot[] = [
-  { placeholder: "Kids in costume mid-performance", caption: "showtime" }, // TODO: real photo
-  { placeholder: "Strumming guitars in a circle" }, // TODO: real photo
-  { placeholder: "Painting a set backdrop" }, // TODO: real photo
+  {
+    placeholder: "Kids in costume mid-performance", caption: "showtime",
+    src: "/images/summer-strip-1-showtime.jpg", width: 1600, height: 1200,
+    alt: "Families in rows watching campers perform on a stage decorated with pink paper jellyfish, under the Journey Through the Arts sign.",
+  },
+  {
+    placeholder: "Strumming guitars in a circle",
+    src: "/images/summer-strip-1-guitars.jpg", width: 960, height: 720,
+    alt: "Two boys playing acoustic guitars, one in a black cap and one in a grey cap.",
+  },
+  {
+    placeholder: "Painting a set backdrop",
+    src: "/images/summer-strip-1-backdrop.jpg", width: 833, height: 625,
+    alt: "A girl in fairy wings performing on stage in front of a hand-painted banner, with another girl sitting on the floor beside her.",
+  },
 ];
 const STRIP_TWO: Slot[] = [
   { placeholder: "Printmaking in progress" }, // TODO: real photo
