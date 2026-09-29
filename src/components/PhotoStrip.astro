@@ -20,23 +20,33 @@ interface Props {
 }
 
 const { items, onPaper = false } = Astro.props;
+// Items without src are empty slots: shown as grey placeholders in dev, dropped in the
+// production build. The whole strip disappears if no item has a photo.
+const shown = items.filter((it) => it.src || import.meta.env.DEV);
 ---
 
-<div class:list={["k-strip", { "on-paper": onPaper }]}>
-  <div class="wrap">
-    <div class="k-strip-grid">
-      {
-        items.map((it) => (
-          <figure>
-            {it.src ? (
-              <img src={it.src} alt={it.alt ?? it.placeholder ?? ""} width={it.width} height={it.height} loading="lazy" />
-            ) : (
-              <div class="ph">{it.placeholder}</div>
-            )}
-            {it.caption && <figcaption>{it.caption}</figcaption>}
-          </figure>
-        ))
-      }
+{
+  shown.length > 0 && (
+    <div class:list={["k-strip", { "on-paper": onPaper }]}>
+      <div class="wrap">
+        <div class:list={["k-strip-grid", { "is-two": shown.length === 2, "is-one": shown.length === 1 }]}>
+          {
+            shown.map((it) => (
+              <figure>
+                {it.src ? (
+                  <img src={it.src} alt={it.alt ?? it.placeholder ?? ""} width={it.width} height={it.height} loading="lazy" />
+                ) : (
+                  <>
+                    {/* TODO: real photo - {it.placeholder}. Dev-only placeholder. */}
+                    <div class="ph">{it.placeholder}</div>
+                  </>
+                )}
+                {it.caption && <figcaption>{it.caption}</figcaption>}
+              </figure>
+            ))
+          }
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  )
+}
