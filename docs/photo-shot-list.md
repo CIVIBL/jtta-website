@@ -4,7 +4,7 @@ These are the spots on the website still waiting for a real photo. Please send p
 
 Sizes are how big each box shows on a desktop screen (1440px wide), measured from the built site. File names come from the site code; "none in code" means the spot has no file name yet. Strip photos follow the pattern `<page>-strip-<strip number>-<subject>.jpg`, as on the For Kids page.
 
-36 photo spots across 6 pages: 24 done (every page except Summer Program), 12 still needed (all on Summer Program). The home page has no empty spots.
+36 photo spots across 6 pages: 21 done, 15 still needed: Summer Program 12, In-the-Schools 2, Birthday Parties 1. The home page has no empty spots.
 
 ## About - done
 
@@ -16,7 +16,7 @@ All five are on the site. Some photos differ from the original plan, so "What th
 | "The artist" section, beside the bio | about-christine-printmaking.jpg | Portrait, about 5:6 | 468 x 561 | Done: Christine carving with a red-handled tool at a worktable |
 | Photo strip, first (larger) photo | about-strip-1-cabin.jpg | Landscape, 4:3 | 464 x 348 | Done: the log cabin from the garden, stepping-stone path in front (caption: "the 1840s cabin") |
 | Photo strip, second photo | about-strip-1-studio.jpg | Landscape, 4:3 | 357 x 267 | Done: the studio set up for a class (planned: prints and supplies). Same photo as kids-strip-2-cabin.jpg |
-| Photo strip, third photo | about-strip-1-teaching.jpg | Landscape, 4:3 | 357 x 267 | Done: a woman sitting on a large painted stage backdrop (planned: Christine teaching a small group) |
+| Photo strip, third photo | about-strip-1-teaching.jpg | Landscape, 4:3 | 357 x 267 | Done, substituted. Planned: Christine teaching a small group. Used: a woman sitting on a large painted stage backdrop |
 
 ## For Kids - done
 
@@ -41,9 +41,9 @@ Both are on the site. The custom photo differs from the original plan, so "What 
 | Top of page, beside "An evening to make something" | adults-hero.jpg | Portrait, 4:5 | 481 x 602 | Done: adults at a long turquoise table in the cabin, painting small canvases and arranging sea glass |
 | "Book your own time with friends at the studio" section | adults-custom.jpg | Landscape, 5:4 | 538 x 430 | Done: the round stained-glass window in the cabin gable (caption: "your studio, your evening"; planned: friends gathered around a project) |
 
-## Birthday Parties - done
+## Birthday Parties - 5 of 6 done
 
-All are on the site. Some photos differ from the original plan, so "What the photo shows" describes the photo actually used.
+Five are on the site; the strip's second photo is still needed. Some photos differ from the original plan, so "What the photo shows" describes the photo actually used.
 
 | Where on the page | File name | Shape | Box size | What the photo shows |
 |---|---|---|---|---|
@@ -51,19 +51,19 @@ All are on the site. Some photos differ from the original plan, so "What the pho
 | Top of page, upper small photo | party-cake.jpg | Landscape, about 6:5 | 260 x 217 | Done: two girls beside a birthday cake with an 8 candle. Low resolution (600 x 450) |
 | Top of page, lower small photo | party-studio.jpg | Portrait, about 9:10 | 260 x 293 | Done: the studio set up for a class. Same photo as about-strip-1-studio.jpg and kids-strip-2-cabin.jpg |
 | Photo strip, first (larger) photo | party-strip-1-setup.jpg | Landscape, 4:3 | 464 x 348 | Done: children painting wooden boxes at a table of glitter jars (caption: "the set-up"). Low resolution (600 x 450) |
-| Photo strip, second photo | party-strip-1-group.jpg | Landscape, 4:3 | 357 x 267 | Done: a girl painting a paper plate (planned: kids painting together). Has a black scrapbook border built into the image. Low resolution (377 x 287) |
-| Photo strip, third photo | party-strip-1-candles.jpg | Landscape, 4:3 | 357 x 267 | Done: a lino-cut bird print over watercolour (planned: blowing out candles) |
+| Photo strip, second photo | party-strip-1-group.jpg | Landscape, 4:3 | 357 x 267 | Still needed: kids painting together. The file supplied was too small (377 x 287) |
+| Photo strip, third photo | party-strip-1-candles.jpg | Landscape, 4:3 | 357 x 267 | Done, substituted. Planned: blowing out candles. Used: a lino-cut bird print over watercolour |
 
-## In-the-Schools - done
+## In-the-Schools - 2 of 4 done
 
-All are on the site. Some photos differ from the original plan, so "What the photo shows" describes the photo actually used.
+Two are on the site; the hero and the strip's second photo are still needed. Some photos differ from the original plan, so "What the photo shows" describes the photo actually used.
 
 | Where on the page | File name | Shape | Box size | What the photo shows |
 |---|---|---|---|---|
-| Top of page, beside "Curriculum-linked art, brought to your classroom" | schools-classroom.jpg | Landscape, 4:3 | 513 x 385 | Done: young children around a table of painted self-portraits (planned: Christine leading a classroom workshop). Same photo as kids-strip-1-painting.jpg (carousel-4). Low resolution (437 x 301) |
-| Photo strip, first (larger) photo | schools-strip-1-desks.jpg | Landscape, 4:3 | 464 x 348 | Done: a girl building a clay coil pot at a table (planned: students at their desks; caption still says "in the classroom") |
-| Photo strip, second photo | schools-strip-1-artwork.jpg | Landscape, 4:3 | 357 x 267 | Done: students at their desks with landscape drawings. Same photo as carousel-2.jpg. Low resolution (247 x 301) |
-| Photo strip, third photo | schools-strip-1-display.jpg | Landscape, 4:3 | 357 x 267 | Done: an adult and a teen in front of a large mural outline (planned: finished pieces on display) |
+| Top of page, beside "Curriculum-linked art, brought to your classroom" | schools-classroom.jpg | Landscape, 4:3 | 513 x 385 | Still needed: Christine leading a classroom art workshop. The file supplied was too small (437 x 301) |
+| Photo strip, first (larger) photo | schools-strip-1-desks.jpg | Landscape, 4:3 | 464 x 348 | Done, substituted. Planned: students mid-workshop at their desks. Used: a girl building a clay coil pot (caption: "Hands in clay") |
+| Photo strip, second photo | schools-strip-1-artwork.jpg | Landscape, 4:3 | 357 x 267 | Still needed: close-up of student artwork. The file supplied was too small (247 x 301) |
+| Photo strip, third photo | schools-strip-1-display.jpg | Landscape, 4:3 | 357 x 267 | Done, substituted. Planned: finished pieces on display. Used: an adult and a teen in front of a mural outline in progress |
 
 ## Summer Program
 

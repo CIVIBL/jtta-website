@@ -49,16 +49,13 @@ const THEMES: Theme[] = [
   { icon: "mask", accent: "red", h: "Mask-making", p: "Craft one-of-a-kind masks from foam, felt, feathers, shells and more." },
 ];
 
-// width/height are the files' pixel sizes; CSS crops each to 4:3.
+// width/height are the files' pixel sizes; CSS crops each to 4:3. Items without src render a placeholder.
 const STRIP = [
   {
     src: "/images/party-strip-1-setup.jpg", width: 600, height: 450, caption: "the set-up",
     alt: "Children painting small wooden boxes at a table of glitter jars and paint cups while a young woman helps.",
   },
-  {
-    src: "/images/party-strip-1-group.jpg", width: 377, height: 287,
-    alt: "A girl painting a paper plate at a table, with another child painting behind her.",
-  },
+  { placeholder: "Kids painting together" },
   {
     src: "/images/party-strip-1-candles.jpg", width: 919, height: 1378,
     alt: "A lino-cut print of a bird in flight over bright watercolour washes.",
@@ -223,7 +220,14 @@ const STRIP = [
         {
           STRIP.map((it) => (
             <figure>
-              <img src={it.src} alt={it.alt} width={it.width} height={it.height} loading="lazy" />
+              {it.src ? (
+                <img src={it.src} alt={it.alt} width={it.width} height={it.height} loading="lazy" />
+              ) : (
+                <>
+                  {/* TODO: real photo - {it.placeholder}. */}
+                  <div class="ph">{it.placeholder}</div>
+                </>
+              )}
               {it.caption && <figcaption>{it.caption}</figcaption>}
             </figure>
           ))
