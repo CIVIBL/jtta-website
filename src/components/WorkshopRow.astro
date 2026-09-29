@@ -39,7 +39,7 @@ const registerText = w.status === "waitlist" ? WAITLIST_LABEL : REGISTER_LABEL;
     A full workshop shows plain "Session full" text and a muted, non-link arrow instead. */}
 <article class:list={["workshop-row", { "is-special": w.special, "is-full": isFull }]}>
   <div class="w-date">
-    <span class="w-month">{formatMonth(w.date)} · {formatDow(w.date)}</span>
+    <span class="w-month">{formatDow(w.date)} · {formatMonth(w.date)}</span>
     <span class="w-day">{formatDay(w.date)}</span>
     <span class="w-time">{formatTimeRange(w.startTime, w.endTime)}</span>
   </div>
