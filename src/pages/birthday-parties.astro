@@ -49,10 +49,20 @@ const THEMES: Theme[] = [
   { icon: "mask", accent: "red", h: "Mask-making", p: "Craft one-of-a-kind masks from foam, felt, feathers, shells and more." },
 ];
 
+// width/height are the files' pixel sizes; CSS crops each to 4:3.
 const STRIP = [
-  { placeholder: "Party table covered in art supplies", caption: "the set-up" },
-  { placeholder: "Kids painting together" },
-  { placeholder: "Blowing out candles" },
+  {
+    src: "/images/party-strip-1-setup.jpg", width: 600, height: 450, caption: "the set-up",
+    alt: "Children painting small wooden boxes at a table of glitter jars and paint cups while a young woman helps.",
+  },
+  {
+    src: "/images/party-strip-1-group.jpg", width: 377, height: 287,
+    alt: "A girl painting a paper plate at a table, with another child painting behind her.",
+  },
+  {
+    src: "/images/party-strip-1-candles.jpg", width: 919, height: 1378,
+    alt: "A lino-cut print of a bird in flight over bright watercolour washes.",
+  },
 ];
 ---
 
@@ -88,17 +98,32 @@ const STRIP = [
         </div>
         <div class="b-hero-photos">
           <figure class="tall">
-            {/* TODO: real photo - kids painting at a birthday party. Expected at /images/party-painting.jpg */}
-            <div class="ph">Kids painting at a birthday party</div>
+            <img
+              src="/images/party-painting.jpg"
+              alt="Children painting small wooden boxes along a long table at a birthday party, with a Happy Birthday balloon in the corner."
+              width="450"
+              height="600"
+              loading="eager"
+            />
             <span class="b-hero-badge">Happy birthday!</span>
           </figure>
           <figure>
-            {/* TODO: real photo - birthday cake moment. Expected at /images/party-cake.jpg */}
-            <div class="ph">Birthday cake moment</div>
+            <img
+              src="/images/party-cake.jpg"
+              alt="Two girls smiling beside a birthday cake with a number 8 candle."
+              width="600"
+              height="450"
+              loading="lazy"
+            />
           </figure>
           <figure>
-            {/* TODO: real photo - the studio set up for a party. Expected at /images/party-studio.jpg */}
-            <div class="ph">The studio set up for a party</div>
+            <img
+              src="/images/party-studio.jpg"
+              alt="The log-cabin studio set up for a class, with paint sets and paper along a long table and children's art on the log walls."
+              width="1014"
+              height="1600"
+              loading="lazy"
+            />
           </figure>
         </div>
       </div>
@@ -198,8 +223,7 @@ const STRIP = [
         {
           STRIP.map((it) => (
             <figure>
-              {/* TODO: real photo - {it.placeholder}. */}
-              <div class="ph">{it.placeholder}</div>
+              <img src={it.src} alt={it.alt} width={it.width} height={it.height} loading="lazy" />
               {it.caption && <figcaption>{it.caption}</figcaption>}
             </figure>
           ))

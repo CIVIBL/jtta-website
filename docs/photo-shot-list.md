@@ -4,7 +4,7 @@ These are the spots on the website still waiting for a real photo. Please send p
 
 Sizes are how big each box shows on a desktop screen (1440px wide), measured from the built site. File names come from the site code; "none in code" means the spot has no file name yet. Strip photos follow the pattern `<page>-strip-<strip number>-<subject>.jpg`, as on the For Kids page.
 
-36 photo spots across 6 pages: 13 done (About 4 of 5, For Kids, For Adults), 23 still needed. The home page has no empty spots.
+36 photo spots across 6 pages: 19 done (Birthday Parties, For Kids, For Adults, About 4 of 5), 17 still needed. The home page has no empty spots.
 
 ## About - 4 of 5 done
 
@@ -41,16 +41,18 @@ Both are on the site. The custom photo differs from the original plan, so "What 
 | Top of page, beside "An evening to make something" | adults-hero.jpg | Portrait, 4:5 | 481 x 602 | Done: adults at a long turquoise table in the cabin, painting small canvases and arranging sea glass |
 | "Book your own time with friends at the studio" section | adults-custom.jpg | Landscape, 5:4 | 538 x 430 | Done: the round stained-glass window in the cabin gable (caption: "your studio, your evening"; planned: friends gathered around a project) |
 
-## Birthday Parties
+## Birthday Parties - done
+
+All are on the site. Some photos differ from the original plan, so "What the photo shows" describes the photo actually used.
 
 | Where on the page | File name | Shape | Box size | What the photo shows |
 |---|---|---|---|---|
-| Top of page, tall photo in the group of three | party-painting.jpg | Tall portrait, 1:2 | 260 x 522 | Kids painting at a birthday party ("Happy birthday!" badge sits on it) |
-| Top of page, upper small photo | party-cake.jpg | Landscape, about 6:5 | 260 x 217 | Birthday cake moment |
-| Top of page, lower small photo | party-studio.jpg | Portrait, about 9:10 | 260 x 293 | The studio set up for a party |
-| Photo strip, first (larger) photo | none in code | Landscape, 4:3 | 464 x 348 | Party table covered in art supplies (caption: "the set-up") |
-| Photo strip, second photo | none in code | Landscape, 4:3 | 357 x 267 | Kids painting together |
-| Photo strip, third photo | none in code | Landscape, 4:3 | 357 x 267 | Blowing out candles |
+| Top of page, tall photo in the group of three | party-painting.jpg | Tall portrait, 1:2 | 260 x 522 | Done: children painting wooden boxes along a long table, birthday balloon in the corner ("Happy birthday!" badge sits on it). Low resolution (450 x 600) |
+| Top of page, upper small photo | party-cake.jpg | Landscape, about 6:5 | 260 x 217 | Done: two girls beside a birthday cake with an 8 candle. Low resolution (600 x 450) |
+| Top of page, lower small photo | party-studio.jpg | Portrait, about 9:10 | 260 x 293 | Done: the studio set up for a class. Same photo as about-strip-1-studio.jpg and kids-strip-2-cabin.jpg |
+| Photo strip, first (larger) photo | party-strip-1-setup.jpg | Landscape, 4:3 | 464 x 348 | Done: children painting wooden boxes at a table of glitter jars (caption: "the set-up"). Low resolution (600 x 450) |
+| Photo strip, second photo | party-strip-1-group.jpg | Landscape, 4:3 | 357 x 267 | Done: a girl painting a paper plate (planned: kids painting together). Has a black scrapbook border built into the image. Low resolution (377 x 287) |
+| Photo strip, third photo | party-strip-1-candles.jpg | Landscape, 4:3 | 357 x 267 | Done: a lino-cut bird print over watercolour (planned: blowing out candles) |
 
 ## In-the-Schools
 
