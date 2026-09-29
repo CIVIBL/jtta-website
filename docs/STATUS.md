@@ -35,7 +35,7 @@ Why: the previous webmaster retired. Brent (CIVIBL) took over hosting and rebuil
 
 / , /for-kids, /for-adults, /summer-program, /birthday-parties, /in-the-schools, /about, /404.
 
-Nav: For Kids & Teens / For Adults / Summer Camp / Birthdays / In the Schools / About plus "Contact Christine". Below 1200px the links move into a Menu panel (button with aria-expanded, Escape and click-outside close, works without JavaScript as an open list); Contact Christine stays in the bar at every width. Below 600px the brand name is visually hidden and the logo carries it.
+Nav: For Kids & Teens / For Adults / Summer Camp / Birthdays / In the Schools / About plus "Contact Christine". Below 1280px the links move into a Menu panel (button with aria-expanded, Escape and click-outside close, works without JavaScript as an open list); Contact Christine stays in the bar at every width. Below 600px the brand name is visually hidden and the logo carries it.
 
 ## Content model
 
