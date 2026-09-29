@@ -26,15 +26,20 @@ const accentVar: Record<Accent, string> = {
 ---
 
 <article class="s-team-card" style={`--accent: ${accentVar[accent]};`}>
-  <div class="s-team-photo">
-    {
-      photoSrc ? (
+  {
+    photoSrc ? (
+      <div class="s-team-photo">
         <img src={photoSrc} alt={photo} loading="lazy" />
-      ) : (
-        <div class="ph">{photo}</div>
+      </div>
+    ) : (
+      import.meta.env.DEV && (
+        <div class="s-team-photo">
+          {/* TODO: real photo - {photo}. Pass photoSrc to fill; dev-only placeholder, the card is text-only in production. */}
+          <div class="ph">{photo}</div>
+        </div>
       )
-    }
-  </div>
+    )
+  }
   <div class="s-team-body">
     <div class="s-team-disc"><span class="dot"></span>{disc}</div>
     <h3>{name}</h3>
