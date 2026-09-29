@@ -55,13 +55,13 @@ Current entries: 12 real October 2026 workshops (5 kids, 2 teens, 5 adults). The
 - Accessibility: WorkshopRow is a container with a single labelled link; Session full leaves the tab order; carousel has focus styles, arrow keys, a live counter and reduced-motion handling; hero pin is an aria-hidden SVG.
 - WorkshopCard double-padding fixed. Dead CSS removed (global.css 1084 to 978 lines). Zero em or en dashes anywhere in the repo.
 - Sample workshops removed; real October data entered; teens audience live with a Teen art section on For Kids.
-- Photo shot list: docs/photo-shot-list.md (36 photo slots across 6 pages, measured; 23 placeholders remain).
+- Photo shot list: docs/photo-shot-list.md (36 photo slots across 6 pages, measured; 12 placeholders remain, all on Summer Program).
 
 ## Open items
 
 Blocked on Christine:
 1. Workshop data: October is in. The PA Day entry is pending its ages. Future workshops: she should enter them herself in Pages CMS with Brent on a call.
-2. Photos per docs/photo-shot-list.md. 25 real photos are on the site (19 distinct; 6 reuse an existing photo). 23 placeholders remain: Summer Program 12, Birthday Parties 6, In-the-Schools 4, About 1.
+2. Photos per docs/photo-shot-list.md. 36 real photos are on the site (27 distinct; 9 reuse an existing photo). 12 placeholders remain, all on Summer Program.
 3. Copy confirmations: homepage lede says "published children's-book illustrator", /about says "relief printmaker". Announce-bar copy.
 
 Brent:

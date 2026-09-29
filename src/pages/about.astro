@@ -4,7 +4,7 @@ import AwardBadge from "../components/AwardBadge.astro";
 import { mailto, CONTACT_EMAIL } from "../lib/site";
 import "../styles/about.css";
 
-// width/height are the files' pixel sizes; CSS crops each to 4:3. Items without src render a placeholder.
+// width/height are the files' pixel sizes; CSS crops each to 4:3.
 const STRIP = [
   {
     src: "/images/about-strip-1-cabin.jpg", width: 906, height: 1200, caption: "the 1840s cabin",
@@ -14,7 +14,10 @@ const STRIP = [
     src: "/images/about-strip-1-studio.jpg", width: 1014, height: 1600,
     alt: "The log-cabin studio set up for a class, with paint sets and paper along a long table and children's art on the log walls.",
   },
-  { placeholder: "Christine teaching a small group" },
+  {
+    src: "/images/about-strip-1-teaching.jpg", width: 1030, height: 1600,
+    alt: "A woman in a paint-splattered apron sitting on a large painted stage backdrop of orange flowers, with paint trays and brushes around her.",
+  },
 ];
 ---
 
@@ -140,14 +143,7 @@ const STRIP = [
         {
           STRIP.map((it) => (
             <figure>
-              {it.src ? (
-                <img src={it.src} alt={it.alt} width={it.width} height={it.height} loading="lazy" />
-              ) : (
-                <>
-                  {/* TODO: real photo - {it.placeholder}. Expected at /images/about-strip-1-teaching.jpg */}
-                  <div class="ph">{it.placeholder}</div>
-                </>
-              )}
+              <img src={it.src} alt={it.alt} width={it.width} height={it.height} loading="lazy" />
               {it.caption && <figcaption>{it.caption}</figcaption>}
             </figure>
           ))
