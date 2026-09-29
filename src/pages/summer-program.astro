@@ -78,16 +78,33 @@ const KNOW: Fact[] = [
   { icon: "curtain", lbl: "Every Friday", val: "Performance & art show", sub: "Families invited to watch" },
 ];
 
-const STRIP_ONE = [
-  { placeholder: "Kids in costume mid-performance", caption: "showtime" },
-  { placeholder: "Strumming guitars in a circle" },
-  { placeholder: "Painting a set backdrop" },
+// Photo slots. Add src, alt, width and height (the file's pixel sizes) to fill one.
+// Slots without src are grey placeholders in dev and are dropped from the production build.
+interface Slot { placeholder: string; src?: string; alt?: string; width?: number; height?: number; caption?: string }
+const STRIP_ONE: Slot[] = [
+  { placeholder: "Kids in costume mid-performance", caption: "showtime" }, // TODO: real photo
+  { placeholder: "Strumming guitars in a circle" }, // TODO: real photo
+  { placeholder: "Painting a set backdrop" }, // TODO: real photo
 ];
-const STRIP_TWO = [
-  { placeholder: "Printmaking in progress" },
-  { placeholder: "The art show on display", caption: "the week's work" },
-  { placeholder: "Whole group taking a bow" },
+const STRIP_TWO: Slot[] = [
+  { placeholder: "Printmaking in progress" }, // TODO: real photo
+  { placeholder: "The art show on display", caption: "the week's work" }, // TODO: real photo
+  { placeholder: "Whole group taking a bow" }, // TODO: real photo
 ];
+const stripOne = STRIP_ONE.filter((it) => it.src || import.meta.env.DEV);
+const stripTwo = STRIP_TWO.filter((it) => it.src || import.meta.env.DEV);
+
+// Hero mosaic: tall Friday-show photo plus two small ones. Empty tiles are dropped in
+// production and the rest fill the space; with none, the text takes the full width.
+const HERO_PHOTOS: (Slot & { badge?: string })[] = [
+  // TODO: real photo. Expected at /images/summer-friday-show.jpg
+  { placeholder: "Kids performing the Friday show in costume", badge: "The Friday show" },
+  // TODO: real photo. Expected at /images/summer-guitar.jpg
+  { placeholder: "Kid playing guitar" },
+  // TODO: real photo. Expected at /images/summer-art-table.jpg
+  { placeholder: "Making art at the table" },
+];
+const heroPhotos = HERO_PHOTOS.filter((it) => it.src || import.meta.env.DEV);
 ---
 
 <BaseLayout
@@ -103,7 +120,7 @@ const STRIP_TWO = [
         <span class="sep">/</span>
         <span class="cur">Summer Program</span>
       </div>
-      <div class="s-hero-grid">
+      <div class:list={["s-hero-grid", { "is-text-only": heroPhotos.length === 0 }]}>
         <div>
           <span class="s-hand">One week. One big show.</span>
           <h1>
@@ -130,21 +147,25 @@ const STRIP_TWO = [
             <AwardBadge title="Best Summer Camp" tier="Gold Winner" />
           </div>
         </div>
-        <div class="s-hero-photos">
-          <figure class="tall">
-            {/* TODO: real photo - kids performing the Friday show in costume. Expected at /images/summer-friday-show.jpg */}
-            <div class="ph">Kids performing the Friday show in costume</div>
-            <span class="s-hero-badge">The Friday show</span>
-          </figure>
-          <figure>
-            {/* TODO: real photo - kid playing guitar. Expected at /images/summer-guitar.jpg */}
-            <div class="ph">Kid playing guitar</div>
-          </figure>
-          <figure>
-            {/* TODO: real photo - making art at the table. Expected at /images/summer-art-table.jpg */}
-            <div class="ph">Making art at the table</div>
-          </figure>
-        </div>
+        {
+          heroPhotos.length > 0 && (
+            <div class:list={["s-hero-photos", `n-${heroPhotos.length}`]}>
+              {heroPhotos.map((it, i) => (
+                <figure class:list={{ tall: heroPhotos.length === 3 && i === 0 }}>
+                  {it.src ? (
+                    <img src={it.src} alt={it.alt} width={it.width} height={it.height} loading={i === 0 ? "eager" : "lazy"} />
+                  ) : (
+                    <>
+                      {/* TODO: real photo - {it.placeholder}. Dev-only placeholder; see HERO_PHOTOS. */}
+                      <div class="ph">{it.placeholder}</div>
+                    </>
+                  )}
+                  {it.badge && <span class="s-hero-badge">{it.badge}</span>}
+                </figure>
+              ))}
+            </div>
+          )
+        }
       </div>
     </div>
   </section>
@@ -198,22 +219,32 @@ const STRIP_TWO = [
     </div>
   </section>
 
-  {/* ─── PHOTO STRIP (on paper) ─── */}
-  <div class="s-strip on-paper">
-    <div class="wrap">
-      <div class="s-strip-grid">
-        {
-          STRIP_ONE.map((it) => (
-            <figure>
-              {/* TODO: real photo - {it.placeholder}. */}
-              <div class="ph">{it.placeholder}</div>
-              {it.caption && <figcaption>{it.caption}</figcaption>}
-            </figure>
-          ))
-        }
+  {/* ─── PHOTO STRIP (on paper; hidden if no slot has a photo) ─── */}
+  {
+    stripOne.length > 0 && (
+      <div class="s-strip on-paper">
+        <div class="wrap">
+          <div class:list={["s-strip-grid", { "is-two": stripOne.length === 2, "is-one": stripOne.length === 1 }]}>
+            {
+              stripOne.map((it) => (
+                <figure>
+                  {it.src ? (
+                    <img src={it.src} alt={it.alt} width={it.width} height={it.height} loading="lazy" />
+                  ) : (
+                    <>
+                      {/* TODO: real photo - {it.placeholder}. Dev-only placeholder. */}
+                      <div class="ph">{it.placeholder}</div>
+                    </>
+                  )}
+                  {it.caption && <figcaption>{it.caption}</figcaption>}
+                </figure>
+              ))
+            }
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    )
+  }
 
   {/* ─── INSTRUCTORS ─── */}
   <section class="s-team" id="team">
@@ -265,22 +296,32 @@ const STRIP_TWO = [
     </div>
   </section>
 
-  {/* ─── PHOTO STRIP (cream) ─── */}
-  <div class="s-strip">
-    <div class="wrap">
-      <div class="s-strip-grid">
-        {
-          STRIP_TWO.map((it) => (
-            <figure>
-              {/* TODO: real photo - {it.placeholder}. */}
-              <div class="ph">{it.placeholder}</div>
-              {it.caption && <figcaption>{it.caption}</figcaption>}
-            </figure>
-          ))
-        }
+  {/* ─── PHOTO STRIP (cream; hidden if no slot has a photo) ─── */}
+  {
+    stripTwo.length > 0 && (
+      <div class="s-strip">
+        <div class="wrap">
+          <div class:list={["s-strip-grid", { "is-two": stripTwo.length === 2, "is-one": stripTwo.length === 1 }]}>
+            {
+              stripTwo.map((it) => (
+                <figure>
+                  {it.src ? (
+                    <img src={it.src} alt={it.alt} width={it.width} height={it.height} loading="lazy" />
+                  ) : (
+                    <>
+                      {/* TODO: real photo - {it.placeholder}. Dev-only placeholder. */}
+                      <div class="ph">{it.placeholder}</div>
+                    </>
+                  )}
+                  {it.caption && <figcaption>{it.caption}</figcaption>}
+                </figure>
+              ))
+            }
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    )
+  }
 
   {/* ─── REGISTER CTA ─── */}
   <section class="cta" id="register">

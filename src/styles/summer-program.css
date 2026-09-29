@@ -35,6 +35,8 @@
   align-items: center;
 }
 @media (max-width: 920px) { .s-hero-grid { grid-template-columns: 1fr; } }
+/* No hero photos in production: the text takes the full width. */
+.s-hero-grid.is-text-only { grid-template-columns: 1fr; }
 
 .s-hand {
   font-family: var(--font-hand);
@@ -90,7 +92,11 @@
   min-height: 420px;
 }
 .s-hero-photos figure { margin: 0; border-radius: 14px; overflow: hidden; position: relative; }
-.s-hero-photos figure img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Absolute so the photos fill their cells without their own heights resizing the grid. */
+.s-hero-photos figure img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Fewer than three photos (empty tiles dropped in production): the rest share the space. */
+.s-hero-photos.n-2 { grid-template-rows: 1fr; }
+.s-hero-photos.n-1 { grid-template-columns: 1fr; grid-template-rows: 1fr; }
 .s-hero-photos .tall { grid-row: span 2; }
 .s-hero-badge {
   position: absolute;
@@ -349,6 +355,12 @@
 }
 @media (max-width: 760px) { .s-strip-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 460px) { .s-strip-grid { grid-template-columns: 1fr; } }
+/* Empty slots are dropped in production (see the page's strip filters), so a strip
+   can have fewer than three photos. Keep the row even on desktop. */
+@media (min-width: 761px) {
+  .s-strip-grid.is-two { grid-template-columns: 1fr 1fr; }
+  .s-strip-grid.is-one { grid-template-columns: minmax(0, 560px); }
+}
 .s-strip figure {
   margin: 0;
   position: relative;
