@@ -38,14 +38,17 @@ const cardClass = featured ? "program-card featured" : "program-card";
     }
   </div>
   {
-    featured && (
+    featured && (photoSrc || import.meta.env.DEV) && (
       <div class="pphoto">
         {photoSrc ? (
           <img src={photoSrc} alt={photo} loading="lazy" />
         ) : (
-          <div class="ph" style="--ph-bg: #2A2722; --ph-fg: rgba(255,255,255,0.4);">
-            {photo}
-          </div>
+          <>
+            {/* TODO: real photo - {photo}. Pass photoSrc to fill; dev-only placeholder, no photo area in production. */}
+            <div class="ph" style="--ph-bg: #2A2722; --ph-fg: rgba(255,255,255,0.4);">
+              {photo}
+            </div>
+          </>
         )}
       </div>
     )
