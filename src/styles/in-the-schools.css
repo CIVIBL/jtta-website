@@ -37,6 +37,8 @@
   align-items: center;
 }
 @media (max-width: 920px) { .sc-hero-grid { grid-template-columns: 1fr; } }
+/* No hero photo in production: single column, the award stacks under the text as on mobile. */
+.sc-hero-grid.is-text-only { grid-template-columns: 1fr; }
 
 .sc-eyebrow {
   display: inline-flex;
@@ -256,6 +258,12 @@
 }
 @media (max-width: 760px) { .sc-strip-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 460px) { .sc-strip-grid { grid-template-columns: 1fr; } }
+/* Empty slots are dropped in production (see the page's STRIP filter), so a strip
+   can have fewer than three photos. Keep the row even on desktop. */
+@media (min-width: 761px) {
+  .sc-strip-grid.is-two { grid-template-columns: 1fr 1fr; }
+  .sc-strip-grid.is-one { grid-template-columns: minmax(0, 560px); }
+}
 .sc-strip figure {
   margin: 0;
   position: relative;

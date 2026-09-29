@@ -54,18 +54,27 @@ const DIVISIONS: Division[] = [
 ];
 
 // width/height are the files' pixel sizes; CSS crops each to 4:3. objectPosition overrides the centred crop.
-// Items without src render a placeholder.
+// Items without src are empty slots: grey placeholders in dev, dropped from the production build.
 const STRIP = [
   {
     src: "/images/schools-strip-1-desks.jpg", width: 1200, height: 1600, caption: "hands in clay", objectPosition: "center 80%",
     alt: "A girl building a clay coil pot at a table covered in a blue cloth.",
   },
-  { placeholder: "Close-up of student artwork" },
+  { placeholder: "Close-up of student artwork" }, // TODO: real photo. Expected at /images/schools-strip-1-artwork.jpg
   {
     src: "/images/schools-strip-1-display.jpg", width: 1013, height: 1600,
     alt: "An adult and a teen in a Journey Through the Arts hoodie standing in front of a large mural outline drawn on a wall panel.",
   },
 ];
+const strip = STRIP.filter((it) => it.src || import.meta.env.DEV);
+
+// Hero photo. TODO: real photo - Christine leading a classroom art workshop. Expected at
+// /images/schools-classroom.jpg. Set src (and width/height) to fill. Without it the hero is
+// text-only in production (the award stacks under the text) and a placeholder in dev.
+const HERO_PHOTO: { src?: string; alt: string; width?: number; height?: number } = {
+  alt: "Christine leading a classroom art workshop",
+};
+const showHeroPhoto = Boolean(HERO_PHOTO.src) || import.meta.env.DEV;
 ---
 
 <BaseLayout
@@ -80,7 +89,7 @@ const STRIP = [
         <span class="sep">/</span>
         <span class="cur">In-the-Schools</span>
       </div>
-      <div class="sc-hero-grid">
+      <div class:list={["sc-hero-grid", { "is-text-only": !showHeroPhoto }]}>
         <div>
           <span class="sc-eyebrow"><span class="dot"></span>In-the-Schools Program</span>
           <h1>Curriculum-linked art, brought to <em>your classroom</em></h1>
@@ -96,10 +105,20 @@ const STRIP = [
           </div>
         </div>
         <div class="sc-hero-side">
-          <div class="sc-hero-photo">
-            {/* TODO: real photo - Christine leading a classroom art workshop. Expected at /images/schools-classroom.jpg */}
-            <div class="ph">Christine leading a classroom art workshop</div>
-          </div>
+          {
+            showHeroPhoto && (
+              <div class="sc-hero-photo">
+                {HERO_PHOTO.src ? (
+                  <img src={HERO_PHOTO.src} alt={HERO_PHOTO.alt} width={HERO_PHOTO.width} height={HERO_PHOTO.height} loading="eager" />
+                ) : (
+                  <>
+                    {/* TODO: real photo - Christine leading a classroom art workshop. Expected at /images/schools-classroom.jpg (set HERO_PHOTO.src). Dev-only placeholder. */}
+                    <div class="ph">{HERO_PHOTO.alt}</div>
+                  </>
+                )}
+              </div>
+            )
+          }
           {/* Studio award (Christine's personal award lives on the about page). */}
           <div style="margin-top: 14px;">
             <AwardBadge title="Best Art School/Instruction" tier="Diamond Winner" />
@@ -191,28 +210,32 @@ const STRIP = [
     </div>
   </section>
 
-  {/* ─── PHOTO STRIP ─── */}
-  <div class="sc-strip">
-    <div class="wrap">
-      <div class="sc-strip-grid">
-        {
-          STRIP.map((it) => (
-            <figure>
-              {it.src ? (
-                <img src={it.src} alt={it.alt} width={it.width} height={it.height} loading="lazy" style={it.objectPosition && `object-position: ${it.objectPosition}`} />
-              ) : (
-                <>
-                  {/* TODO: real photo - {it.placeholder}. */}
-                  <div class="ph">{it.placeholder}</div>
-                </>
-              )}
-              {it.caption && <figcaption>{it.caption}</figcaption>}
-            </figure>
-          ))
-        }
+  {/* ─── PHOTO STRIP (hidden if no slot has a photo) ─── */}
+  {
+    strip.length > 0 && (
+      <div class="sc-strip">
+        <div class="wrap">
+          <div class:list={["sc-strip-grid", { "is-two": strip.length === 2, "is-one": strip.length === 1 }]}>
+            {
+              strip.map((it) => (
+                <figure>
+                  {it.src ? (
+                    <img src={it.src} alt={it.alt} width={it.width} height={it.height} loading="lazy" style={it.objectPosition && `object-position: ${it.objectPosition}`} />
+                  ) : (
+                    <>
+                      {/* TODO: real photo - {it.placeholder}. Dev-only placeholder. */}
+                      <div class="ph">{it.placeholder}</div>
+                    </>
+                  )}
+                  {it.caption && <figcaption>{it.caption}</figcaption>}
+                </figure>
+              ))
+            }
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    )
+  }
 
   {/* ─── BOOK CTA ─── */}
   <section class="cta" id="book">
