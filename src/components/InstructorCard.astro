@@ -8,13 +8,18 @@ interface Props {
   accent: Accent;
   /** Photo subject (placeholder label / alt) */
   photo: string;
-  /** Real image path when available, e.g. "/images/team-christine.jpg" */
+  /** Real image path when available, e.g. "/images/summer-team-christine.jpg" */
   photoSrc?: string;
+  /** Intrinsic file size, so the browser reserves space before load */
+  photoWidth?: number;
+  photoHeight?: number;
+  /** CSS object-position when the centred 4:3 crop cuts off the face, e.g. "center 15%" */
+  photoPosition?: string;
   /** Short (~2 sentence) bio */
   bio: string;
 }
 
-const { name, disc, accent, photo, photoSrc, bio } = Astro.props;
+const { name, disc, accent, photo, photoSrc, photoWidth, photoHeight, photoPosition, bio } = Astro.props;
 
 const accentVar: Record<Accent, string> = {
   sage: "var(--c-sage)",
@@ -29,7 +34,7 @@ const accentVar: Record<Accent, string> = {
   {
     photoSrc ? (
       <div class="s-team-photo">
-        <img src={photoSrc} alt={photo} loading="lazy" />
+        <img src={photoSrc} alt={photo} width={photoWidth} height={photoHeight} loading="lazy" style={photoPosition && `object-position: ${photoPosition}`} />
       </div>
     ) : (
       import.meta.env.DEV && (

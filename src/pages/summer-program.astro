@@ -47,20 +47,32 @@ interface Member {
   name: string;
   disc: string;
   accent: Accent;
+  /** Alt text for the photo (or the placeholder label while photoSrc is unset) */
   photo: string;
+  photoSrc?: string;
+  photoWidth?: number;
+  photoHeight?: number;
+  /** CSS object-position when the centred 4:3 crop cuts off the face */
+  photoPosition?: string;
   bio: string;
 }
 const TEAM: Member[] = [
   {
-    name: "Christine Benson", disc: "Visual Art", accent: "sage", photo: "Christine in the cabin studio",
+    name: "Christine Benson", disc: "Visual Art", accent: "sage",
+    photo: "Christine Benson outdoors, looking back over her shoulder.",
+    photoSrc: "/images/summer-team-christine.jpg", photoWidth: 1065, photoHeight: 1600, photoPosition: "center 15%",
     bio: "Founder of JTtA and an OCAD graduate who has exhibited across Ontario. She teaches from her 1840s log-cabin studio in Port Hope.",
   },
   {
-    name: "Mike Woods", disc: "Music", accent: "blue", photo: "Mike with a guitar",
+    name: "Mike Woods", disc: "Music", accent: "blue",
+    photo: "Mike Woods playing an electric guitar on a smoky stage, in black and white.",
+    photoSrc: "/images/summer-team-mike.jpg", photoWidth: 833, photoHeight: 833,
     bio: "Port Hope musician with JTtA since 2003, running Log Jam Music with Christine. He brings 20+ years of performing and teaching to the camp's music sessions.",
   },
   {
-    name: "Robin Nicholls", disc: "Drama", accent: "red", photo: "Robin directing a rehearsal",
+    name: "Robin Nicholls", disc: "Drama", accent: "red",
+    photo: "Robin Nicholls smiling in front of a brick wall.",
+    photoSrc: "/images/summer-team-robin.jpg", photoWidth: 1125, photoHeight: 1600, photoPosition: "center 12%",
     bio: "Trent University graduate and local elementary teacher, returning for another summer leading the campers' drama and performance work.",
   },
 ];
@@ -281,7 +293,7 @@ const heroPhotos = HERO_PHOTOS.filter((it) => it.src || import.meta.env.DEV);
       <div class="s-team-grid">
         {
           TEAM.map((t) => (
-            <InstructorCard name={t.name} disc={t.disc} accent={t.accent} photo={t.photo} bio={t.bio} />
+            <InstructorCard name={t.name} disc={t.disc} accent={t.accent} photo={t.photo} photoSrc={t.photoSrc} photoWidth={t.photoWidth} photoHeight={t.photoHeight} photoPosition={t.photoPosition} bio={t.bio} />
           ))
         }
       </div>
