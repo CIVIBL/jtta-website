@@ -8,7 +8,7 @@ import "../styles/birthday-parties.css";
 const GLANCE = [
   { icon: "users", t: "Ages 6-13" },
   { icon: "clock", t: "About 1.5 hours" },
-  { icon: "cabin", t: "At the log cabin" },
+  { icon: "cabin", t: "At the cabin or your home" },
   { icon: "palette", t: "All supplies included" },
 ];
 
@@ -21,7 +21,7 @@ interface Step {
 const STEPS: Step[] = [
   { n: 1, h: "Pick the project", p: "The birthday child chooses the medium and subject - their favourite animal, a cartoon character, anything." },
   { n: 2, h: "Make art", dur: "1 hr", p: "A guided, hands-on art project everyone makes together. Each kid takes their creation home." },
-  { n: 3, h: "Cake & presents", dur: "30 min", p: "Wind down with cake and presents in the cozy cabin once the art is done." },
+  { n: 3, h: "Cake & presents", dur: "30 min", p: "Wind down with cake and presents once the art is done." },
 ];
 
 const INCLUDED = [
@@ -64,8 +64,8 @@ const STRIP = [
 ---
 
 <BaseLayout
-  title="Birthday Parties - Art parties at the log cabin · Journey Through the Arts, Port Hope"
-  description="A cozy, screen-free art party in Christine's log-cabin studio. The birthday kid picks the project, everyone makes real art, then it's cake and presents."
+  title="Birthday Parties - Art parties at the cabin or at your place · Journey Through the Arts, Port Hope"
+  description="A cozy, screen-free art party at the log-cabin studio or in your own home. The birthday kid picks the project, everyone makes real art, then cake and presents."
 >
   {/* ─── HERO ─── */}
   <section class="b-hero" id="top">
@@ -78,10 +78,10 @@ const STRIP = [
       <div class="b-hero-grid">
         <div>
           <span class="b-hand">Cake, presents & paint</span>
-          <h1>An <em>art party</em> at the log cabin</h1>
+          <h1>An <em>art party</em> at the cabin, or at your place.</h1>
           <p class="b-lede">
-            A cozy, screen-free birthday in Christine's studio. The birthday kid picks the project,
-            everyone makes real art, then it's cake and presents.
+            A cozy, screen-free birthday at the log-cabin studio or in your own home. The birthday kid
+            picks the project, everyone makes real art, then it's cake and presents.
           </p>
           <div class="b-glance">
             {GLANCE.map((g) => (
