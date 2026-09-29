@@ -49,18 +49,20 @@ const THEMES: Theme[] = [
   { icon: "mask", accent: "red", h: "Mask-making", p: "Craft one-of-a-kind masks from foam, felt, feathers, shells and more." },
 ];
 
-// width/height are the files' pixel sizes; CSS crops each to 4:3. Items without src render a placeholder.
+// width/height are the files' pixel sizes; CSS crops each to 4:3. Items without src are empty
+// slots: grey placeholders in dev, dropped from the production build.
 const STRIP = [
   {
     src: "/images/party-strip-1-setup.jpg", width: 600, height: 450, caption: "the set-up",
     alt: "Children painting small wooden boxes at a table of glitter jars and paint cups while a young woman helps.",
   },
-  { placeholder: "Kids painting together" },
+  { placeholder: "Kids painting together" }, // TODO: real photo. Expected at /images/party-strip-1-group.jpg
   {
     src: "/images/party-strip-1-candles.jpg", width: 919, height: 1378,
     alt: "A lino-cut print of a bird in flight over bright watercolour washes.",
   },
 ];
+const strip = STRIP.filter((it) => it.src || import.meta.env.DEV);
 ---
 
 <BaseLayout
@@ -213,28 +215,32 @@ const STRIP = [
     </div>
   </section>
 
-  {/* ─── PHOTO STRIP ─── */}
-  <div class="b-strip on-paper">
-    <div class="wrap">
-      <div class="b-strip-grid">
-        {
-          STRIP.map((it) => (
-            <figure>
-              {it.src ? (
-                <img src={it.src} alt={it.alt} width={it.width} height={it.height} loading="lazy" />
-              ) : (
-                <>
-                  {/* TODO: real photo - {it.placeholder}. */}
-                  <div class="ph">{it.placeholder}</div>
-                </>
-              )}
-              {it.caption && <figcaption>{it.caption}</figcaption>}
-            </figure>
-          ))
-        }
+  {/* ─── PHOTO STRIP (hidden if no slot has a photo) ─── */}
+  {
+    strip.length > 0 && (
+      <div class="b-strip on-paper">
+        <div class="wrap">
+          <div class:list={["b-strip-grid", { "is-two": strip.length === 2, "is-one": strip.length === 1 }]}>
+            {
+              strip.map((it) => (
+                <figure>
+                  {it.src ? (
+                    <img src={it.src} alt={it.alt} width={it.width} height={it.height} loading="lazy" />
+                  ) : (
+                    <>
+                      {/* TODO: real photo - {it.placeholder}. Dev-only placeholder. */}
+                      <div class="ph">{it.placeholder}</div>
+                    </>
+                  )}
+                  {it.caption && <figcaption>{it.caption}</figcaption>}
+                </figure>
+              ))
+            }
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    )
+  }
 
   {/* ─── BOOK CTA ─── */}
   <section class="cta" id="book">
