@@ -53,10 +53,20 @@ const DIVISIONS: Division[] = [
   },
 ];
 
+// width/height are the files' pixel sizes; CSS crops each to 4:3. objectPosition overrides the centred crop.
 const STRIP = [
-  { placeholder: "Students mid-workshop at their desks", caption: "in the classroom" },
-  { placeholder: "Close-up of student artwork" },
-  { placeholder: "Finished pieces on display" },
+  {
+    src: "/images/schools-strip-1-desks.jpg", width: 1200, height: 1600, caption: "in the classroom", objectPosition: "center 80%",
+    alt: "A girl building a clay coil pot at a table covered in a blue cloth.",
+  },
+  {
+    src: "/images/schools-strip-1-artwork.jpg", width: 247, height: 301,
+    alt: "Smiling students leaning over their desks with their landscape drawings.",
+  },
+  {
+    src: "/images/schools-strip-1-display.jpg", width: 1013, height: 1600,
+    alt: "An adult and a teen in a Journey Through the Arts hoodie standing in front of a large mural outline drawn on a wall panel.",
+  },
 ];
 ---
 
@@ -89,8 +99,13 @@ const STRIP = [
         </div>
         <div class="sc-hero-side">
           <div class="sc-hero-photo">
-            {/* TODO: real photo - Christine leading a classroom art workshop. Expected at /images/schools-classroom.jpg */}
-            <div class="ph">Christine leading a classroom art workshop</div>
+            <img
+              src="/images/schools-classroom.jpg"
+              alt="Young children around a round table covered with their painted self-portraits."
+              width="437"
+              height="301"
+              loading="eager"
+            />
           </div>
           {/* Studio award (Christine's personal award lives on the about page). */}
           <div style="margin-top: 14px;">
@@ -190,8 +205,7 @@ const STRIP = [
         {
           STRIP.map((it) => (
             <figure>
-              {/* TODO: real photo - {it.placeholder}. */}
-              <div class="ph">{it.placeholder}</div>
+              <img src={it.src} alt={it.alt} width={it.width} height={it.height} loading="lazy" style={it.objectPosition && `object-position: ${it.objectPosition}`} />
               {it.caption && <figcaption>{it.caption}</figcaption>}
             </figure>
           ))

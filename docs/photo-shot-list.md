@@ -4,7 +4,7 @@ These are the spots on the website still waiting for a real photo. Please send p
 
 Sizes are how big each box shows on a desktop screen (1440px wide), measured from the built site. File names come from the site code; "none in code" means the spot has no file name yet. Strip photos follow the pattern `<page>-strip-<strip number>-<subject>.jpg`, as on the For Kids page.
 
-36 photo spots across 6 pages: 19 done (Birthday Parties, For Kids, For Adults, About 4 of 5), 17 still needed. The home page has no empty spots.
+36 photo spots across 6 pages: 23 done (Birthday Parties, In-the-Schools, For Kids, For Adults, About 4 of 5), 13 still needed. The home page has no empty spots.
 
 ## About - 4 of 5 done
 
@@ -54,14 +54,16 @@ All are on the site. Some photos differ from the original plan, so "What the pho
 | Photo strip, second photo | party-strip-1-group.jpg | Landscape, 4:3 | 357 x 267 | Done: a girl painting a paper plate (planned: kids painting together). Has a black scrapbook border built into the image. Low resolution (377 x 287) |
 | Photo strip, third photo | party-strip-1-candles.jpg | Landscape, 4:3 | 357 x 267 | Done: a lino-cut bird print over watercolour (planned: blowing out candles) |
 
-## In-the-Schools
+## In-the-Schools - done
+
+All are on the site. Some photos differ from the original plan, so "What the photo shows" describes the photo actually used.
 
 | Where on the page | File name | Shape | Box size | What the photo shows |
 |---|---|---|---|---|
-| Top of page, beside "Curriculum-linked art, brought to your classroom" | schools-classroom.jpg | Landscape, 4:3 | 513 x 385 | Christine leading a classroom art workshop |
-| Photo strip, first (larger) photo | none in code | Landscape, 4:3 | 464 x 348 | Students mid-workshop at their desks (caption: "in the classroom") |
-| Photo strip, second photo | none in code | Landscape, 4:3 | 357 x 267 | Close-up of student artwork |
-| Photo strip, third photo | none in code | Landscape, 4:3 | 357 x 267 | Finished pieces on display |
+| Top of page, beside "Curriculum-linked art, brought to your classroom" | schools-classroom.jpg | Landscape, 4:3 | 513 x 385 | Done: young children around a table of painted self-portraits (planned: Christine leading a classroom workshop). Same photo as kids-strip-1-painting.jpg (carousel-4). Low resolution (437 x 301) |
+| Photo strip, first (larger) photo | schools-strip-1-desks.jpg | Landscape, 4:3 | 464 x 348 | Done: a girl building a clay coil pot at a table (planned: students at their desks; caption still says "in the classroom") |
+| Photo strip, second photo | schools-strip-1-artwork.jpg | Landscape, 4:3 | 357 x 267 | Done: students at their desks with landscape drawings. Same photo as carousel-2.jpg. Low resolution (247 x 301) |
+| Photo strip, third photo | schools-strip-1-display.jpg | Landscape, 4:3 | 357 x 267 | Done: an adult and a teen in front of a large mural outline (planned: finished pieces on display) |
 
 ## Summer Program
 
