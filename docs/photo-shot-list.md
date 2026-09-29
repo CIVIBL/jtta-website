@@ -4,7 +4,7 @@ These are the spots on the website still waiting for a real photo. Please send p
 
 Sizes are how big each box shows on a desktop screen (1440px wide), measured from the built site. File names come from the site code; "none in code" means the spot has no file name yet. Strip photos follow the pattern `<page>-strip-<strip number>-<subject>.jpg`, as on the For Kids page.
 
-36 photo spots across 6 pages: 21 done, 15 still needed: Summer Program 12, In-the-Schools 2, Birthday Parties 1. The home page has no empty spots.
+36 photo spots across 6 pages: 32 done, 4 still needed: In-the-Schools 2, Birthday Parties 1, Summer Program 1. The home page has no empty spots.
 
 ## About - done
 
@@ -65,22 +65,24 @@ Two are on the site; the hero and the strip's second photo are still needed. Som
 | Photo strip, second photo | schools-strip-1-artwork.jpg | Landscape, 4:3 | 357 x 267 | Still needed: close-up of student artwork. The file supplied was too small (247 x 301) |
 | Photo strip, third photo | schools-strip-1-display.jpg | Landscape, 4:3 | 357 x 267 | Done, substituted. Planned: finished pieces on display. Used: an adult and a teen in front of a mural outline in progress |
 
-## Summer Program
+## Summer Program - 11 of 12 done
+
+Eleven are on the site; the hero's art-table tile is still needed. While it is empty the hero shows two tiles side by side, each 255 x 634. Some photos differ from the original plan, so "What the photo shows" describes the photo actually used.
 
 | Where on the page | File name | Shape | Box size | What the photo shows |
 |---|---|---|---|---|
-| Top of page, tall photo in the group of three | summer-friday-show.jpg | Tall portrait, about 2:5 | 255 x 634 | Kids performing the Friday show in costume ("The Friday show" badge sits on it) |
-| Top of page, upper small photo | summer-guitar.jpg | Portrait, about 2:3 | 255 x 373 | Kid playing guitar |
-| Top of page, lower small photo | summer-art-table.jpg | Square | 255 x 249 | Making art at the table |
-| First photo strip, first (larger) photo | none in code | Landscape, 4:3 | 464 x 348 | Kids in costume mid-performance (caption: "showtime") |
-| First photo strip, second photo | none in code | Landscape, 4:3 | 357 x 267 | Strumming guitars in a circle |
-| First photo strip, third photo | none in code | Landscape, 4:3 | 357 x 267 | Painting a set backdrop |
-| "Three artists, one studio", Christine's card | none in code | Landscape, 4:3 | 388 x 291 | Christine in the cabin studio |
-| "Three artists, one studio", Mike's card | none in code | Landscape, 4:3 | 388 x 291 | Mike Woods with a guitar |
-| "Three artists, one studio", Robin's card | none in code | Landscape, 4:3 | 388 x 291 | Robin Nicholls directing a rehearsal |
-| Second photo strip, first (larger) photo | none in code | Landscape, 4:3 | 464 x 348 | Printmaking in progress |
-| Second photo strip, second photo | none in code | Landscape, 4:3 | 357 x 267 | The art show on display (caption: "the week's work") |
-| Second photo strip, third photo | none in code | Landscape, 4:3 | 357 x 267 | Whole group taking a bow |
+| Top of page, tall photo in the group of three | summer-friday-show.jpg | Tall portrait, about 2:5 | 255 x 634 | Done: an audience watching children perform on the jellyfish-decorated stage ("The Friday show" badge sits on it) |
+| Top of page, upper small photo | summer-guitar.jpg | Portrait, about 2:3 | 255 x 373 | Done: a smiling girl holding an acoustic guitar (shown 255 x 634 while the art-table tile is empty) |
+| Top of page, lower small photo | summer-art-table.jpg | Square | 255 x 249 | Still needed: making art at the table. The file supplied was too small (400 x 267) |
+| First photo strip, first (larger) photo | summer-strip-1-showtime.jpg | Landscape, 4:3 | 464 x 348 | Done: families watching campers perform on stage (caption: "showtime") |
+| First photo strip, second photo | summer-strip-1-guitars.jpg | Landscape, 4:3 | 357 x 267 | Done: two boys playing acoustic guitars |
+| First photo strip, third photo | summer-strip-1-backdrop.jpg | Landscape, 4:3 | 357 x 267 | Done, substituted. Planned: painting a set backdrop. Used: a girl in fairy wings performing in front of a hand-painted banner |
+| "Three artists, one studio", Christine's card | summer-team-christine.jpg | Landscape, 4:3 | 388 x 291 | Done, substituted. Planned: Christine in the cabin studio. Used: her outdoor portrait (same photo as christine.jpg) |
+| "Three artists, one studio", Mike's card | summer-team-mike.jpg | Landscape, 4:3 | 388 x 291 | Done: Mike Woods playing electric guitar on stage, black and white |
+| "Three artists, one studio", Robin's card | summer-team-robin.jpg | Landscape, 4:3 | 388 x 291 | Done, substituted. Planned: Robin directing a rehearsal. Used: a portrait of Robin in front of a brick wall |
+| Second photo strip, first (larger) photo | summer-strip-2-printmaking.jpg | Landscape, 4:3 | 464 x 348 | Done: a carved lino block of a bird with a carving tool |
+| Second photo strip, second photo | summer-strip-2-art-show.jpg | Landscape, 4:3 | 357 x 267 | Done, substituted. Planned: the art show on display. Used: a woman beside a bluebird painting (caption changed to "bluebird on canvas") |
+| Second photo strip, third photo | summer-strip-2-bow.jpg | Landscape, 4:3 | 357 x 267 | Done: the whole camp group posing on stage (planned: taking a bow) |
 
 ## Photos already on the site (no need to send)
 

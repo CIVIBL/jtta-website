@@ -111,9 +111,21 @@ const STRIP_ONE: Slot[] = [
   },
 ];
 const STRIP_TWO: Slot[] = [
-  { placeholder: "Printmaking in progress" }, // TODO: real photo
-  { placeholder: "The art show on display", caption: "the week's work" }, // TODO: real photo
-  { placeholder: "Whole group taking a bow" }, // TODO: real photo
+  {
+    placeholder: "Printmaking in progress",
+    src: "/images/summer-strip-2-printmaking.jpg", width: 1200, height: 1600,
+    alt: "A carved lino block of a bird beside a carving tool and curls of cut lino.",
+  },
+  {
+    placeholder: "The art show on display", caption: "bluebird on canvas",
+    src: "/images/summer-strip-2-art-show.jpg", width: 1476, height: 1080,
+    alt: "A woman standing beside an acrylic painting of a bluebird on a branch.",
+  },
+  {
+    placeholder: "Whole group taking a bow",
+    src: "/images/summer-strip-2-bow.jpg", width: 1600, height: 1200,
+    alt: "A big group of campers posing together on the stage under the Journey Through the Arts sign.",
+  },
 ];
 const stripOne = STRIP_ONE.filter((it) => it.src || import.meta.env.DEV);
 const stripTwo = STRIP_TWO.filter((it) => it.src || import.meta.env.DEV);
