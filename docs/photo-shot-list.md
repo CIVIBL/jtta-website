@@ -4,7 +4,7 @@ These are the spots on the website still waiting for a real photo. Please send p
 
 Sizes are how big each box shows on a desktop screen (1440px wide), measured from the built site. File names come from the site code; "none in code" means the spot has no file name yet. Strip photos follow the pattern `<page>-strip-<strip number>-<subject>.jpg`, as on the For Kids page.
 
-36 photo spots across 6 pages: 34 done, 2 still needed: Birthday Parties 1, Summer Program 1. The home page has no empty spots.
+36 photo spots across 6 pages: 35 done, 1 still needed: Summer Program 1. The home page has no empty spots.
 
 ## About - done
 
@@ -41,9 +41,9 @@ Both are on the site. The custom photo differs from the original plan, so "What 
 | Top of page, beside "An evening to make something" | adults-hero.jpg | Portrait, 4:5 | 481 x 602 | Done: adults at a long turquoise table in the cabin, painting small canvases and arranging sea glass |
 | "Book your own time with friends at the studio" section | adults-custom.jpg | Landscape, 5:4 | 538 x 430 | Done: the round stained-glass window in the cabin gable (caption: "your studio, your evening"; planned: friends gathered around a project) |
 
-## Birthday Parties - 5 of 6 done
+## Birthday Parties - done
 
-Five are on the site; the strip's second photo is still needed. Some photos differ from the original plan, so "What the photo shows" describes the photo actually used.
+All are on the site. Some photos differ from the original plan, so "What the photo shows" describes the photo actually used.
 
 | Where on the page | File name | Shape | Box size | What the photo shows |
 |---|---|---|---|---|
@@ -51,7 +51,7 @@ Five are on the site; the strip's second photo is still needed. Some photos diff
 | Top of page, upper small photo | party-cake.jpg | Landscape, about 6:5 | 260 x 217 | Done: two girls beside a birthday cake with an 8 candle. Low resolution (600 x 450) |
 | Top of page, lower small photo | party-studio.jpg | Portrait, about 9:10 | 260 x 293 | Done: the studio set up for a class. Same photo as about-strip-1-studio.jpg and kids-strip-2-cabin.jpg |
 | Photo strip, first (larger) photo | party-strip-1-setup.jpg | Landscape, 4:3 | 464 x 348 | Done: children painting wooden boxes at a table of glitter jars (caption: "the set-up"). Low resolution (600 x 450) |
-| Photo strip, second photo | party-strip-1-group.jpg | Landscape, 4:3 | 357 x 267 | Still needed: kids painting together. The file supplied was too small (377 x 287) |
+| Photo strip, second photo | party-strip-1-group.jpg | Landscape, 4:3 | 357 x 267 | Done, substituted. Planned: kids painting together. Used: children holding up the hand puppets they made |
 | Photo strip, third photo | party-strip-1-candles.jpg | Landscape, 4:3 | 357 x 267 | Done, substituted. Planned: blowing out candles. Used: a lino-cut bird print over watercolour |
 
 ## In-the-Schools - done

@@ -51,12 +51,16 @@ const THEMES: Theme[] = [
 
 // width/height are the files' pixel sizes; CSS crops each to 4:3. Items without src are empty
 // slots: grey placeholders in dev, dropped from the production build.
-const STRIP = [
+interface Slot { placeholder?: string; src?: string; alt?: string; width?: number; height?: number; caption?: string }
+const STRIP: Slot[] = [
   {
     src: "/images/party-strip-1-setup.jpg", width: 600, height: 450, caption: "the set-up",
     alt: "Children painting small wooden boxes at a table of glitter jars and paint cups while a young woman helps.",
   },
-  { placeholder: "Kids painting together" }, // TODO: real photo. Expected at /images/party-strip-1-group.jpg
+  {
+    src: "/images/party-strip-1-group.jpg", width: 1600, height: 1200,
+    alt: "Children around a crowded craft table holding up the hand puppets they made.",
+  },
   {
     src: "/images/party-strip-1-candles.jpg", width: 919, height: 1378,
     alt: "A lino-cut print of a bird in flight over bright watercolour washes.",
