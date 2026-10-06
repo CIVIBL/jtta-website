@@ -88,7 +88,7 @@ All are on the site. Some photos differ from the original plan, so "What the pho
 
 | File | Shows | Used on |
 |---|---|---|
-| hero-cabin.jpg | The log cabin studio from outside, with the covered porch, among trees | Home page, top |
+| hero-cabin-path.jpg | The log cabin studio from the garden, with a stepping-stone path and a large tree | Home page, top |
 | program-workshops.jpg | About twenty children at long wooden tables in the cabin studio, drawing and waving | Home page, weekly workshops card |
 | christine.jpg | Christine Benson | Home page, about section |
 | old-art-school.jpg | The Old Art School at Molson's Mill, where summer camp is held | Home page, summer section |

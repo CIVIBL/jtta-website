@@ -51,7 +51,7 @@ Current entries: 12 real October 2026 workshops (5 kids, 2 teens, 5 adults). The
 ## Done since the last status
 
 - Scheduled rebuild, build check, .gitattributes, README rewritten.
-- Head metadata: per-page descriptions (all under 160 chars), canonical, Open Graph and Twitter card, og-share.jpg (1000x523), lang en-CA.
+- Head metadata: per-page descriptions (all under 160 chars), canonical, Open Graph and Twitter card, og-share.jpg (1080x565), lang en-CA.
 - Sitemap, robots.txt, 404 page served via Cloudflare not_found_handling.
 - Favicon set from the logo's ink-splat silhouette (favicon.ico, favicon-32.png, apple-touch-icon.png). Astro defaults removed.
 - Footer year computed at build time; "v2 redesign" fine print removed.

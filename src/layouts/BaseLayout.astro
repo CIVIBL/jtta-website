@@ -18,7 +18,7 @@ interface Props {
 const { title, description = SITE_DESCRIPTION, activeNav, noindex = false } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, SITE_URL).href;
-// Social share image: hero-cabin.jpg cropped to 1.91:1 (scripts/og-share.mjs). Update the size below if regenerated.
+// Social share image: hero-cabin-path.jpg cropped to 1.91:1 (scripts/og-share.mjs). Update the size below if regenerated.
 const ogImage = new URL("/images/og-share.jpg", SITE_URL).href;
 ---
 
@@ -40,8 +40,8 @@ const ogImage = new URL("/images/og-share.jpg", SITE_URL).href;
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:image:width" content="1000" />
-    <meta property="og:image:height" content="523" />
+    <meta property="og:image:width" content="1080" />
+    <meta property="og:image:height" content="565" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
