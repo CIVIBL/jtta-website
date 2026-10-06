@@ -1,6 +1,6 @@
 # JTtA Website - Project Status
 
-Updated 2026-09-24.
+Updated 2026-10-05.
 
 ## Context
 
@@ -15,8 +15,11 @@ Why: the previous webmaster retired. Brent (CIVIBL) took over hosting and rebuil
 - Astro 7, static output, TypeScript strict, npm. Dev on Windows with Git Bash.
 - Repo: github.com/CIVIBL/jtta-website (public), branch main.
 - Hosting: Cloudflare Workers Static Assets via Workers Builds. Every push to main deploys.
-- Preview URL: https://jtta-website.brent-1de.workers.dev/
-- Production domain: https://www.journeythroughthearts.com (not yet pointed at the Worker; currently on the old DigitalOcean host with an expired certificate).
+- Live: https://www.journeythroughthearts.com since 2026-10-03.
+- Preview URL (kept): https://jtta-website.brent-1de.workers.dev/
+- Domain: registered at Domains Priced Right (GoDaddy reseller) in the account of Christine's brother. DNS on Cloudflare.
+- www is attached to the Worker as a custom domain. Apex redirects to www via a Cloudflare redirect rule plus Always Use HTTPS.
+- DreamHost and the mail DNS records are retained pending an answer on whether domain email is used.
 - Daily rebuild: .github/workflows/scheduled-rebuild.yml fires a Cloudflare Deploy Hook at 09:15 UTC so past workshops drop off without a push. Secret CF_DEPLOY_HOOK_URL is set. Tested.
 - Build check: .github/workflows/build-check.yml runs build and astro check on every push and PR. A failing run emails the repo owner. This is the safety net for CMS commits.
 - Local: npm run dev, npm run build, npx astro check. All clean (0 errors, 0 warnings, 0 hints).
@@ -31,7 +34,7 @@ Why: the previous webmaster retired. Brent (CIVIBL) took over hosting and rebuil
 - Guide for Christine: docs/editing-workshops.md and docs/editing-workshops.pdf. Regenerate the PDF with node scripts/guide-pdf.mjs after editing the .md.
 - Still hardcoded (CMS-bound later): announce bar, summer weeks, instructors, party themes, grade workshops, about copy.
 
-## Pages (8, all live on the preview URL)
+## Pages (8, live)
 
 / , /for-kids, /for-adults, /summer-program, /birthday-parties, /in-the-schools, /about, /404.
 
@@ -69,18 +72,19 @@ Brent:
 5. Done: sample workshops (including the two invented adult ones) removed.
 6. Test reduced motion on the carousel with the Windows setting on.
 
-Cutover (Phase 5), when content is in:
-7. Point www.journeythroughthearts.com at the Worker (Cloudflare custom domain), add an apex-to-www redirect rule, verify 404 and canonicals on the real domain, submit sitemap-index.xml to Google Search Console.
+Cutover (Phase 5):
+7. Done 2026-10-03: www on the Worker, apex redirect, 404 and canonicals verified on the real domain. Still to do: submit sitemap-index.xml to Google Search Console.
 
-After cutover:
-8. Performance: self-host Google Fonts (currently render-blocking from the CDN); move images from public/ to Astro Image (several JPGs are 300-570 KB).
-9. Split the ~700 lines of homepage-only CSS out of global.css. Consolidate repeated inline styles.
-10. CMS singletons for the announce bar, summer weeks, instructors, party themes, grade workshops and about copy.
-11. Give the "almost" status a treatment on the homepage row if the pill alone proves too subtle.
+Post-launch:
+8. Performance pass: move images from public/ to the Astro Image pipeline (several JPGs are 300-570 KB); self-host Google Fonts (currently render-blocking from the CDN).
+9. Turn on Cloudflare Web Analytics.
+10. Split the ~700 lines of homepage-only CSS out of global.css. Consolidate repeated inline styles.
+11. CMS singletons for the announce bar, summer weeks, instructors, party themes, grade workshops and about copy.
+12. Give the "almost" status a treatment on the homepage row if the pill alone proves too subtle.
 
 Yearly, each spring before summer camp registration opens:
-12. Update the "24th year running" badge in the homepage summer section (src/pages/index.astro).
-13. Set ANNOUNCE in src/lib/site.ts for the new summer, or leave it null. The previous summer value is in the comment above it.
+13. Update the "24th year running" badge in the homepage summer section (src/pages/index.astro).
+14. Set ANNOUNCE in src/lib/site.ts for the new summer, or leave it null. The previous summer value is in the comment above it.
 
 ## Conventions
 
