@@ -64,7 +64,7 @@ Current entries: 12 real October 2026 workshops (5 kids, 2 teens, 5 adults). The
 
 Blocked on Christine:
 1. Workshop data: October is in. The PA Day entry is pending its ages. Future workshops: she should enter them herself in Pages CMS with Brent on a call.
-2. Photos per docs/photo-shot-list.md. Done: all 36 slots are filled. 48 real photos are on the site (40 distinct; 8 reuse an existing photo). No empty slots remain. The four files that were too small have been replaced with full-size ones. If a slot is emptied later, it shows as a placeholder in npm run dev only and production collapses around it.
+2. Photos per docs/photo-shot-list.md. Done: all 36 slots are filled. 48 real photos are on the site (41 distinct; 7 reuse an existing photo). No empty slots remain. The four files that were too small have been replaced with full-size ones. If a slot is emptied later, it shows as a placeholder in npm run dev only and production collapses around it.
 3. Copy confirmations: homepage lede says "published children's-book illustrator", /about says "relief printmaker". Announce-bar copy.
 
 Brent:

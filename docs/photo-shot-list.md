@@ -90,7 +90,7 @@ All are on the site. Some photos differ from the original plan, so "What the pho
 |---|---|---|
 | hero-cabin-path.jpg | The log cabin studio from the garden, with a stepping-stone path and a large tree | Home page, top |
 | program-workshops.jpg | About twenty children at long wooden tables in the cabin studio, drawing and waving | Home page, weekly workshops card |
-| christine.jpg | Christine Benson | Home page, about section |
+| studio-interior.jpg | Inside the cabin studio: the round stained-glass window, an easel, a long blue-covered table and children's artwork on the walls | Home page, about section |
 | old-art-school.jpg | The Old Art School at Molson's Mill, where summer camp is held | Home page, summer section |
 | carousel-1.jpg | Children in rows facing a small stage in the studio hall, drawings on the walls under the JTtA banner | Home page, photo carousel |
 | carousel-2.jpg | Five kids at a table showing their finished landscape paintings | Home page, photo carousel |
