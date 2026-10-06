@@ -11,9 +11,12 @@
   --rule: #E5DCC4;
   --rule-strong: #C9BFA4;
 
-  /* Brand accents */
+  /* Brand accents. Teal is the primary accent (buttons, links, active nav, focus); turquoise is decorative only (never text).
+     Bright palette: teal is the turquoise darkened until text passes AA on every light surface. */
+  --c-teal: #1A6B61;
+  --c-turquoise: #2BB3A3;
   --c-red: #C44128;
-  --c-yellow: #E5A82C;
+  --c-yellow: #F2C14E;
   --c-sage: #5A7A48;
   --c-blue: #2E5E7A;
   --c-plum: #6E2F58;

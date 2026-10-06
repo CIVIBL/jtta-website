@@ -79,7 +79,7 @@ img { display: block; max-width: 100%; }
   white-space: nowrap;
 }
 .btn, .btn * { color: inherit; }
-.btn.is-primary { background: var(--c-red); color: var(--paper); }
+.btn.is-primary { background: var(--c-teal); color: var(--paper); }
 .btn.is-primary:hover { background: #A82F1A; }
 .btn.is-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
 .btn.is-ghost:hover { background: var(--ink); color: var(--paper); }
@@ -187,8 +187,8 @@ img { display: block; max-width: 100%; }
   color: var(--ink-soft);
   transition: color .15s ease;
 }
-.nav-links a:hover { color: var(--c-red); }
-.nav-links a.active { color: var(--c-red); }
+.nav-links a:hover { color: var(--c-teal); }
+.nav-links a.active { color: var(--c-teal); }
 .nav-cta { padding: 9px 16px; font-size: 13px; }
 
 /* Tight viewports: scale brand down a touch so it doesn't fight the links */
@@ -244,10 +244,10 @@ img { display: block; max-width: 100%; }
   color: var(--ink-soft);
   transition: color .15s ease;
 }
-.nav-menu-list a:not(.btn):hover, .nav-menu-list a.active { color: var(--c-red); }
+.nav-menu-list a:not(.btn):hover, .nav-menu-list a.active { color: var(--c-teal); }
 .nav-menu-cta { width: 100%; justify-content: center; min-height: 48px; margin-top: 16px; }
 .nav-menu-btn:focus-visible, .nav-menu-list a:focus-visible, .nav-cta:focus-visible {
-  outline: 2px solid var(--c-red);
+  outline: 2px solid var(--c-teal);
   outline-offset: 3px;
 }
 
@@ -309,7 +309,7 @@ section[id] { scroll-margin-top: 110px; }
   position: absolute;
   bottom: clamp(20px, 4vw, 40px);
   right: var(--gutter);
-  background: var(--paper);
+  background: color-mix(in srgb, var(--c-turquoise) 35%, var(--paper));
   padding: 10px 16px;
   border-radius: 999px;
   font-size: 12px;
@@ -328,12 +328,12 @@ section[id] { scroll-margin-top: 110px; }
   width: 13px;
   height: 13px;
   vertical-align: -2px;
-  color: var(--c-red);
+  color: var(--c-teal);
 }
 .hero-stamp:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 24px rgba(28, 26, 23, 0.18);
-  color: var(--c-red);
+  color: var(--c-teal);
 }
 /* FIX (known issue): the absolutely-positioned address stamp overlapped the
    hero text and broke layout on narrow screens. Hide it there - the address
@@ -385,7 +385,7 @@ section[id] { scroll-margin-top: 110px; }
 .hero-title em {
   font-style: italic;
   font-weight: 400;
-  color: var(--c-red);
+  color: var(--c-teal);
 }
 .hero-title .stroke {
   position: relative;
@@ -500,7 +500,7 @@ section[id] { scroll-margin-top: 110px; }
   flex-shrink: 0;
   transition: background .15s, transform .15s;
 }
-.audience-card:hover .a-icon { background: var(--c-red); transform: translateX(3px); }
+.audience-card:hover .a-icon { background: var(--c-teal); transform: translateX(3px); }
 
 /* ─── SECTION HEAD ─── */
 .section-head {
@@ -518,7 +518,7 @@ section[id] { scroll-margin-top: 110px; }
   font-weight: 500;
   max-width: 18ch;
 }
-.section-title em { font-style: italic; color: var(--c-red); font-weight: 400; }
+.section-title em { font-style: italic; color: var(--c-teal); font-weight: 400; }
 .section-lede {
   margin-top: 12px;
   max-width: 52ch;
@@ -585,7 +585,7 @@ section[id] { scroll-margin-top: 110px; }
   font-family: var(--font-display);
   font-size: 40px;
   line-height: 1;
-  color: var(--c-red);
+  color: var(--c-teal);
   font-weight: 500;
   margin: 2px 0;
 }
@@ -622,11 +622,11 @@ section[id] { scroll-margin-top: 110px; }
   text-transform: uppercase;
   padding: 3px 9px;
   border-radius: 999px;
-  background: var(--warm);
+  background: color-mix(in srgb, var(--c-turquoise) 35%, var(--paper));
   color: var(--ink);
 }
 .workshop-row.is-special .w-body .pill { background: var(--c-yellow); }
-/* Status pills (WorkshopRow and WorkshopCard). "open" renders no pill; waitlist and full are muted. */
+/* Status pills (WorkshopRow and WorkshopCard). "open" renders no status pill, so open rows show only the turquoise category pill above; almost is yellow; waitlist and full are muted. */
 .w-body .pill.is-almost, .k-card-top .pill.is-almost,
 .workshop-row.is-special .w-body .pill.is-almost {
   background: color-mix(in srgb, var(--c-yellow) 55%, var(--paper));
@@ -649,7 +649,7 @@ section[id] { scroll-margin-top: 110px; }
   margin-top: 10px;
   font-size: 13px;
   font-weight: 600;
-  color: var(--c-red);
+  color: var(--c-teal);
   text-decoration: none;
 }
 .w-register:hover, .w-register:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
@@ -669,7 +669,7 @@ section[id] { scroll-margin-top: 110px; }
   transition: background .15s, transform .15s;
 }
 .workshop-row:has(a:hover) .w-cta,
-.workshop-row:has(a:focus-visible) .w-cta { transform: translateX(3px); background: var(--c-red); }
+.workshop-row:has(a:focus-visible) .w-cta { transform: translateX(3px); background: var(--c-teal); }
 /* Full workshop: register text and arrow are plain, muted text. */
 .workshop-row.is-full .w-register { color: var(--muted); }
 .workshop-row.is-full .w-cta { background: var(--rule); color: var(--muted); }
@@ -799,8 +799,8 @@ section[id] { scroll-margin-top: 110px; }
   margin-left: auto;
   transition: transform .15s, background .15s;
 }
-.program-card:hover .p-arrow { transform: translateX(3px); background: var(--c-red); }
-.program-card.featured .p-arrow { background: var(--c-red); }
+.program-card:hover .p-arrow { transform: translateX(3px); background: var(--c-teal); }
+.program-card.featured .p-arrow { background: var(--c-teal); }
 
 /* ─── CAROUSEL ─── */
 .carousel {
@@ -833,7 +833,7 @@ section[id] { scroll-margin-top: 110px; }
   border-color: var(--ink);
 }
 .carousel-controls .cbtn:focus-visible {
-  outline: 2px solid var(--c-red);
+  outline: 2px solid var(--c-teal);
   outline-offset: 3px;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -949,7 +949,7 @@ section[id] { scroll-margin-top: 110px; }
 
 /* ─── CTA ─── */
 .cta {
-  background: var(--c-red);
+  background: var(--c-teal);
   color: var(--paper);
   text-align: center;
 }
@@ -983,15 +983,16 @@ section[id] { scroll-margin-top: 110px; }
   text-underline-offset: 4px;
   text-decoration-thickness: 2px;
 }
-.cta-email a:hover { color: var(--c-yellow); }
+/* White, not yellow: yellow on teal is 3.77:1, under 4.5 when this text drops below 24px. */
+.cta-email a:hover { color: var(--paper); text-decoration-thickness: 3px; }
 .cta .btn.is-light { background: var(--paper); border-color: var(--paper); }
-.cta .btn.is-light, .cta .btn.is-light * { color: var(--c-red); }
+.cta .btn.is-light, .cta .btn.is-light * { color: var(--c-teal); }
 .cta .btn.is-light:hover { background: var(--ink); border-color: var(--ink); }
 .cta .btn.is-light:hover, .cta .btn.is-light:hover * { color: var(--paper); }
 .cta .btn.is-outline { background: transparent; border-color: var(--paper); }
 .cta .btn.is-outline, .cta .btn.is-outline * { color: var(--paper); }
 .cta .btn.is-outline:hover { background: var(--paper); }
-.cta .btn.is-outline:hover, .cta .btn.is-outline:hover * { color: var(--c-red); }
+.cta .btn.is-outline:hover, .cta .btn.is-outline:hover * { color: var(--c-teal); }
 
 /* ─── FOOTER ─── */
 .footer { background: var(--bg); padding: 64px 0 32px; border-top: 1px solid var(--rule); }
@@ -1019,7 +1020,7 @@ section[id] { scroll-margin-top: 110px; }
   padding: 5px 0;
   transition: color .15s;
 }
-.footer a:hover { color: var(--c-red); }
+.footer a:hover { color: var(--c-teal); }
 .footer-brand {
   font-family: var(--font-display);
   font-size: 24px;

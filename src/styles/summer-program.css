@@ -24,7 +24,7 @@
   gap: 8px;
 }
 .s-crumbs a { color: var(--muted); text-decoration: none; transition: color .15s; }
-.s-crumbs a:hover { color: var(--c-red); }
+.s-crumbs a:hover { color: var(--c-teal); }
 .s-crumbs .sep { opacity: 0.5; }
 .s-crumbs .cur { color: var(--ink); }
 
@@ -52,7 +52,7 @@
   letter-spacing: -0.028em;
   max-width: 13ch;
 }
-.s-hero h1 .l-red { color: var(--c-red); }
+.s-hero h1 .l-red { color: var(--c-teal); }
 .s-hero h1 .l-blue { color: var(--c-blue); }
 .s-hero h1 .l-sage { color: var(--c-sage); }
 .s-hero h1 em { font-style: italic; font-weight: 400; }
@@ -76,10 +76,10 @@
   flex-wrap: wrap;
 }
 .s-cred .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--c-yellow); }
-.s-cred b { color: var(--c-red); }
+.s-cred b { color: var(--c-teal); }
 .s-hero-ctas { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap; align-items: center; }
 .s-hero-ctas .s-email { font-size: 14px; color: var(--muted); }
-.s-hero-ctas .s-email a { color: var(--c-red); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.s-hero-ctas .s-email a { color: var(--c-teal); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
 .s-awards { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
 
 /* hero photo cluster */
@@ -124,7 +124,7 @@
   max-width: 20ch;
   margin: 14px 0 0;
 }
-.s-what-lead em { font-style: italic; color: var(--c-red); font-weight: 400; }
+.s-what-lead em { font-style: italic; color: var(--c-teal); font-weight: 400; }
 .s-disc {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -137,7 +137,7 @@
   background: var(--bg);
   border: 1px solid var(--rule);
   border-radius: 14px;
-  border-top: 3px solid var(--accent, var(--c-red));
+  border-top: 3px solid var(--accent, var(--c-teal));
 }
 .s-disc-card .ic {
   width: 42px; height: 42px;
@@ -280,10 +280,10 @@
   font-weight: 700;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--accent, var(--c-red));
+  color: var(--accent, var(--c-teal));
   margin-bottom: 9px;
 }
-.s-team-disc .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent, var(--c-red)); }
+.s-team-disc .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent, var(--c-teal)); }
 .s-team-card h3 {
   font-size: 24px;
   font-weight: 600;
@@ -312,7 +312,7 @@
   border-radius: 10px;
   background: var(--warm);
   display: grid; place-items: center;
-  color: var(--c-red);
+  color: var(--c-teal);
   margin-bottom: 14px;
 }
 .s-know-card .ic svg { width: 18px; height: 18px; }

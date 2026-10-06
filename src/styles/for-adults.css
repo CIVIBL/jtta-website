@@ -32,7 +32,7 @@
   gap: 8px;
 }
 .a-crumbs a { color: var(--muted); text-decoration: none; transition: color .15s; }
-.a-crumbs a:hover { color: var(--c-red); }
+.a-crumbs a:hover { color: var(--c-teal); }
 .a-crumbs .sep { opacity: 0.5; }
 .a-crumbs .cur { color: var(--ink); }
 
@@ -42,7 +42,7 @@
   letter-spacing: -0.025em;
   max-width: 15ch;
 }
-.a-head h1 em { font-style: italic; color: var(--c-red); font-weight: 400; }
+.a-head h1 em { font-style: italic; color: var(--c-teal); font-weight: 400; }
 .a-head .a-hand {
   font-family: var(--font-hand);
   color: var(--c-plum);
@@ -143,7 +143,7 @@
   font-weight: 500;
   margin: 0 0 12px;
 }
-.a-empty h3 em { font-style: italic; color: var(--c-red); font-weight: 400; }
+.a-empty h3 em { font-style: italic; color: var(--c-teal); font-weight: 400; }
 .a-empty p {
   font-size: 15px;
   color: var(--ink-soft);
@@ -182,7 +182,7 @@
   place-items: center;
   margin-bottom: 16px;
 }
-.a-know-card .ic svg { width: 19px; height: 19px; color: var(--c-red); }
+.a-know-card .ic svg { width: 19px; height: 19px; color: var(--c-teal); }
 .a-know-card h3 {
   font-family: var(--font-display);
   font-size: 19px;
@@ -192,7 +192,7 @@
 }
 .a-know-card p { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--ink-soft); }
 .a-know-card p + p { margin-top: 8px; }
-.a-know-card a { color: var(--c-red); text-decoration: underline; text-underline-offset: 2px; }
+.a-know-card a { color: var(--c-teal); text-decoration: underline; text-underline-offset: 2px; }
 
 /* ─── BOOK YOUR OWN (custom session band) ─── */
 .a-custom { background: var(--warm); }
@@ -213,7 +213,7 @@
   font-weight: 500;
   margin: 12px 0 0;
 }
-.a-custom h2 em { font-style: italic; color: var(--c-red); font-weight: 400; }
+.a-custom h2 em { font-style: italic; color: var(--c-teal); font-weight: 400; }
 .a-custom .a-custom-body {
   font-size: clamp(15px, 1.4vw, 18px);
   line-height: 1.65;
@@ -254,7 +254,7 @@
   color: var(--muted);
 }
 .a-custom .a-custom-addr a {
-  color: var(--c-red);
+  color: var(--c-teal);
   text-decoration: underline;
   text-underline-offset: 2px;
 }

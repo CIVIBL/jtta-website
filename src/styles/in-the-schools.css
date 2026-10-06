@@ -26,7 +26,7 @@
   gap: 8px;
 }
 .sc-crumbs a { color: var(--muted); text-decoration: none; transition: color .15s; }
-.sc-crumbs a:hover { color: var(--c-red); }
+.sc-crumbs a:hover { color: var(--c-teal); }
 .sc-crumbs .sep { opacity: 0.5; }
 .sc-crumbs .cur { color: var(--ink); }
 
@@ -83,7 +83,7 @@
 .sc-avail b { color: var(--ink); font-weight: 700; }
 .sc-hero-ctas { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; align-items: center; }
 .sc-hero-ctas .sc-email { font-size: 14px; color: var(--muted); }
-.sc-hero-ctas .sc-email a { color: var(--c-red); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.sc-hero-ctas .sc-email a { color: var(--c-teal); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
 
 /* hero photo + award */
 .sc-hero-side { position: relative; }

@@ -22,7 +22,7 @@
   gap: 8px;
 }
 .ab-crumbs a { color: var(--muted); text-decoration: none; transition: color .15s; }
-.ab-crumbs a:hover { color: var(--c-red); }
+.ab-crumbs a:hover { color: var(--c-teal); }
 .ab-crumbs .sep { opacity: 0.5; }
 .ab-crumbs .cur { color: var(--ink); }
 
@@ -48,7 +48,7 @@
   letter-spacing: -0.028em;
   max-width: 12ch;
 }
-.ab-hero h1 em { font-style: italic; color: var(--c-red); font-weight: 400; }
+.ab-hero h1 em { font-style: italic; color: var(--c-teal); font-weight: 400; }
 .ab-lede {
   margin-top: 24px;
   font-size: clamp(17px, 1.6vw, 21px);
@@ -98,7 +98,7 @@
   letter-spacing: -0.022em;
   margin: 14px 0 0;
 }
-.ab-bio h2 em { font-style: italic; color: var(--c-red); font-weight: 400; }
+.ab-bio h2 em { font-style: italic; color: var(--c-teal); font-weight: 400; }
 .ab-bio p {
   font-size: clamp(16px, 1.4vw, 18px);
   line-height: 1.68;

@@ -88,7 +88,7 @@ export function formatDuration(minutes: number): string {
 }
 
 /** Card accent colours, in rotation order. Content stores the name; WorkshopCard maps it to CSS. */
-export const ACCENTS = ["red", "yellow", "sage", "blue", "plum"] as const;
+export const ACCENTS = ["yellow", "sage", "blue", "plum", "red"] as const;
 export type Accent = (typeof ACCENTS)[number];
 
 /** Returns a picker for cards in page order. A workshop's own accent wins; otherwise

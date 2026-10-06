@@ -1,5 +1,7 @@
 # JTtA Website - Project Status
 
+> Design preview branch (design-c-bright): bright teal/turquoise/yellow palette. Not for merge until Christine approves.
+
 Updated 2026-10-05.
 
 ## Context

@@ -25,7 +25,7 @@
   gap: 8px;
 }
 .b-crumbs a { color: var(--muted); text-decoration: none; transition: color .15s; }
-.b-crumbs a:hover { color: var(--c-red); }
+.b-crumbs a:hover { color: var(--c-teal); }
 .b-crumbs .sep { opacity: 0.5; }
 .b-crumbs .cur { color: var(--ink); }
 
@@ -51,7 +51,7 @@
   letter-spacing: -0.026em;
   max-width: 14ch;
 }
-.b-hero h1 em { font-style: italic; color: var(--c-red); font-weight: 400; }
+.b-hero h1 em { font-style: italic; color: var(--c-teal); font-weight: 400; }
 .b-lede {
   margin-top: 22px;
   font-size: clamp(16px, 1.5vw, 20px);
@@ -77,10 +77,10 @@
   font-weight: 600;
   color: var(--ink);
 }
-.b-chip svg { width: 15px; height: 15px; color: var(--c-red); }
+.b-chip svg { width: 15px; height: 15px; color: var(--c-teal); }
 .b-hero-ctas { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap; align-items: center; }
 .b-hero-ctas .b-email { font-size: 14px; color: var(--muted); }
-.b-hero-ctas .b-email a { color: var(--c-red); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.b-hero-ctas .b-email a { color: var(--c-teal); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
 
 /* hero photo cluster */
 .b-hero-photos {
@@ -131,7 +131,7 @@
   font-weight: 600;
   font-size: 15px;
   color: var(--paper);
-  background: var(--c-red);
+  background: var(--c-teal);
   width: 30px; height: 30px;
   border-radius: 50%;
   display: grid; place-items: center;
@@ -147,7 +147,7 @@
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 600;
-  color: var(--c-red);
+  color: var(--c-teal);
   margin-left: 8px;
   letter-spacing: 0;
 }
@@ -185,7 +185,7 @@
   border-radius: 11px;
   background: var(--warm);
   display: grid; place-items: center;
-  color: var(--c-red);
+  color: var(--c-teal);
   margin-bottom: 15px;
 }
 .b-incl-card .ic svg { width: 20px; height: 20px; }
@@ -218,7 +218,7 @@
   position: absolute;
   inset: 0 0 auto 0;
   height: 4px;
-  background: var(--accent, var(--c-red));
+  background: var(--accent, var(--c-teal));
 }
 .b-theme:hover {
   transform: translateY(-3px);
@@ -258,7 +258,7 @@
   align-self: flex-start;
   font-size: 14px;
   font-weight: 600;
-  color: var(--c-red);
+  color: var(--c-teal);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
