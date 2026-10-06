@@ -1040,3 +1040,16 @@ section[id] { scroll-margin-top: 110px; }
   font-size: 13px;
   color: var(--muted);
 }
+
+/* ─── SPLATS (decorative; preview D) ─── */
+/* Headings holding a splat become their own stacking context so the splat sits under the text only. */
+:is(h1, h2):has(> .heading-splat, > .title-splat) { position: relative; isolation: isolate; }
+/* Starts at the heading's top edge so it never sits under the eyebrow above. */
+.title-splat { position: absolute; z-index: -1; left: -28px; top: -6px; }
+/* Corner splats are clipped by their box. */
+.upcoming-foot, .cta { position: relative; overflow: hidden; isolation: isolate; }
+.corner-splat { position: absolute; z-index: -1; top: -70px; right: -60px; }
+.cta-splat { top: auto; right: auto; bottom: -90px; left: -80px; }
+/* The heading is a positioned layer, so lift what sits above it (badge, crumbs, hand-lettered lines) over its splat. */
+.hero-badge, .ab-crumbs, .b-crumbs, .a-crumbs, .k-crumbs, .sc-crumbs, .s-crumbs,
+.ab-hand, .b-hand, .a-hand, .k-hand, .sc-eyebrow, .s-hand { position: relative; z-index: 1; }

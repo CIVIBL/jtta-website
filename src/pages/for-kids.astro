@@ -8,6 +8,7 @@ import AwardBadge from "../components/AwardBadge.astro";
 import { accentRotation, isUpcoming } from "../lib/workshops";
 import { mailto, CONTACT_EMAIL, MAPS_URL } from "../lib/site";
 import "../styles/for-kids.css";
+import HeadingSplat from "../components/HeadingSplat.astro";
 
 const upcoming = (await getCollection("workshops"))
   .filter((w) => isUpcoming(w.data.date))
@@ -78,7 +79,7 @@ const STRIP_TWO = [
       <div class="k-head-grid">
         <div>
           <span class="k-hand">Learn, create, inspire</span>
-          <h1>Workshops for <em>curious kids</em></h1>
+          <h1><HeadingSplat fit />Workshops for <em>curious kids</em></h1>
           <p class="k-lede">
             After-school and weekend art workshops in our 1840s log-cabin studio, run by Christine
             Benson. Kids work in small groups, get their hands messy with real materials, and take

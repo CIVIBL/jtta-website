@@ -4,6 +4,7 @@ import PartyIcon from "../components/PartyIcon.astro";
 import ThemeCard from "../components/ThemeCard.astro";
 import { mailto, CONTACT_EMAIL, MAPS_URL } from "../lib/site";
 import "../styles/birthday-parties.css";
+import HeadingSplat from "../components/HeadingSplat.astro";
 
 const GLANCE = [
   { icon: "users", t: "Ages 6-13" },
@@ -85,7 +86,7 @@ const strip = STRIP.filter((it) => it.src || import.meta.env.DEV);
       <div class="b-hero-grid">
         <div>
           <span class="b-hand">Cake, presents & paint</span>
-          <h1>An <em>art party</em> at the cabin, or at your place.</h1>
+          <h1><HeadingSplat fit />An <em>art party</em> at the cabin, or at your place.</h1>
           <p class="b-lede">
             A cozy, screen-free birthday at the log-cabin studio or in your own home. The birthday kid
             picks the project, everyone makes real art, then it's cake and presents.

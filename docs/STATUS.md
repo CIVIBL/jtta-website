@@ -1,6 +1,6 @@
 # JTtA Website - Project Status
 
-> Design preview branch (design-c-bright): bright teal/turquoise/yellow palette. Not for merge until Christine approves.
+> Design preview branch (design-d-bright-splats): palette C plus bold ink splats (hero headings, section titles, dividers, register box, closing band, award badges). Not for merge until Christine approves.
 
 Updated 2026-10-05.
 

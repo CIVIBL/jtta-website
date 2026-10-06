@@ -6,6 +6,7 @@ import GradeCard from "../components/GradeCard.astro";
 import AwardBadge from "../components/AwardBadge.astro";
 import { mailto, CONTACT_EMAIL } from "../lib/site";
 import "../styles/in-the-schools.css";
+import HeadingSplat from "../components/HeadingSplat.astro";
 
 const BEATS = [
   { icon: "van", h: "She comes to you", p: "Christine delivers the workshop right in your classroom - no buses, no field trip." },
@@ -98,7 +99,7 @@ const showHeroPhoto = Boolean(HERO_PHOTO.src) || import.meta.env.DEV;
       <div class:list={["sc-hero-grid", { "is-text-only": !showHeroPhoto }]}>
         <div>
           <span class="sc-eyebrow"><span class="dot"></span>In-the-Schools Program</span>
-          <h1>Curriculum-linked art, brought to <em>your classroom</em></h1>
+          <h1><HeadingSplat fit />Curriculum-linked art, brought to <em>your classroom</em></h1>
           <p class="sc-lede">
             Christine comes to you with every supply in hand and guides your students through a
             grade-appropriate visual art workshop. Each one ties to the art curriculum, and every

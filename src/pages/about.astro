@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import AwardBadge from "../components/AwardBadge.astro";
 import { mailto, CONTACT_EMAIL } from "../lib/site";
 import "../styles/about.css";
+import HeadingSplat from "../components/HeadingSplat.astro";
 
 // width/height are the files' pixel sizes; CSS crops each to 4:3.
 const STRIP = [
@@ -37,7 +38,7 @@ const STRIP = [
       <div class="ab-hero-grid">
         <div>
           <span class="ab-hand">Hello from the cabin</span>
-          <h1>Meet <em>Christine</em></h1>
+          <h1><HeadingSplat fit />Meet <em>Christine</em></h1>
           <p class="ab-lede">
             The artist, teacher and neighbour behind Journey Through the Arts and the 1840s log cabin
             where it all happens.

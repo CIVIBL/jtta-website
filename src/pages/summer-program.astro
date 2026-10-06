@@ -6,6 +6,7 @@ import InstructorCard from "../components/InstructorCard.astro";
 import AwardBadge from "../components/AwardBadge.astro";
 import { mailto, CONTACT_EMAIL, MAPS_URL } from "../lib/site";
 import "../styles/summer-program.css";
+import HeadingSplat from "../components/HeadingSplat.astro";
 
 type Accent = "red" | "blue" | "sage" | "plum" | "yellow";
 const accentVar: Record<Accent, string> = {
@@ -168,7 +169,7 @@ const heroPhotos = HERO_PHOTOS.filter((it) => it.src || import.meta.env.DEV);
       <div class:list={["s-hero-grid", { "is-text-only": heroPhotos.length === 0 }]}>
         <div>
           <span class="s-hand">One week. One big show.</span>
-          <h1>
+          <h1><HeadingSplat fit />
             <span class="l-blue">Music</span>, <span class="l-red">Drama</span> &amp;
             <span class="l-sage">Visual Art</span> - <em>together</em>.
           </h1>

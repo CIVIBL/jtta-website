@@ -1,0 +1,31 @@
+---
+// Big turquoise splat plus a few yellow droplets behind a hero heading. Place it as the heading's first child;
+// the heading becomes its own stacking context (global.css), so the splat sits under the text only.
+import Splat from "./Splat.astro";
+
+interface Props {
+  /** Width of the main splat as a CSS length (homepage hero). */
+  size?: string;
+  /** Inner pages: size the splat to the heading's own height so it never reaches the crumbs above or the lede below. */
+  fit?: boolean;
+}
+const { size = "clamp(260px, 30vw + 128px, 560px)", fit = false } = Astro.props;
+---
+
+<span class:list={["heading-splat", { fit }]} aria-hidden="true">
+  <Splat class="hs-main" color="turquoise" size={size} rotate={-8} opacity={0.5} />
+  <Splat class="hs-drop hs-drop-1" color="yellow" size="26px" rotate={30} />
+  <Splat class="hs-drop hs-drop-2" color="yellow" size="15px" rotate={-40} />
+  <Splat class="hs-drop hs-drop-3" color="yellow" size="20px" rotate={75} />
+</span>
+
+<style>
+  .heading-splat { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+  /* Bottom-anchored so the splat grows up behind the heading, never down into the lede. */
+  .heading-splat :global(.hs-main) { position: absolute; bottom: 10px; left: 42%; translate: -50% 0; }
+  .heading-splat.fit :global(.hs-main) { width: auto !important; height: clamp(80px, 140%, 160px); bottom: auto; top: 50%; translate: -50% -50%; }
+  .heading-splat :global(.hs-drop) { position: absolute; }
+  .heading-splat :global(.hs-drop-1) { right: 2%; top: 4%; }
+  .heading-splat :global(.hs-drop-2) { right: -2%; top: 38%; }
+  .heading-splat :global(.hs-drop-3) { right: 8%; top: 62%; }
+</style>
