@@ -274,6 +274,17 @@ section[id] { scroll-margin-top: 110px; }
   z-index: -2;
 }
 .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; display: block; }
+/* Wide screens: tall enough for the whole cabin (portrait photo), 680px at 1024 to 800px at 1440+ (min-height beats max-height).
+   The photo starts at 32% so the cabin sits right of the text, its left edge faded into the scrim. */
+@media (min-width: 1024px) {
+  .hero { min-height: clamp(680px, 384px + 28.85vw, 800px); }
+  .hero-bg { left: 32%; mask-image: linear-gradient(90deg, transparent, #000 15%); }
+  .hero-bg img { object-position: center 18%; }
+}
+/* The heading runs two wide lines here, so the photo starts further right. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .hero-bg { left: 46%; }
+}
 /* Real photos fill their placeholder containers (cover crop) */
 .summer-photo img,
 .about-photo img,
