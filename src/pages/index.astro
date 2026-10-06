@@ -7,7 +7,6 @@ import ProgramCard from "../components/ProgramCard.astro";
 import AwardBadge from "../components/AwardBadge.astro";
 import Splat from "../components/Splat.astro";
 import HeadingSplat from "../components/HeadingSplat.astro";
-import SplatDivider from "../components/SplatDivider.astro";
 import Icon from "../components/Icon.astro";
 import { isUpcoming } from "../lib/workshops";
 import { mailto, CONTACT_EMAIL, MAPS_URL, SITE_DESCRIPTION } from "../lib/site";
@@ -24,7 +23,7 @@ interface Audience {
   href?: string;
 }
 const AUDIENCES: Audience[] = [
-  { label: "For my child", meta: "Workshops · summer camp · ages 6-13", href: "/for-kids" },
+  { label: "For my child", meta: "Workshops · summer camp · kids & teens", href: "/for-kids" },
   { label: "For myself", meta: "Adult workshops · Evenings", href: "/for-adults" },
   { label: "For a birthday", meta: "Studio or home party", href: "/birthday-parties" },
   { label: "For my class", meta: "In-the-Schools · JK to Gr 8", href: "/in-the-schools" },
@@ -155,8 +154,6 @@ const CAROUSEL: Slide[] = [
   </section>
 
   {/* ─── AUDIENCE PICKER ─── */}
-  <SplatDivider />
-
   <section class="audience" id="audience">
     <div class="wrap">
       <div class="audience-head">
@@ -292,8 +289,6 @@ const CAROUSEL: Slide[] = [
   </section>
 
   {/* ─── SUMMER ─── */}
-  <SplatDivider />
-
   <section class="summer" id="summer">
     <div class="wrap">
       <div class="summer-grid">
