@@ -285,6 +285,13 @@ section[id] { scroll-margin-top: 110px; }
 @media (min-width: 1024px) and (max-width: 1279px) {
   .hero-bg { left: 46%; }
 }
+/* Full-screen widths: keep growing (800px at 1440 to 900px at 1920+) and crop lower, so the photo (wider here) shows less sky and the whole cabin. */
+@media (min-width: 1440px) {
+  .hero { min-height: clamp(800px, 500px + 20.83vw, 900px); }
+}
+@media (min-width: 1600px) {
+  .hero-bg img { object-position: center 45%; }
+}
 /* Real photos fill their placeholder containers (cover crop) */
 .summer-photo img,
 .about-photo img,
