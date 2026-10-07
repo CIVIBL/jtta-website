@@ -1,6 +1,6 @@
 # JTtA Website - Project Status
 
-Updated 2026-10-05.
+Updated 2026-10-07.
 
 ## Context
 
@@ -28,17 +28,17 @@ Why: the previous webmaster retired. Brent (CIVIBL) took over hosting and rebuil
 
 - Connected at app.pagescms.org, scoped to this repo only.
 - Config: .pages.yml, mirrors src/content.config.ts. Every field has help text.
-- Collection: Workshops (src/content/workshops/*.md). Media uploads go to public/images/workshops.
+- Collections: Workshops (src/content/workshops/*.md; uploads to public/images/workshops) and Artwork (src/content/artwork/*.md; uploads to src/assets/artwork, resized by Astro). Artwork CMS flow not yet tested end to end.
 - End-to-end tested: add, deploy, verify, delete. Works.
 - Christine signs in with "Continue with email" as an invited collaborator. Invite pending (Brent).
 - Guide for Christine: docs/editing-workshops.md and docs/editing-workshops.pdf. Regenerate the PDF with node scripts/guide-pdf.mjs after editing the .md.
 - Still hardcoded (CMS-bound later): announce bar, summer weeks, instructors, party themes, grade workshops, about copy.
 
-## Pages (8, live)
+## Pages (9; /artwork not yet pushed)
 
-/ , /for-kids, /for-adults, /summer-program, /birthday-parties, /in-the-schools, /about, /404.
+/ , /for-kids, /for-adults, /summer-program, /birthday-parties, /in-the-schools, /about, /artwork, /404.
 
-Nav: For Kids & Teens / For Adults / Summer Camp / Birthdays / In the Schools / About plus "Contact Christine". Below 1280px the links move into a Menu panel (button with aria-expanded, Escape and click-outside close, works without JavaScript as an open list); Contact Christine stays in the bar at every width. Below 600px the brand name is visually hidden and the logo carries it.
+Nav: For Kids & Teens / For Adults / Summer Camp / Birthdays / In the Schools / About / Artwork plus "Contact Christine". Below 1320px the links move into a Menu panel (button with aria-expanded, Escape and click-outside close, works without JavaScript as an open list); Contact Christine stays in the bar at every width. Below 600px the brand name is visually hidden and the logo carries it.
 
 ## Content model
 
@@ -49,6 +49,8 @@ Status is rendered: almost shows an amber pill, waitlist shows a pill and change
 Current entries: 12 real October 2026 workshops (5 kids, 2 teens, 5 adults). The sample data is removed. Files are named YYYY-MM-DD-slug.md by workshop date; Pages CMS names new entries the same way (filename "{fields.date}-{primary}.md" in .pages.yml).
 
 ## Done since the last status
+
+- Artwork portfolio: collection, Pages CMS entry, /artwork page (grid, native dialog, empty state), nav/footer/About links. Two "Sample - replace" entries seed the layout. Nav breakpoint moved from 1280px to 1320px for the seventh link.
 
 - Scheduled rebuild, build check, .gitattributes, README rewritten.
 - Head metadata: per-page descriptions (all under 160 chars), canonical, Open Graph and Twitter card, og-share.jpg (1080x565), lang en-CA.
@@ -65,26 +67,27 @@ Current entries: 12 real October 2026 workshops (5 kids, 2 teens, 5 adults). The
 Blocked on Christine:
 1. Workshop data: October is in. The PA Day entry is pending its ages. Future workshops: she should enter them herself in Pages CMS with Brent on a call.
 2. Photos per docs/photo-shot-list.md. Done: all 36 slots are filled. 48 real photos are on the site (41 distinct; 7 reuse an existing photo). No empty slots remain. The four files that were too small have been replaced with full-size ones. If a slot is emptied later, it shows as a placeholder in npm run dev only and production collapses around it.
-3. Copy confirmations: homepage lede says "published children's-book illustrator", /about says "relief printmaker". Announce-bar copy.
+3. Artwork: real pieces (photo, title, medium, optional year and note). Then delete the two "Sample - replace" entries and their images in src/assets/artwork.
+4. Copy confirmations: homepage lede says "published children's-book illustrator", /about says "relief printmaker". Announce-bar copy.
 
 Brent:
-4. Invite jttacabin@gmail.com in Pages CMS, then send her the PDF guide.
-5. Done: sample workshops (including the two invented adult ones) removed.
-6. Test reduced motion on the carousel with the Windows setting on.
+5. Invite jttacabin@gmail.com in Pages CMS, then send her the PDF guide.
+6. Done: sample workshops (including the two invented adult ones) removed.
+7. Test reduced motion on the carousel with the Windows setting on.
 
 Cutover (Phase 5):
-7. Done 2026-10-03: www on the Worker, apex redirect, 404 and canonicals verified on the real domain. Still to do: submit sitemap-index.xml to Google Search Console.
+8. Done 2026-10-03: www on the Worker, apex redirect, 404 and canonicals verified on the real domain. Still to do: submit sitemap-index.xml to Google Search Console.
 
 Post-launch:
-8. Performance pass: move images from public/ to the Astro Image pipeline (several JPGs are 300-570 KB); self-host Google Fonts (currently render-blocking from the CDN).
-9. Turn on Cloudflare Web Analytics.
-10. Split the ~700 lines of homepage-only CSS out of global.css. Consolidate repeated inline styles.
-11. CMS singletons for the announce bar, summer weeks, instructors, party themes, grade workshops and about copy.
-12. Give the "almost" status a treatment on the homepage row if the pill alone proves too subtle.
+9. Performance pass: move images from public/ to the Astro Image pipeline (several JPGs are 300-570 KB); self-host Google Fonts (currently render-blocking from the CDN).
+10. Turn on Cloudflare Web Analytics.
+11. Split the ~700 lines of homepage-only CSS out of global.css. Consolidate repeated inline styles.
+12. CMS singletons for the announce bar, summer weeks, instructors, party themes, grade workshops and about copy.
+13. Give the "almost" status a treatment on the homepage row if the pill alone proves too subtle.
 
 Yearly, each spring before summer camp registration opens:
-13. Update the "24th year running" badge in the homepage summer section (src/pages/index.astro).
-14. Set ANNOUNCE in src/lib/site.ts for the new summer, or leave it null. The previous summer value is in the comment above it.
+14. Update the "24th year running" badge in the homepage summer section (src/pages/index.astro).
+15. Set ANNOUNCE in src/lib/site.ts for the new summer, or leave it null. The previous summer value is in the comment above it.
 
 ## Conventions
 

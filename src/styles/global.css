@@ -214,13 +214,13 @@ img { display: block; max-width: 100%; }
   }
 }
 
-/* ─── MENU (below 1280px) ───
+/* ─── MENU (below 1320px) ───
    The six text links no longer fit beside the brand, so they move into a panel
    opened by the Menu button. Nav.astro renders the panel open and its inline
    script closes it on load, so without JavaScript the links stay reachable. */
 .nav-menu-btn { display: none; padding: 9px 16px; font-size: 13px; }
 .nav-menu { display: none; }
-@media (max-width: 1279px) {
+@media (max-width: 1319px) {
   .nav-links { gap: 10px; }
   .nav-links a:not(.nav-cta) { display: none; }
   .nav-menu-btn { display: inline-flex; }

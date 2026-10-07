@@ -98,6 +98,9 @@
   letter-spacing: -0.022em;
   margin: 14px 0 0;
 }
+/* Same treatment as the register links (.w-register): accent colour, underline on hover. */
+.ab-bio-link { color: var(--c-red); font-weight: 600; text-decoration: none; }
+.ab-bio-link:hover, .ab-bio-link:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
 .ab-bio h2 em { font-style: italic; color: var(--c-red); font-weight: 400; }
 .ab-bio p {
   font-size: clamp(16px, 1.4vw, 18px);

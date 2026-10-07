@@ -1,0 +1,125 @@
+---
+import { getCollection } from "astro:content";
+import { Picture, getImage } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { sortArtwork } from "../lib/artwork";
+import "../styles/artwork.css";
+
+// Lede drawn from the About page's description of her practice.
+const LEDE =
+  "Stylized, rhythmic work drawn from nature - hand-printed linocuts, often on handmade papers, sometimes with collaged and hand-sewn details.";
+
+const entries = (await getCollection("artwork")).sort(sortArtwork);
+// One larger rendition per piece for the dialog; cards use responsive <Picture> below.
+const pieces = await Promise.all(
+  entries.map(async (e) => ({
+    ...e.data,
+    id: e.id,
+    large: (await getImage({ src: e.data.image, width: Math.min(1600, e.data.image.width), format: "webp" })).src,
+  })),
+);
+---
+
+<BaseLayout title="Christine's Artwork · Journey Through the Arts, Port Hope" description={LEDE} activeNav="artwork">
+  <section class="aw-hero" id="top">
+    <div class="wrap">
+      <div class="aw-crumbs">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <span class="cur">Artwork</span>
+      </div>
+      <div class="eyebrow">Christine's artwork</div>
+      <h1>Christine's <em>Artwork</em></h1>
+      <p class="aw-lede">{LEDE}</p>
+    </div>
+  </section>
+
+  <section class="aw-gallery">
+    <div class="wrap">
+      {
+        pieces.length === 0 ? (
+          <p class="aw-lede aw-empty">New work is added here as it is finished.</p>
+        ) : (
+          <ul class="aw-grid">
+            {pieces.map((p) => (
+              <li class="aw-card">
+                <button
+                  type="button"
+                  class="aw-open"
+                  data-large={p.large}
+                  data-title={p.title}
+                  data-medium={p.year ? `${p.medium}, ${p.year}` : p.medium}
+                  aria-label={`View larger: ${p.title}`}
+                >
+                  <Picture
+                    src={p.image}
+                    alt={`${p.title}, ${p.medium}`}
+                    widths={[400, 800, 1200]}
+                    sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+                    formats={["webp"]}
+                    fallbackFormat="jpg"
+                    loading="lazy"
+                  />
+                </button>
+                <div class="aw-meta">
+                  <h2 class="aw-title">{p.title}</h2>
+                  <p class="aw-medium">
+                    {p.medium}
+                    {p.year && <span class="aw-year">{p.year}</span>}
+                  </p>
+                  {p.note && <p class="aw-note">{p.note}</p>}
+                </div>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+  </section>
+
+  {
+    pieces.length > 0 && (
+      <dialog class="aw-dialog" id="aw-dialog" aria-labelledby="aw-dialog-title">
+        <button type="button" class="aw-close" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <img class="aw-dialog-img" src="" alt="" />
+        <p class="aw-dialog-cap">
+          <strong id="aw-dialog-title"></strong>
+          <span class="aw-dialog-medium"></span>
+        </p>
+      </dialog>
+    )
+  }
+
+  <script is:inline>
+    (() => {
+      const dlg = document.getElementById("aw-dialog");
+      if (!dlg) return;
+      const img = dlg.querySelector(".aw-dialog-img");
+      const title = dlg.querySelector("#aw-dialog-title");
+      const medium = dlg.querySelector(".aw-dialog-medium");
+      let opener = null;
+      document.querySelectorAll(".aw-open").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          opener = btn;
+          img.src = btn.dataset.large;
+          img.alt = btn.dataset.title;
+          title.textContent = btn.dataset.title;
+          medium.textContent = btn.dataset.medium;
+          dlg.showModal();
+        });
+      });
+      dlg.querySelector(".aw-close").addEventListener("click", () => dlg.close());
+      // A click on the backdrop (the dialog element itself, outside its content) closes it.
+      dlg.addEventListener("click", (e) => {
+        if (e.target === dlg) dlg.close();
+      });
+      // Escape closes natively; either way, focus goes back to the card that opened it.
+      dlg.addEventListener("close", () => {
+        img.removeAttribute("src");
+        if (opener) opener.focus();
+      });
+    })();
+  </script>
+</BaseLayout>
