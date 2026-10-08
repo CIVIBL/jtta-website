@@ -2,11 +2,20 @@
 # Mirrors the Zod schema in src/content.config.ts - keep the two in sync.
 # Descriptions are the help text Christine sees under each field.
 
-# Uploads are limited to their own folder so site photos in public/images can't be overwritten.
+# Uploads are limited to their own folders so site photos in public/images can't be overwritten.
 media:
-  input: public/images/workshops
-  output: /images/workshops
-  categories: [image]
+  - name: workshops
+    label: Workshop images
+    input: public/images/workshops
+    output: /images/workshops
+    categories: [image]
+  # Artwork goes through Astro's image pipeline, so it lives in src/assets and the path written
+  # into each entry is relative to src/content/artwork/*.md (what Astro's image() expects).
+  - name: artwork
+    label: Artwork images
+    input: src/assets/artwork
+    output: ../../assets/artwork
+    extensions: [jpg, jpeg, png, webp]
 
 content:
   - name: workshops
@@ -142,3 +151,54 @@ content:
         type: boolean
         default: false
         description: "Can be left alone (off). Turn it on to highlight this workshop with a dark card on the homepage."
+
+  - name: artwork
+    label: Artwork
+    type: collection
+    path: src/content/artwork
+    format: yaml-frontmatter
+    # {fields.title} is slugified by Pages CMS, e.g. "Heron at Dusk" becomes heron-at-dusk.md.
+    filename: "{fields.title}.md"
+    view:
+      primary: title
+      fields: [image, title, medium]
+      sort: [order, year, title]
+      default:
+        sort: order
+        order: asc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+        description: "The name of the piece, as it appears under the picture."
+      - name: medium
+        label: Medium
+        type: string
+        required: true
+        description: "e.g. Relief print, Acrylic on canvas"
+      - name: year
+        label: Year
+        type: number
+        description: "Optional. The year the piece was made, e.g. 2024. Leave it empty and no year is shown."
+        options:
+          min: 1970
+          max: 2100
+      - name: image
+        label: Picture
+        type: image
+        required: true
+        description: "A photo of the piece. Any phone photo is fine (JPG or PNG); the website resizes it. On an iPhone, choose JPG or Most Compatible if it offers a choice."
+        options:
+          media: artwork
+          rename: true
+      - name: note
+        label: Note
+        type: text
+        description: "Optional. One or two sentences about the piece, shown under the medium."
+      - name: order
+        label: Position
+        type: number
+        description: "Optional. Leave empty to list newest first. To pin a piece near the top, give it a number: 1 comes first, then 2, and so on."
+        options:
+          min: 1

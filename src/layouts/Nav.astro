@@ -3,7 +3,7 @@ import { mailto } from "../lib/site";
 
 interface Props {
   /** Highlights the matching nav link as the current section/page. */
-  active?: "kids" | "adults" | "summer" | "birthdays" | "schools" | "about";
+  active?: "kids" | "adults" | "summer" | "birthdays" | "schools" | "about" | "artwork";
 }
 const { active } = Astro.props;
 
@@ -15,6 +15,7 @@ const links = [
   { href: "/birthday-parties", label: "Birthdays", key: "birthdays" },
   { href: "/in-the-schools", label: "In the Schools", key: "schools" },
   { href: "/about", label: "About", key: "about" },
+  { href: "/artwork", label: "Artwork", key: "artwork" },
 ];
 ---
 
@@ -39,7 +40,7 @@ const links = [
         ))
       }
       <a class="btn nav-cta is-primary" href={mailto()}>Contact Christine</a>
-      {/* Below 1280px the text links above are hidden and this button opens #nav-menu.
+      {/* Below 1320px the text links above are hidden and this button opens #nav-menu.
           It sits after Contact so Tab goes from Menu straight into the open panel.
           It starts hidden so it only appears once the script below has wired it up. */}
       <button type="button" class="btn is-line nav-menu-btn" id="nav-menu-btn" aria-controls="nav-menu" aria-expanded="true" hidden>
@@ -86,7 +87,7 @@ const links = [
         if (!panel.hidden && !panel.contains(e.target) && !btn.contains(e.target)) set(false);
       });
       // Widening past the breakpoint hides the panel via CSS; reset it so it is closed next time.
-      matchMedia("(min-width: 1280px)").addEventListener("change", (m) => {
+      matchMedia("(min-width: 1320px)").addEventListener("change", (m) => {
         if (m.matches) set(false);
       });
     })();

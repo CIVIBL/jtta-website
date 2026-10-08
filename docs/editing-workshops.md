@@ -8,7 +8,7 @@ The website shows a list of upcoming workshops on the homepage and on the For Ki
 
 Workshops disappear from the site on their own once their date has passed. You do not need to delete old ones.
 
-Prices are never shown on the website. People email you for pricing.
+Workshop prices are never shown on the website. People email you for pricing.
 
 ## Logging in
 
@@ -67,6 +67,24 @@ You only need to do this if a workshop is cancelled. Past workshops drop off the
 2. Find the workshop and use the **Delete** option (in the menu at the end of its row, or in the menu beside **Save** at the top of its edit page).
 3. Confirm.
 
+## Adding artwork
+
+Your own pieces appear on the Artwork page, linked from the menu and the About page.
+
+1. In the left menu, click **Artwork**, then **Add an entry**.
+2. Fill in:
+   - **Title** - the name of the piece.
+   - **Medium** - for example Relief print, or Acrylic on canvas.
+   - **Year** (optional) - the year you made it.
+   - **Picture** - click it and upload a photo of the piece. It goes into the Artwork images folder.
+   - **Note** (optional) - one or two sentences about the piece.
+   - **Position** (optional) - leave empty to list newest first. Give a piece 1 to put it first, 2 for second, and so on.
+3. Click **Save**.
+
+Any phone photo is fine; the site resizes it. Use JPG or PNG. On an iPhone, if it offers a choice of format, pick JPG or Most Compatible. Photograph the piece straight on in good light; the site shows the whole picture without cropping.
+
+To remove a piece, open it and use **Delete**, as for workshops.
+
 ## After you save
 
 The website rebuilds itself. Allow 1 to 3 minutes, then refresh the page on the site to see the change. If you refresh and still see the old version, wait another minute and try again; your browser sometimes shows you a saved copy.
@@ -83,7 +101,7 @@ If it still has not appeared after ten minutes, email Brent with the workshop ti
 
 ## Things to leave alone
 
-- Anything in Pages CMS outside the **Workshops** list and the **Media** section. The other parts of the site are updated by Brent.
+- Anything in Pages CMS outside the **Workshops** and **Artwork** lists and the **Media** section. The other parts of the site are updated by Brent.
 - Photos in the Media section can be uploaded, but they will not appear on the site until Brent places them. Send him the photo and say where it should go.
 
 ## Who to contact

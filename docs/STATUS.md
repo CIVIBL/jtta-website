@@ -1,14 +1,12 @@
 # JTtA Website - Project Status
 
-> Design preview branch (design-d-bright-splats): palette C plus bold ink splats (hero headings, section titles, register box, closing band, award badges). Not for merge until Christine approves.
-
-Updated 2026-10-05.
+Updated 2026-10-08.
 
 ## Context
 
 Client: Journey Through the Arts (JTtA), a one-person arts studio in an 1840s log cabin at 190 Hope St N, Port Hope, Ontario. Owner: Christine Benson (non-technical). Founded 2002.
 
-Site type: brochure site. No e-commerce, accounts or payments. Registration and booking are by email (jttacabin@gmail.com). Prices are never shown; pricing is handled by email.
+Site type: brochure site. No e-commerce, accounts or payments. Registration and booking are by email (jttacabin@gmail.com). Workshop prices are never shown; pricing is handled by email. The birthday party price is shown as copy on that page.
 
 Why: the previous webmaster retired. Brent (CIVIBL) took over hosting and rebuilt the site.
 
@@ -30,17 +28,33 @@ Why: the previous webmaster retired. Brent (CIVIBL) took over hosting and rebuil
 
 - Connected at app.pagescms.org, scoped to this repo only.
 - Config: .pages.yml, mirrors src/content.config.ts. Every field has help text.
-- Collection: Workshops (src/content/workshops/*.md). Media uploads go to public/images/workshops.
+- Collections: Workshops (src/content/workshops/*.md; uploads to public/images/workshops) and Artwork (src/content/artwork/*.md; uploads to src/assets/artwork, resized by Astro). Artwork CMS flow not yet tested end to end.
 - End-to-end tested: add, deploy, verify, delete. Works.
 - Christine signs in with "Continue with email" as an invited collaborator. Invite pending (Brent).
 - Guide for Christine: docs/editing-workshops.md and docs/editing-workshops.pdf. Regenerate the PDF with node scripts/guide-pdf.mjs after editing the .md.
 - Still hardcoded (CMS-bound later): announce bar, summer weeks, instructors, party themes, grade workshops, about copy.
 
-## Pages (8, live)
+## Pages (9, live)
 
-/ , /for-kids, /for-adults, /summer-program, /birthday-parties, /in-the-schools, /about, /404.
+/ , /for-kids, /for-adults, /summer-program, /birthday-parties, /in-the-schools, /about, /artwork, /404.
 
-Nav: For Kids & Teens / For Adults / Summer Camp / Birthdays / In the Schools / About plus "Contact Christine". Below 1280px the links move into a Menu panel (button with aria-expanded, Escape and click-outside close, works without JavaScript as an open list); Contact Christine stays in the bar at every width. Below 600px the brand name is visually hidden and the logo carries it.
+Nav: For Kids & Teens / For Adults / Summer Camp / Birthdays / In the Schools / About / Artwork plus "Contact Christine". Below 1320px the links move into a Menu panel (button with aria-expanded, Escape and click-outside close, works without JavaScript as an open list); Contact Christine stays in the bar at every width. Below 600px the brand name is visually hidden and the logo carries it.
+
+## Design
+
+Colours are provisional until Christine's brand files arrive. Tokens in src/styles/tokens.css:
+
+- --c-teal #1A6B61: primary accent (buttons, links, active nav, focus rings, register links, closing band, heading accents). Passes AA as text on cream, white and warm, and under white text.
+- --c-turquoise #2BB3A3: decorative only (splats, category pill and address stamp tints). Never text.
+- --c-yellow #F2C14E: badges, Almost full pill, large accent words on dark bands.
+- --c-red #C44128: retained for card accents only (last in the accent rotation, plus fixed per-card picks).
+
+Splat component (src/components/Splat.astro, path traced from the logo by scripts/splat-path.mjs; HeadingSplat.astro wraps it for hero headings). Placed:
+
+- Homepage hero heading: turquoise at 50% plus three yellow droplets. Inner-page hero headings (all six pages and /artwork): sized to the heading's height.
+- Homepage section titles: 120px at 25%, alternating turquoise and yellow.
+- Corners of the How to register box (18%) and the closing band (20%), clipped by the box.
+- Behind every AwardBadge (100px yellow at 80%).
 
 ## Content model
 
@@ -51,6 +65,8 @@ Status is rendered: almost shows an amber pill, waitlist shows a pill and change
 Current entries: 12 real October 2026 workshops (5 kids, 2 teens, 5 adults). The sample data is removed. Files are named YYYY-MM-DD-slug.md by workshop date; Pages CMS names new entries the same way (filename "{fields.date}-{primary}.md" in .pages.yml).
 
 ## Done since the last status
+
+- Artwork portfolio: collection, Pages CMS entry, /artwork page (grid, native dialog, empty state), nav/footer/About links. The two sample entries used to check the layout are deleted; the page shows its empty state until real pieces are added. Nav breakpoint moved from 1280px to 1320px for the seventh link.
 
 - Scheduled rebuild, build check, .gitattributes, README rewritten.
 - Head metadata: per-page descriptions (all under 160 chars), canonical, Open Graph and Twitter card, og-share.jpg (1080x565), lang en-CA.
@@ -67,31 +83,33 @@ Current entries: 12 real October 2026 workshops (5 kids, 2 teens, 5 adults). The
 Blocked on Christine:
 1. Workshop data: October is in. The PA Day entry is pending its ages. Future workshops: she should enter them herself in Pages CMS with Brent on a call.
 2. Photos per docs/photo-shot-list.md. Done: all 36 slots are filled. 48 real photos are on the site (41 distinct; 7 reuse an existing photo). No empty slots remain. The four files that were too small have been replaced with full-size ones. If a slot is emptied later, it shows as a placeholder in npm run dev only and production collapses around it.
-3. Copy confirmations: homepage lede says "published children's-book illustrator", /about says "relief printmaker". Announce-bar copy.
+3. Artwork: real pieces (photo, title, medium, optional year and note), entered in Pages CMS. /artwork shows its empty state until then.
+4. Copy confirmations: homepage lede says "published children's-book illustrator", /about says "relief printmaker". Announce-bar copy.
 
 Brent:
-4. Invite jttacabin@gmail.com in Pages CMS, then send her the PDF guide.
-5. Done: sample workshops (including the two invented adult ones) removed.
-6. Test reduced motion on the carousel with the Windows setting on.
+5. Invite jttacabin@gmail.com in Pages CMS, then send her the PDF guide.
+6. Done: sample workshops (including the two invented adult ones) removed.
+7. Test reduced motion on the carousel with the Windows setting on.
 
 Cutover (Phase 5):
-7. Done 2026-10-03: www on the Worker, apex redirect, 404 and canonicals verified on the real domain. Still to do: submit sitemap-index.xml to Google Search Console.
+8. Done 2026-10-03: www on the Worker, apex redirect, 404 and canonicals verified on the real domain. Still to do: submit sitemap-index.xml to Google Search Console.
 
 Post-launch:
-8. Performance pass: move images from public/ to the Astro Image pipeline (several JPGs are 300-570 KB); self-host Google Fonts (currently render-blocking from the CDN).
-9. Turn on Cloudflare Web Analytics.
-10. Split the ~700 lines of homepage-only CSS out of global.css. Consolidate repeated inline styles.
-11. CMS singletons for the announce bar, summer weeks, instructors, party themes, grade workshops and about copy.
-12. Give the "almost" status a treatment on the homepage row if the pill alone proves too subtle.
+9. Performance pass: move images from public/ to the Astro Image pipeline (several JPGs are 300-570 KB); self-host Google Fonts (currently render-blocking from the CDN).
+10. Turn on Cloudflare Web Analytics.
+11. Split the ~700 lines of homepage-only CSS out of global.css. Consolidate repeated inline styles.
+12. CMS singletons for the announce bar, summer weeks, instructors, party themes, grade workshops and about copy.
+13. Give the "almost" status a treatment on the homepage row if the pill alone proves too subtle.
 
 Yearly, each spring before summer camp registration opens:
-13. Update the "24th year running" badge in the homepage summer section (src/pages/index.astro).
-14. Set ANNOUNCE in src/lib/site.ts for the new summer, or leave it null. The previous summer value is in the comment above it.
+14. Update the "24th year running" badge in the homepage summer section (src/pages/index.astro).
+15. Set ANNOUNCE in src/lib/site.ts for the new summer, or leave it null. The previous summer value is in the comment above it.
 
 ## Conventions
 
 - Hyphens only. No em or en dashes anywhere, including comments and formatter output.
 - Never invent data: no prices, dates, guest counts or CV detail. Use only what the design or client provides.
+- Prices: not shown for workshops (email only). The birthday party price ($19 plus HST per child) is shown as hardcoded copy in src/pages/birthday-parties.astro and must be updated there by hand.
 - Canadian spelling. No emojis in code or copy.
 - Ages 6-16 for kids and teen workshops; summer camp and birthday parties stay 6-13. Founding year 2002. 1,000+ participants.
 - Photos: an empty slot has no src and a TODO comment naming the expected /images/... path. The grey .ph placeholder renders only when import.meta.env.DEV is true; the production build emits nothing for it and the layout collapses (strip shows filled photos or hides, hero mosaic drops tiles or goes text-only, cards drop the photo area).

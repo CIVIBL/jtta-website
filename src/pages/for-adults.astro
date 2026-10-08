@@ -20,7 +20,7 @@ interface QuickFact {
   s: string;
 }
 const QUICK_FACTS: QuickFact[] = [
-  { icon: "clock", b: "Weeknight evenings", s: "Most run 7 - 9 pm" },
+  { icon: "clock", b: "Mondays & Tuesdays", s: "6-7 PM or 10-11:30 AM" },
   { icon: "heart", b: "No experience needed", s: "True beginners welcome" },
   { icon: "calendar", b: "Book your own time", s: "Gather friends, pick a project" },
   { icon: "users", b: "Come solo or with a friend", s: "Small groups, easy company" },
@@ -30,8 +30,8 @@ const IDEAS = ["Pottery & clay", "Painting", "Mixed media", "Whatever you've bee
 ---
 
 <BaseLayout
-  title="For Adults - Evening Workshops at Journey Through the Arts, Port Hope"
-  description="Evening art workshops for adults in a quiet log-cabin studio in Port Hope. Paint, throw clay or try something new. No prior experience required."
+  title="For Adults - Art Workshops at Journey Through the Arts, Port Hope"
+  description="Art workshops for adults, Monday evenings and Tuesday mornings, in a quiet log-cabin studio in Port Hope. Paint, draw, watercolour, felt. No experience needed."
   activeNav="adults"
 >
   {/* ─── PAGE HEADER ─── */}
@@ -45,12 +45,13 @@ const IDEAS = ["Pottery & clay", "Painting", "Mixed media", "Whatever you've bee
       <div class="a-head-grid">
         <div>
           <span class="a-hand">Creative mindset required</span>
-          <h1><HeadingSplat fit />An evening to <em>make something</em></h1>
+          <h1><HeadingSplat fit />An evening, or a morning, to <em>make something</em>.</h1>
           <p class="a-lede">
-            A quiet, unhurried studio where adults come to paint, throw clay and try their hand at
+            A quiet, unhurried studio where adults come to paint, draw, watercolour, felt and try their hand at
             something new. No prior experience required, just a couple of hours to make a little mess
             and leave with something you made.
           </p>
+          <p class="a-when">Adult workshops run Mondays from <span>6:00-7:00 PM</span> and Tuesday mornings from <span>10:00-11:30 AM</span>.</p>
           <div class="a-facts">
             {
               QUICK_FACTS.map((f) => (
@@ -128,7 +129,7 @@ const IDEAS = ["Pottery & clay", "Painting", "Mixed media", "Whatever you've bee
             A few <em>good things</em> to know
           </h2>
           <p class="section-lede">
-            Never set foot in a studio before? You're exactly who these evenings are for. Here's the
+            Never set foot in a studio before? You're exactly who these workshops are for. Here's the
             practical stuff - and if anything's still unclear, Christine answers her own email.
           </p>
         </div>
@@ -137,17 +138,12 @@ const IDEAS = ["Pottery & clay", "Painting", "Mixed media", "Whatever you've bee
         <div class="a-know-card">
           <span class="ic"><Icon name="pin" /></span>
           <h3>Where & parking</h3>
-          <p>The log-cabin studio at <b>190 Hope St N in Port Hope</b>. Free street parking out front, studio entrance is at the side.</p>
+          <p>The studio is at <b>190 Hope St N in Port Hope</b>. When you reach the white house at 190 Hope St N, park on the road and walk between the house and the garage, down the pathway and into the backyard, where you will see the log cabin studio. The studio door is the one with the wreath on it. Christine will have a sign at the end of the driveway to catch your attention.</p>
         </div>
         <div class="a-know-card">
           <span class="ic"><Icon name="heart" /></span>
           <h3>No experience needed</h3>
           <p>Truly. Every session is built for first-timers and returning hobbyists alike. Christine guides each step.</p>
-        </div>
-        <div class="a-know-card">
-          <span class="ic"><Icon name="wine" /></span>
-          <h3>Drinks & nibbles</h3>
-          <p>You're welcome to bring a glass of wine, a beer or a coffee. A few snacks to share never hurt - we'll have water and mugs on hand.</p>
         </div>
         <div class="a-know-card">
           <span class="ic"><Icon name="users" /></span>
