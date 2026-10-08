@@ -43,7 +43,7 @@ npx astro check   # type check; keep at 0 errors
 ## Conventions
 
 - Hyphens only. No em dashes or en dashes, in content, code comments or formatter output.
-- Prices are never shown on the site. Pricing is handled by email, and the workshop schema has no price field.
+- Workshop prices are never shown on the site. Pricing is handled by email, and the workshop schema has no price field. Exception: the birthday party price is hardcoded copy on /birthday-parties ("What's included" lead line); update it there by hand.
 - Never invent data: no dates, counts, awards or credentials the studio has not provided.
 - Canadian spelling (colour, centre, favourite, neighbour).
 - Email links use `mailto()` and `CONTACT_EMAIL` from `src/lib/site.ts`, with the address shown as visible text.

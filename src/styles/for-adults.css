@@ -58,6 +58,17 @@
   color: var(--ink-soft);
   max-width: 46ch;
 }
+/* Schedule line under the lede; display face like the quick-fact labels. Time ranges never break at their hyphen. */
+.a-when span { white-space: nowrap; }
+.a-when {
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.45;
+  color: var(--ink);
+  max-width: 46ch;
+}
 
 .a-facts {
   display: grid;
@@ -162,7 +173,7 @@
 .a-know { background: var(--paper); }
 .a-know-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-top: 8px;
 }

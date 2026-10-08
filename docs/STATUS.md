@@ -6,7 +6,7 @@ Updated 2026-10-08.
 
 Client: Journey Through the Arts (JTtA), a one-person arts studio in an 1840s log cabin at 190 Hope St N, Port Hope, Ontario. Owner: Christine Benson (non-technical). Founded 2002.
 
-Site type: brochure site. No e-commerce, accounts or payments. Registration and booking are by email (jttacabin@gmail.com). Prices are never shown; pricing is handled by email.
+Site type: brochure site. No e-commerce, accounts or payments. Registration and booking are by email (jttacabin@gmail.com). Workshop prices are never shown; pricing is handled by email. The birthday party price is shown as copy on that page.
 
 Why: the previous webmaster retired. Brent (CIVIBL) took over hosting and rebuilt the site.
 
@@ -93,6 +93,7 @@ Yearly, each spring before summer camp registration opens:
 
 - Hyphens only. No em or en dashes anywhere, including comments and formatter output.
 - Never invent data: no prices, dates, guest counts or CV detail. Use only what the design or client provides.
+- Prices: not shown for workshops (email only). The birthday party price ($19 plus HST per child) is shown as hardcoded copy in src/pages/birthday-parties.astro and must be updated there by hand.
 - Canadian spelling. No emojis in code or copy.
 - Ages 6-16 for kids and teen workshops; summer camp and birthday parties stay 6-13. Founding year 2002. 1,000+ participants.
 - Photos: an empty slot has no src and a TODO comment naming the expected /images/... path. The grey .ph placeholder renders only when import.meta.env.DEV is true; the production build emits nothing for it and the layout collapses (strip shows filled photos or hides, hero mosaic drops tiles or goes text-only, cards drop the photo area).

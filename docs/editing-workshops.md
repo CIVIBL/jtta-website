@@ -8,7 +8,7 @@ The website shows a list of upcoming workshops on the homepage and on the For Ki
 
 Workshops disappear from the site on their own once their date has passed. You do not need to delete old ones.
 
-Prices are never shown on the website. People email you for pricing.
+Workshop prices are never shown on the website. People email you for pricing.
 
 ## Logging in
 
