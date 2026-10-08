@@ -1,6 +1,6 @@
 # JTtA Website - Project Status
 
-Updated 2026-10-07.
+Updated 2026-10-08.
 
 ## Context
 
@@ -34,7 +34,7 @@ Why: the previous webmaster retired. Brent (CIVIBL) took over hosting and rebuil
 - Guide for Christine: docs/editing-workshops.md and docs/editing-workshops.pdf. Regenerate the PDF with node scripts/guide-pdf.mjs after editing the .md.
 - Still hardcoded (CMS-bound later): announce bar, summer weeks, instructors, party themes, grade workshops, about copy.
 
-## Pages (9; /artwork not yet pushed)
+## Pages (9, live)
 
 / , /for-kids, /for-adults, /summer-program, /birthday-parties, /in-the-schools, /about, /artwork, /404.
 
@@ -50,7 +50,7 @@ Current entries: 12 real October 2026 workshops (5 kids, 2 teens, 5 adults). The
 
 ## Done since the last status
 
-- Artwork portfolio: collection, Pages CMS entry, /artwork page (grid, native dialog, empty state), nav/footer/About links. Two "Sample - replace" entries seed the layout. Nav breakpoint moved from 1280px to 1320px for the seventh link.
+- Artwork portfolio: collection, Pages CMS entry, /artwork page (grid, native dialog, empty state), nav/footer/About links. The two sample entries used to check the layout are deleted; the page shows its empty state until real pieces are added. Nav breakpoint moved from 1280px to 1320px for the seventh link.
 
 - Scheduled rebuild, build check, .gitattributes, README rewritten.
 - Head metadata: per-page descriptions (all under 160 chars), canonical, Open Graph and Twitter card, og-share.jpg (1080x565), lang en-CA.
@@ -67,7 +67,7 @@ Current entries: 12 real October 2026 workshops (5 kids, 2 teens, 5 adults). The
 Blocked on Christine:
 1. Workshop data: October is in. The PA Day entry is pending its ages. Future workshops: she should enter them herself in Pages CMS with Brent on a call.
 2. Photos per docs/photo-shot-list.md. Done: all 36 slots are filled. 48 real photos are on the site (41 distinct; 7 reuse an existing photo). No empty slots remain. The four files that were too small have been replaced with full-size ones. If a slot is emptied later, it shows as a placeholder in npm run dev only and production collapses around it.
-3. Artwork: real pieces (photo, title, medium, optional year and note). Then delete the two "Sample - replace" entries and their images in src/assets/artwork.
+3. Artwork: real pieces (photo, title, medium, optional year and note), entered in Pages CMS. /artwork shows its empty state until then.
 4. Copy confirmations: homepage lede says "published children's-book illustrator", /about says "relief printmaker". Announce-bar copy.
 
 Brent:
