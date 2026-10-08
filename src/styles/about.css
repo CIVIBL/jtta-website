@@ -237,3 +237,7 @@
   z-index: 2;
   pointer-events: none;
 }
+
+/* The one-line "Meet Christine" heading sits right under the hand-lettered tagline, so its splat runs
+   about 25% smaller than other pages' so it fits between the tagline and the lede with clear space on phones. */
+.ab-hero h1 .heading-splat.fit .hs-main { height: clamp(56px, 104%, 136px); translate: -50% -33%; }
