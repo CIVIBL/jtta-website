@@ -21,7 +21,13 @@ export const SITE_DESCRIPTION =
  *     linkText: "See the summer program →",
  *   }
  */
-export const ANNOUNCE: { strong: string; text: string; href: string; linkText: string } | null = null;
+// Christmas 2026 gift certificates (from Christine's November/December schedule). Set back to null after Christmas.
+export const ANNOUNCE: { strong: string; text: string; href: string; linkText: string } | null = {
+  strong: "Gift certificates for Christmas",
+  text: "any amount, for the creative kids, teens and adults in your life.",
+  href: mailto("Gift certificate"),
+  linkText: `Email ${CONTACT_EMAIL} to order →`,
+};
 
 /** Build a mailto: link, optionally with a pre-filled subject. */
 export function mailto(subject?: string): string {

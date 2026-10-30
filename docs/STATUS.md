@@ -105,6 +105,9 @@ Yearly, each spring before summer camp registration opens:
 14. Update the "24th year running" badge in the homepage summer section (src/pages/index.astro).
 15. Set ANNOUNCE in src/lib/site.ts for the new summer, or leave it null. The previous summer value is in the comment above it.
 
+After Christmas 2026:
+16. Set ANNOUNCE in src/lib/site.ts back to null (it currently shows the gift certificate banner).
+
 ## Conventions
 
 - Hyphens only. No em or en dashes anywhere, including comments and formatter output.
