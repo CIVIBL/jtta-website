@@ -175,8 +175,7 @@ content:
       - name: medium
         label: Medium
         type: string
-        required: true
-        description: "e.g. Relief print, Acrylic on canvas"
+        description: "Optional. e.g. Relief print, Acrylic on canvas. Leave it empty and none is shown."
       - name: year
         label: Year
         type: number
@@ -192,6 +191,10 @@ content:
         options:
           media: artwork
           rename: true
+      - name: alt
+        label: Picture description
+        type: text
+        description: "Optional but helpful. One sentence describing what the picture shows, for people using screen readers, e.g. A black-and-white print of a horse leaping over the moon. Leave it empty and the title is used."
       - name: note
         label: Note
         type: text

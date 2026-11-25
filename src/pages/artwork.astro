@@ -49,12 +49,13 @@ const pieces = await Promise.all(
                   class="aw-open"
                   data-large={p.large}
                   data-title={p.title}
-                  data-medium={p.year ? `${p.medium}, ${p.year}` : p.medium}
+                  data-alt={p.alt ?? p.title}
+                  data-medium={[p.medium, p.year].filter(Boolean).join(", ")}
                   aria-label={`View larger: ${p.title}`}
                 >
                   <Picture
                     src={p.image}
-                    alt={`${p.title}, ${p.medium}`}
+                    alt={p.alt ?? (p.medium ? `${p.title}, ${p.medium}` : p.title)}
                     widths={[400, 800, 1200]}
                     sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
                     formats={["webp"]}
@@ -64,10 +65,12 @@ const pieces = await Promise.all(
                 </button>
                 <div class="aw-meta">
                   <h2 class="aw-title">{p.title}</h2>
-                  <p class="aw-medium">
-                    {p.medium}
-                    {p.year && <span class="aw-year">{p.year}</span>}
-                  </p>
+                  {(p.medium || p.year) && (
+                    <p class="aw-medium">
+                      {p.medium}
+                      {p.year && (p.medium ? <span class="aw-year">{p.year}</span> : p.year)}
+                    </p>
+                  )}
                   {p.note && <p class="aw-note">{p.note}</p>}
                 </div>
               </li>
@@ -105,7 +108,7 @@ const pieces = await Promise.all(
         btn.addEventListener("click", () => {
           opener = btn;
           img.src = btn.dataset.large;
-          img.alt = btn.dataset.title;
+          img.alt = btn.dataset.alt;
           title.textContent = btn.dataset.title;
           medium.textContent = btn.dataset.medium;
           dlg.showModal();

@@ -74,9 +74,10 @@ Your own pieces appear on the Artwork page, linked from the menu and the About p
 1. In the left menu, click **Artwork**, then **Add an entry**.
 2. Fill in:
    - **Title** - the name of the piece.
-   - **Medium** - for example Relief print, or Acrylic on canvas.
+   - **Medium** (optional) - for example Relief print, or Acrylic on canvas.
    - **Year** (optional) - the year you made it.
    - **Picture** - click it and upload a photo of the piece. It goes into the Artwork images folder.
+   - **Picture description** (optional) - one sentence saying what the picture shows, for people who use screen readers. Leave it empty and the title is used.
    - **Note** (optional) - one or two sentences about the piece.
    - **Position** (optional) - leave empty to list newest first. Give a piece 1 to put it first, 2 for second, and so on.
 3. Click **Save**.

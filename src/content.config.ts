@@ -33,9 +33,10 @@ const artwork = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string().min(1),
-      medium: z.string().min(1), // e.g. "Relief print", "Acrylic on canvas"
+      medium: z.preprocess(blank, z.string().optional()), // optional, e.g. "Relief print", "Acrylic on canvas"
       year: z.preprocess(blank, z.coerce.number().int().optional()),
       image: image(),
+      alt: z.preprocess(blank, z.string().optional()), // one-sentence description for screen readers; falls back to the title
       note: z.preprocess(blank, z.string().optional()), // one or two sentences, shown under the medium
       order: z.preprocess(blank, z.coerce.number().optional()), // manual ordering; lower comes first
     }),
